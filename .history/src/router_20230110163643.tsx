@@ -7,7 +7,7 @@ import PortfolioMain from './pages/portfolio/PortfolioMain';
 import PortfolioMakePage from './pages/portfolio/PortfolioMakePage';
 import PortfolioRootPage from './pages/portfolio/PortfolioRootPage';
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
@@ -22,9 +22,8 @@ export const router = createBrowserRouter([
     path: '/portfolio',
     element: <PortfolioRootPage />,
     children: [
-      { path: ':id', element: <PortfolioMain /> },
-      { path: 'make', element: <PortfolioMakePage /> },
+      { path: '/:id', element: <PortfolioMain /> },
+      { path: '/make', element: <PortfolioMakePage /> },
     ],
-    errorElement: <NotFound />,
   },
 ]);

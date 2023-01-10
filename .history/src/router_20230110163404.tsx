@@ -2,12 +2,11 @@ import { createBrowserRouter } from 'react-router-dom';
 import JobPages from './pages/home/JobPages';
 import MainPage from './pages/home/MainPage';
 import Root from './pages/home/Root';
-import NotFound from './pages/notFound/NotFound';
 import PortfolioMain from './pages/portfolio/PortfolioMain';
 import PortfolioMakePage from './pages/portfolio/PortfolioMakePage';
 import PortfolioRootPage from './pages/portfolio/PortfolioRootPage';
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
@@ -16,7 +15,6 @@ export const router = createBrowserRouter([
       { path: 'job', element: <JobPages /> },
       { path: 'job/:type', element: <JobPages /> },
     ],
-    errorElement: <NotFound />,
   },
   {
     path: '/portfolio',
@@ -25,6 +23,5 @@ export const router = createBrowserRouter([
       { path: ':id', element: <PortfolioMain /> },
       { path: 'make', element: <PortfolioMakePage /> },
     ],
-    errorElement: <NotFound />,
   },
 ]);

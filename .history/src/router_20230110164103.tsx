@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
     element: <PortfolioRootPage />,
     children: [
       { path: ':id', element: <PortfolioMain /> },
-      { path: 'make', element: <PortfolioMakePage /> },
+      { path: '/make', element: <PortfolioMakePage /> },
     ],
     errorElement: <NotFound />,
   },
