@@ -32,7 +32,7 @@ export default function JobNavbar() {
 
 const JobNav = styled.nav`
   width: 100%;
-  background: rgb(249, 249, 249, 0.47);
+  background: rgba(215, 215, 215, 0.01);
   color: ${(props) => props.theme.textAccentColor};
   padding-top: 0.4rem;
 `;
