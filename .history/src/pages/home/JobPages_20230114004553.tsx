@@ -18,7 +18,6 @@ const Container = styled.section`
 `;
 
 const PortFolioContainer = styled.section`
-  z-index: 40;
   height: 100%;
   background-color: ${(props) => props.theme.mainColorSemiDark};
 `;

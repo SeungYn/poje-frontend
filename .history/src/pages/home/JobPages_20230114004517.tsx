@@ -5,7 +5,6 @@ export default function JobPages() {
   return (
     <Container>
       <JobNavbar />
-      <PortFolioContainer></PortFolioContainer>
     </Container>
   );
 }
@@ -17,8 +16,4 @@ const Container = styled.section`
   flex-direction: column;
 `;
 
-const PortFolioContainer = styled.section`
-  z-index: 40;
-  height: 100%;
-  background-color: ${(props) => props.theme.mainColorSemiDark};
-`;
+const PortFolioContainer = styled.section``;

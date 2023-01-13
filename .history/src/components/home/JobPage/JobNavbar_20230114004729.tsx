@@ -61,7 +61,6 @@ function bookmarkOrder(navList: NavType, currentNav?: string) {
       currentNav === type ? `scale(1.1);` : ';'
     };
       z-index: ${currentNav === type ? 10 : count};
-			${currentNav === type && 'filter: brightness(1);'}
     }`;
   });
 
