@@ -84,7 +84,7 @@ const Container = styled.section`
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  overflow: hidden;
 `;
 
 const PortFolioContainer = styled.section`
@@ -92,6 +92,7 @@ const PortFolioContainer = styled.section`
   height: 100%;
   background-color: ${(props) => props.theme.mainColorSemiDark};
   padding: 2rem 4rem;
+  overflow: hidden;
 `;
 
 const PortFolioList = styled.ul`

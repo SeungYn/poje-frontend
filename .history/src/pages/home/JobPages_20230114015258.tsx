@@ -27,6 +27,16 @@ const items = [
     title: '안녕씹세요',
     name: '유승윤',
   },
+  {
+    titleImg: '',
+    title: '안녕씹세요',
+    name: '유승윤',
+  },
+  {
+    titleImg: '',
+    title: '안녕씹세요',
+    name: '유승윤',
+  },
 ];
 
 export default function JobPages() {
@@ -84,36 +94,26 @@ const Container = styled.section`
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: auto;
 `;
 
 const PortFolioContainer = styled.section`
   z-index: 40;
   height: 100%;
   background-color: ${(props) => props.theme.mainColorSemiDark};
-  padding: 2rem 4rem;
+  padding: 4rem;
 `;
 
 const PortFolioList = styled.ul`
   margin: 0 auto;
   display: grid;
-  overflow-y: auto;
-  min-height: 0;
+  grid-template-columns: repeat(3, 1fr);
 
-  /* @media screen and (max-width: 350px) {
+  @media screen and (max-width: 350px) {
     grid-template-columns: repeat(1, 1fr);
   }
 
   @media screen and (max-width: 420px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  @media screen and (min-width: 700px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  @media screen and (min-width: 1000px) {
-    grid-template-columns: repeat(5, 1fr);
-  } */
 `;
 const PortFolioItem = styled.li``;
