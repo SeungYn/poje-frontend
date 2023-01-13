@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 import JobNavbar from '../../components/home/JobPage/JobNavbar';
 
 export default function JobPages() {
