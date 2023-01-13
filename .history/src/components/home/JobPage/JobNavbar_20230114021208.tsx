@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
@@ -18,7 +17,6 @@ const navList: NavType = Object.freeze({
 
 export default function JobNavbar() {
   const param = useParams();
-
   return (
     <JobNav>
       <JobList>
@@ -38,8 +36,7 @@ const JobNav = styled.nav`
   color: ${(props) => props.theme.textAccentColor};
   padding-top: 1.6rem;
   padding-left: 4rem;
-  box-shadow: 0px -1px 1px gray inset;
-  position: relative;
+  box-shadow: 0px -100000px 10px black;
 `;
 
 const JobList = styled.ul`
@@ -63,13 +60,11 @@ function bookmarkOrder(navList: NavType, currentNav?: string) {
 
     style += `&:nth-child(${i + 1}) {
       transform: translateX(-${i * 2}rem) ${
-      currentNav === type ? `scale(1.3);` : ';'
+      currentNav === type ? `scale(1.1);` : ';'
     };
       z-index: ${currentNav === type ? 10 : count};
 			${currentNav === type && 'filter: brightness(1);'}
-    }
-		
-		`;
+    }`;
   });
 
   return css`
@@ -84,13 +79,9 @@ const JobItem = styled.li<JobItemType>`
 
   background-color: ${(props) => props.theme.mainColorSemiDark};
   border-radius: 1rem 1rem 0px 0px;
-  box-shadow: -2px -1px 4px 3px gray;
+  box-shadow: -9px 0px 10px 0px gray;
   filter: brightness(0.9);
   ${({ list, navType }) => bookmarkOrder(list, navType)}
-
-  &:hover {
-    z-index: 11;
-  }
 
   & a {
     display: block;

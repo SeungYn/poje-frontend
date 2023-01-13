@@ -39,7 +39,6 @@ const JobNav = styled.nav`
   padding-top: 1.6rem;
   padding-left: 4rem;
   box-shadow: 0px -1px 1px gray inset;
-  position: relative;
 `;
 
 const JobList = styled.ul`
@@ -63,7 +62,7 @@ function bookmarkOrder(navList: NavType, currentNav?: string) {
 
     style += `&:nth-child(${i + 1}) {
       transform: translateX(-${i * 2}rem) ${
-      currentNav === type ? `scale(1.3);` : ';'
+      currentNav === type ? `scale(1.1);` : ';'
     };
       z-index: ${currentNav === type ? 10 : count};
 			${currentNav === type && 'filter: brightness(1);'}

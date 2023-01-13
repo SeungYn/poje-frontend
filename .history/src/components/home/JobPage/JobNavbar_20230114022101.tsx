@@ -39,7 +39,6 @@ const JobNav = styled.nav`
   padding-top: 1.6rem;
   padding-left: 4rem;
   box-shadow: 0px -1px 1px gray inset;
-  position: relative;
 `;
 
 const JobList = styled.ul`
