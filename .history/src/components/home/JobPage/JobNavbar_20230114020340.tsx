@@ -78,7 +78,7 @@ const JobItem = styled.li<JobItemType>`
 
   background-color: ${(props) => props.theme.mainColorSemiDark};
   border-radius: 1rem 1rem 0px 0px;
-  box-shadow: -9px 0px 10px 0px gray;
+  box-shadow: -9px 0px 5px 0px gray;
   filter: brightness(0.9);
   ${({ list, navType }) => bookmarkOrder(list, navType)}
 

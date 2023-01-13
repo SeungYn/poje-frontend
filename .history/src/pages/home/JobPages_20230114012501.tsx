@@ -44,12 +44,12 @@ export default function JobPages() {
     <Container>
       <JobNavbar />
       <PortFolioContainer>
-        <PortFolioList>
-          {items.map((item) => {
-            return (
+        {items.map((item) => {
+          return (
+            <PortFolioList>
               <PortFolioItem>
                 <img
-                  style={{ width: '200px', height: '200px' }}
+                  style={{ width: '100px', height: '100px' }}
                   src={
                     item.titleImg ||
                     `${process.env.PUBLIC_URL}/public_assets/write.jpg`
@@ -58,36 +58,13 @@ export default function JobPages() {
                 <h2>{item.title}</h2>
                 <span>{item.name}</span>
               </PortFolioItem>
-            );
-          })}
-        </PortFolioList>
+            </PortFolioList>
+          );
+        })}
       </PortFolioContainer>
     </Container>
   );
 }
-
-/**
- * <JobNavbar />
-      <PortFolioContainer>
-        <PortFolioList>
-          {items.map((item) => {
-            return (
-              <PortFolioItem>
-                <img
-                  style={{ width: '200px', height: '200px' }}
-                  src={
-                    item.titleImg ||
-                    `${process.env.PUBLIC_URL}/public_assets/write.jpg`
-                  }
-                />
-                <h2>{item.title}</h2>
-                <span>{item.name}</span>
-              </PortFolioItem>
-            );
-          })}
-        </PortFolioList>
-      </PortFolioContainer>
- */
 
 const Container = styled.section`
   background-color: ${(props) => props.theme.mainColorSemiDark};
@@ -100,20 +77,9 @@ const PortFolioContainer = styled.section`
   z-index: 40;
   height: 100%;
   background-color: ${(props) => props.theme.mainColorSemiDark};
-  padding: 2rem 4rem;
 `;
 
 const PortFolioList = styled.ul`
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  @media screen and (max-width: 350px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  @media screen and (max-width: 420px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  display: flex;
 `;
 const PortFolioItem = styled.li``;

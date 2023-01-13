@@ -100,7 +100,7 @@ const PortFolioContainer = styled.section`
   z-index: 40;
   height: 100%;
   background-color: ${(props) => props.theme.mainColorSemiDark};
-  padding: 2rem 4rem;
+  padding: 4rem;
 `;
 
 const PortFolioList = styled.ul`

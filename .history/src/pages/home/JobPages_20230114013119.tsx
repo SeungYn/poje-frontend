@@ -66,29 +66,6 @@ export default function JobPages() {
   );
 }
 
-/**
- * <JobNavbar />
-      <PortFolioContainer>
-        <PortFolioList>
-          {items.map((item) => {
-            return (
-              <PortFolioItem>
-                <img
-                  style={{ width: '200px', height: '200px' }}
-                  src={
-                    item.titleImg ||
-                    `${process.env.PUBLIC_URL}/public_assets/write.jpg`
-                  }
-                />
-                <h2>{item.title}</h2>
-                <span>{item.name}</span>
-              </PortFolioItem>
-            );
-          })}
-        </PortFolioList>
-      </PortFolioContainer>
- */
-
 const Container = styled.section`
   background-color: ${(props) => props.theme.mainColorSemiDark};
   height: 100%;
@@ -100,7 +77,6 @@ const PortFolioContainer = styled.section`
   z-index: 40;
   height: 100%;
   background-color: ${(props) => props.theme.mainColorSemiDark};
-  padding: 2rem 4rem;
 `;
 
 const PortFolioList = styled.ul`
@@ -113,7 +89,7 @@ const PortFolioList = styled.ul`
   }
 
   @media screen and (max-width: 420px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 const PortFolioItem = styled.li``;

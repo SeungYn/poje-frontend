@@ -35,7 +35,7 @@ const JobNav = styled.nav`
   background: rgb(249, 249, 249, 0.47);
   color: ${(props) => props.theme.textAccentColor};
   padding-top: 1.6rem;
-  padding-left: 4rem;
+  padding-left: 1.5rem;
 `;
 
 const JobList = styled.ul`
@@ -78,7 +78,7 @@ const JobItem = styled.li<JobItemType>`
 
   background-color: ${(props) => props.theme.mainColorSemiDark};
   border-radius: 1rem 1rem 0px 0px;
-  box-shadow: -9px 0px 10px 0px gray;
+  box-shadow: -1px 0px 5px 3px gray;
   filter: brightness(0.9);
   ${({ list, navType }) => bookmarkOrder(list, navType)}
 
