@@ -9,7 +9,6 @@ interface type {
 }
 
 export default function Resume({ imgUrl }: type) {
-  console.log(imgUrl);
   return (
     <>
       <ImgContainer imgUrl={imgUrl}>

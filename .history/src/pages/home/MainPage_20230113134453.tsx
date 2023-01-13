@@ -6,7 +6,7 @@ export default function MainPage() {
   console.log(process.env.PUBLIC_URL);
   return (
     <Container>
-      <Resume imgUrl={`${process.env.PUBLIC_URL}/public_assets/resume.jpg`} />
+      <Resume imgUrl={`${process.env.PUBLIC_URL}/public_assets/write.jpg`} />
       <Write imgUrl={`${process.env.PUBLIC_URL}/public_assets/write.jpg`} />
     </Container>
   );
