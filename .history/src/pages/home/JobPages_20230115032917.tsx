@@ -1,36 +1,31 @@
 import styled from 'styled-components';
 import JobNavbar from '../../components/home/JobPage/JobNavbar';
-import { AiTwotoneHeart } from 'react-icons/ai';
+import { CgProfile } from 'react-icons/cg';
 const items = [
   {
     titleImg: '',
     title: '안녕씹세요',
     name: '유승윤',
-    like: 0,
   },
   {
     titleImg: '',
     title: '좆런트엔드',
     name: '유승윤',
-    like: 10,
   },
   {
     titleImg: '',
     title: '안녕씹세요',
     name: '유승윤',
-    like: 0,
   },
   {
     titleImg: '',
     title: '안녕씹세요',
     name: '유승윤',
-    like: 0,
   },
   {
     titleImg: '',
     title: '안녕씹세요',
     name: '유승윤',
-    like: 0,
   },
 ];
 
@@ -49,11 +44,8 @@ export default function JobPages() {
                   />
                   <ProfileContent>
                     <h1>{item.name}</h1>
-                    <p>{item.title}</p>
-                    <LikeGroup>
-                      <AiTwotoneHeart className='like' />
-                      <span>{item.like}</span>
-                    </LikeGroup>
+                    <h2>{item.title}</h2>
+                    <span>{item.name}</span>
                   </ProfileContent>
                 </PortFolioCard>
                 {/* <img
@@ -136,7 +128,6 @@ const PortFolioItem = styled.li`
   height: 100%;
   display: flex;
   flex-direction: column-reverse;
-  cursor: pointer;
   & > img {
     width: 100%;
     height: 200px;
@@ -172,26 +163,7 @@ const ProfileContent = styled.div`
   transform: translateY(-50%);
 
   & > h1 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: ${({ theme }) => theme.mainColorDark};
-    margin-bottom: 0.4rem;
-  }
-
-  & > p {
-    font-size: 1.2rem;
-    color: ${({ theme }) => theme.mainColorThickDark};
-  }
-
-  .like {
-    color: ${({ theme }) => theme.mainColorSemiDark};
     font-size: 1.4rem;
+    color: ${({ theme }) => theme.mainColorSemiDark};
   }
-`;
-
-const LikeGroup = styled.div`
-  margin-top: 0.2rem;
-  display: flex;
-  align-items: center;
-  color: ${({ theme }) => theme.mainColorSemiDark};
 `;
