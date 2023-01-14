@@ -50,10 +50,7 @@ export default function JobPages() {
                   <ProfileContent>
                     <h1>{item.name}</h1>
                     <p>{item.title}</p>
-                    <LikeGroup>
-                      <AiTwotoneHeart className='like' />
-                      <span>{item.like}</span>
-                    </LikeGroup>
+                    <likeGroup></likeGroup>
                   </ProfileContent>
                 </PortFolioCard>
                 {/* <img
@@ -136,7 +133,6 @@ const PortFolioItem = styled.li`
   height: 100%;
   display: flex;
   flex-direction: column-reverse;
-  cursor: pointer;
   & > img {
     width: 100%;
     height: 200px;
@@ -189,9 +185,4 @@ const ProfileContent = styled.div`
   }
 `;
 
-const LikeGroup = styled.div`
-  margin-top: 0.2rem;
-  display: flex;
-  align-items: center;
-  color: ${({ theme }) => theme.mainColorSemiDark};
-`;
+const likeGroup = styled.div``;

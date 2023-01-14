@@ -136,7 +136,6 @@ const PortFolioItem = styled.li`
   height: 100%;
   display: flex;
   flex-direction: column-reverse;
-  cursor: pointer;
   & > img {
     width: 100%;
     height: 200px;
@@ -190,7 +189,6 @@ const ProfileContent = styled.div`
 `;
 
 const LikeGroup = styled.div`
-  margin-top: 0.2rem;
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.mainColorSemiDark};

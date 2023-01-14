@@ -2,8 +2,6 @@ import { DefaultTheme } from 'styled-components';
 
 export const mainTheme: DefaultTheme = {
   mainColor: '#f2deba',
-  mainColorDark: 'rgb(147,136,140)',
-  mainColorThickDark: 'rgb(51,52,57)',
   mainColorSemiDark: '#DECDAC',
   mainColorLight: 'rgb(237,234,215)',
   bgColor: 'white',

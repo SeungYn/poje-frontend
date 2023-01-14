@@ -17,8 +17,8 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-
-
+  font-size: 100%;
+  font: inherit;
 
 }
 /* HTML5 display-role reset for older browsers */
@@ -82,7 +82,6 @@ a{
 `;
 
 // common
-
 export const CommonBtn = styled.button`
   display: flex;
   padding: 0.6rem 1.2rem;

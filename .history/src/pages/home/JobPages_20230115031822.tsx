@@ -1,36 +1,31 @@
 import styled from 'styled-components';
 import JobNavbar from '../../components/home/JobPage/JobNavbar';
-import { AiTwotoneHeart } from 'react-icons/ai';
+import { CgProfile } from 'react-icons/cg';
 const items = [
   {
     titleImg: '',
     title: '안녕씹세요',
     name: '유승윤',
-    like: 0,
-  },
-  {
-    titleImg: '',
-    title: '좆런트엔드',
-    name: '유승윤',
-    like: 10,
   },
   {
     titleImg: '',
     title: '안녕씹세요',
     name: '유승윤',
-    like: 0,
   },
   {
     titleImg: '',
     title: '안녕씹세요',
     name: '유승윤',
-    like: 0,
   },
   {
     titleImg: '',
     title: '안녕씹세요',
     name: '유승윤',
-    like: 0,
+  },
+  {
+    titleImg: '',
+    title: '안녕씹세요',
+    name: '유승윤',
   },
 ];
 
@@ -48,12 +43,8 @@ export default function JobPages() {
                     src={`${process.env.PUBLIC_URL}/public_assets/basicProfileImg.webp`}
                   />
                   <ProfileContent>
-                    <h1>{item.name}</h1>
-                    <p>{item.title}</p>
-                    <LikeGroup>
-                      <AiTwotoneHeart className='like' />
-                      <span>{item.like}</span>
-                    </LikeGroup>
+                    <h2>{item.title}</h2>
+                    <span>{item.name}</span>
                   </ProfileContent>
                 </PortFolioCard>
                 {/* <img
@@ -106,26 +97,26 @@ const PortFolioList = styled.ul`
   @media screen and (min-width: 400px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media screen and (min-width: 500px) {
+  @media screen and (max-width: 500px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media screen and (min-width: 700px) {
+  @media screen and (max-width: 700px) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (max-width: 1000px) {
     grid-template-columns: repeat(5, 1fr);
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (max-width: 1200px) {
     grid-template-columns: repeat(6, 1fr);
   }
-  @media screen and (min-width: 1400px) {
+  @media screen and (max-width: 1400px) {
     grid-template-columns: repeat(7, 1fr);
   }
-  @media screen and (min-width: 1600px) {
+  @media screen and (max-width: 1600px) {
     grid-template-columns: repeat(8, 1fr);
   }
-  @media screen and (min-width: 1800px) {
+  @media screen and (max-width: 1800px) {
     grid-template-columns: repeat(9, 1fr);
   }
 `;
@@ -136,7 +127,6 @@ const PortFolioItem = styled.li`
   height: 100%;
   display: flex;
   flex-direction: column-reverse;
-  cursor: pointer;
   & > img {
     width: 100%;
     height: 200px;
@@ -145,10 +135,9 @@ const PortFolioItem = styled.li`
 
 const PortFolioCard = styled.div`
   position: relative;
-  background: ${({ theme }) => theme.mainColorLight};
   width: 100%;
   height: 80%;
-  border: 3px solid ${({ theme }) => theme.mainColor};
+  border: 1px solid ${({ theme }) => theme.mainColor};
   border-radius: 1rem;
 `;
 
@@ -158,7 +147,6 @@ const ProfileImg = styled.img`
   margin-left: 50%;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  border: 3px solid ${({ theme }) => theme.mainColor};
 `;
 
 const ProfileContent = styled.div`
@@ -170,28 +158,4 @@ const ProfileContent = styled.div`
   justify-content: center;
   align-items: center;
   transform: translateY(-50%);
-
-  & > h1 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: ${({ theme }) => theme.mainColorDark};
-    margin-bottom: 0.4rem;
-  }
-
-  & > p {
-    font-size: 1.2rem;
-    color: ${({ theme }) => theme.mainColorThickDark};
-  }
-
-  .like {
-    color: ${({ theme }) => theme.mainColorSemiDark};
-    font-size: 1.4rem;
-  }
-`;
-
-const LikeGroup = styled.div`
-  margin-top: 0.2rem;
-  display: flex;
-  align-items: center;
-  color: ${({ theme }) => theme.mainColorSemiDark};
 `;
