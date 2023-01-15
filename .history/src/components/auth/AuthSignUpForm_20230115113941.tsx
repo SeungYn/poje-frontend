@@ -47,26 +47,26 @@ export default function AuthSignUpForm() {
       >
         <SwiperSlide>
           <AuthSlideForm>
-            <AuthFormLabel htmlFor='loginId'>
+            <AuthLabel htmlFor='loginId'>
               <span>LoginId</span>
               <input type='text' id='loginId' placeholder='아이디' />
-            </AuthFormLabel>
-            <AuthFormLabel htmlFor='password'>
+            </AuthLabel>
+            <AuthLabel htmlFor='password'>
               <span>Password</span>
               <input type='password' id='password' placeholder='비밀번호' />
-            </AuthFormLabel>
-            <AuthFormLabel htmlFor='password confirm'>
+            </AuthLabel>
+            <AuthLabel htmlFor='password confirm'>
               <span>Password</span>
               <input
                 type='password'
                 id='password confirm'
                 placeholder='비밀번호 확인'
               />
-            </AuthFormLabel>
-            <AuthFormLabel htmlFor='email'>
+            </AuthLabel>
+            <AuthLabel htmlFor='email'>
               <span>Email</span>
               <input type='eamil' id='eamil' placeholder='이메일' />
-            </AuthFormLabel>
+            </AuthLabel>
 
             <AuthSlideNextBtn type={'button'} onClick={handlerSildeNext}>
               다음
@@ -76,25 +76,25 @@ export default function AuthSignUpForm() {
 
         <SwiperSlide>
           <AuthSlideForm>
-            <AuthFormLabel htmlFor='name'>
+            <AuthLabel htmlFor='name'>
               <span>Name</span>
               <input type='text' id='name' placeholder='이름' />
-            </AuthFormLabel>
-            <AuthFormLabel htmlFor='phoneNum'>
+            </AuthLabel>
+            <AuthLabel htmlFor='phoneNum'>
               <span>PhoneNum(선택)</span>
               <input type='text' id='phoneNum' placeholder='전화번호(선택)' />
-            </AuthFormLabel>
-            <AuthFormLabel htmlFor='gender'>
+            </AuthLabel>
+            <AuthLabel htmlFor='gender'>
               <span>Gender</span>
               <select id='gender' placeholder='성별'>
                 <option value='male'>남자</option>
                 <option value='female'>여자</option>
               </select>
-            </AuthFormLabel>
-            <AuthFormLabel htmlFor='Birth'>
+            </AuthLabel>
+            <AuthLabel htmlFor='Birth'>
               <span>Birth(선택)</span>
               <input type='text' id='birth' placeholder='생년월일' />
-            </AuthFormLabel>
+            </AuthLabel>
             <AuthSlideFooter>
               <AuthSlideNextBtn type={'button'} onClick={handlerSildePrev}>
                 이전
@@ -108,30 +108,30 @@ export default function AuthSignUpForm() {
 
         <SwiperSlide>
           <AuthSlideForm>
-            <AuthFormLabel htmlFor='academic'>
+            <AuthLabel htmlFor='academic'>
               <span>Academic(선택)</span>
               <input type='text' id='academic' placeholder='학력(선택)' />
-            </AuthFormLabel>
-            <AuthFormLabel htmlFor='dept'>
+            </AuthLabel>
+            <AuthLabel htmlFor='dept'>
               <span>학과</span>
               <input type='text' id='dept' placeholder='학과' />
-            </AuthFormLabel>
-            <AuthFormLabel htmlFor='blogLink'>
+            </AuthLabel>
+            <AuthLabel htmlFor='blogLink'>
               <span>BlogLink(선택)</span>
               <input
                 type='text'
                 id='blogLink'
                 placeholder='블로그 링크(선택)'
               />
-            </AuthFormLabel>
-            <AuthFormLabel htmlFor='profileImg'>
+            </AuthLabel>
+            <AuthLabel htmlFor='profileImg'>
               <span>ProfileImg(선택)</span>
               <input
                 type='text'
                 id='profileImg'
                 placeholder='프로필이미지(선택)'
               />
-            </AuthFormLabel>
+            </AuthLabel>
             <AuthSlideFooter>
               <AuthSlideNextBtn type={'button'} onClick={handlerSildePrev}>
                 이전
@@ -151,7 +151,7 @@ const AuthSlideForm = styled(AuthForm)`
 `;
 
 const AuthFormLabel = styled(AuthLabel)`
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 `;
 
 const AuthSlideNextBtn = styled(LoginBtn)`

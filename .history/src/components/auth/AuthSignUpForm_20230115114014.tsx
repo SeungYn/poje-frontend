@@ -151,7 +151,7 @@ const AuthSlideForm = styled(AuthForm)`
 `;
 
 const AuthFormLabel = styled(AuthLabel)`
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 `;
 
 const AuthSlideNextBtn = styled(LoginBtn)`

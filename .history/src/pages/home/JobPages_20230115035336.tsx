@@ -80,6 +80,14 @@ export default function JobPages() {
                     </LikeGroup>
                   </ProfileContent>
                 </PortFolioCard>
+                {/* <img
+                  src={
+                    item.titleImg ||
+                    `${process.env.PUBLIC_URL}/public_assets/write.jpg`
+                  }
+                /> */}
+                {/* <h2>{item.title}</h2>
+                <span>{item.name}</span> */}
               </PortFolioItem>
             );
           })}
