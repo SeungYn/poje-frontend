@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import JobNavbar from '../../components/home/JobPage/JobNavbar';
 import { AiTwotoneHeart } from 'react-icons/ai';
-import { breakPoint, mediaMin } from '../../styledComponents/media';
 const items = [
   {
     titleImg: '',
@@ -120,29 +119,29 @@ const PortFolioList = styled.ul`
     grid-template-columns: repeat(1, 1fr);
   }
 
-  @media screen and (min-width: ${breakPoint.ss}) {
+  @media screen and (min-width: 400px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media screen and (min-width: ${breakPoint.s}) {
+  @media screen and (min-width: 500px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media screen and (min-width: ${breakPoint.mmm}) {
+  @media screen and (min-width: 700px) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media screen and (min-width: ${breakPoint.mm}) {
+  @media screen and (min-width: 1000px) {
     grid-template-columns: repeat(5, 1fr);
   }
-  @media screen and (min-width: ${breakPoint.m}) {
+  @media screen and (min-width: 1200px) {
     grid-template-columns: repeat(6, 1fr);
   }
-  @media screen and (min-width: ${breakPoint.l}) {
+  @media screen and (min-width: 1400px) {
     grid-template-columns: repeat(7, 1fr);
   }
-  @media screen and (min-width: ${breakPoint.ll}) {
+  @media screen and (min-width: 1600px) {
     grid-template-columns: repeat(8, 1fr);
   }
-  @media screen and (min-width: ${breakPoint.lll}) {
+  @media screen and (min-width: 1800px) {
     grid-template-columns: repeat(9, 1fr);
   }
 `;
