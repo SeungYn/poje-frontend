@@ -6,7 +6,7 @@ export interface ProfileItemType {
   titleImg: string;
   title: string;
   name: string;
-  like: number;
+  like: string;
 }
 
 export default function JobContent() {

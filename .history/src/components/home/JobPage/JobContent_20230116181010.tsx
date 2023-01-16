@@ -6,11 +6,12 @@ export interface ProfileItemType {
   titleImg: string;
   title: string;
   name: string;
-  like: number;
+  like: string;
 }
 
+
 export default function JobContent() {
-  const items: ProfileItemType[] = [
+  const items: = [
     {
       titleImg: '',
       title: '안녕씹세요',
@@ -125,3 +126,4 @@ const ProfileList = styled.ul`
     grid-template-columns: repeat(9, 1fr);
   }
 `;
+
