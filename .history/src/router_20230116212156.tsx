@@ -24,12 +24,16 @@ export const router = createBrowserRouter([
   {
     path: '/portfolio',
     element: <PortfolioRootPage />,
-    children: [{ path: ':id', element: <PortfolioMain /> }],
+    children: [
+      { path: ':id', element: <PortfolioMain /> },
+      { path: 'make', element: <PortfolioMakePage /> },
+    ],
     errorElement: <NotFound />,
   },
   {
     path: '/portfolio/make',
     element: <PortfolioMakePage />,
+
     errorElement: <NotFound />,
   },
   {
