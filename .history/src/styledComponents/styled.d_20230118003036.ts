@@ -8,8 +8,6 @@ declare module 'styled-components' {
     mainColorSemiDark: string;
     mainColorLight: string;
     mainColorLightTransparency: string;
-    colorPink: string;
-    colorDarkBlue: string;
     textColor: string;
     textColorToneDown: string;
     darkBgColor: string;

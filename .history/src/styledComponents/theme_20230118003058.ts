@@ -7,8 +7,6 @@ export const mainTheme: DefaultTheme = {
   mainColorSemiDark: '#DECDAC',
   mainColorLight: 'rgba(237,234,215)',
   mainColorLightTransparency: 'rgba(237, 234, 215, 0.7)',
-  colorPink: 'rgba(232,194,192)',
-  colorDarkBlue: 'rgba(72,94,108)',
   bgColor: 'white',
   darkBgColor: 'rgba(0, 0, 0, 0.1)',
   textColor: 'black',
@@ -21,9 +19,9 @@ export const mainTheme: DefaultTheme = {
   iconSize: '2.4rem',
 
   fontLargeSize: '2rem',
-  fontMiddleSize: '1.6rem',
+  fontMiddleSize: '1.4rem',
   fontRegular: '1.2rem',
 
   //포토폴리오
-  fontSectionTitle: '2.8rem',
+  fontSectionTitle: '3.6rem';
 };

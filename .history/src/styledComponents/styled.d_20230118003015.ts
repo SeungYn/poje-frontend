@@ -8,8 +8,6 @@ declare module 'styled-components' {
     mainColorSemiDark: string;
     mainColorLight: string;
     mainColorLightTransparency: string;
-    colorPink: string;
-    colorDarkBlue: string;
     textColor: string;
     textColorToneDown: string;
     darkBgColor: string;
@@ -24,6 +22,5 @@ declare module 'styled-components' {
     fontRegular: string;
 
     //포토폴리오
-    fontSectionTitle: string;
   }
 }
