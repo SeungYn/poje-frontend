@@ -21,7 +21,7 @@ export const mainTheme: DefaultTheme = {
   iconSize: '2.4rem',
 
   fontLargeSize: '2rem',
-  fontMiddleSize: '1.6rem',
+  fontMiddleSize: '1.4rem',
   fontRegular: '1.2rem',
 
   //포토폴리오

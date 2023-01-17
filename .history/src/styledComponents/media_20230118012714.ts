@@ -13,7 +13,7 @@ const Sizes: Record<DeviceType, number> = {
   lll: 1800,
 };
 
-const mediaMin = Object.entries(Sizes).reduce((acc, [key, value]) => {
+const mediaMin = Object.entries(sizes).reduce((acc, [key, value]) => {
   return {
     ...acc,
     [key]: (
