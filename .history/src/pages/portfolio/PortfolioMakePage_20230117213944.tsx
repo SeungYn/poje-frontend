@@ -1,5 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import styled, { useTheme } from 'styled-components';
+import BeforeButton from '../../components/common/BeforeBtn';
 import PortfolioMakeForm from '../../components/portfolio/PortfolioMakeForm';
+import PortfolioMakeFormContainer from '../../components/portfolio/PortfolioMakeForm';
 
 const BACKGROUND_IMG_URL = `${process.env.PUBLIC_URL}/public_assets/portfolio_write.jpg`;
 
