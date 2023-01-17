@@ -69,5 +69,5 @@ const IntroParagraph = styled.p`
   font-size: ${({ theme }) => theme.fontMiddleSize};
   filter: brightness(0.9);
   letter-spacing: 2px;
-  line-height: calc(${({ theme }) => theme.fontMiddleSize} + 0.4rem);
+  line-height: 1rem;
 `;

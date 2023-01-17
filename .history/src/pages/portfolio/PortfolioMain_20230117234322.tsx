@@ -68,6 +68,5 @@ const IntroParagraph = styled.p`
   text-align: center;
   font-size: ${({ theme }) => theme.fontMiddleSize};
   filter: brightness(0.9);
-  letter-spacing: 2px;
-  line-height: calc(${({ theme }) => theme.fontMiddleSize} + 0.4rem);
+  letter-spacing: 1rem; ;
 `;

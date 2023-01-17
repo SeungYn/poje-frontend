@@ -64,10 +64,4 @@ const IntroHr = styled.hr`
   border: none;
 `;
 
-const IntroParagraph = styled.p`
-  text-align: center;
-  font-size: ${({ theme }) => theme.fontMiddleSize};
-  filter: brightness(0.9);
-  letter-spacing: 2px;
-  line-height: calc(${({ theme }) => theme.fontMiddleSize} + 0.4rem);
-`;
+const IntroParagraph = styled.p``;
