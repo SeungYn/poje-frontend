@@ -67,5 +67,4 @@ const IntroHr = styled.hr`
 const IntroParagraph = styled.p`
   text-align: center;
   font-size: ${({ theme }) => theme.fontMiddleSize};
-  filter: brightness(0.9);
 `;

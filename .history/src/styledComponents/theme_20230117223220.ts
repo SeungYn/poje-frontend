@@ -10,13 +10,10 @@ export const mainTheme: DefaultTheme = {
   bgColor: 'white',
   darkBgColor: 'rgba(0, 0, 0, 0.1)',
   textColor: 'black',
-  textColorToneDown: '#d3d3d3',
   textAccentColor: 'white',
   accentColor: '#9c88ff',
   borderColor: '#eeeeee',
   iconSize: '2.4rem',
-
-  fontLargeSize: '2rem',
-  fontMiddleSize: '1.4rem',
-  fontRegular: '1.2rem',
+  fontMiddleSize: '1.2rem',
+  fontLargeSize: '1.8rem',
 };

@@ -9,7 +9,6 @@ declare module 'styled-components' {
     mainColorLight: string;
     mainColorLightTransparency: string;
     textColor: string;
-    textColorToneDown: string;
     darkBgColor: string;
     bgColor: string;
     accentColor: string;
@@ -19,6 +18,5 @@ declare module 'styled-components' {
     iconSize: string;
     fontMiddleSize: string;
     fontLargeSize: string;
-    fontRegular: string;
   }
 }

@@ -8,11 +8,11 @@ export default function PortfolioMain() {
         <PortfolioSectionContainer>
           <IntroName>- 유명수 -</IntroName>
           <IntroTitle>장고 개발자 포트폴리오</IntroTitle>
-          <IntroHr />
-          <IntroParagraph>
+          <hr />
+          <p>
             안녕하세요. <br /> 이세계에서는 장고 개발자가 된 유명수입니다.{' '}
             <br /> 현재 구골에 다니고 있으며 67세입니다.
-          </IntroParagraph>
+          </p>
         </PortfolioSectionContainer>
       </AboutMe>
     </Container>
@@ -40,7 +40,6 @@ const AboutMe = styled.section<{ imgUrl: string }>`
 `;
 
 const PortfolioSectionContainer = styled.section`
-  color: ${({ theme }) => theme.textAccentColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,23 +48,11 @@ const PortfolioSectionContainer = styled.section`
 `;
 
 const IntroName = styled.h3`
+  color: ${({ theme }) => theme.textAccentColor};
   font-size: 3.4rem;
 `;
 
 const IntroTitle = styled.h3`
   color: ${({ theme }) => theme.textAccentColor};
   font-size: 3.4rem;
-`;
-
-const IntroHr = styled.hr`
-  width: 30%;
-  height: 5px;
-  background: ${({ theme }) => theme.textAccentColor};
-  border: none;
-`;
-
-const IntroParagraph = styled.p`
-  text-align: center;
-  font-size: ${({ theme }) => theme.fontMiddleSize};
-  filter: brightness(0.9);
 `;

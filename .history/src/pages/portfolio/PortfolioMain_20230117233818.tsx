@@ -40,7 +40,6 @@ const AboutMe = styled.section<{ imgUrl: string }>`
 `;
 
 const PortfolioSectionContainer = styled.section`
-  color: ${({ theme }) => theme.textAccentColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,6 +48,7 @@ const PortfolioSectionContainer = styled.section`
 `;
 
 const IntroName = styled.h3`
+  color: ${({ theme }) => theme.textAccentColor};
   font-size: 3.4rem;
 `;
 
@@ -64,8 +64,4 @@ const IntroHr = styled.hr`
   border: none;
 `;
 
-const IntroParagraph = styled.p`
-  text-align: center;
-  font-size: ${({ theme }) => theme.fontMiddleSize};
-  filter: brightness(0.9);
-`;
+const IntroParagraph = styled.p``;
