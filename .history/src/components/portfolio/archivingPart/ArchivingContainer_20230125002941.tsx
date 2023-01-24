@@ -69,8 +69,9 @@ const Description = styled.p`
   margin-bottom: 0.8rem;
 `;
 
-const ExplanationList = styled.ul``;
+const ExplanationList = styled.ul`
+  list-style: square;
+`;
 const Explanation = styled.li`
   margin-bottom: 0.8rem;
-  font-size: ${({ theme }) => theme.fontRegular};
 `;

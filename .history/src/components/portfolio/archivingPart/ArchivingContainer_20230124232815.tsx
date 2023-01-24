@@ -45,15 +45,13 @@ const Container = styled(S.CommonSection)`
 const ArchivingList = styled.ul`
   display: flex;
   justify-content: space-between;
-  gap: 0.8rem;
 `;
 
 const ArchivingItem = styled.li`
   background: ${({ theme }) => theme.bgColor};
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 1.4rem;
   font-size: ${({ theme }) => theme.fontMiddleSize};
-  width: 100%;
 `;
 
 const ArchivingTitle = styled.h3`
@@ -62,15 +60,9 @@ const ArchivingTitle = styled.h3`
 
 const LinkBtn = styled.button`
   padding: 1rem 0;
-  font-size: ${({ theme }) => theme.fontMiddleSize};
 `;
 
-const Description = styled.p`
-  margin-bottom: 0.8rem;
-`;
+const Description = styled.p``;
 
 const ExplanationList = styled.ul``;
-const Explanation = styled.li`
-  margin-bottom: 0.8rem;
-  font-size: ${({ theme }) => theme.fontRegular};
-`;
+const Explanation = styled.li``;

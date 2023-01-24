@@ -45,7 +45,6 @@ const Container = styled(S.CommonSection)`
 const ArchivingList = styled.ul`
   display: flex;
   justify-content: space-between;
-  gap: 0.8rem;
 `;
 
 const ArchivingItem = styled.li`
@@ -65,12 +64,7 @@ const LinkBtn = styled.button`
   font-size: ${({ theme }) => theme.fontMiddleSize};
 `;
 
-const Description = styled.p`
-  margin-bottom: 0.8rem;
-`;
+const Description = styled.p``;
 
 const ExplanationList = styled.ul``;
-const Explanation = styled.li`
-  margin-bottom: 0.8rem;
-  font-size: ${({ theme }) => theme.fontRegular};
-`;
+const Explanation = styled.li``;

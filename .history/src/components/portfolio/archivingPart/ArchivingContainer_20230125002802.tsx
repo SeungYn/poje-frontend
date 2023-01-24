@@ -65,12 +65,9 @@ const LinkBtn = styled.button`
   font-size: ${({ theme }) => theme.fontMiddleSize};
 `;
 
-const Description = styled.p`
-  margin-bottom: 0.8rem;
-`;
+const Description = styled.p``;
 
 const ExplanationList = styled.ul``;
 const Explanation = styled.li`
   margin-bottom: 0.8rem;
-  font-size: ${({ theme }) => theme.fontRegular};
 `;
