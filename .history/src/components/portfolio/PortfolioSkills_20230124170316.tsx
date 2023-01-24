@@ -3,7 +3,6 @@ import Masonry from 'react-masonry-css';
 import styled from 'styled-components';
 import { breakPoint, Sizes } from '../../styledComponents/media';
 import { front } from '../svgs/Test1';
-import PortfolioSkillItem from './PortfolioSkillItem';
 import * as S from './styledComponents';
 
 const ICON_PATH = `${process.env.PUBLIC_URL}/public_assets/skill_icon/`;
@@ -25,7 +24,6 @@ export default function PortfolioSkills() {
     'html_icon.png',
     'html_icon.png',
   ];
-  const skillTitle = ['test1', 'test2', 'test3', 'test4'];
   console.log(front);
   return (
     <Container>
@@ -37,11 +35,7 @@ export default function PortfolioSkills() {
         breakpointCols={breakpointColumnsObj}
         className='skillsContainer'
         columnClassName='skillsStack'
-      >
-        {skillTitle.map((title) => (
-          <PortfolioSkillItem skillTitle={title} skillList={skillItems2} />
-        ))}
-      </Masonry>
+      ></Masonry>
     </Container>
   );
 }

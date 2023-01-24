@@ -21,7 +21,7 @@ export const mainTheme: DefaultTheme = {
   iconSize: '2.4rem',
 
   fontLargeSize: '2rem',
-  fontMiddleSize: '1.6rem',
+  fontMizddleSize: '1.6rem',
   fontRegular: '1.2rem',
   fontSmall: '1rem',
   fontMicro: '0.8rem',

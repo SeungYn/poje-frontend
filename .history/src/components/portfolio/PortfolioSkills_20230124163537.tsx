@@ -3,18 +3,17 @@ import Masonry from 'react-masonry-css';
 import styled from 'styled-components';
 import { breakPoint, Sizes } from '../../styledComponents/media';
 import { front } from '../svgs/Test1';
-import PortfolioSkillItem from './PortfolioSkillItem';
 import * as S from './styledComponents';
 
 const ICON_PATH = `${process.env.PUBLIC_URL}/public_assets/skill_icon/`;
 
-const breakpointColumnsObj = Object.freeze({
+const breakpointColumnsObj = {
   default: 5,
   1400: 4,
   1000: 3,
   700: 2,
   500: 1,
-});
+};
 
 export default function PortfolioSkills() {
   const skillItems = ['css_icon.png', 'html_icon.png'];
@@ -25,7 +24,6 @@ export default function PortfolioSkills() {
     'html_icon.png',
     'html_icon.png',
   ];
-  const skillTitle = ['test1', 'test2', 'test3', 'test4'];
   console.log(front);
   return (
     <Container>
@@ -37,11 +35,7 @@ export default function PortfolioSkills() {
         breakpointCols={breakpointColumnsObj}
         className='skillsContainer'
         columnClassName='skillsStack'
-      >
-        {skillTitle.map((title) => (
-          <PortfolioSkillItem skillTitle={title} skillList={skillItems2} />
-        ))}
-      </Masonry>
+      ></Masonry>
     </Container>
   );
 }
@@ -61,4 +55,30 @@ const Container = styled(S.CommonSection)`
     flex-direction: column;
     gap: 0.8rem;
   }
+`;
+
+const SkillsStack = styled.div`
+  background: ${({ theme }) => theme.bgColor};
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  position: relative;
+  box-shadow: 1px 1px 3px black;
+`;
+
+const SkillsTitle = styled.h3`
+  font-size: 2rem;
+  border-bottom: 1px solid gray;
+  margin-bottom: 1rem;
+  text-align: center;
+
+  @media screen and (max-width: ${breakPoint.mmm}) {
+    font-size: ${({ theme }) => theme.fontMiddleSize};
+  }
+`;
+
+const SkillList = styled.div``;
+
+const SkillItem = styled.img`
+  width: 100%;
+  aspect-ratio: auto;
 `;

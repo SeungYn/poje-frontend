@@ -10,7 +10,7 @@ export const CommonHeader = styled.div`
   align-items: center;
   justify-content: center;
   font-size: ${({ theme }) => theme.fontSectionTitle};
-  margin-bottom: 2rem;
+  margin-bottom: 0.8rem;
   gap: 1rem;
 `;
 
