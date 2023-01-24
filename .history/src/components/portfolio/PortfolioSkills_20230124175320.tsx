@@ -3,10 +3,8 @@ import Masonry from 'react-masonry-css';
 import styled from 'styled-components';
 import { breakPoint, Sizes } from '../../styledComponents/media';
 import { front } from '../svgs/Test1';
-import PortfolioSkillItem from './PortfolioSkillItem';
+import PortfolioSkillItem from './skillPart/PortfolioSkillItem';
 import * as S from './styledComponents';
-
-const ICON_PATH = `${process.env.PUBLIC_URL}/public_assets/skill_icon/`;
 
 const breakpointColumnsObj = Object.freeze({
   default: 5,
