@@ -1,54 +1,55 @@
+import { AiFillTag } from 'react-icons/ai';
 import styled from 'styled-components';
 import { BsFillPersonFill, BsFillPencilFill } from 'react-icons/bs';
 import { AiFillCalendar } from 'react-icons/ai';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { breakPoint } from '../../../styledComponents/media';
-import { PortfolioAboutMePropType } from './portfolioAboutMeType';
+import * as S from '../styledComponents';
 
-export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {
+export default function PortfolioAboutMe() {
   return (
     <InfoList>
       <InfoItem>
         <BsFillPersonFill className='font' />
         <InfoText>
           <p>이름</p>
-          <p>{data.name}</p>
+          <p>유명수</p>
         </InfoText>
       </InfoItem>
       <InfoItem>
-        <MdEmail className='font' />
+        <BsFillPencilFill className='font' />
         <InfoText>
-          <p>이메일</p>
-          <p>{data.email}</p>
-        </InfoText>
-      </InfoItem>
-      <InfoItem>
-        <BsFillPersonFill className='font' />
-        <InfoText>
-          <p>연락처</p>
-          <p>{data.phoneNum}</p>
+          <p>이름</p>
+          <p>유명수</p>
         </InfoText>
       </InfoItem>
       <InfoItem>
         <AiFillCalendar className='font' />
         <InfoText>
-          <p>생년월일</p>
-          <p>{data.birth}</p>
+          <p>이름</p>
+          <p>유명수</p>
         </InfoText>
       </InfoItem>
       <InfoItem>
-        <BsFillPencilFill className='font' />
+        <BsFillPersonFill className='font' />
         <InfoText>
-          <p>학력</p>
-          <p>{data.academic}</p>
+          <p>이름</p>
+          <p>유명수</p>
         </InfoText>
       </InfoItem>
-
       <InfoItem>
-        <BsFillPencilFill className='font' />
+        <FaMapMarkerAlt className='font' />
         <InfoText>
-          <p>학과</p>
-          <p>{data.dept}</p>
+          <p>이름</p>
+          <p>유명수</p>
+        </InfoText>
+      </InfoItem>
+      <InfoItem>
+        <MdEmail className='font' />
+        <InfoText>
+          <p>이름</p>
+          <p>유명수</p>
         </InfoText>
       </InfoItem>
     </InfoList>
@@ -57,7 +58,6 @@ export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {
 
 const InfoList = styled.ul`
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   .font {
     font-size: ${({ theme }) => theme.iconSize};

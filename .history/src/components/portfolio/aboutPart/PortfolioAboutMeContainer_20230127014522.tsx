@@ -4,7 +4,6 @@ import * as S from '../styledComponents';
 import { AiFillTag } from 'react-icons/ai';
 import ModifyBtn from '../common/ModifyBtn';
 import { useState } from 'react';
-import PortfolioAboutMeModify from './PortfolioAboutMeModify';
 export default function PortAboutMeContainer() {
   const { isModifyMode, toggleModify } = useModifyMode();
   const [data, setData] = useState({
@@ -21,8 +20,7 @@ export default function PortAboutMeContainer() {
         <AiFillTag />
         <S.HeaderTitle>About Me</S.HeaderTitle>
       </S.CommonHeader>
-      {!isModifyMode && <PortfolioAboutMe {...data} />}
-      {isModifyMode && <PortfolioAboutMeModify {...data} />}
+      <PortfolioAboutMe {...data} />
       <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
     </S.CommonSection>
   );

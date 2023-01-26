@@ -3,6 +3,7 @@ import { BsFillPersonFill, BsFillPencilFill } from 'react-icons/bs';
 import { AiFillCalendar } from 'react-icons/ai';
 import { MdEmail } from 'react-icons/md';
 import { breakPoint } from '../../../styledComponents/media';
+import * as S from '../styledComponents';
 import { PortfolioAboutMePropType } from './portfolioAboutMeType';
 
 export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {

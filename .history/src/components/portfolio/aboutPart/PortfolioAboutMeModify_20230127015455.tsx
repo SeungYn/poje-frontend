@@ -4,43 +4,45 @@ import { AiFillCalendar } from 'react-icons/ai';
 import { MdEmail } from 'react-icons/md';
 import { breakPoint } from '../../../styledComponents/media';
 import { PortfolioAboutMePropType } from './portfolioAboutMeType';
+import { useState } from 'react';
 
-export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {
+export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
+  const [inputData, setInputData] = useState({ ...data });
   return (
     <InfoList>
       <InfoItem>
         <BsFillPersonFill className='font' />
         <InfoText>
           <p>이름</p>
-          <p>{data.name}</p>
+          <InputText value={inputData.name} />
         </InfoText>
       </InfoItem>
       <InfoItem>
         <MdEmail className='font' />
         <InfoText>
           <p>이메일</p>
-          <p>{data.email}</p>
+          <InputText value={inputData.email} />
         </InfoText>
       </InfoItem>
       <InfoItem>
         <BsFillPersonFill className='font' />
         <InfoText>
           <p>연락처</p>
-          <p>{data.phoneNum}</p>
+          <InputText value={inputData.phoneNum} />
         </InfoText>
       </InfoItem>
       <InfoItem>
         <AiFillCalendar className='font' />
         <InfoText>
           <p>생년월일</p>
-          <p>{data.birth}</p>
+          <InputText value={inputData.birth} />
         </InfoText>
       </InfoItem>
       <InfoItem>
         <BsFillPencilFill className='font' />
         <InfoText>
           <p>학력</p>
-          <p>{data.academic}</p>
+          <InputText value={inputData.academic} />
         </InfoText>
       </InfoItem>
 
@@ -48,7 +50,7 @@ export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {
         <BsFillPencilFill className='font' />
         <InfoText>
           <p>학과</p>
-          <p>{data.dept}</p>
+          <InputText value={inputData.dept} />
         </InfoText>
       </InfoItem>
     </InfoList>
@@ -97,4 +99,9 @@ const InfoText = styled.div`
   & p:last-child {
     font-size: ${({ theme }) => theme.fontRegular};
   }
+`;
+
+const InputText = styled.input`
+  font-size: ${({ theme }) => theme.fontRegular};
+  width: 80%;
 `;

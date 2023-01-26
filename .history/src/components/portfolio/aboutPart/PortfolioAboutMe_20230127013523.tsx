@@ -3,44 +3,44 @@ import { BsFillPersonFill, BsFillPencilFill } from 'react-icons/bs';
 import { AiFillCalendar } from 'react-icons/ai';
 import { MdEmail } from 'react-icons/md';
 import { breakPoint } from '../../../styledComponents/media';
-import { PortfolioAboutMePropType } from './portfolioAboutMeType';
+import * as S from '../styledComponents';
 
-export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {
+export default function PortfolioAboutMe() {
   return (
     <InfoList>
       <InfoItem>
         <BsFillPersonFill className='font' />
         <InfoText>
           <p>이름</p>
-          <p>{data.name}</p>
+          <p>유명수</p>
         </InfoText>
       </InfoItem>
       <InfoItem>
         <MdEmail className='font' />
         <InfoText>
           <p>이메일</p>
-          <p>{data.email}</p>
+          <p>fiweofjw@naf</p>
         </InfoText>
       </InfoItem>
       <InfoItem>
         <BsFillPersonFill className='font' />
         <InfoText>
           <p>연락처</p>
-          <p>{data.phoneNum}</p>
+          <p>010631231231</p>
         </InfoText>
       </InfoItem>
       <InfoItem>
         <AiFillCalendar className='font' />
         <InfoText>
           <p>생년월일</p>
-          <p>{data.birth}</p>
+          <p>8월 12일</p>
         </InfoText>
       </InfoItem>
       <InfoItem>
         <BsFillPencilFill className='font' />
         <InfoText>
           <p>학력</p>
-          <p>{data.academic}</p>
+          <p>샤울대</p>
         </InfoText>
       </InfoItem>
 
@@ -48,7 +48,7 @@ export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {
         <BsFillPencilFill className='font' />
         <InfoText>
           <p>학과</p>
-          <p>{data.dept}</p>
+          <p>철학과</p>
         </InfoText>
       </InfoItem>
     </InfoList>

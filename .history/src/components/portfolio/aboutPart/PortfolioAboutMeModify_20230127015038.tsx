@@ -4,8 +4,10 @@ import { AiFillCalendar } from 'react-icons/ai';
 import { MdEmail } from 'react-icons/md';
 import { breakPoint } from '../../../styledComponents/media';
 import { PortfolioAboutMePropType } from './portfolioAboutMeType';
+import { useState } from 'react';
 
 export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {
+  const [inputData, setInputData] = useState({ ...data });
   return (
     <InfoList>
       <InfoItem>
@@ -98,3 +100,5 @@ const InfoText = styled.div`
     font-size: ${({ theme }) => theme.fontRegular};
   }
 `;
+
+const inputText = styled.input``;
