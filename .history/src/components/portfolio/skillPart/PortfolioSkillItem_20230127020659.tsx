@@ -46,11 +46,7 @@ const SkillsTitle = styled.h3`
 const SkillList = styled.div``;
 
 const SkillItem = styled.img`
-  display: flex;
-  width: 80%;
+  width: 100%;
   height: 120px;
-  margin: 0 auto;
-  margin-bottom: 0.6rem;
-
   aspect-ratio: auto;
 `;

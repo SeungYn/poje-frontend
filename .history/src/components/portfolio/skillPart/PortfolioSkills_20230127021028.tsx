@@ -12,7 +12,7 @@ const breakpointColumnsObj = Object.freeze({
 });
 
 type skillsType = {
-  [key: string]: string[];
+  [key: string]: [string];
 };
 
 export default function PortfolioSkills() {

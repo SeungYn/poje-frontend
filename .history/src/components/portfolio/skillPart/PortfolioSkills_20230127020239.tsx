@@ -11,10 +11,6 @@ const breakpointColumnsObj = Object.freeze({
   500: 1,
 });
 
-type skillsType = {
-  [key: string]: string[];
-};
-
 export default function PortfolioSkills() {
   const skillItems = ['css_icon.png', 'html_icon.png'];
   const skillItems2 = [
@@ -25,16 +21,6 @@ export default function PortfolioSkills() {
     'html_icon.png',
   ];
   const skillTitle = ['test1', 'test2', 'test3', 'test4'];
-  const skills: skillsType = {
-    frontEnd: [
-      'css_icon.png',
-      'html_icon.png',
-      'html_icon.png',
-      'html_icon.png',
-      'html_icon.png',
-    ],
-  };
-
   console.log(front);
   return (
     <Masonry
@@ -42,12 +28,9 @@ export default function PortfolioSkills() {
       className='skillsContainer'
       columnClassName='skillsStack'
     >
-      {Object.keys(skills).map((title) => (
-        <PortfolioSkillItem skillTitle={title} skillList={skills[title]} />
-      ))}
-      {/* {skillTitle.map((title) => (
+      {skillTitle.map((title) => (
         <PortfolioSkillItem skillTitle={title} skillList={skillItems2} />
-      ))} */}
+      ))}
     </Masonry>
   );
 }
