@@ -47,14 +47,14 @@ const JobList = styled.ul`
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-left: 1px solid ${({ theme }) => theme.textColor};
+  border: 1px solid ${({ theme }) => theme.textColor};
 `;
 
 const JobItem = styled.li`
   white-space: nowrap;
+  margin-top: 0.8rem;
   font-size: ${({ theme }) => theme.fontRegular};
   a {
-    padding: 0.8rem;
     display: block;
     width: 100%;
   }

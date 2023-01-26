@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { breakPoint } from '../../../styledComponents/media';
+import ProfileItem from './ProfileItem';
 import ProfileItemRemaster from './ProfileItemRemaster';
 
 export interface ProfileItemType {
@@ -92,7 +93,7 @@ const ProfileList = styled.ul`
   padding: 2rem 2rem;
   overflow-y: auto;
   min-height: 0;
-  gap: 1rem;
+  gap: 10px;
   max-width: 1800px;
 
   @media screen and (max-width: ${breakPoint.l}) {

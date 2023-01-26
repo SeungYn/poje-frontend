@@ -92,5 +92,3 @@
 //   align-items: center;
 //   color: ${({ theme }) => theme.mainColorSemiDark};
 // `;
-
-export {};

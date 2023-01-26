@@ -52,9 +52,9 @@ const JobList = styled.ul`
 
 const JobItem = styled.li`
   white-space: nowrap;
+  margin-top: 0.8rem;
   font-size: ${({ theme }) => theme.fontRegular};
   a {
-    padding: 0.8rem;
     display: block;
     width: 100%;
   }

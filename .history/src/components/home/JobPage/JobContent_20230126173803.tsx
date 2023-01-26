@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { breakPoint } from '../../../styledComponents/media';
+import ProfileItem from './ProfileItem';
 import ProfileItemRemaster from './ProfileItemRemaster';
 
 export interface ProfileItemType {
   titleImg: string;
   title: string;
-  description: string;
+  name: string;
   like: number;
 }
 
@@ -14,55 +15,55 @@ export default function JobContent() {
     {
       titleImg: '',
       title: '안녕씹세요',
-      description: '유승윤',
+      name: '유승윤',
       like: 0,
     },
     {
       titleImg: '',
       title: '좆런트엔드',
-      description: '유승윤',
+      name: '유승윤',
       like: 10,
     },
     {
       titleImg: '',
       title: '안녕씹세요',
-      description: '유승윤',
+      name: '유승윤',
       like: 0,
     },
     {
       titleImg: '',
       title: '안녕씹세요',
-      description: '유승윤',
+      name: '유승윤',
       like: 0,
     },
     {
       titleImg: '',
       title: '안녕씹세요',
-      description: '유승윤',
+      name: '유승윤',
       like: 0,
     },
     {
       titleImg: '',
       title: '좆런트엔드',
-      description: '유승윤',
+      name: '유승윤',
       like: 10,
     },
     {
       titleImg: '',
       title: '안녕씹세요',
-      description: '유승윤',
+      name: '유승윤',
       like: 0,
     },
     {
       titleImg: '',
       title: '안녕씹세요',
-      description: '유승윤',
+      name: '유승윤',
       like: 0,
     },
     {
       titleImg: '',
       title: '안녕씹세요',
-      description: '유승윤',
+      name: '유승윤',
       like: 0,
     },
   ];
@@ -92,7 +93,7 @@ const ProfileList = styled.ul`
   padding: 2rem 2rem;
   overflow-y: auto;
   min-height: 0;
-  gap: 1rem;
+  gap: 10px;
   max-width: 1800px;
 
   @media screen and (max-width: ${breakPoint.l}) {
