@@ -94,7 +94,7 @@ const InfoGroup = styled.div``;
 const LikeGroup = styled.div`
   margin-top: 0.2rem;
   display: flex;
-  align-items: center;
+
   color: ${({ theme }) => theme.textColor};
   font-size: 1.2rem;
 

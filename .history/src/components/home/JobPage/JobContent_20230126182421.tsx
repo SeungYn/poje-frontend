@@ -95,12 +95,12 @@ const ProfileList = styled.ul`
   gap: 1rem;
   max-width: 1800px;
 
-  @media screen and (max-width: ${breakPoint.l}) {
-    grid-template-columns: repeat(3, 1fr);
+  @media screen and (min-width: ${breakPoint.ss}) {
+    grid-template-columns: repeat(1, 1fr);
   }
 
-  @media screen and (max-width: ${breakPoint.ss}) {
-    grid-template-columns: repeat(1, 1fr);
+  @media screen and (max-width: ${breakPoint.l}) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   /* @media screen and (max-width: 350px) {

@@ -98,7 +98,7 @@ const LikeGroup = styled.div`
   color: ${({ theme }) => theme.textColor};
   font-size: 1.2rem;
 
-  p {
+  div {
     margin-left: 0.4rem;
     display: flex;
     justify-content: center;

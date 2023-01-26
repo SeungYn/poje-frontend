@@ -27,7 +27,7 @@ export default function ProfileItemRemaster({
         </InfoGroup>
         <LikeGroup>
           <AiTwotoneHeart className='like' />
-          <p>{like}</p>
+          <div>{like}</div>
         </LikeGroup>
       </Footer>
     </Container>
@@ -57,11 +57,12 @@ const ProfileTop = styled.div`
   overflow: hidden;
   transition: all 0.03s linear;
   position: relative;
-
   &:hover {
     & > img {
       transform: scale(1.2);
     }
+
+    transform: translateY(-10px);
   }
 `;
 
@@ -98,7 +99,7 @@ const LikeGroup = styled.div`
   color: ${({ theme }) => theme.textColor};
   font-size: 1.2rem;
 
-  p {
+  div {
     margin-left: 0.4rem;
     display: flex;
     justify-content: center;

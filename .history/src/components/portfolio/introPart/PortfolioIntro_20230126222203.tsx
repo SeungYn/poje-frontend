@@ -1,21 +1,18 @@
-import React from 'react';
 import styled from 'styled-components';
-
-const BAKCGROUND_IMAGE = `${process.env.PUBLIC_URL}/public_assets/portfolioBackground.jpg`;
 
 export default function PortfolioIntro() {
   return (
-    <Intro imgUrl={BAKCGROUND_IMAGE}>
-      <PortfolioSectionContainer>
-        <IntroName>- 유명수 -</IntroName>
-        <IntroTitle>장고 개발자 포트폴리오</IntroTitle>
-        <IntroHr />
-        <IntroParagraph>
-          안녕하세요. <br /> 이세계에서는 장고 개발자가 된 유명수입니다. <br />{' '}
-          현재 구골에 다니고 있으며 67세입니다.
-        </IntroParagraph>
-      </PortfolioSectionContainer>
-    </Intro>
+    <PortfolioSection>
+      <IntroTitle>{info.title}</IntroTitle>
+
+      <IntroTitleInput type='text' name={'title'} onChange={onChange} />
+
+      <IntroHr />
+      <IntroDescription
+        dangerouslySetInnerHTML={{ __html: info.description }}
+      ></IntroDescription>
+      <IntroDescriptionInput />
+    </PortfolioSection>
   );
 }
 
@@ -38,7 +35,7 @@ const Intro = styled.section<{ imgUrl: string }>`
 `;
 
 const PortfolioSectionContainer = styled.section`
-  color: ${({ theme }) => theme.textAccentColor};
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,12 +43,24 @@ const PortfolioSectionContainer = styled.section`
   gap: 1rem;
 `;
 
-const IntroName = styled.h3`
-  font-size: 3.4rem;
+const InputTextContainer = styled.div`
+  margin: 0 auto;
+`;
+
+const CommonTextInput = styled.input`
+  border: none;
+  background: transparent;
+  text-align: center;
+  width: 100%;
 `;
 
 const IntroTitle = styled.h3`
-  color: ${({ theme }) => theme.textAccentColor};
+  color: white;
+  font-size: 3.4rem;
+`;
+
+const IntroTitleInput = styled(CommonTextInput)`
+  color: white;
   font-size: 3.4rem;
 `;
 
@@ -62,10 +71,22 @@ const IntroHr = styled.hr`
   border: none;
 `;
 
-const IntroParagraph = styled.p`
+const IntroDescription = styled.p`
   text-align: center;
   font-size: ${({ theme }) => theme.fontMiddleSize};
   filter: brightness(0.9);
   letter-spacing: 2px;
   line-height: calc(${({ theme }) => theme.fontMiddleSize} + 0.4rem);
+`;
+
+const IntroDescriptionInput = styled.textarea`
+  color: white;
+  text-align: center;
+  font-size: ${({ theme }) => theme.fontMiddleSize};
+  filter: brightness(0.9);
+  letter-spacing: 2px;
+  line-height: calc(${({ theme }) => theme.fontMiddleSize} + 0.4rem);
+  background: transparent;
+  border: none;
+  outline: none;
 `;
