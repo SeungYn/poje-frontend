@@ -10,7 +10,6 @@ export default function PortfolioSkillsContainer() {
         <AiFillTag />
         <S.HeaderTitle>Skills</S.HeaderTitle>
       </S.CommonHeader>
-      <PortfolioSkills />
     </Container>
   );
 }

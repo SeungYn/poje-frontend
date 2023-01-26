@@ -37,3 +37,20 @@ export default function PortfolioSkills() {
     </Masonry>
   );
 }
+
+const Container = styled(S.CommonSection)`
+  background: ${({ theme }) => theme.colorPink};
+
+  .skillsContainer {
+    display: flex;
+    width: auto;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+  }
+
+  .skillsStack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+`;
