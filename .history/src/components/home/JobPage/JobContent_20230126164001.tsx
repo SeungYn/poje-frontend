@@ -79,7 +79,6 @@ export default function JobContent() {
 
 const ProfileContainer = styled.section`
   height: 100%;
-  width: 100%;
   background-color: ${(props) => props.theme.mainColorSemiDark};
   overflow: auto;
 `;

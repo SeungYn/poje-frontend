@@ -15,7 +15,6 @@ export const mainTheme: DefaultTheme = {
   darkBgColor: 'rgba(0, 0, 0, 0.1)',
   textColor: 'black',
   textColorToneDown: '#d3d3d3',
-  textColorToneDownTick: 'rgb(165, 165, 165)',
   textAccentColor: 'white',
   accentColor: '#9c88ff',
   borderColor: '#eeeeee',
