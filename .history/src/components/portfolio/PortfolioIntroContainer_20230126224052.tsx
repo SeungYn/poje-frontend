@@ -18,15 +18,8 @@ export default function PortfolioIntroContainer() {
 
   return (
     <Intro imgUrl={BAKCGROUND_IMAGE}>
-      {!isModifyMode && (
-        <PortfolioIntro title={info.title} description={info.description} />
-      )}
-      {isModifyMode && (
-        <PortfolioIntroModify
-          title={info.title}
-          description={info.description}
-        />
-      )}
+      <PortfolioIntro title={info.title} description={info.description} />
+      <PortfolioIntroModify title={info.title} description={info.description} />
       <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
     </Intro>
   );

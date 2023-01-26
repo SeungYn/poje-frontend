@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import useModifyMode from '../../hooks/useModifyMode';
 import ModifyBtn from './common/ModifyBtn';
 import PortfolioIntro from './introPart/PortfolioIntro';
-import PortfolioIntroModify from './introPart/PortfolioIntroModify';
 import { PortfolioIntroPropType } from './introPart/portfolioIntroType';
 
 const BAKCGROUND_IMAGE = `${process.env.PUBLIC_URL}/public_assets/portfolioBackground.jpg`;
@@ -16,17 +15,18 @@ export default function PortfolioIntroContainer() {
       '안녕하세요. <br /> 이세계에서는 장고 개발자가 된 유명수입니다. <br />현재 구골에 다니고 있으며 67세입니다.',
   });
 
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.name);
+    const { name, value } = e.target;
+    switch (name) {
+      case 'title':
+        return setInfo((e) => ({ ...e, title: value }));
+    }
+  };
+
   return (
     <Intro imgUrl={BAKCGROUND_IMAGE}>
-      {!isModifyMode && (
-        <PortfolioIntro title={info.title} description={info.description} />
-      )}
-      {isModifyMode && (
-        <PortfolioIntroModify
-          title={info.title}
-          description={info.description}
-        />
-      )}
+      <PortfolioIntro title={info.title} description={info.description} />
       <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
     </Intro>
   );
