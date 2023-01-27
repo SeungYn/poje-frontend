@@ -5,7 +5,6 @@ import { AiFillTag } from 'react-icons/ai';
 import ModifyHorizonBtn from '../common/ModifyHorizonBtn';
 import ModifyBtn from '../common/ModifyBtn';
 import useModifyMode from '../../../hooks/useModifyMode';
-import PortfolioSkillAddPalette from './PortfolioSkillAddPalette';
 
 export default function PortfolioSkillsContainer() {
   const { isModifyMode, toggleModify } = useModifyMode();
@@ -16,8 +15,7 @@ export default function PortfolioSkillsContainer() {
         <S.HeaderTitle>Skills</S.HeaderTitle>
       </S.CommonHeader>
       <PortfolioSkills />
-      <PortfolioSkillAddPalette />
-      <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
+      <ModifyBtn isModifyMode={isModifyMode} />
     </Container>
   );
 }

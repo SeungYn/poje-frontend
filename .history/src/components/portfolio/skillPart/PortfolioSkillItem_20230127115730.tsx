@@ -27,7 +27,7 @@ export default function PortfolioSkillItem({
 const SkillsStack = styled.div`
   background: ${({ theme }) => theme.bgColor};
   border-radius: 1rem;
-  padding: 1rem 1.4rem;
+  padding: 1rem 2rem;
   position: relative;
   box-shadow: 1px 1px 3px black;
 `;
