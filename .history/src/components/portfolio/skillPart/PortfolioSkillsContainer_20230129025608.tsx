@@ -58,7 +58,14 @@ export default function PortfolioSkillsContainer() {
           toggleModify={toggleModify}
         />
       )}
-
+      {isModifyMode && <PortfolioSkills skillList={modifySkillList} />}
+      {isModifyMode && (
+        <PortfolioSkillAddPalette
+          onModifyMode={toggleModify}
+          handleAddSkill={handleAddSkill}
+          modifySkillList={modifySkillList}
+        />
+      )}
       <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
     </Container>
   );

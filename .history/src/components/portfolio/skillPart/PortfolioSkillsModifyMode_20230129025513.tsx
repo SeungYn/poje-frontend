@@ -10,7 +10,6 @@ interface PortfolioSkillsModifyModeType {
 
 export default function PortfolioSkillsModifyMode({
   skillList,
-  toggleModify,
 }: PortfolioSkillsModifyModeType) {
   const [modifySkillList, setModifySkillList] = useState([...skillList]);
 
