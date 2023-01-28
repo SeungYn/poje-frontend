@@ -10,10 +10,10 @@ interface PortfolioSkillAddPaletteType {
 export default function PortfolioSkillAddPalette({
   onModifyMode,
 }: PortfolioSkillAddPaletteType) {
-  const { iconTypes, icons } = useIconImagesSet();
+  const { iconKeys, icons } = useIconImagesSet();
   const [selectedJob, setSelectedJob] = useState<IconListKeyType>('frontend');
 
-  console.log(iconTypes, icons);
+  console.log(iconKeys, icons);
 
   return (
     <Container>
@@ -22,7 +22,7 @@ export default function PortfolioSkillAddPalette({
         <CloseButton onClick={onModifyMode}>&times; </CloseButton>
       </Header>
       <CategoryList>
-        {iconTypes.map((job) => (
+        {iconKeys.map((job) => (
           <CategoryItem
             active={selectedJob === job ? true : false}
             onClick={() => setSelectedJob(job)}
@@ -33,7 +33,7 @@ export default function PortfolioSkillAddPalette({
       </CategoryList>
       <IconList>
         {icons[selectedJob].map((item) => (
-          <IconItem src={item.path} />
+          <IconItem src={item} />
         ))}
       </IconList>
     </Container>

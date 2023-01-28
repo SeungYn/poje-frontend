@@ -1,39 +1,27 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import useIconImagesSet from '../../../hooks/useIconImagesSet';
-import { IconListKeyType } from '../../../util/icons';
+import { IconsKeyType } from '../../../util/icons';
 
-interface PortfolioSkillAddPaletteType {
-  onModifyMode: () => void;
-}
-
-export default function PortfolioSkillAddPalette({
-  onModifyMode,
-}: PortfolioSkillAddPaletteType) {
-  const { iconTypes, icons } = useIconImagesSet();
-  const [selectedJob, setSelectedJob] = useState<IconListKeyType>('frontend');
-
-  console.log(iconTypes, icons);
+export default function PortfolioSkillAddPalette() {
+  const { iconKeys, icons } = useIconImagesSet();
+  const [selectedJob, setSelectedJob] = useState<IconsKeyType>('frontend');
+  console.log(iconKeys, icons);
 
   return (
     <Container>
       <Header>
         <Title>스킬 선택하기</Title>
-        <CloseButton onClick={onModifyMode}>&times; </CloseButton>
+        <CloseButton>&times; </CloseButton>
       </Header>
       <CategoryList>
-        {iconTypes.map((job) => (
-          <CategoryItem
-            active={selectedJob === job ? true : false}
-            onClick={() => setSelectedJob(job)}
-          >
-            {job}
-          </CategoryItem>
+        {iconKeys.map((job) => (
+          <CategoryItem>{job}</CategoryItem>
         ))}
       </CategoryList>
       <IconList>
         {icons[selectedJob].map((item) => (
-          <IconItem src={item.path} />
+          <IconItem src={item} />
         ))}
       </IconList>
     </Container>
@@ -59,19 +47,15 @@ const Title = styled.h1``;
 const CloseButton = styled.button`
   font-size: 2rem;
   position: absolute;
-  right: 15px;
+  right: 10px;
   top: 0;
 `;
 
 const CategoryList = styled.ul`
   display: flex;
-  margin-bottom: 0.4rem;
 `;
 
-const CategoryItem = styled.li<{ active: boolean }>`
-  padding: 0.2rem 0.2rem;
-  border-bottom: ${({ active }) => (active ? `1px solid black` : 'none')};
-`;
+const CategoryItem = styled.li``;
 
 const IconList = styled.div`
   display: flex;

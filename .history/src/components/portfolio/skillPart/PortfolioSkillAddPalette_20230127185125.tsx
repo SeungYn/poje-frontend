@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import useIconImagesSet from '../../../hooks/useIconImagesSet';
-import { IconListKeyType } from '../../../util/icons';
+import { IconsKeyType } from '../../../util/icons';
 
 interface PortfolioSkillAddPaletteType {
   onModifyMode: () => void;
@@ -10,19 +10,19 @@ interface PortfolioSkillAddPaletteType {
 export default function PortfolioSkillAddPalette({
   onModifyMode,
 }: PortfolioSkillAddPaletteType) {
-  const { iconTypes, icons } = useIconImagesSet();
-  const [selectedJob, setSelectedJob] = useState<IconListKeyType>('frontend');
+  const { iconKeys, icons } = useIconImagesSet();
+  const [selectedJob, setSelectedJob] = useState<IconsKeyType>('frontend');
 
-  console.log(iconTypes, icons);
+  console.log(iconKeys, icons);
 
   return (
     <Container>
       <Header>
         <Title>스킬 선택하기</Title>
-        <CloseButton onClick={onModifyMode}>&times; </CloseButton>
+        <CloseButton>&times; </CloseButton>
       </Header>
       <CategoryList>
-        {iconTypes.map((job) => (
+        {iconKeys.map((job) => (
           <CategoryItem
             active={selectedJob === job ? true : false}
             onClick={() => setSelectedJob(job)}
@@ -33,7 +33,7 @@ export default function PortfolioSkillAddPalette({
       </CategoryList>
       <IconList>
         {icons[selectedJob].map((item) => (
-          <IconItem src={item.path} />
+          <IconItem src={item} />
         ))}
       </IconList>
     </Container>

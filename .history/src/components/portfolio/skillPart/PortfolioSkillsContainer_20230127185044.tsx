@@ -16,7 +16,9 @@ export default function PortfolioSkillsContainer() {
         <S.HeaderTitle>Skills</S.HeaderTitle>
       </S.CommonHeader>
       <PortfolioSkills />
-      {isModifyMode && <PortfolioSkillAddPalette onModifyMode={toggleModify} />}
+      {isModifyMode && (
+        <PortfolioSkillAddPalette handleModifyMode={toggleModify} />
+      )}
       <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
     </Container>
   );

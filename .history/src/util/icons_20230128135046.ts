@@ -23,6 +23,8 @@ type SkillTypeAndNameType = {
 
 export type IconListKeyType = keyof IconListType;
 
+console.log('안녕');
+
 export function extractSkillIconFromFolder() {
   const imgContext = require.context(
     '/public/public_assets/skill_icon',
@@ -59,7 +61,7 @@ function extractSkillTypeAndName(path: string): SkillTypeAndNameType | null {
 
   return { type: skillType, name: skillName };
 }
-
+console.log(extractSkillIconFromFolder());
 // export const iconTypes: IconListKeyType[] = Object.keys(
 //   icons
 // ) as IconListKeyType[];

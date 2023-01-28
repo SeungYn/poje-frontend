@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export interface ModifyBtnType {
+interface ModifyBtnType {
   isModifyMode: boolean;
   handleSubmit?: () => void;
   handleCancle?: () => void;
@@ -33,7 +33,7 @@ const Container = styled.article`
 `;
 
 const CommomButton = styled.button`
-  font-size: ${({ theme }) => theme.fontRegular};
+  font-size: ${({ theme }) => theme.fontMiddleSize};
   padding: 0.8rem 1rem;
   background: white;
   border-radius: 2rem;

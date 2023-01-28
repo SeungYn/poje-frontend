@@ -17,7 +17,7 @@ export default function PortfolioSkillItem({
       <SkillsTitle>{skillTitle}</SkillsTitle>
       <SkillList>
         {skillList.map((path) => (
-          <SkillItem src={'/static/media/js_icon.60dbbe1569571db1eda7.png'} />
+          <SkillItem src={`"/static/media/js_icon.60dbbe1569571db1eda7.png"`} />
         ))}
       </SkillList>
     </SkillsStack>

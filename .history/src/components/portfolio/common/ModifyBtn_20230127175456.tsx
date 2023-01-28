@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export interface ModifyBtnType {
+interface ModifyBtnType {
   isModifyMode: boolean;
   handleSubmit?: () => void;
   handleCancle?: () => void;

@@ -12,9 +12,10 @@ type IconSetType = {
   path: string;
 };
 
-type SkillIconType = 'frontend' | 'backend';
-
-type IconListType = Record<SkillIconType, IconSetType[]>;
+type IconListType = {
+  frontend: IconSetType[];
+  backend: IconSetType[];
+};
 
 type SkillTypeAndNameType = {
   type: IconListKeyType;
@@ -23,17 +24,19 @@ type SkillTypeAndNameType = {
 
 export type IconListKeyType = keyof IconListType;
 
-export function extractSkillIconFromFolder() {
-  const imgContext = require.context(
-    '/public/public_assets/skill_icon',
-    true,
-    /.png$|.ipg$/
-  );
-  const icons: IconListType = {
-    frontend: [],
-    backend: [],
-  };
+const icons: IconListType = {
+  frontend: [],
+  backend: [],
+};
 
+const imgContext = require.context(
+  '/public/public_assets/skill_icon',
+  true,
+  /.png$|.ipg$/
+);
+console.log('안녕');
+
+function extractSkillIconFromFolder() {
   imgContext.keys().forEach((k) => {
     console.log('실행');
     const extractedSkill = extractSkillTypeAndName(k);
@@ -43,8 +46,6 @@ export function extractSkillIconFromFolder() {
       icons[extractedSkill.type].push({ name, path });
     }
   });
-
-  return icons;
 }
 
 function extractSkillTypeAndName(path: string): SkillTypeAndNameType | null {
@@ -59,11 +60,10 @@ function extractSkillTypeAndName(path: string): SkillTypeAndNameType | null {
 
   return { type: skillType, name: skillName };
 }
-
-// export const iconTypes: IconListKeyType[] = Object.keys(
-//   icons
-// ) as IconListKeyType[];
-// export default icons;
+export const iconTypes: IconListKeyType[] = Object.keys(
+  icons
+) as IconListKeyType[];
+export default icons;
 
 // 유물 애도를 표합니다. require.context는 매개변수로 경로를 념겨줄수 없어서
 // const iconFolderNames: IconsKeyType[] = ['frontend', 'backend'];
@@ -80,3 +80,12 @@ function extractSkillTypeAndName(path: string): SkillTypeAndNameType | null {
 //   console.log(context.keys());
 //   context.keys().map((i) => icons[folderName].push(context(i) as string));
 // });
+
+class test {
+  a() {
+    console.log(123);
+  }
+}
+
+const test1 = new test();
+test1.a();
