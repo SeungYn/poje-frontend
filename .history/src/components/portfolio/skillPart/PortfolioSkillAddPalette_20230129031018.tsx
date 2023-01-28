@@ -1,5 +1,4 @@
-import { Fragment, useState } from 'react';
-import uuid from 'react-uuid';
+import { useState } from 'react';
 import styled from 'styled-components';
 import useIconImagesSet from '../../../hooks/useIconImagesSet';
 import {
@@ -7,7 +6,7 @@ import {
   SkillIconSetType,
   SkillIconType,
 } from '../../../util/skillicons';
-import { SkillListType } from './PortfolioSkillsContainer';
+import { SkillListType } from './PortfolioSkills';
 
 interface PortfolioSkillAddPaletteType {
   onModifyMode: () => void;
@@ -26,8 +25,7 @@ export default function PortfolioSkillAddPalette({
   handleAddSkill,
   modifySkillList,
 }: PortfolioSkillAddPaletteType) {
-  const { iconTypes, icons, deleteUsedIcon } =
-    useIconImagesSet(modifySkillList);
+  const { iconTypes, icons, deleteUsedIcon } = useIconImagesSet();
   const [selectedIconType, setSelectedIconType] =
     useState<IconListKeyType>('frontend');
   const onAddSkill = ({
@@ -52,7 +50,6 @@ export default function PortfolioSkillAddPalette({
       <CategoryList>
         {iconTypes.map((job) => (
           <CategoryItem
-            key={uuid()}
             active={selectedIconType === job ? true : false}
             onClick={() => setSelectedIconType(job)}
           >
@@ -63,10 +60,10 @@ export default function PortfolioSkillAddPalette({
       <IconList>
         {icons[selectedIconType].map((item) => {
           if (isExistOriginSkillList(modifySkillList, item, selectedIconType))
-            return <Fragment key={uuid()}></Fragment>;
+            return <></>;
           return (
             <IconItem
-              key={uuid()}
+              key={item.path}
               src={item.path}
               onClick={() => {
                 onAddSkill({ selectedType: selectedIconType, item });

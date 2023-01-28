@@ -1,17 +1,16 @@
-import PortfolioSkills from './PortfolioSkills';
+import PortfolioSkills, {
+  PortfolioSkillsType,
+  SkillListType,
+} from './PortfolioSkills';
 import * as S from '../styledComponents';
 import styled from 'styled-components';
 import { AiFillTag } from 'react-icons/ai';
 import ModifyBtn from '../common/ModifyBtn';
 import useModifyMode from '../../../hooks/useModifyMode';
+import PortfolioSkillAddPalette from './PortfolioSkillAddPalette';
 import { useState } from 'react';
-import PortfolioSkillsModifyMode from './PortfolioSkillsModifyMode';
 import { SkillIconSetType, SkillIconType } from '../../../util/skillicons';
-
-export type SkillListType = {
-  type: SkillIconType;
-  skills: SkillIconSetType[];
-};
+import PortfolioSkillsModifyMode from './PortfolioSkillsModifyMode';
 
 export default function PortfolioSkillsContainer() {
   const { isModifyMode, toggleModify } = useModifyMode();
@@ -24,13 +23,16 @@ export default function PortfolioSkillsContainer() {
         <AiFillTag />
         <S.HeaderTitle>Skills</S.HeaderTitle>
       </S.CommonHeader>
+
       <PortfolioSkills skillList={skillList} />
+
       {isModifyMode && (
         <PortfolioSkillsModifyMode
           skillList={skillList}
           toggleModify={toggleModify}
         />
       )}
+
       <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
     </Container>
   );

@@ -1,4 +1,3 @@
-import uuid from 'react-uuid';
 import styled from 'styled-components';
 import { breakPoint } from '../../../styledComponents/media';
 import { SkillIconSetType } from '../../../util/skillicons';
@@ -22,7 +21,7 @@ export default function PortfolioSkillItem({
       <SkillList>
         {skillList.map((skill) => (
           <SkillItem
-            key={uuid()}
+            key={skill.path}
             src={skill.path}
             onClick={
               !!onDelete ? () => onDelete(skillType, skill.name) : () => {}

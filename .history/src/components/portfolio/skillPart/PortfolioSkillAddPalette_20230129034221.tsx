@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import uuid from 'react-uuid';
 import styled from 'styled-components';
 import useIconImagesSet from '../../../hooks/useIconImagesSet';
@@ -63,7 +63,7 @@ export default function PortfolioSkillAddPalette({
       <IconList>
         {icons[selectedIconType].map((item) => {
           if (isExistOriginSkillList(modifySkillList, item, selectedIconType))
-            return <Fragment key={uuid()}></Fragment>;
+            return <></>;
           return (
             <IconItem
               key={uuid()}

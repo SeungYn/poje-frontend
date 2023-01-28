@@ -8,7 +8,7 @@ import {
   SkillIconType,
 } from '../util/skillicons';
 
-export default function useIconImagesSet(modifySkillList: SkillListType[]) {
+export default function useIconImagesSet(modifySkillList?: SkillListType[]) {
   const iconsList = useMemo(extractSkillIconFromFolder, [
     extractSkillIconFromFolder,
   ]);
@@ -31,8 +31,9 @@ export default function useIconImagesSet(modifySkillList: SkillListType[]) {
   };
 
   useEffect(() => {
+    console.log('skill');
     setIcons({ ...iconsList });
-  }, [modifySkillList, iconsList]);
+  }, [modifySkillList]);
 
   return { iconTypes, icons, deleteUsedIcon };
 }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { SkillListType } from '../components/portfolio/skillPart/PortfolioSkillsContainer';
 import {
   extractSkillIconFromFolder,
@@ -11,6 +11,7 @@ import {
 export default function useIconImagesSet(modifySkillList: SkillListType[]) {
   const iconsList = useMemo(extractSkillIconFromFolder, [
     extractSkillIconFromFolder,
+    modifySkillList,
   ]);
 
   const iconTypes = Object.keys(iconsList) as IconListKeyType[];
@@ -29,10 +30,6 @@ export default function useIconImagesSet(modifySkillList: SkillListType[]) {
       return { ...list, [selectedType]: [...targetSet] };
     });
   };
-
-  useEffect(() => {
-    setIcons({ ...iconsList });
-  }, [modifySkillList, iconsList]);
 
   return { iconTypes, icons, deleteUsedIcon };
 }

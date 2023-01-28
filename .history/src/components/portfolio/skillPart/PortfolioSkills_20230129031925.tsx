@@ -1,6 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react';
 import Masonry from 'react-masonry-css';
-import uuid from 'react-uuid';
 import styled from 'styled-components';
 import { SkillIconSetType, SkillIconType } from '../../../util/skillicons';
 import PortfolioSkillItem from './PortfolioSkillItem';
@@ -33,7 +32,7 @@ export default function PortfolioSkills({
     >
       {skillList.map((skillSet) => (
         <PortfolioSkillItem
-          key={uuid()}
+          key={skillSet.type}
           skillType={skillSet.type}
           skillList={skillSet.skills}
           onDelete={handleSkillIconDelete}

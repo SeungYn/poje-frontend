@@ -32,7 +32,7 @@ export default function useIconImagesSet(modifySkillList: SkillListType[]) {
 
   useEffect(() => {
     setIcons({ ...iconsList });
-  }, [modifySkillList, iconsList]);
+  }, [modifySkillList]);
 
   return { iconTypes, icons, deleteUsedIcon };
 }

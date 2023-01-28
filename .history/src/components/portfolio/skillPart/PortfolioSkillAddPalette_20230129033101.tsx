@@ -1,5 +1,4 @@
-import { Fragment, useState } from 'react';
-import uuid from 'react-uuid';
+import { useState } from 'react';
 import styled from 'styled-components';
 import useIconImagesSet from '../../../hooks/useIconImagesSet';
 import {
@@ -52,7 +51,7 @@ export default function PortfolioSkillAddPalette({
       <CategoryList>
         {iconTypes.map((job) => (
           <CategoryItem
-            key={uuid()}
+            key={job}
             active={selectedIconType === job ? true : false}
             onClick={() => setSelectedIconType(job)}
           >
@@ -63,10 +62,10 @@ export default function PortfolioSkillAddPalette({
       <IconList>
         {icons[selectedIconType].map((item) => {
           if (isExistOriginSkillList(modifySkillList, item, selectedIconType))
-            return <Fragment key={uuid()}></Fragment>;
+            return <></>;
           return (
             <IconItem
-              key={uuid()}
+              key={item.path}
               src={item.path}
               onClick={() => {
                 onAddSkill({ selectedType: selectedIconType, item });

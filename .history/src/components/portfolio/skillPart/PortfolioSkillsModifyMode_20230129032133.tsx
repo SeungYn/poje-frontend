@@ -49,10 +49,9 @@ export default function PortfolioSkillsModifyMode({
       const deletedTargetSkillSet = targetSkillSet.skills.filter(
         (skill) => skill.name !== name
       );
-      const newSkillList = list.filter((item) => item.type !== type);
 
       return [
-        ...newSkillList,
+        ...list,
         { ...targetSkillSet, skills: [...deletedTargetSkillSet] },
       ];
     });

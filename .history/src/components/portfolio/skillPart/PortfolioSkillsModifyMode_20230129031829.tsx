@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { SkillIconSetType, SkillIconType } from '../../../util/skillicons';
 import PortfolioSkillAddPalette from './PortfolioSkillAddPalette';
-import { SkillListType } from './PortfolioSkillsContainer';
-import PortfolioSkills from './PortfolioSkills';
+import PortfolioSkills, { SkillListType } from './PortfolioSkills';
 
 interface PortfolioSkillsModifyModeType {
   skillList: SkillListType[];
@@ -49,15 +48,10 @@ export default function PortfolioSkillsModifyMode({
       const deletedTargetSkillSet = targetSkillSet.skills.filter(
         (skill) => skill.name !== name
       );
-      const newSkillList = list.filter((item) => item.type !== type);
 
-      return [
-        ...newSkillList,
-        { ...targetSkillSet, skills: [...deletedTargetSkillSet] },
-      ];
+      return [...list, ...{ ...targetSkillSet, skills: deletedTargetSkillSet }];
     });
   };
-
   return (
     <>
       <PortfolioSkills
