@@ -5,10 +5,12 @@ import PortfolioSkills, {
 import * as S from '../styledComponents';
 import styled from 'styled-components';
 import { AiFillTag } from 'react-icons/ai';
+import ModifyHorizonBtn from '../common/ModifyHorizonBtn';
 import ModifyBtn from '../common/ModifyBtn';
 import useModifyMode from '../../../hooks/useModifyMode';
 import PortfolioSkillAddPalette from './PortfolioSkillAddPalette';
 import { useState } from 'react';
+import PortfolioSkillMasonry from './PortfolioSkillMasonry';
 import { SkillIconSetType, SkillIconType } from '../../../util/skillicons';
 
 export default function PortfolioSkillsContainer() {

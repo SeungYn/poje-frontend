@@ -1,7 +1,7 @@
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react';
 import Masonry from 'react-masonry-css';
 import styled from 'styled-components';
-import { SkillIconSetType, SkillIconType } from '../../../util/skillicons';
+import { SkillIconSetType } from '../../../util/skillicons';
 import PortfolioSkillItem from './PortfolioSkillItem';
 
 const breakpointColumnsObj = Object.freeze({
@@ -13,18 +13,20 @@ const breakpointColumnsObj = Object.freeze({
 });
 
 export type SkillListType = {
-  type: SkillIconType;
+  type: string;
   skills: SkillIconSetType[];
 };
 
 export interface PortfolioSkillsType {
   skillList: SkillListType[];
   setModifySkillList?: Dispatch<SetStateAction<SkillListType[]>>;
+  children: ReactNode;
 }
 
 export default function PortfolioSkills({
   skillList,
   setModifySkillList,
+  children,
 }: PortfolioSkillsType) {
   // const handleSkillIconDelete = (type: string, name: string) => {
   //   setModifySkillList((list) => {
@@ -45,6 +47,9 @@ export default function PortfolioSkills({
       className='skillsContainer'
       columnClassName='skillsStack'
     >
+      {/* {Object.keys(skills).map((title) => (
+        <PortfolioSkillItem skillTitle={title} skillList={skills[title]} />
+      ))} */}
       {skillList.map((skillSet) => (
         <PortfolioSkillItem
           skillType={skillSet.type}

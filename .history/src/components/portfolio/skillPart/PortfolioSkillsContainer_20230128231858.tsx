@@ -5,42 +5,34 @@ import PortfolioSkills, {
 import * as S from '../styledComponents';
 import styled from 'styled-components';
 import { AiFillTag } from 'react-icons/ai';
+import ModifyHorizonBtn from '../common/ModifyHorizonBtn';
 import ModifyBtn from '../common/ModifyBtn';
 import useModifyMode from '../../../hooks/useModifyMode';
 import PortfolioSkillAddPalette from './PortfolioSkillAddPalette';
 import { useState } from 'react';
+import PortfolioSkillMasonry from './PortfolioSkillMasonry';
 import { SkillIconSetType, SkillIconType } from '../../../util/skillicons';
 
 export default function PortfolioSkillsContainer() {
   const { isModifyMode, toggleModify } = useModifyMode();
   const [skillList, setSkillList] = useState<SkillListType[]>([]);
   const [modifySkillList, setModifySkillList] = useState([...skillList]);
-  //[{type:'frontend, skills:[{name:react, path:'123'}]}, ]
+//[{type:'frontend, skills:[{name:react, path:'123'}]}, ]
   const handleAddSkill = ({
     item,
-    selectedType,
+    seletedType,
   }: {
     item: SkillIconSetType;
-    selectedType: SkillIconType;
-  }) => {
+    seletedType: SkillIconType;
+    }) => {
+    
     setModifySkillList((list) => {
-      const targetTypeSet = list.find((item) => item.type === selectedType);
-      if (targetTypeSet === undefined) {
-        return [
-          ...list,
-          { type: selectedType, skills: [item] },
-        ] as SkillListType[];
-      }
-      const willModifyTargetSet = { ...targetTypeSet };
-      const newSkills = list.filter((set) => set.type !== selectedType);
-      return [
-        ...newSkills,
-        {
-          ...willModifyTargetSet,
-          skills: [...willModifyTargetSet.skills, item],
-        },
-      ];
-    });
+      const targetType = list.find((item) => item.type === seletedType);
+      if (targetType === undefined) return [...list, { [seletedType]: seletedType, skills: [item] }];
+      return return [...list, { ...targetType, skills: [...targetType?.skills, item]}];
+      
+      })
+    
   };
   return (
     <Container>
@@ -48,17 +40,15 @@ export default function PortfolioSkillsContainer() {
         <AiFillTag />
         <S.HeaderTitle>Skills</S.HeaderTitle>
       </S.CommonHeader>
-
-      <PortfolioSkills skillList={skillList} />
-
-      {isModifyMode && <PortfolioSkills skillList={modifySkillList} />}
+      <PortfolioSkillMasonry>
+        <PortfolioSkills skillList={skillList} />
+      </PortfolioSkillMasonry>
       {isModifyMode && (
-        <PortfolioSkillAddPalette
-          onModifyMode={toggleModify}
-          handleAddSkill={handleAddSkill}
-          modifySkillList={modifySkillList}
-        />
+        <PortfolioSkillMasonry>
+          <PortfolioSkills skillList={modifySkillList} />
+        </PortfolioSkillMasonry>
       )}
+      {isModifyMode && <PortfolioSkillAddPalette onModifyMode={toggleModify} />}
       <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
     </Container>
   );

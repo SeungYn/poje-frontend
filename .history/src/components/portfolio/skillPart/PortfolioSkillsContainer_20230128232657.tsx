@@ -5,10 +5,12 @@ import PortfolioSkills, {
 import * as S from '../styledComponents';
 import styled from 'styled-components';
 import { AiFillTag } from 'react-icons/ai';
+import ModifyHorizonBtn from '../common/ModifyHorizonBtn';
 import ModifyBtn from '../common/ModifyBtn';
 import useModifyMode from '../../../hooks/useModifyMode';
 import PortfolioSkillAddPalette from './PortfolioSkillAddPalette';
 import { useState } from 'react';
+import PortfolioSkillMasonry from './PortfolioSkillMasonry';
 import { SkillIconSetType, SkillIconType } from '../../../util/skillicons';
 
 export default function PortfolioSkillsContainer() {
@@ -18,27 +20,21 @@ export default function PortfolioSkillsContainer() {
   //[{type:'frontend, skills:[{name:react, path:'123'}]}, ]
   const handleAddSkill = ({
     item,
-    selectedType,
+    seletedType,
   }: {
     item: SkillIconSetType;
-    selectedType: SkillIconType;
+    seletedType: SkillIconType;
   }) => {
     setModifySkillList((list) => {
-      const targetTypeSet = list.find((item) => item.type === selectedType);
-      if (targetTypeSet === undefined) {
+      const targetTypeSet = list.find((item) => item.type === seletedType);
+      if (targetTypeSet === undefined)
         return [
           ...list,
-          { type: selectedType, skills: [item] },
+          { [seletedType]: seletedType, skills: [item] },
         ] as SkillListType[];
-      }
-      const willModifyTargetSet = { ...targetTypeSet };
-      const newSkills = list.filter((set) => set.type !== selectedType);
       return [
-        ...newSkills,
-        {
-          ...willModifyTargetSet,
-          skills: [...willModifyTargetSet.skills, item],
-        },
+        ...list,
+        { ...targetTypeSet, skills: [...targetTypeSet?.skills, item] },
       ];
     });
   };
@@ -48,17 +44,15 @@ export default function PortfolioSkillsContainer() {
         <AiFillTag />
         <S.HeaderTitle>Skills</S.HeaderTitle>
       </S.CommonHeader>
-
-      <PortfolioSkills skillList={skillList} />
-
-      {isModifyMode && <PortfolioSkills skillList={modifySkillList} />}
+      <PortfolioSkillMasonry>
+        <PortfolioSkills skillList={skillList} />
+      </PortfolioSkillMasonry>
       {isModifyMode && (
-        <PortfolioSkillAddPalette
-          onModifyMode={toggleModify}
-          handleAddSkill={handleAddSkill}
-          modifySkillList={modifySkillList}
-        />
+        <PortfolioSkillMasonry>
+          <PortfolioSkills skillList={modifySkillList} />
+        </PortfolioSkillMasonry>
       )}
+      {isModifyMode && <PortfolioSkillAddPalette onModifyMode={toggleModify} />}
       <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
     </Container>
   );

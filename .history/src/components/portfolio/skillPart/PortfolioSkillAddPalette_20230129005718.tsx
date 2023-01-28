@@ -59,8 +59,15 @@ export default function PortfolioSkillAddPalette({
       </CategoryList>
       <IconList>
         {icons[selectedIconType].map((item) => {
-          if (isExistOriginSkillList(modifySkillList, item, selectedIconType))
-            return <></>;
+          const originSkillList = modifySkillList.find(
+            (skills) => skills.type === selectedIconType
+          );
+          if (originSkillList) {
+            const target = originSkillList.skills.find(
+              (skill) => skill.name === item.name
+            );
+            if (target) return <></>;
+          }
           return (
             <IconItem
               src={item.path}
@@ -73,23 +80,6 @@ export default function PortfolioSkillAddPalette({
       </IconList>
     </Container>
   );
-}
-
-function isExistOriginSkillList(
-  originSkillList: SkillListType[],
-  targetItem: SkillIconSetType,
-  selectedIconType: SkillIconType
-) {
-  const skillList = originSkillList.find(
-    (skills) => skills.type === selectedIconType
-  );
-  if (skillList) {
-    const target = skillList.skills.find(
-      (skill) => skill.name === targetItem.name
-    );
-    if (target) return true;
-  }
-  return false;
 }
 
 const Container = styled.section`

@@ -1,7 +1,7 @@
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react';
 import Masonry from 'react-masonry-css';
 import styled from 'styled-components';
-import { SkillIconSetType, SkillIconType } from '../../../util/skillicons';
+import { SkillIconSetType } from '../../../util/skillicons';
 import PortfolioSkillItem from './PortfolioSkillItem';
 
 const breakpointColumnsObj = Object.freeze({
@@ -13,7 +13,7 @@ const breakpointColumnsObj = Object.freeze({
 });
 
 export type SkillListType = {
-  type: SkillIconType;
+  type: string;
   skills: SkillIconSetType[];
 };
 
@@ -40,11 +40,7 @@ export default function PortfolioSkills({
   // };
 
   return (
-    <Masonry
-      breakpointCols={breakpointColumnsObj}
-      className='skillsContainer'
-      columnClassName='skillsStack'
-    >
+    <>
       {skillList.map((skillSet) => (
         <PortfolioSkillItem
           skillType={skillSet.type}
@@ -52,6 +48,6 @@ export default function PortfolioSkills({
           // onDelete={handleSkillIconDelete}
         />
       ))}
-    </Masonry>
+    </>
   );
 }

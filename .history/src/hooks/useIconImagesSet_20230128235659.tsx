@@ -3,8 +3,6 @@ import {
   extractSkillIconFromFolder,
   IconListKeyType,
   IconListType,
-  SkillIconSetType,
-  SkillIconType,
 } from '../util/skillicons';
 
 export default function useIconImagesSet() {
@@ -15,19 +13,7 @@ export default function useIconImagesSet() {
   const iconTypes = Object.keys(iconsList) as IconListKeyType[];
   const [icons, setIcons] = useState<IconListType>({ ...iconsList });
 
-  const deleteUsedIcon = ({
-    item,
-    selectedType,
-  }: {
-    item: SkillIconSetType;
-    selectedType: SkillIconType;
-  }) => {
-    setIcons((list) => {
-      let targetSet = [...list[selectedType]];
-      targetSet = targetSet.filter((i) => i.name !== item.name);
-      return { ...list, [selectedType]: [...targetSet] };
-    });
-  };
+  const deleteUsedIcon = () => {};
 
-  return { iconTypes, icons, deleteUsedIcon };
+  return { iconTypes, icons };
 }

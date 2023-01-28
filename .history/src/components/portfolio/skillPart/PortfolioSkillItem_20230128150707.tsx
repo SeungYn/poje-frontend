@@ -20,13 +20,7 @@ export default function PortfolioSkillItem({
       <SkillsTitle>{skillType}</SkillsTitle>
       <SkillList>
         {skillList.map((skill) => (
-          <SkillItem
-            key={skill.path}
-            src={skill.path}
-            onClick={
-              !!onDelete ? () => onDelete(skillType, skill.name) : () => {}
-            }
-          />
+          <SkillItem key={skill.path} src={skill.path} onClick={onDelete} />
         ))}
       </SkillList>
     </SkillsStack>

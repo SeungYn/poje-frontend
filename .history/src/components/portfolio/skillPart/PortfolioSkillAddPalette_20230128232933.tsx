@@ -6,41 +6,28 @@ import {
   SkillIconSetType,
   SkillIconType,
 } from '../../../util/skillicons';
-import { SkillListType } from './PortfolioSkills';
 
 interface PortfolioSkillAddPaletteType {
   onModifyMode: () => void;
-  handleAddSkill: ({
+  onAddSkill: ({
     item,
-    selectedType,
+    seletedType,
   }: {
     item: SkillIconSetType;
-    selectedType: SkillIconType;
+    seletedType: SkillIconType;
   }) => void;
-  modifySkillList: SkillListType[];
 }
 
 export default function PortfolioSkillAddPalette({
   onModifyMode,
-  handleAddSkill,
-  modifySkillList,
+  onAddSkill,
 }: PortfolioSkillAddPaletteType) {
-  const { iconTypes, icons, deleteUsedIcon } = useIconImagesSet();
+  const { iconTypes, icons } = useIconImagesSet();
   const [selectedIconType, setSelectedIconType] =
     useState<IconListKeyType>('frontend');
-  const onAddSkill = ({
-    item,
-    selectedType,
-  }: {
-    item: SkillIconSetType;
-    selectedType: SkillIconType;
-  }) => {
-    deleteUsedIcon({ item, selectedType });
-    handleAddSkill({
-      item,
-      selectedType,
-    });
-  };
+
+  console.log(iconTypes, icons);
+
   return (
     <Container>
       <Header>
@@ -58,38 +45,17 @@ export default function PortfolioSkillAddPalette({
         ))}
       </CategoryList>
       <IconList>
-        {icons[selectedIconType].map((item) => {
-          if (isExistOriginSkillList(modifySkillList, item, selectedIconType))
-            return <></>;
-          return (
-            <IconItem
-              src={item.path}
-              onClick={() => {
-                onAddSkill({ selectedType: selectedIconType, item });
-              }}
-            />
-          );
-        })}
+        {icons[selectedIconType].map((item) => (
+          <IconItem
+            src={item.path}
+            onClick={() => {
+              onAddSkill({ seletedType: selectedIconType, item });
+            }}
+          />
+        ))}
       </IconList>
     </Container>
   );
-}
-
-function isExistOriginSkillList(
-  originSkillList: SkillListType[],
-  targetItem: SkillIconSetType,
-  selectedIconType: SkillIconType
-) {
-  const skillList = originSkillList.find(
-    (skills) => skills.type === selectedIconType
-  );
-  if (skillList) {
-    const target = skillList.skills.find(
-      (skill) => skill.name === targetItem.name
-    );
-    if (target) return true;
-  }
-  return false;
 }
 
 const Container = styled.section`

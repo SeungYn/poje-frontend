@@ -29,5 +29,5 @@ export default function useIconImagesSet() {
     });
   };
 
-  return { iconTypes, icons, deleteUsedIcon };
+  return { iconTypes, icons };
 }

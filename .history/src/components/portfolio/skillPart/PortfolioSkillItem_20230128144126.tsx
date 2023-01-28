@@ -5,28 +5,19 @@ import { SkillIconSetType } from '../../../util/skillicons';
 interface PortfolioSkillItemType {
   skillType: string;
   skillList: SkillIconSetType[];
-  onDelete?: (type: string, name: string) => void;
 }
 
 const ICON_PATH = `${process.env.PUBLIC_URL}/public_assets/skill_icon/`;
 
 export default function PortfolioSkillItem({
-  skillType,
-  skillList,
-  onDelete,
+  skillType, skillList
 }: PortfolioSkillItemType) {
   return (
     <SkillsStack>
-      <SkillsTitle>{skillType}</SkillsTitle>
+      <SkillsTitle>{skill.name}</SkillsTitle>
       <SkillList>
-        {skillList.map((skill) => (
-          <SkillItem
-            key={skill.path}
-            src={skill.path}
-            onClick={
-              !!onDelete ? () => onDelete(skillType, skill.name) : () => {}
-            }
-          />
+        {skill..map((path) => (
+          <SkillItem src={'/static/media/js_icon.60dbbe1569571db1eda7.png'} />
         ))}
       </SkillList>
     </SkillsStack>

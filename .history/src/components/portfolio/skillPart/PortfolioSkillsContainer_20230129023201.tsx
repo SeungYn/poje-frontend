@@ -5,10 +5,12 @@ import PortfolioSkills, {
 import * as S from '../styledComponents';
 import styled from 'styled-components';
 import { AiFillTag } from 'react-icons/ai';
+import ModifyHorizonBtn from '../common/ModifyHorizonBtn';
 import ModifyBtn from '../common/ModifyBtn';
 import useModifyMode from '../../../hooks/useModifyMode';
 import PortfolioSkillAddPalette from './PortfolioSkillAddPalette';
 import { useState } from 'react';
+import PortfolioSkillMasonry from './PortfolioSkillMasonry';
 import { SkillIconSetType, SkillIconType } from '../../../util/skillicons';
 
 export default function PortfolioSkillsContainer() {
@@ -23,6 +25,7 @@ export default function PortfolioSkillsContainer() {
     item: SkillIconSetType;
     selectedType: SkillIconType;
   }) => {
+    console.log(item);
     setModifySkillList((list) => {
       const targetTypeSet = list.find((item) => item.type === selectedType);
       if (targetTypeSet === undefined) {
@@ -32,7 +35,11 @@ export default function PortfolioSkillsContainer() {
         ] as SkillListType[];
       }
       const willModifyTargetSet = { ...targetTypeSet };
+      //willModifyTargetSet.skills.push(item);
       const newSkills = list.filter((set) => set.type !== selectedType);
+
+      console.log(willModifyTargetSet, 'modify');
+      console.log(newSkills, 'newskill');
       return [
         ...newSkills,
         {
@@ -41,6 +48,7 @@ export default function PortfolioSkillsContainer() {
         },
       ];
     });
+    console.log(modifySkillList);
   };
   return (
     <Container>

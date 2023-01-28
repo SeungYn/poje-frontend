@@ -23,9 +23,7 @@ export default function PortfolioSkillItem({
           <SkillItem
             key={skill.path}
             src={skill.path}
-            onClick={
-              !!onDelete ? () => onDelete(skillType, skill.name) : () => {}
-            }
+            onClick={() => onDelete(skillType, skill.name)}
           />
         ))}
       </SkillList>

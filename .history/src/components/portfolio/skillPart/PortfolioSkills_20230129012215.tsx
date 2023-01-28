@@ -40,11 +40,7 @@ export default function PortfolioSkills({
   // };
 
   return (
-    <Masonry
-      breakpointCols={breakpointColumnsObj}
-      className='skillsContainer'
-      columnClassName='skillsStack'
-    >
+    <>
       {skillList.map((skillSet) => (
         <PortfolioSkillItem
           skillType={skillSet.type}
@@ -52,6 +48,6 @@ export default function PortfolioSkills({
           // onDelete={handleSkillIconDelete}
         />
       ))}
-    </Masonry>
+    </>
   );
 }

@@ -17,17 +17,17 @@ export default function useIconImagesSet() {
 
   const deleteUsedIcon = ({
     item,
-    selectedType,
+    seletedType,
   }: {
     item: SkillIconSetType;
-    selectedType: SkillIconType;
+    seletedType: SkillIconType;
   }) => {
     setIcons((list) => {
-      let targetSet = [...list[selectedType]];
+      let targetSet = [...list[seletedType]];
       targetSet = targetSet.filter((i) => i.name !== item.name);
-      return { ...list, [selectedType]: [...targetSet] };
+      return { ...list, [seletedType]: [...targetSet] };
     });
   };
 
-  return { iconTypes, icons, deleteUsedIcon };
+  return { iconTypes, icons };
 }
