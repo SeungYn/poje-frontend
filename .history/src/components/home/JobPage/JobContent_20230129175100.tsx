@@ -93,6 +93,7 @@ const ProfileList = styled.ul`
   overflow-y: auto;
   min-height: 0;
   gap: 2rem;
+  max-width: 1800px;
   max-width: 1600px;
 
   @media screen and (max-width: ${breakPoint.l}) {

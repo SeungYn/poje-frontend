@@ -13,12 +13,11 @@ const test = [
       'dkssudgktpdyw wjsms dbtmddbsdjrkwkfhawnghraeoighejraigjeioajioajioejrigrjeiljgiihuiu',
     belong: '냥냥뇽뇽농냥',
     link: 'wjwjfowelglewgr.cmm',
-    projectImgs: [
+    imgs: [
       `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
       `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
       `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
     ],
-    skills: ['react', 'java'],
   },
 ];
 

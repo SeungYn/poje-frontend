@@ -87,13 +87,14 @@ const ProfileList = styled.ul`
   /* background-color: ${({ theme }) => theme.bgColor}; */
   margin: 0 auto;
   display: grid;
-  grid-auto-rows: 340px;
+  grid-auto-rows: 400px;
   grid-template-columns: repeat(4, 1fr);
   padding: 2rem 2rem;
   overflow-y: auto;
   min-height: 0;
   gap: 2rem;
-  max-width: 1600px;
+  max-width: 1800px;
+  margin-right: 2rem;
 
   @media screen and (max-width: ${breakPoint.l}) {
     grid-template-columns: repeat(3, 1fr);

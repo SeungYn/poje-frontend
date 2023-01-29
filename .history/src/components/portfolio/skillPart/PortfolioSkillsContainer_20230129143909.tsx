@@ -24,7 +24,7 @@ export default function PortfolioSkillsContainer() {
         <AiFillTag />
         <S.HeaderTitle>Skills</S.HeaderTitle>
       </S.CommonHeader>
-      <Content>
+      <div>
         <PortfolioSkills skillList={skillList} />
         {isModifyMode && (
           <PortfolioSkillsModifyMode
@@ -32,7 +32,7 @@ export default function PortfolioSkillsContainer() {
             toggleModify={toggleModify}
           />
         )}
-      </Content>
+      </div>
       <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
     </Container>
   );
@@ -55,9 +55,4 @@ const Container = styled(S.CommonSection)`
     flex-direction: column;
     gap: 0.8rem;
   }
-`;
-
-const Content = styled.div`
-  max-width: 1600px;
-  margin: 0 auto;
 `;

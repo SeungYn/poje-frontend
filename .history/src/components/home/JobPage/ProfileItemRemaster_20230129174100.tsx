@@ -51,9 +51,8 @@ const Container = styled.li`
     height: 100px;
   }
 `;
-
 const ProfileTop = styled.div`
-  height: 60%;
+  flex-basis: 60%;
   width: 100%;
   overflow: hidden;
   transition: all 0.03s linear;
@@ -73,37 +72,36 @@ const ProfileImgBackground = styled.img`
 `;
 
 const ProfileContent = styled.div`
+  flex-basis: 30%;
   width: 100%;
-  height: 35%;
+
   padding: 0.8rem;
 `;
 
 const ProfileTitle = styled.h2`
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1rem;
 `;
 const ProfileDescription = styled.p`
   font-size: 1rem;
 `;
 
 const Footer = styled.footer`
+  flex-basis: 10%;
   display: flex;
   justify-content: space-between;
-  padding: 0.2rem 0.8rem;
+  padding: 0.8rem;
   border-top: 2px solid ${({ theme }) => theme.bgSemiDarkColor};
 `;
 
-const InfoGroup = styled.div`
-  display: flex;
-  align-items: center;
-`;
+const InfoGroup = styled.div``;
 
 const LikeGroup = styled.div`
+  margin-top: 0.2rem;
   display: flex;
   align-items: center;
-  /* color: ${({ theme }) => theme.textColor}; */
+  color: ${({ theme }) => theme.textColor};
   font-size: 1.2rem;
-  color: rgb(153, 3, 3);
+
   p {
     margin-left: 0.4rem;
     display: flex;

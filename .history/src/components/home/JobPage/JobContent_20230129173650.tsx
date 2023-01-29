@@ -93,7 +93,8 @@ const ProfileList = styled.ul`
   overflow-y: auto;
   min-height: 0;
   gap: 2rem;
-  max-width: 1600px;
+  max-width: 1800px;
+  margin-right: 2rem;
 
   @media screen and (max-width: ${breakPoint.l}) {
     grid-template-columns: repeat(3, 1fr);

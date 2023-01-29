@@ -89,7 +89,7 @@ const ProfileDescription = styled.p`
 const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
-  padding: 0.2rem 0.8rem;
+  padding: 0 0.8rem;
   border-top: 2px solid ${({ theme }) => theme.bgSemiDarkColor};
 `;
 
@@ -99,6 +99,7 @@ const InfoGroup = styled.div`
 `;
 
 const LikeGroup = styled.div`
+  margin-top: 0.2rem;
   display: flex;
   align-items: center;
   /* color: ${({ theme }) => theme.textColor}; */
