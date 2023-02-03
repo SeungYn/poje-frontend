@@ -10,7 +10,6 @@ export default class Http {
 
     this.client.interceptors.request.use((req) => {
       console.log('request :', req);
-      return req;
     });
   }
 
