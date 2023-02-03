@@ -1,4 +1,4 @@
-import { BasicResponse } from '@src/service/types/basicResponse';
+import { BasicResponse } from './basicResponse';
 
 export interface LoginRequest {
   loginId: string;
@@ -18,4 +18,4 @@ export interface JoinRequest {
 
 export interface LoginResponse extends BasicResponse {}
 
-export interface JoinResponse extends BasicResponse {}
+export interface JoinResponse {}

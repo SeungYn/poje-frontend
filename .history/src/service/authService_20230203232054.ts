@@ -1,7 +1,6 @@
 import Http from '@src/network/http';
 import {
   JoinRequest,
-  JoinResponse,
   LoginRequest,
   LoginResponse,
 } from '@src/service/types/auth';
@@ -18,7 +17,7 @@ export default class AuthService {
         password,
       },
     };
-    return await this.http.fetchJson<LoginResponse>('/login', options);
+    return await this.http.fetchJson<LoginResponse>('login', options);
   }
 
   async join(form: JoinRequest) {
@@ -28,7 +27,5 @@ export default class AuthService {
         ...form,
       },
     };
-
-    return await this.http.fetchJson<JoinResponse>('/login', options);
   }
 }

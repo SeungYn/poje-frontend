@@ -6,5 +6,3 @@ const http = Http.getHttpInstance();
 const service = {
   auth: new AuthService(http),
 };
-
-export default service;

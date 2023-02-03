@@ -1,4 +1,4 @@
-import { BasicResponse } from '@src/service/types/basicResponse';
+import { BasicResponse } from '@/service/types/basicResponse';
 
 export interface LoginRequest {
   loginId: string;
