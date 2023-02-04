@@ -26,7 +26,6 @@ export default function AuthLoginForm() {
 
   const onSumbit: SubmitHandler<LoginInputType> = (data) => {
     console.log(data);
-    login(data);
   };
   return (
     <AuthFormContainer onSubmit={handleSubmit(onSumbit)}>

@@ -8,7 +8,6 @@ import { mainTheme } from './styledComponents/theme';
 import './index.css';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '@src/react-query/queryClient';
-import { RecoilRoot } from 'recoil';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,9 +18,7 @@ root.render(
     <GlobalStyle />
     <ThemeProvider theme={mainTheme}>
       <QueryClientProvider client={queryClient}>
-        <RecoilRoot>
-          <RouterProvider router={router} />
-        </RecoilRoot>
+        <RouterProvider router={router}></RouterProvider>
       </QueryClientProvider>
     </ThemeProvider>
   </React.StrictMode>

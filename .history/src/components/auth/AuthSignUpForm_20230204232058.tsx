@@ -71,7 +71,6 @@ export default function AuthSignUpForm() {
             <AuthFormLabel htmlFor='password confirm'>
               <span>Password</span>
               <input
-                {...register('password')}
                 type='password'
                 id='password confirm'
                 placeholder='비밀번호 확인'
@@ -79,12 +78,7 @@ export default function AuthSignUpForm() {
             </AuthFormLabel>
             <AuthFormLabel htmlFor='email'>
               <span>Email</span>
-              <input
-                {...register('email')}
-                type='email'
-                id='email'
-                placeholder='이메일'
-              />
+              <input type='eamil' id='eamil' placeholder='이메일' />
             </AuthFormLabel>
 
             <AuthSlideNextBtn type={'button'} onClick={handlerSildeNext}>

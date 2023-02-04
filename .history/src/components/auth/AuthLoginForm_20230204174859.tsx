@@ -1,6 +1,6 @@
 import useAuth from '@src/hooks/auth/useAuth';
 import { FormEvent } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { CommonBtn } from '../../styledComponents/styledComponents';
@@ -24,9 +24,8 @@ export default function AuthLoginForm() {
 
   const { login } = useAuth();
 
-  const onSumbit: SubmitHandler<LoginInputType> = (data) => {
+  const onSumbit = (e: FormEvent<HTMLFormElement>) => {
     console.log(data);
-    login(data);
   };
   return (
     <AuthFormContainer onSubmit={handleSubmit(onSumbit)}>

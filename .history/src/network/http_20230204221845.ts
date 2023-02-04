@@ -1,4 +1,3 @@
-import TokenStorage from '@src/db/localStorage';
 import LocalStorage from '@src/db/localStorage';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
@@ -12,8 +11,9 @@ export default class Http {
 
     this.client.interceptors.request.use((req) => {
       console.log('request :', req);
+      console.log(localStorage.get<string>('TOKEN'));
       console.log(123);
-      //req.headers.Authorization = this.localStorage.get<string>('TOKEN');
+      req.headers.Authorization = localStorage.get<string>('TOKEN');
       return req;
     });
   }
@@ -53,7 +53,7 @@ export default class Http {
     if (!Http.instance) {
       Http.instance = new Http(
         'https://ddbda43f86fb99.lhr.life',
-        new TokenStorage()
+        new LocalStorage()
       );
     }
     return Http.instance;

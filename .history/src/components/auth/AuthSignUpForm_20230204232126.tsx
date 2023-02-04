@@ -82,7 +82,7 @@ export default function AuthSignUpForm() {
               <input
                 {...register('email')}
                 type='email'
-                id='email'
+                id='eamil'
                 placeholder='이메일'
               />
             </AuthFormLabel>

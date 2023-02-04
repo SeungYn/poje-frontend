@@ -13,7 +13,7 @@ export default class Http {
     this.client.interceptors.request.use((req) => {
       console.log('request :', req);
       console.log(123);
-      //req.headers.Authorization = this.localStorage.get<string>('TOKEN');
+      req.headers.Authorization = this.localStorage.get<string>('TOKEN');
       return req;
     });
   }

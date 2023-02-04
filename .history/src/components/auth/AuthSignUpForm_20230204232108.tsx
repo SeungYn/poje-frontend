@@ -79,12 +79,7 @@ export default function AuthSignUpForm() {
             </AuthFormLabel>
             <AuthFormLabel htmlFor='email'>
               <span>Email</span>
-              <input
-                {...register('email')}
-                type='email'
-                id='email'
-                placeholder='이메일'
-              />
+              <input type='eamil' id='eamil' placeholder='이메일' />
             </AuthFormLabel>
 
             <AuthSlideNextBtn type={'button'} onClick={handlerSildeNext}>
