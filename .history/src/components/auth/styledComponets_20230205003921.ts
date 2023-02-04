@@ -127,7 +127,7 @@ export const LoginBtn = styled(CommonBtn)`
   margin-top: 3rem;
 
   @media screen and (max-width: 400px) {
-    padding: 0.2rem auto;
+    padding: 0.2rem 2rem;
     margin-top: 1.2rem;
   }
 `;

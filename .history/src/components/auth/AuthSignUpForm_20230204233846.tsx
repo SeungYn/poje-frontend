@@ -19,12 +19,7 @@ import { JoinRequest } from '@src/service/types/auth';
 import useAuth from '@src/hooks/auth/useAuth';
 
 export default function AuthSignUpForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setError,
-  } = useForm<JoinRequest>();
+  const { register, handleSubmit } = useForm<JoinRequest>();
   const { join } = useAuth();
   const swiperRef = useRef<SwiperType>();
 
@@ -36,14 +31,11 @@ export default function AuthSignUpForm() {
     swiperRef.current?.slideNext();
   };
 
-  const setDuplicateError = () => {};
-
   const onSubmit: SubmitHandler<JoinRequest> = (data) => {
     console.log(123);
-    console.log(errors);
     join({ ...data });
   };
-  console.log(errors);
+
   return (
     <AuthFormContainer>
       <TopSide>
@@ -67,24 +59,18 @@ export default function AuthSignUpForm() {
           <SwiperSlide>
             <AuthSlideForm>
               <AuthFormLabel htmlFor='loginId'>
-                <div>
-                  <span>LoginId</span>
-                </div>
+                <span>LoginId</span>
                 <input
-                  {...register('loginId', {
-                    required: true,
-                    onChange: () => console.log('change'),
-                  })}
+                  {...register('loginId')}
                   id='loginId'
                   type='text'
                   placeholder='아이디'
-                  required
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='password'>
                 <span>Password</span>
                 <input
-                  {...register('password', { required: true })}
+                  {...register('password')}
                   type='password'
                   id='password'
                   placeholder='비밀번호'
@@ -93,7 +79,7 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='password confirm'>
                 <span>Password</span>
                 <input
-                  {...register('password', { required: true })}
+                  {...register('password')}
                   type='password'
                   id='password confirm'
                   placeholder='비밀번호 확인'
@@ -102,7 +88,7 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='email'>
                 <span>Email</span>
                 <input
-                  {...register('email', { required: true })}
+                  {...register('email')}
                   type='email'
                   id='email'
                   placeholder='이메일'
@@ -120,7 +106,7 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='nickName'>
                 <span>Name</span>
                 <input
-                  {...register('nickName', { required: true })}
+                  {...register('nickName')}
                   type='text'
                   id='nickName'
                   placeholder='이름'
@@ -129,7 +115,7 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='phoneNum'>
                 <span>PhoneNum(선택)</span>
                 <input
-                  {...register('phoneNum', { required: true })}
+                  {...register('phoneNum')}
                   type='text'
                   id='phoneNum'
                   placeholder='전화번호(선택)'
@@ -137,11 +123,7 @@ export default function AuthSignUpForm() {
               </AuthFormLabel>
               <AuthFormLabel htmlFor='gender'>
                 <span>Gender</span>
-                <select
-                  {...register('gender', { required: true })}
-                  id='gender'
-                  placeholder='성별'
-                >
+                <select {...register('gender')} id='gender' placeholder='성별'>
                   <option value='male'>남자</option>
                   <option value='female'>여자</option>
                 </select>
@@ -149,7 +131,7 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='Birth'>
                 <span>Birth(선택)</span>
                 <input
-                  {...register('birth', { required: true })}
+                  {...register('birth')}
                   type='text'
                   id='birth'
                   placeholder='생년월일'
@@ -183,11 +165,12 @@ const AuthSlideNextBtn = styled(LoginBtn)`
 `;
 
 const AuthSlideFooter = styled.div`
-  width: 100%;
   display: flex;
-  gap: 1rem;
+  justify-content: space-around;
+  width: 100%;
+
   & > ${AuthSlideNextBtn} {
-    width: 50%;
-    word-break: normal;
+    width: 100px;
+    background-color: black;
   }
 `;

@@ -23,7 +23,6 @@ export default function AuthSignUpForm() {
     register,
     handleSubmit,
     formState: { errors },
-    setError,
   } = useForm<JoinRequest>();
   const { join } = useAuth();
   const swiperRef = useRef<SwiperType>();
@@ -35,8 +34,6 @@ export default function AuthSignUpForm() {
   const handlerSildeNext = () => {
     swiperRef.current?.slideNext();
   };
-
-  const setDuplicateError = () => {};
 
   const onSubmit: SubmitHandler<JoinRequest> = (data) => {
     console.log(123);

@@ -16,12 +16,10 @@ export interface JoinRequest {
   birth: string;
 }
 
-export interface loginIdDuplicateRequest {
+export interface loginIdDuplicate {
   loginId: string;
 }
 
 export interface LoginResponse extends BasicResponse {}
 
 export interface JoinResponse extends BasicResponse {}
-
-export interface loginIdDuplicateResponse extends BasicResponse {}
