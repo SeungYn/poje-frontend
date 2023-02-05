@@ -51,7 +51,10 @@ export default class Http {
   //process.env.REACT_APP_BASE_URL as string,
   public static getHttpInstance() {
     if (!Http.instance) {
-      Http.instance = new Http('http://localhost:8080', new TokenStorage());
+      Http.instance = new Http(
+        'https://dd290981c7fc4b.lhr.life',
+        new TokenStorage()
+      );
     }
     return Http.instance;
   }

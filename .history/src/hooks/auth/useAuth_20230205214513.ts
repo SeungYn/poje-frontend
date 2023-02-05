@@ -47,13 +47,9 @@ export default function useAuth() {
       return service.auth.loginIdDuplicate({ loginId });
     },
     {
-      onSuccess: () => {
-        setLoginIdDuplicate({ message: '사용가능한 아이디', isValid: true });
-        return true;
-      },
+      onSuccess: () => {},
       onError: ({ callbackError }) => {
-        setLoginIdDuplicate({ message: '사용가능한 아이디', isValid: true });
-        return false;
+        callbackError();
       },
     }
   );
@@ -61,6 +57,5 @@ export default function useAuth() {
     login: login.mutate,
     join: join.mutate,
     validLoginIdDuplicate: validLoginIdDuplicate.mutate,
-    loginIdDuplicate,
   };
 }

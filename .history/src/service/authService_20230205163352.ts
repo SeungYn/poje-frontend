@@ -31,7 +31,7 @@ export default class AuthService {
       },
     };
 
-    return await this.http.fetchJson<JoinResponse>('/join', options);
+    return await this.http.fetchJson<JoinResponse>('/login', options);
   }
 
   async loginIdDuplicate(data: loginIdDuplicateRequest) {

@@ -24,12 +24,11 @@ export default function AuthSignUpForm() {
     register,
     handleSubmit,
 
-    formState: { errors, isDirty, dirtyFields },
+    formState, //: { errors, isDirty, dirtyFields },
     setError,
-    clearErrors,
     getValues,
   } = useForm<JoinRequest>();
-  const { join, validLoginIdDuplicate, loginIdDuplicate } = useAuth();
+  const { join, validLoginIdDuplicate } = useAuth();
   const swiperRef = useRef<SwiperType>();
 
   const handlerSildePrev = () => {
@@ -38,6 +37,10 @@ export default function AuthSignUpForm() {
 
   const handlerSildeNext = () => {
     swiperRef.current?.slideNext();
+  };
+
+  const setDuplicateError = () => {
+    setError('loginId', { type: 'duplicate', message: '곤.란 아이디 중.복' });
   };
 
   const onSubmit: SubmitHandler<JoinRequest> = (data) => {
@@ -58,9 +61,11 @@ export default function AuthSignUpForm() {
   //     .catch((e) => console.log('error', e));
   //   console.log(123123);
   // }, []);
+
   useEffect(() => {
-    console.log(errors);
-  }, [errors]);
+    console.log(formState.defaultValues);
+  }, [formState]);
+
   return (
     <AuthFormContainer>
       <TopSide>
@@ -86,15 +91,12 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='loginId'>
                 <div>
                   <span>LoginId</span>
-                  &nbsp;
-                  {loginIdDuplicate && <span>{loginIdDuplicate.message}</span>}
                 </div>
                 <input
                   {...register('loginId', {
                     required: true,
 
-                    onBlur: (e) =>
-                      e.target.value && validLoginIdDuplicate(e.target.value),
+                    onBlur: (e) => console.log(e),
                   })}
                   id='loginId'
                   type='text'
@@ -103,39 +105,20 @@ export default function AuthSignUpForm() {
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='password'>
-                <div>
-                  <span>Password</span>
-                </div>
+                <span>Password</span>
                 <input
-                  {...register('password', {
-                    required: true,
-                  })}
+                  {...register('password', { required: true })}
                   type='password'
                   id='password'
                   placeholder='비밀번호'
                 />
               </AuthFormLabel>
-              <AuthFormLabel htmlFor='passwordConfirm'>
-                <div>
-                  <span>PasswordConfirm</span>{' '}
-                  {errors.passwordConfirm && <span>{123}</span>}
-                </div>
+              <AuthFormLabel htmlFor='password confirm'>
+                <span>Password</span>
                 <input
-                  {...register('passwordConfirm', {
-                    required: true,
-
-                    onChange: (v) => {
-                      const { value } = v.target;
-                      return value !== getValues('password')
-                        ? setError('passwordConfirm', {
-                            type: 'confirm',
-                            message: '비밀번호를 확인해주세요',
-                          })
-                        : clearErrors('passwordConfirm');
-                    },
-                  })}
+                  {...register('password', { required: true })}
                   type='password'
-                  id='passwordConfirm'
+                  id='password confirm'
                   placeholder='비밀번호 확인'
                 />
               </AuthFormLabel>
@@ -167,7 +150,7 @@ export default function AuthSignUpForm() {
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='phoneNum'>
-                <span>PhoneNum</span>
+                <span>PhoneNum(선택)</span>
                 <input
                   {...register('phoneNum', { required: true })}
                   type='text'
@@ -187,7 +170,7 @@ export default function AuthSignUpForm() {
                 </select>
               </AuthFormLabel>
               <AuthFormLabel htmlFor='Birth'>
-                <span>Birth</span>
+                <span>Birth(선택)</span>
                 <input
                   {...register('birth', { required: true })}
                   type='text'

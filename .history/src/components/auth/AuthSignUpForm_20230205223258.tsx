@@ -26,7 +26,6 @@ export default function AuthSignUpForm() {
 
     formState: { errors, isDirty, dirtyFields },
     setError,
-    clearErrors,
     getValues,
   } = useForm<JoinRequest>();
   const { join, validLoginIdDuplicate, loginIdDuplicate } = useAuth();
@@ -104,11 +103,24 @@ export default function AuthSignUpForm() {
               </AuthFormLabel>
               <AuthFormLabel htmlFor='password'>
                 <div>
-                  <span>Password</span>
+                  <span>Password</span> {errors.password && <span>{123}</span>}
                 </div>
                 <input
                   {...register('password', {
                     required: true,
+                    maxLength: {
+                      value: 3,
+                      message: '3dltkddls'
+                    }
+                    validate: {
+                      passwordCheck: (v) => {
+                        console.log(v);
+                        return (
+                          v !== getValues('passwordConfirm') ||
+                          '비밀번호가 일치 안.함'
+                        );
+                      },
+                    },
                   })}
                   type='password'
                   id='password'
@@ -116,24 +128,9 @@ export default function AuthSignUpForm() {
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='passwordConfirm'>
-                <div>
-                  <span>PasswordConfirm</span>{' '}
-                  {errors.passwordConfirm && <span>{123}</span>}
-                </div>
+                <span>PasswordConfirm</span>
                 <input
-                  {...register('passwordConfirm', {
-                    required: true,
-
-                    onChange: (v) => {
-                      const { value } = v.target;
-                      return value !== getValues('password')
-                        ? setError('passwordConfirm', {
-                            type: 'confirm',
-                            message: '비밀번호를 확인해주세요',
-                          })
-                        : clearErrors('passwordConfirm');
-                    },
-                  })}
+                  {...register('passwordConfirm', { required: true })}
                   type='password'
                   id='passwordConfirm'
                   placeholder='비밀번호 확인'
@@ -167,7 +164,7 @@ export default function AuthSignUpForm() {
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='phoneNum'>
-                <span>PhoneNum</span>
+                <span>PhoneNum(선택)</span>
                 <input
                   {...register('phoneNum', { required: true })}
                   type='text'
@@ -187,7 +184,7 @@ export default function AuthSignUpForm() {
                 </select>
               </AuthFormLabel>
               <AuthFormLabel htmlFor='Birth'>
-                <span>Birth</span>
+                <span>Birth(선택)</span>
                 <input
                   {...register('birth', { required: true })}
                   type='text'

@@ -17,19 +17,16 @@ import { Link } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { JoinRequest } from '@src/service/types/auth';
 import useAuth from '@src/hooks/auth/useAuth';
-import axios from 'axios';
 
 export default function AuthSignUpForm() {
   const {
     register,
     handleSubmit,
-
     formState: { errors, isDirty, dirtyFields },
     setError,
-    clearErrors,
     getValues,
   } = useForm<JoinRequest>();
-  const { join, validLoginIdDuplicate, loginIdDuplicate } = useAuth();
+  const { join, validLoginIdDuplicate } = useAuth();
   const swiperRef = useRef<SwiperType>();
 
   const handlerSildePrev = () => {
@@ -40,27 +37,20 @@ export default function AuthSignUpForm() {
     swiperRef.current?.slideNext();
   };
 
+  const setDuplicateError = () => {
+    setError('loginId', { type: 'duplicate', message: '곤.란 아이디 중.복' });
+  };
+
   const onSubmit: SubmitHandler<JoinRequest> = (data) => {
-    //console.log(errors);
+    console.log(123);
+    console.log(errors);
     join({ ...data });
   };
 
-  //console.log(dirtyFields);
-  // useEffect(() => {
-  //   //console.log(getValues('loginId'));
-  //   validLoginIdDuplicate({ loginId: 'asd', callbackError: () => {} });
-
-  //   // axios
-  //   //   .get('https://dd290981c7fc4b.lhr.life/loginId/123123')
-  //   //   .then((res) => console.log(res));
-  //   fetch('https://dd290981c7fc4b.lhr.life/loginId/123123')
-  //     .then((res) => console.log('123', res))
-  //     .catch((e) => console.log('error', e));
-  //   console.log(123123);
-  // }, []);
+  console.log(dirtyFields);
   useEffect(() => {
-    console.log(errors);
-  }, [errors]);
+    console.log(getValues('loginId'));
+  }, []);
   return (
     <AuthFormContainer>
       <TopSide>
@@ -86,15 +76,15 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='loginId'>
                 <div>
                   <span>LoginId</span>
-                  &nbsp;
-                  {loginIdDuplicate && <span>{loginIdDuplicate.message}</span>}
                 </div>
                 <input
                   {...register('loginId', {
                     required: true,
-
-                    onBlur: (e) =>
-                      e.target.value && validLoginIdDuplicate(e.target.value),
+                    onChange: (e) =>
+                      validLoginIdDuplicate({
+                        loginId: e.target.value,
+                        callbackError: setDuplicateError,
+                      }),
                   })}
                   id='loginId'
                   type='text'
@@ -103,39 +93,20 @@ export default function AuthSignUpForm() {
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='password'>
-                <div>
-                  <span>Password</span>
-                </div>
+                <span>Password</span>
                 <input
-                  {...register('password', {
-                    required: true,
-                  })}
+                  {...register('password', { required: true })}
                   type='password'
                   id='password'
                   placeholder='비밀번호'
                 />
               </AuthFormLabel>
-              <AuthFormLabel htmlFor='passwordConfirm'>
-                <div>
-                  <span>PasswordConfirm</span>{' '}
-                  {errors.passwordConfirm && <span>{123}</span>}
-                </div>
+              <AuthFormLabel htmlFor='password confirm'>
+                <span>Password</span>
                 <input
-                  {...register('passwordConfirm', {
-                    required: true,
-
-                    onChange: (v) => {
-                      const { value } = v.target;
-                      return value !== getValues('password')
-                        ? setError('passwordConfirm', {
-                            type: 'confirm',
-                            message: '비밀번호를 확인해주세요',
-                          })
-                        : clearErrors('passwordConfirm');
-                    },
-                  })}
+                  {...register('password', { required: true })}
                   type='password'
-                  id='passwordConfirm'
+                  id='password confirm'
                   placeholder='비밀번호 확인'
                 />
               </AuthFormLabel>
@@ -167,7 +138,7 @@ export default function AuthSignUpForm() {
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='phoneNum'>
-                <span>PhoneNum</span>
+                <span>PhoneNum(선택)</span>
                 <input
                   {...register('phoneNum', { required: true })}
                   type='text'
@@ -187,7 +158,7 @@ export default function AuthSignUpForm() {
                 </select>
               </AuthFormLabel>
               <AuthFormLabel htmlFor='Birth'>
-                <span>Birth</span>
+                <span>Birth(선택)</span>
                 <input
                   {...register('birth', { required: true })}
                   type='text'

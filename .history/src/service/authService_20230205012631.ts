@@ -1,9 +1,9 @@
+import { loginIdDuplicate } from './../../.history/src/service/types/auth_20230205012331';
 import Http from '@src/network/http';
 import {
   JoinRequest,
   JoinResponse,
   loginIdDuplicateRequest,
-  loginIdDuplicateResponse,
   LoginRequest,
   LoginResponse,
 } from '@src/service/types/auth';
@@ -31,12 +31,15 @@ export default class AuthService {
       },
     };
 
-    return await this.http.fetchJson<JoinResponse>('/join', options);
+    return await this.http.fetchJson<JoinResponse>('/login', options);
   }
 
   async loginIdDuplicate(data: loginIdDuplicateRequest) {
     const options: AxiosRequestConfig = {
       method: 'GET',
+      data: {
+        ...data,
+      },
     };
     return await this.http.fetchJson<loginIdDuplicateResponse>(
       `/loginId/${data.loginId}`,

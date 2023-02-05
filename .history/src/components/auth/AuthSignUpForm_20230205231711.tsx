@@ -104,11 +104,20 @@ export default function AuthSignUpForm() {
               </AuthFormLabel>
               <AuthFormLabel htmlFor='password'>
                 <div>
-                  <span>Password</span>
+                  <span>Password</span> {errors.password && <span>{123}</span>}
                 </div>
                 <input
                   {...register('password', {
-                    required: true,
+                    onChange: (v) => {
+                      const { value } = v.target;
+                      return value !== getValues('passwordConfirm')
+                        ? setError('password', {
+                            type: 'confirm',
+                            message: '비밀번호를 확인해주세요',
+                          })
+                        : clearErrors('password');
+                      //clearErrors('password');
+                    },
                   })}
                   type='password'
                   id='password'
@@ -116,10 +125,8 @@ export default function AuthSignUpForm() {
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='passwordConfirm'>
-                <div>
-                  <span>PasswordConfirm</span>{' '}
-                  {errors.passwordConfirm && <span>{123}</span>}
-                </div>
+                <span>PasswordConfirm</span>{' '}
+                {errors.passwordConfirm && <span>{123}</span>}
                 <input
                   {...register('passwordConfirm', {
                     required: true,
@@ -127,11 +134,12 @@ export default function AuthSignUpForm() {
                     onChange: (v) => {
                       const { value } = v.target;
                       return value !== getValues('password')
-                        ? setError('passwordConfirm', {
+                        ? setError('password', {
                             type: 'confirm',
                             message: '비밀번호를 확인해주세요',
                           })
-                        : clearErrors('passwordConfirm');
+                        : clearErrors('password');
+                      //clearErrors('password');
                     },
                   })}
                   type='password'
@@ -167,7 +175,7 @@ export default function AuthSignUpForm() {
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='phoneNum'>
-                <span>PhoneNum</span>
+                <span>PhoneNum(선택)</span>
                 <input
                   {...register('phoneNum', { required: true })}
                   type='text'
@@ -187,7 +195,7 @@ export default function AuthSignUpForm() {
                 </select>
               </AuthFormLabel>
               <AuthFormLabel htmlFor='Birth'>
-                <span>Birth</span>
+                <span>Birth(선택)</span>
                 <input
                   {...register('birth', { required: true })}
                   type='text'

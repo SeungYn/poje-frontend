@@ -116,10 +116,8 @@ export default function AuthSignUpForm() {
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='passwordConfirm'>
-                <div>
-                  <span>PasswordConfirm</span>{' '}
-                  {errors.passwordConfirm && <span>{123}</span>}
-                </div>
+                <span>PasswordConfirm</span>{' '}
+                {errors.passwordConfirm && <span>{123}</span>}
                 <input
                   {...register('passwordConfirm', {
                     required: true,
@@ -167,7 +165,7 @@ export default function AuthSignUpForm() {
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='phoneNum'>
-                <span>PhoneNum</span>
+                <span>PhoneNum(선택)</span>
                 <input
                   {...register('phoneNum', { required: true })}
                   type='text'
@@ -187,7 +185,7 @@ export default function AuthSignUpForm() {
                 </select>
               </AuthFormLabel>
               <AuthFormLabel htmlFor='Birth'>
-                <span>Birth</span>
+                <span>Birth(선택)</span>
                 <input
                   {...register('birth', { required: true })}
                   type='text'

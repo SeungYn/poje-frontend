@@ -5,19 +5,10 @@ import { JoinRequest, LoginRequest } from '@src/service/types/auth';
 import { useMutation } from '@tanstack/react-query';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { accessTokenState } from '@src/store/auth/auth';
-import { useState } from 'react';
-
-type LoginIdDuplicateType = {
-  message: string;
-  isValid: boolean;
-};
 
 export default function useAuth() {
   const navigate = useNavigate();
   const setAccessToken = useSetRecoilState(accessTokenState);
-  const [loginIdDuplicate, setLoginIdDuplicate] =
-    useState<LoginIdDuplicateType>();
-
   const login = useMutation(
     (data: LoginRequest) => {
       console.log(data);
@@ -43,17 +34,19 @@ export default function useAuth() {
   );
 
   const validLoginIdDuplicate = useMutation(
-    ({ loginId }: { loginId: string }) => {
+    ({
+      loginId,
+      callbackError,
+    }: {
+      loginId: string;
+      callbackError: () => void;
+    }) => {
       return service.auth.loginIdDuplicate({ loginId });
     },
     {
-      onSuccess: () => {
-        setLoginIdDuplicate({ message: '사용가능한 아이디', isValid: true });
-        return true;
-      },
+      onSuccess: () => {},
       onError: ({ callbackError }) => {
-        setLoginIdDuplicate({ message: '사용가능한 아이디', isValid: true });
-        return false;
+        callbackError();
       },
     }
   );
@@ -61,6 +54,5 @@ export default function useAuth() {
     login: login.mutate,
     join: join.mutate,
     validLoginIdDuplicate: validLoginIdDuplicate.mutate,
-    loginIdDuplicate,
   };
 }

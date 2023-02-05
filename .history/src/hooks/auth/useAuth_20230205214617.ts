@@ -49,11 +49,9 @@ export default function useAuth() {
     {
       onSuccess: () => {
         setLoginIdDuplicate({ message: '사용가능한 아이디', isValid: true });
-        return true;
       },
       onError: ({ callbackError }) => {
         setLoginIdDuplicate({ message: '사용가능한 아이디', isValid: true });
-        return false;
       },
     }
   );
