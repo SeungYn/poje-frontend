@@ -39,13 +39,6 @@ export default function AuthSignUpForm() {
     validateEmail,
     confirmPassword,
     passwordConfirm,
-    validateNickname,
-    nicknameValid,
-    phoneNumValid,
-    birthValid,
-    validateBirth,
-    validatePhoneNum,
-    finalConfirm,
   } = useFormValidation();
   const swiperRef = useRef<SwiperType>();
 
@@ -59,8 +52,7 @@ export default function AuthSignUpForm() {
 
   const onSubmit: SubmitHandler<JoinRequest> = (data) => {
     //console.log(errors);
-    finalConfirm() && join({ ...data });
-    //join({ ...data });
+    join({ ...data });
   };
 
   useEffect(() => {
@@ -189,18 +181,9 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='nickName'>
                 <div>
                   <span>이름</span>
-                  {nicknameValid && nicknameValid.isValid === false && (
-                    <RapidReponseText responseType={nicknameValid.isValid}>
-                      {nicknameValid.message}
-                    </RapidReponseText>
-                  )}
                 </div>
                 <input
-                  {...register('nickName', {
-                    required: true,
-                    onChange: ({ target: { value } }) =>
-                      validateNickname(value),
-                  })}
+                  {...register('nickName', { required: true })}
                   type='text'
                   id='nickName'
                   placeholder='이름'
@@ -209,18 +192,9 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='phoneNum'>
                 <div>
                   <span>전화번호</span>
-                  {phoneNumValid && phoneNumValid.isValid === false && (
-                    <RapidReponseText responseType={phoneNumValid.isValid}>
-                      {phoneNumValid.message}
-                    </RapidReponseText>
-                  )}
                 </div>
                 <input
-                  {...register('phoneNum', {
-                    required: true,
-                    onChange: ({ target: { value } }) =>
-                      validatePhoneNum(value),
-                  })}
+                  {...register('phoneNum', { required: true })}
                   type='text'
                   id='phoneNum'
                   placeholder='전화번호(선택)'
@@ -240,19 +214,9 @@ export default function AuthSignUpForm() {
                 </select>
               </AuthFormLabel>
               <AuthFormLabel htmlFor='Birth'>
-                <div>
-                  <span>생년월일</span>
-                  {birthValid && birthValid.isValid === false && (
-                    <RapidReponseText responseType={birthValid.isValid}>
-                      {birthValid.message}
-                    </RapidReponseText>
-                  )}
-                </div>
+                <span>생년월일</span>
                 <input
-                  {...register('birth', {
-                    required: true,
-                    onChange: ({ target: { value } }) => validateBirth(value),
-                  })}
+                  {...register('birth', { required: true })}
                   type='text'
                   id='birth'
                   placeholder='생년월일'

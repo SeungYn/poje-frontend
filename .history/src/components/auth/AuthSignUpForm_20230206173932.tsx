@@ -37,15 +37,6 @@ export default function AuthSignUpForm() {
     passwordValid,
     emailValid,
     validateEmail,
-    confirmPassword,
-    passwordConfirm,
-    validateNickname,
-    nicknameValid,
-    phoneNumValid,
-    birthValid,
-    validateBirth,
-    validatePhoneNum,
-    finalConfirm,
   } = useFormValidation();
   const swiperRef = useRef<SwiperType>();
 
@@ -59,8 +50,7 @@ export default function AuthSignUpForm() {
 
   const onSubmit: SubmitHandler<JoinRequest> = (data) => {
     //console.log(errors);
-    finalConfirm() && join({ ...data });
-    //join({ ...data });
+    join({ ...data });
   };
 
   useEffect(() => {
@@ -91,7 +81,7 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='loginId'>
                 <div>
                   <span>아이디</span>
-                  {loginIdDuplicate && loginIdDuplicate.isValid === false && (
+                  {loginIdDuplicate && (
                     <RapidReponseText responseType={loginIdDuplicate.isValid}>
                       {loginIdDuplicate.message}
                     </RapidReponseText>
@@ -102,7 +92,14 @@ export default function AuthSignUpForm() {
                     required: true,
 
                     onBlur: ({ target: { value } }) =>
-                      value && validLoginIdDuplicate(value),
+                      value &&
+                      validLoginIdDuplicate({
+                        loginId: value,
+                        errorCallback: setError('loginId', {
+                          type: 'duplicate',
+                          message: '아이디가 중복되었습니다.',
+                        }),
+                      }),
                   })}
                   className={
                     !loginIdDuplicate
@@ -120,7 +117,7 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='password'>
                 <div>
                   <span>비밀번호</span>
-                  {passwordValid && passwordValid.isValid === false && (
+                  {passwordValid && (
                     <RapidReponseText responseType={passwordValid.isValid}>
                       {passwordValid.message}
                     </RapidReponseText>
@@ -139,10 +136,10 @@ export default function AuthSignUpForm() {
               </AuthFormLabel>
               <AuthFormLabel htmlFor='passwordConfirm'>
                 <div>
-                  <span>비밀번호 확인</span>
-                  {passwordConfirm && passwordConfirm.isValid === false && (
-                    <RapidReponseText responseType={passwordConfirm.isValid}>
-                      {passwordConfirm.message}
+                  <span>비밀번호 확인</span>{' '}
+                  {errors.passwordConfirm && (
+                    <RapidReponseText responseType={false}>
+                      {errors.passwordConfirm.message}
                     </RapidReponseText>
                   )}
                 </div>
@@ -150,8 +147,15 @@ export default function AuthSignUpForm() {
                   {...register('passwordConfirm', {
                     required: true,
 
-                    onChange: ({ target: { value } }) =>
-                      confirmPassword(value, getValues('password')),
+                    onChange: (v) => {
+                      const { value } = v.target;
+                      return value !== getValues('password')
+                        ? setError('passwordConfirm', {
+                            type: 'confirm',
+                            message: '비밀번호를 확인해주세요',
+                          })
+                        : clearErrors('passwordConfirm');
+                    },
                   })}
                   type='password'
                   id='passwordConfirm'
@@ -161,11 +165,6 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='email'>
                 <div>
                   <span>이메일</span>
-                  {emailValid && emailValid.isValid === false && (
-                    <RapidReponseText responseType={emailValid.isValid}>
-                      {emailValid.message}
-                    </RapidReponseText>
-                  )}
                 </div>
                 <input
                   {...register('email', {
@@ -187,49 +186,25 @@ export default function AuthSignUpForm() {
           <SwiperSlide>
             <AuthSlideForm>
               <AuthFormLabel htmlFor='nickName'>
-                <div>
-                  <span>이름</span>
-                  {nicknameValid && nicknameValid.isValid === false && (
-                    <RapidReponseText responseType={nicknameValid.isValid}>
-                      {nicknameValid.message}
-                    </RapidReponseText>
-                  )}
-                </div>
+                <span>이름</span>
                 <input
-                  {...register('nickName', {
-                    required: true,
-                    onChange: ({ target: { value } }) =>
-                      validateNickname(value),
-                  })}
+                  {...register('nickName', { required: true })}
                   type='text'
                   id='nickName'
                   placeholder='이름'
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='phoneNum'>
-                <div>
-                  <span>전화번호</span>
-                  {phoneNumValid && phoneNumValid.isValid === false && (
-                    <RapidReponseText responseType={phoneNumValid.isValid}>
-                      {phoneNumValid.message}
-                    </RapidReponseText>
-                  )}
-                </div>
+                <span>전화번호</span>
                 <input
-                  {...register('phoneNum', {
-                    required: true,
-                    onChange: ({ target: { value } }) =>
-                      validatePhoneNum(value),
-                  })}
+                  {...register('phoneNum', { required: true })}
                   type='text'
                   id='phoneNum'
                   placeholder='전화번호(선택)'
                 />
               </AuthFormLabel>
               <AuthFormLabel htmlFor='gender'>
-                <div>
-                  <span>성별</span>
-                </div>
+                <span>성별</span>
                 <select
                   {...register('gender', { required: true })}
                   id='gender'
@@ -240,19 +215,9 @@ export default function AuthSignUpForm() {
                 </select>
               </AuthFormLabel>
               <AuthFormLabel htmlFor='Birth'>
-                <div>
-                  <span>생년월일</span>
-                  {birthValid && birthValid.isValid === false && (
-                    <RapidReponseText responseType={birthValid.isValid}>
-                      {birthValid.message}
-                    </RapidReponseText>
-                  )}
-                </div>
+                <span>생년월일</span>
                 <input
-                  {...register('birth', {
-                    required: true,
-                    onChange: ({ target: { value } }) => validateBirth(value),
-                  })}
+                  {...register('birth', { required: true })}
                   type='text'
                   id='birth'
                   placeholder='생년월일'

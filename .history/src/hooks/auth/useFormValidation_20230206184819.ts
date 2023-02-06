@@ -96,9 +96,9 @@ export default function useFormValidation() {
   };
 
   const validateBirth = (birth: string) => {
-    const reg = /^\d{6}/;
-    return !reg.test(birth)
-      ? setBirthValid(makeValidObject('6자리로 입력해주세요', false))
+    const reg = /^\d{8}/;
+    return !reg.test(num)
+      ? setBirthValid(makeValidObject('8자리로 입력해주세요', false))
       : setBirthValid(makeValidObject('정상적인 생일', true));
   };
 
@@ -109,8 +109,6 @@ export default function useFormValidation() {
       emailValid,
       passwordConfirm,
       nicknameValid,
-      phoneNumValid,
-      birthValid,
     ].every((item) => item?.isValid);
   };
 
@@ -127,8 +125,6 @@ export default function useFormValidation() {
     nicknameValid,
     phoneNumValid,
     validatePhoneNum,
-    birthValid,
-    validateBirth,
     finalConfirm,
   };
 }

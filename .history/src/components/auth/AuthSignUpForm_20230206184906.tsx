@@ -59,8 +59,7 @@ export default function AuthSignUpForm() {
 
   const onSubmit: SubmitHandler<JoinRequest> = (data) => {
     //console.log(errors);
-    finalConfirm() && join({ ...data });
-    //join({ ...data });
+    join({ ...data });
   };
 
   useEffect(() => {
@@ -242,16 +241,12 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='Birth'>
                 <div>
                   <span>생년월일</span>
-                  {birthValid && birthValid.isValid === false && (
-                    <RapidReponseText responseType={birthValid.isValid}>
-                      {birthValid.message}
-                    </RapidReponseText>
-                  )}
                 </div>
                 <input
                   {...register('birth', {
                     required: true,
-                    onChange: ({ target: { value } }) => validateBirth(value),
+                    onChange: ({ target: { value } }) =>
+                      validatePhoneNum(value),
                   })}
                   type='text'
                   id='birth'

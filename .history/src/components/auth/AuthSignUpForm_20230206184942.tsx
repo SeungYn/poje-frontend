@@ -59,8 +59,7 @@ export default function AuthSignUpForm() {
 
   const onSubmit: SubmitHandler<JoinRequest> = (data) => {
     //console.log(errors);
-    finalConfirm() && join({ ...data });
-    //join({ ...data });
+    join({ ...data });
   };
 
   useEffect(() => {

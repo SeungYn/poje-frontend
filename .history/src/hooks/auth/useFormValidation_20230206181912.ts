@@ -23,12 +23,6 @@ export default function useFormValidation() {
   const [nicknameValid, setNicknameValid] = useState<ValidType | undefined>(
     undefined
   );
-  const [phoneNumValid, setPhoneNumValid] = useState<ValidType | undefined>(
-    undefined
-  );
-  const [birthValid, setBirthValid] = useState<ValidType | undefined>(
-    undefined
-  );
 
   const validLoginIdDuplicate = useMutation(
     (loginId: string) => {
@@ -41,7 +35,6 @@ export default function useFormValidation() {
       },
       onError: ({ callbackError }) => {
         setLoginIdDuplicate({ message: '사용불가능한 아이디', isValid: false });
-
         return false;
       },
     }
@@ -75,43 +68,17 @@ export default function useFormValidation() {
       : setPasswordConfirm(makeValidObject('비밀번호가 일치..', true));
   };
 
-  const validateNickname = (nickname: string) => {
-    const reg = /^[ㄱ-ㅎ가-힣a-z0-9-_]{2,10}$/;
+  const validatePassword = (password: string) => {
+    const reg = /(?=.*\d)(?=.*\W)(?=.*[A-Z])(?=.*[a-z])(?=.*\S$).{8,20}/;
 
-    return !reg.test(nickname)
-      ? setNicknameValid(makeValidObject('이름입력 부탁', false))
-      : setNicknameValid(
+    return reg.test(password)
+      ? setPasswordValid(makeValidObject('비밀번호가 사용가능합니다.', true))
+      : setPasswordValid(
           makeValidObject(
             '비밀번호는 영문 대,소문자와 숫자, 특수기호가 적어도 1개 이상씩 포함된 8자 ~ 20자의 비밀번호여야 합니다.',
-            true
+            false
           )
         );
-  };
-
-  const validatePhoneNum = (num: string) => {
-    const reg = /^010\d{8}/;
-    return !reg.test(num)
-      ? setPhoneNumValid(makeValidObject('숫자만 입력해라씨발련아', false))
-      : setPhoneNumValid(makeValidObject('정상적인 전화번호', true));
-  };
-
-  const validateBirth = (birth: string) => {
-    const reg = /^\d{6}/;
-    return !reg.test(birth)
-      ? setBirthValid(makeValidObject('6자리로 입력해주세요', false))
-      : setBirthValid(makeValidObject('정상적인 생일', true));
-  };
-
-  const finalConfirm = () => {
-    return [
-      loginIdDuplicate,
-      passwordValid,
-      emailValid,
-      passwordConfirm,
-      nicknameValid,
-      phoneNumValid,
-      birthValid,
-    ].every((item) => item?.isValid);
   };
 
   return {
@@ -123,13 +90,6 @@ export default function useFormValidation() {
     validateEmail,
     confirmPassword,
     passwordConfirm,
-    validateNickname,
-    nicknameValid,
-    phoneNumValid,
-    validatePhoneNum,
-    birthValid,
-    validateBirth,
-    finalConfirm,
   };
 }
 

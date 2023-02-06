@@ -109,8 +109,6 @@ export default function useFormValidation() {
       emailValid,
       passwordConfirm,
       nicknameValid,
-      phoneNumValid,
-      birthValid,
     ].every((item) => item?.isValid);
   };
 

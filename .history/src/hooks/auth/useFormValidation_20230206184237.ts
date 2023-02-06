@@ -26,9 +26,6 @@ export default function useFormValidation() {
   const [phoneNumValid, setPhoneNumValid] = useState<ValidType | undefined>(
     undefined
   );
-  const [birthValid, setBirthValid] = useState<ValidType | undefined>(
-    undefined
-  );
 
   const validLoginIdDuplicate = useMutation(
     (loginId: string) => {
@@ -95,13 +92,6 @@ export default function useFormValidation() {
       : setPhoneNumValid(makeValidObject('정상적인 전화번호', true));
   };
 
-  const validateBirth = (birth: string) => {
-    const reg = /^\d{6}/;
-    return !reg.test(birth)
-      ? setBirthValid(makeValidObject('6자리로 입력해주세요', false))
-      : setBirthValid(makeValidObject('정상적인 생일', true));
-  };
-
   const finalConfirm = () => {
     return [
       loginIdDuplicate,
@@ -109,8 +99,6 @@ export default function useFormValidation() {
       emailValid,
       passwordConfirm,
       nicknameValid,
-      phoneNumValid,
-      birthValid,
     ].every((item) => item?.isValid);
   };
 
@@ -127,8 +115,6 @@ export default function useFormValidation() {
     nicknameValid,
     phoneNumValid,
     validatePhoneNum,
-    birthValid,
-    validateBirth,
     finalConfirm,
   };
 }
