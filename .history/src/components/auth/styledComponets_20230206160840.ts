@@ -71,10 +71,11 @@ export const AuthLabel = styled.label`
   flex-direction: column;
   margin-top: 1.4rem;
 
-  & div > span:first-child {
+  & span {
     font-size: 1.2rem;
-    color: ${(props) => props.theme.mainColor};
+
     filter: brightness(0.9);
+    color: white;
   }
 
   & input {

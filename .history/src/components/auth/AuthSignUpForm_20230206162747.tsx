@@ -100,13 +100,7 @@ export default function AuthSignUpForm() {
                     onBlur: (e) =>
                       e.target.value && validLoginIdDuplicate(e.target.value),
                   })}
-                  className={
-                    !loginIdDuplicate
-                      ? undefined
-                      : loginIdDuplicate.isValid
-                      ? undefined
-                      : 'error'
-                  }
+                  className={loginIdDuplicate?.isValid ? undefined : 'error'}
                   id='loginId'
                   type='text'
                   placeholder='아이디'
@@ -129,11 +123,7 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='passwordConfirm'>
                 <div>
                   <span>비밀번호 확인</span>{' '}
-                  {errors.passwordConfirm && (
-                    <RapidReponseText responseType={false}>
-                      {errors.passwordConfirm.message}
-                    </RapidReponseText>
-                  )}
+                  {errors.passwordConfirm && <span>{123}</span>}
                 </div>
                 <input
                   {...register('passwordConfirm', {
@@ -253,5 +243,5 @@ const AuthSlideFooter = styled.div`
 const RapidReponseText = styled.span<{ responseType: boolean | undefined }>`
   font-size: ${({ theme }) => theme.fontSmall};
   margin-left: 0.8rem;
-  color: ${({ responseType }) => (responseType ? 'green' : 'red')};
+  color: ${({ responseType }) => (type ? 'green' : 'red')};
 `;

@@ -129,11 +129,7 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='passwordConfirm'>
                 <div>
                   <span>비밀번호 확인</span>{' '}
-                  {errors.passwordConfirm && (
-                    <RapidReponseText responseType={false}>
-                      {errors.passwordConfirm.message}
-                    </RapidReponseText>
-                  )}
+                  {errors.passwordConfirm && <span>{123}</span>}
                 </div>
                 <input
                   {...register('passwordConfirm', {

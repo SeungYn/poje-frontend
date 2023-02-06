@@ -88,7 +88,7 @@ export default function AuthSignUpForm() {
                   <span>아이디</span>
                   &nbsp;
                   {loginIdDuplicate && (
-                    <RapidReponseText responseType={loginIdDuplicate.isValid}>
+                    <RapidReponseText type={loginIdDuplicate.isValid}>
                       {loginIdDuplicate.message}
                     </RapidReponseText>
                   )}
@@ -100,13 +100,7 @@ export default function AuthSignUpForm() {
                     onBlur: (e) =>
                       e.target.value && validLoginIdDuplicate(e.target.value),
                   })}
-                  className={
-                    !loginIdDuplicate
-                      ? undefined
-                      : loginIdDuplicate.isValid
-                      ? undefined
-                      : 'error'
-                  }
+                  className={loginIdDuplicate?.isValid ? undefined : 'error'}
                   id='loginId'
                   type='text'
                   placeholder='아이디'
@@ -129,11 +123,7 @@ export default function AuthSignUpForm() {
               <AuthFormLabel htmlFor='passwordConfirm'>
                 <div>
                   <span>비밀번호 확인</span>{' '}
-                  {errors.passwordConfirm && (
-                    <RapidReponseText responseType={false}>
-                      {errors.passwordConfirm.message}
-                    </RapidReponseText>
-                  )}
+                  {errors.passwordConfirm && <span>{123}</span>}
                 </div>
                 <input
                   {...register('passwordConfirm', {
@@ -231,9 +221,6 @@ const AuthSlideForm = styled.div`
 
 const AuthFormLabel = styled(AuthLabel)`
   margin-top: 1rem;
-  .error {
-    border: red 1px solid;
-  }
 `;
 
 const AuthSlideNextBtn = styled(LoginBtn)`
@@ -250,8 +237,8 @@ const AuthSlideFooter = styled.div`
   }
 `;
 
-const RapidReponseText = styled.span<{ responseType: boolean | undefined }>`
+const RapidReponseText = styled.span<{ type: boolean }>`
   font-size: ${({ theme }) => theme.fontSmall};
   margin-left: 0.8rem;
-  color: ${({ responseType }) => (responseType ? 'green' : 'red')};
+  color: ${({ type }) => (type ? 'green' : 'red')};
 `;

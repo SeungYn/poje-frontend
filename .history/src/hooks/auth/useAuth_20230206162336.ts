@@ -15,9 +15,8 @@ type LoginIdDuplicateType = {
 export default function useAuth() {
   const navigate = useNavigate();
   const setAccessToken = useSetRecoilState(accessTokenState);
-  const [loginIdDuplicate, setLoginIdDuplicate] = useState<
-    LoginIdDuplicateType | undefined
-  >(undefined);
+  const [loginIdDuplicate, setLoginIdDuplicate] =
+    useState<LoginIdDuplicateType>();
 
   const login = useMutation(
     (data: LoginRequest) => {

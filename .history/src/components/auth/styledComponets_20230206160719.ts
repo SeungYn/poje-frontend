@@ -75,6 +75,7 @@ export const AuthLabel = styled.label`
     font-size: 1.2rem;
     color: ${(props) => props.theme.mainColor};
     filter: brightness(0.9);
+    background-color: black;
   }
 
   & input {
