@@ -30,24 +30,30 @@ export default function useFormValidation() {
     undefined
   );
 
-  const validLoginIdDuplicate = useMutation(
-    (loginId: string) => {
-      return service.auth.loginIdDuplicate({ loginId });
-    },
-    {
-      onSuccess: () => {
-        setLoginIdDuplicate({ message: '사용가능한 아이디', isValid: true });
-        return true;
+  const validLoginIdDuplicate = useCallback(
+    useMutation(
+      (loginId: string) => {
+        return service.auth.loginIdDuplicate({ loginId });
       },
-      onError: ({ callbackError }) => {
-        setLoginIdDuplicate({ message: '사용불가능한 아이디', isValid: false });
+      {
+        onSuccess: () => {
+          setLoginIdDuplicate({ message: '사용가능한 아이디', isValid: true });
+          return true;
+        },
+        onError: ({ callbackError }) => {
+          setLoginIdDuplicate({
+            message: '사용불가능한 아이디',
+            isValid: false,
+          });
 
-        return false;
-      },
-    }
+          return false;
+        },
+      }
+    ),
+    []
   );
 
-  const validatePassword = useCallback((password: string) => {
+  const validatePassword = (password: string) => {
     const reg = /(?=.*\d)(?=.*\W)(?=.*[A-Z])(?=.*[a-z])(?=.*\S$).{8,20}/;
 
     return reg.test(password)
@@ -58,27 +64,24 @@ export default function useFormValidation() {
             false
           )
         );
-  }, []);
+  };
 
-  const validateEmail = useCallback((email: string) => {
+  const validateEmail = (email: string) => {
     const reg = /(?=.*@)/;
     return !reg.test(email)
       ? setEmailValid(makeValidObject('이메일 형식에 맞게 입력해라', false))
       : setEmailValid(makeValidObject('이메일 형식에 맞게 입력해라', true));
-  }, []);
+  };
 
-  const confirmPassword = useCallback(
-    (password: string, confirmTarget: string) => {
-      password !== confirmTarget
-        ? setPasswordConfirm(
-            makeValidObject('비밀번호가 일치하지 않습니다..', false)
-          )
-        : setPasswordConfirm(makeValidObject('비밀번호가 일치..', true));
-    },
-    []
-  );
+  const confirmPassword = (password: string, confirmTarget: string) => {
+    password !== confirmTarget
+      ? setPasswordConfirm(
+          makeValidObject('비밀번호가 일치하지 않습니다..', false)
+        )
+      : setPasswordConfirm(makeValidObject('비밀번호가 일치..', true));
+  };
 
-  const validateNickname = useCallback((nickname: string) => {
+  const validateNickname = (nickname: string) => {
     const reg = /^[ㄱ-ㅎ가-힣a-z0-9-_]{2,10}$/;
 
     return !reg.test(nickname)
@@ -89,21 +92,21 @@ export default function useFormValidation() {
             true
           )
         );
-  }, []);
+  };
 
-  const validatePhoneNum = useCallback((num: string) => {
+  const validatePhoneNum = (num: string) => {
     const reg = /^010\d{8}/;
     return !reg.test(num)
       ? setPhoneNumValid(makeValidObject('숫자만 입력해라씨발련아', false))
       : setPhoneNumValid(makeValidObject('정상적인 전화번호', true));
-  }, []);
+  };
 
-  const validateBirth = useCallback((birth: string) => {
+  const validateBirth = (birth: string) => {
     const reg = /^\d{6}/;
     return !reg.test(birth)
       ? setBirthValid(makeValidObject('6자리로 입력해주세요', false))
       : setBirthValid(makeValidObject('정상적인 생일', true));
-  }, []);
+  };
 
   const finalConfirm = () => {
     return [
