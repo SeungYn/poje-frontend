@@ -6,7 +6,7 @@ const localStorageEffect: <T>(key: string) => AtomEffect<T> =
   (key) =>
   ({ setSelf, onSet }) => {
     const savedValue = tokenStorage.get<string>('TOKEN');
-
+    console.log(123);
     if (savedValue !== null) setSelf(savedValue as any);
 
     onSet((newValue, _, isReset) => {

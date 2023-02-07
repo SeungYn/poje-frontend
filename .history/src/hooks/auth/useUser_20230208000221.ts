@@ -8,5 +8,5 @@ export default function useUser() {
     setUser('');
   };
 
-  return { user, clearUser, setUser };
+  return { user, clearUser };
 }

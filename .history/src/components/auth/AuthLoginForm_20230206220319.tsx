@@ -1,6 +1,4 @@
 import useAuth from '@src/hooks/auth/useAuth';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import { FormEvent, useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
@@ -31,9 +29,7 @@ export default function AuthLoginForm() {
     login(data);
   };
 
-  useEffect(() => {
-    axios.get('http://localhost:8080/loginId/123123');
-  }, []);
+  useEffect(() => {}, []);
   return (
     <AuthFormContainer onSubmit={handleSubmit(onSumbit)}>
       <TopSide>

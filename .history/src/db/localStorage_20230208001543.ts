@@ -13,12 +13,14 @@ interface LocalStorage {
 
 export default class TokenStorage implements LocalStorage {
   get<R>(key: keyof KeysType): R | null {
+    console.log(key);
     const result = localStorage.getItem(keys[key]) as R;
+    console.log(result, 'result');
     return result || null;
   }
 
   set<R>(key: keyof KeysType, value: R) {
-    return localStorage.setItem(keys[key], JSON.stringify(value));
+    return localStorage.setItem(key, JSON.stringify(value));
   }
 
   remove(key: keyof KeysType) {

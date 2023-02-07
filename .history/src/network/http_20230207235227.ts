@@ -14,7 +14,7 @@ export default class Http {
 
     this.client.interceptors.request.use((req) => {
       console.log('request :', req);
-      console.log(this.localStorage.get<string>('TOKEN'));
+      console.log(123);
       req.headers.Authorization = `Bearer ${this.localStorage.get<string>(
         'TOKEN'
       )}`;
@@ -22,10 +22,10 @@ export default class Http {
     });
   }
 
-  async fetchJson<R>(
+  async fetchJson<R | null>(
     url: string,
     options: AxiosRequestConfig
-  ): Promise<AxiosResponse<R>> {
+  ): Promise<AxiosResponse<R | null>> {
     const { data, method, headers } = options;
     const request = {
       url,

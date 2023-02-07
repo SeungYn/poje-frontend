@@ -6,7 +6,7 @@ const localStorageEffect: <T>(key: string) => AtomEffect<T> =
   (key) =>
   ({ setSelf, onSet }) => {
     const savedValue = tokenStorage.get<string>('TOKEN');
-
+    console.log(123, savedValue);
     if (savedValue !== null) setSelf(savedValue as any);
 
     onSet((newValue, _, isReset) => {
@@ -15,7 +15,8 @@ const localStorageEffect: <T>(key: string) => AtomEffect<T> =
         : tokenStorage.set<string>('TOKEN', newValue as string);
     });
   };
-
+console.log(localStorage.getItem('TOKEN'));
+console.log(tokenStorage.get<string>('TOKEN'));
 export const accessTokenState = atom<string>({
   key: 'accessToken',
   default: '',

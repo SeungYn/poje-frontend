@@ -1,4 +1,3 @@
-import { accessToken } from './../../.history/src/store/auth/auth_20230204225435';
 import TokenStorage from '@src/db/localStorage';
 import LocalStorage from '@src/db/localStorage';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
@@ -14,10 +13,8 @@ export default class Http {
 
     this.client.interceptors.request.use((req) => {
       console.log('request :', req);
-      console.log(this.localStorage.get<string>('TOKEN'));
-      req.headers.Authorization = `Bearer ${this.localStorage.get<string>(
-        'TOKEN'
-      )}`;
+      console.log(123);
+      //req.headers.Authorization = this.localStorage.get<string>('TOKEN');
       return req;
     });
   }
@@ -32,6 +29,7 @@ export default class Http {
       method,
       headers: {
         ...headers,
+        'Content-Type': 'application/json',
       },
       data,
     };
@@ -43,16 +41,6 @@ export default class Http {
     } catch (e) {
       console.log(e);
       if (axios.isAxiosError(e)) {
-        console.log(e.config);
-        // if (e.status === 401) {
-        //   const re = await this.client({
-        //     url: '/reissue',
-        //     data: {
-        //       accessToken: `Bearer ${this.localStorage.get<string>('TOKEN')}`,
-        //     },
-        //   });
-
-        // }
         const message = e.response?.data?.message;
         if (message) {
           throw new Error(message);

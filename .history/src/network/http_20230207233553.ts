@@ -14,7 +14,7 @@ export default class Http {
 
     this.client.interceptors.request.use((req) => {
       console.log('request :', req);
-      console.log(this.localStorage.get<string>('TOKEN'));
+      console.log(123);
       req.headers.Authorization = `Bearer ${this.localStorage.get<string>(
         'TOKEN'
       )}`;
@@ -44,15 +44,14 @@ export default class Http {
       console.log(e);
       if (axios.isAxiosError(e)) {
         console.log(e.config);
-        // if (e.status === 401) {
-        //   const re = await this.client({
-        //     url: '/reissue',
-        //     data: {
-        //       accessToken: `Bearer ${this.localStorage.get<string>('TOKEN')}`,
-        //     },
-        //   });
-
-        // }
+        if (e.status === 401) {
+          const re = this.client({
+            url: '/reissue',
+            data: {
+              accessToken: `Bearer ${this.localStorage.get<string>('TOKEN')}`,
+            },
+          });
+        }
         const message = e.response?.data?.message;
         if (message) {
           throw new Error(message);

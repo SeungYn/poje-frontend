@@ -45,9 +45,6 @@ export default class AuthService {
   }
 
   async logout() {
-    const options: AxiosRequestConfig = {
-      method: 'GET',
-    };
-    await this.http.fetchJson(`/member/logout`, options);
+    await this.http.fetchJson(`/loginId/${data.loginId}`);
   }
 }

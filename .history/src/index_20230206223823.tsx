@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <>
+  <React.StrictMode>
     <GlobalStyle />
     <ThemeProvider theme={mainTheme}>
       <QueryClientProvider client={queryClient}>
@@ -27,5 +27,5 @@ root.render(
         <ReactQueryDevtools />
       </QueryClientProvider>
     </ThemeProvider>
-  </>
+  </React.StrictMode>
 );

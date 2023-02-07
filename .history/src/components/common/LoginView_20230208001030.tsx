@@ -21,7 +21,7 @@ export default function LoginView({ isHomePath }: props) {
   const navigate = useNavigate();
   const [loginIsOpen, loginRef, loginToggleHander] =
     useDropDownHelper<HTMLDivElement>();
-  console.log(user);
+
   if (!user)
     return (
       <LoginBtn isHomePath={isHomePath} onClick={() => navigate('/auth/login')}>

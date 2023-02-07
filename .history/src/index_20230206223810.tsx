@@ -10,14 +10,14 @@ import { QueryClientProvider } from '@tanstack/react-query';
 
 import { queryClient } from '@src/react-query/queryClient';
 import { RecoilRoot } from 'recoil';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools/build/lib/devtools';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
 root.render(
-  <>
+  <React.StrictMode>
     <GlobalStyle />
     <ThemeProvider theme={mainTheme}>
       <QueryClientProvider client={queryClient}>
@@ -27,5 +27,5 @@ root.render(
         <ReactQueryDevtools />
       </QueryClientProvider>
     </ThemeProvider>
-  </>
+  </React.StrictMode>
 );

@@ -31,9 +31,19 @@ export default function AuthLoginForm() {
     login(data);
   };
 
-  useEffect(() => {
-    axios.get('http://localhost:8080/loginId/123123');
-  }, []);
+  const test = useQuery(['test'], async () =>
+    axios
+      .get('http://localhost:8080/loginId/123123')
+      .then((data) => {
+        console.log(data);
+        return data;
+      })
+      .catch((e) => console.log(e))
+  );
+
+  // useEffect(() => {
+  //   axios.get('http://localhost:8080/loginId/123123');
+  // }, []);
   return (
     <AuthFormContainer onSubmit={handleSubmit(onSumbit)}>
       <TopSide>

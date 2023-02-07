@@ -1,9 +1,6 @@
-import useAuth from '@src/hooks/auth/useAuth';
-import useUser from '@src/hooks/auth/useUser';
 import { useRef, useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import useDropDownHelper from '../../hooks/useDropDownHelper';
 
@@ -16,18 +13,12 @@ type styledPropsType = {
 };
 
 export default function LoginView({ isHomePath }: props) {
-  const { user, setUser } = useUser();
-  const { logOut } = useAuth();
-  const navigate = useNavigate();
+  const [user, setUser] = useState(true);
+
   const [loginIsOpen, loginRef, loginToggleHander] =
     useDropDownHelper<HTMLDivElement>();
-  console.log(user);
-  if (!user)
-    return (
-      <LoginBtn isHomePath={isHomePath} onClick={() => navigate('/auth/login')}>
-        로그인
-      </LoginBtn>
-    );
+
+  if (!user) return <LoginBtn isHomePath={isHomePath}>로그인</LoginBtn>;
 
   return (
     <Wrapper ref={loginRef} onClick={loginToggleHander} isHomePath={isHomePath}>
@@ -39,7 +30,7 @@ export default function LoginView({ isHomePath }: props) {
       <MenuList isOpend={loginIsOpen}>
         <MenuItem onClick={() => console.log('click')}>내 정보</MenuItem>
         <MenuItem>포트폴리오</MenuItem>
-        <MenuItem onClick={() => logOut()}>로그아웃</MenuItem>
+        <MenuItem>로그아웃</MenuItem>
       </MenuList>
     </Wrapper>
   );
@@ -90,11 +81,10 @@ const Wrapper = styled.div<styledPropsType>`
 
 const LoginBtn = styled.button<styledPropsType>`
   font-size: 1.2rem;
+  background: ${({ isHomePath, theme }) =>
+    isHomePath ? theme.bgColor : theme.bgAccentColor};
   color: ${({ isHomePath, theme }) =>
     isHomePath ? theme.textAccentColor : theme.textColor};
-  border: 1px solid
-    ${({ isHomePath, theme }) =>
-      isHomePath ? theme.textAccentColor : theme.textColor};
   padding: 0.4rem 0.8rem;
 
   border-radius: 1rem;

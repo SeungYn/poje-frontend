@@ -23,6 +23,7 @@ export default function AuthSignUpForm() {
   const {
     register,
     handleSubmit,
+
     formState: { errors, isDirty, dirtyFields },
     setError,
     clearErrors,

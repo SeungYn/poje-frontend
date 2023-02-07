@@ -47,11 +47,7 @@ export default function useAuth() {
     }
   );
 
-  const logOut = useMutation(() => service.auth.logout(), {
-    onSuccess: () => {
-      clearUser();
-    },
-  });
+  const logOut = useMutation(() => service.auth.logout());
 
   return {
     login: login.mutate,

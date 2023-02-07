@@ -31,6 +31,14 @@ export default function AuthLoginForm() {
     login(data);
   };
 
+  const test = useQuery(['test'], async () =>
+    axios.get('http://localhost:8080/loginId/123123').then((data) => {
+      console.log(data);
+      return data;
+    })
+  );
+  console.log(test);
+
   useEffect(() => {
     axios.get('http://localhost:8080/loginId/123123');
   }, []);

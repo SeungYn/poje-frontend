@@ -26,7 +26,7 @@ export default function useAuth() {
       onSuccess: (data) => {
         console.log(data);
         const token = data.headers.authorization.split(' ')[1];
-        setUser(token);
+        setAccessToken(token);
         navigate('/');
       },
       onError: (err) => {
@@ -47,11 +47,7 @@ export default function useAuth() {
     }
   );
 
-  const logOut = useMutation(() => service.auth.logout(), {
-    onSuccess: () => {
-      clearUser();
-    },
-  });
+  const logOut = useMutation(() => service.auth.logout());
 
   return {
     login: login.mutate,
