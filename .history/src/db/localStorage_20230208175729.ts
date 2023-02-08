@@ -18,7 +18,7 @@ export default class TokenStorage implements LocalStorage {
   }
 
   set<R>(key: keyof KeysType, value: R) {
-    return localStorage.setItem(keys[key], value as string);
+    return localStorage.setItem(keys[key], value);
   }
 
   remove(key: keyof KeysType) {
