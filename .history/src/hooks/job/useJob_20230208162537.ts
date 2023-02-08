@@ -3,6 +3,6 @@ interface UseJobType {
   job: string;
 }
 export default function useJob({ job }: UseJobType) {
-  //const { data } = useQuery();
+  const {} = useQuery();
   return 123;
 }
