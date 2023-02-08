@@ -3,15 +3,15 @@ import { useQuery } from '@tanstack/react-query';
 interface UseJobType {
   job: string;
 }
-export default function useJobCategory() {
-  const { data: category } = useQuery(
+export default function useJob({ job }: UseJobType) {
+  const { data: catetefory } = useQuery(
     ['catefory'],
-    () => {
+    async () => {
       return service.job.getJobCategory();
     },
     {
       suspense: true,
     }
   );
-  return { category };
+  return { catetefory };
 }

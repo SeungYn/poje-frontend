@@ -16,11 +16,7 @@ export default class JobCardService {
     const config: AxiosRequestConfig = {
       method: 'GET',
     };
-    const { data } = await this.http.fetchJson<JobCategoryResponse>(
-      '/member/job',
-      config
-    );
-    return data;
+    return this.http.fetchJson<JobCategoryResponse>('/member/job', config);
   }
 
   async clickLike(data: LikeRequest) {

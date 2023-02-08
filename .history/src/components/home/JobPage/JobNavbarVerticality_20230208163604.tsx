@@ -22,7 +22,6 @@ export default function JobNavbarVerticality() {
     color: theme.textColor,
   };
   const { category } = useJobCategory();
-  console.log(category);
   return (
     <JobNav>
       <JobList>

@@ -6,6 +6,8 @@ import JobNavbarVerticality from '../../components/home/JobPage/JobNavbarVertica
 import { breakPoint, mediaMin } from '../../styledComponents/media';
 
 export default function JobPages() {
+  const { user } = useUser();
+  console.log(user);
   return (
     <Container>
       <JobNavbarVerticality />

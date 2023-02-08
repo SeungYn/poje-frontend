@@ -4,14 +4,14 @@ interface UseJobType {
   job: string;
 }
 export default function useJobCategory() {
-  const { data: category } = useQuery(
+  const { data: catetefory } = useQuery(
     ['catefory'],
-    () => {
-      return service.job.getJobCategory();
+    async () => {
+      return service.job.getJobCategory().then((res) => res.data);
     },
     {
       suspense: true,
     }
   );
-  return { category };
+  return { catetefory };
 }

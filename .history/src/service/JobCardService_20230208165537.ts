@@ -20,7 +20,7 @@ export default class JobCardService {
       '/member/job',
       config
     );
-    return data;
+    return;
   }
 
   async clickLike(data: LikeRequest) {

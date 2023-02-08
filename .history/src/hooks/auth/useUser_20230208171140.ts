@@ -1,11 +1,11 @@
 import { accessTokenState } from '@src/store/auth/auth';
-import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil';
+import { useRecoilValue, useRecoilState } from 'recoil';
 
 export default function useUser() {
   const [user, setUser] = useRecoilState(accessTokenState);
-  const resetUser = useResetRecoilState(accessTokenState);
+
   const clearUser = () => {
-    resetUser();
+    setUser('', '', true);
   };
 
   return { user, clearUser, setUser };
