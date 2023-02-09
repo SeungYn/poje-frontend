@@ -1,4 +1,5 @@
 import useJobCategory from '@src/hooks/job/useJob';
+import JobCardService from '@src/service/jobCardService';
 import { Suspense } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styled, { useTheme } from 'styled-components';

@@ -12,7 +12,7 @@ export {};
 export default class JobCardService {
   constructor(private http: Http) {}
 
-  async getJobCategory() {
+  async getJobCategory(): JobCategoryResponse {
     const config: AxiosRequestConfig = {
       method: 'GET',
     };
@@ -20,7 +20,7 @@ export default class JobCardService {
       '/member/job',
       config
     );
-    return data.result.jobInfoRespList;
+    return data.jobInfoRespList;
   }
 
   async clickLike(data: LikeRequest) {

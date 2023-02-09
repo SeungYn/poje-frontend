@@ -2,7 +2,6 @@ import useJobCategory from '@src/hooks/job/useJob';
 import { Suspense } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styled, { useTheme } from 'styled-components';
-import JobCategory from './JobCategory';
 
 type NavType = {
   developer: string;
@@ -23,12 +22,23 @@ export default function JobNavbarVerticality() {
   const activeStyle = {
     color: theme.textColor,
   };
-  const { category, isLoading } = useJobCategory();
-
+  const { category } = useJobCategory()!;
+  console.log(category);
   return (
     <JobNav>
       <Suspense fallback={<div>로딩중</div>}>
-        <JobCategory />
+        <JobList>
+          {Object.keys(navList).map((type, i) => (
+            <JobItem key={type}>
+              <NavLink
+                to={`/job/${type}`}
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                {navList[type]}
+              </NavLink>
+            </JobItem>
+          ))}
+        </JobList>
       </Suspense>
     </JobNav>
   );

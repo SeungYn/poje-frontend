@@ -5,7 +5,7 @@ interface UseJobType {
   job: string;
 }
 export default function useJobCategory() {
-  const { data: category = [], isLoading } = useQuery(
+  const { data: category = [] } = useQuery(
     ['category'],
     () => {
       return service.job.getJobCategory();
@@ -14,5 +14,5 @@ export default function useJobCategory() {
       suspense: true,
     }
   );
-  return { category, isLoading };
+  return { category };
 }
