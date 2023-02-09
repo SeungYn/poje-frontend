@@ -15,7 +15,6 @@ export default function usePortfolioCRUD() {
       },
       onError: (data: Error) => {
         console.log(data.message);
-        setModal(data.message);
       },
     }
   );

@@ -15,7 +15,7 @@ export default function JobSearchForm() {
       </Container>
       <PortfolioMakeBtn
         type='button'
-        onClick={() => createPortfolio({ job: param.type || '전체' })}
+        onClick={() => createPortfolio({ job: '개발자' })}
       >
         포트폴리오 만들기
       </PortfolioMakeBtn>

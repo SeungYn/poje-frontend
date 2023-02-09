@@ -13,9 +13,8 @@ export default function usePortfolioCRUD() {
         alert('포트폴리오 생성완료');
         setModal('포트폴리오 생성완료');
       },
-      onError: (data: Error) => {
-        console.log(data.message);
-        setModal(data.message);
+      onError: (data) => {
+        alert('포트폴리오 생성완료');
       },
     }
   );

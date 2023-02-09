@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 import { BiSearchAlt2 } from 'react-icons/bi';
-import usePortfolioCRUD from '@src/hooks/portfolio/usePortfolioCRUD';
-import { useParams } from 'react-router-dom';
 export default function JobSearchForm() {
-  const param = useParams<{ type: string }>();
-  const { createPortfolio } = usePortfolioCRUD();
-
   return (
     <Form>
       <Container>
@@ -13,12 +8,7 @@ export default function JobSearchForm() {
         <SearchBar />
         <SearchBtn />
       </Container>
-      <PortfolioMakeBtn
-        type='button'
-        onClick={() => createPortfolio({ job: param.type || '전체' })}
-      >
-        포트폴리오 만들기
-      </PortfolioMakeBtn>
+      <PortfolioMakeBtn type='button'>포트폴리오 만들기</PortfolioMakeBtn>
     </Form>
   );
 }
