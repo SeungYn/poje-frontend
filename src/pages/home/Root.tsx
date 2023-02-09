@@ -1,3 +1,4 @@
+import CommonModal from '@src/components/common/CommonModal';
 import { Outlet, useLocation } from 'react-router-dom';
 import MainHeader from '../../components/common/MainHeader';
 
@@ -7,6 +8,7 @@ export default function Root() {
   return (
     <>
       <MainHeader isHomePath={isHomePath} />
+      <CommonModal />
       <Outlet />
     </>
   );

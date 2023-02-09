@@ -14,6 +14,7 @@ declare module 'styled-components' {
     textColorToneDown: string;
     textColorToneDownTick: string;
     darkBgColor: string;
+    modalBackgroundColor: string;
     bgColor: string;
     bgSemiDarkColor: string;
     bgAccentColor: string;

@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 import styled from 'styled-components';
-import JobPortfolios from './JobPortfoliosByCategory';
+import JobPortfoliosByCategory from './JobPortfoliosByCategory';
 import JobSearchForm from './JobSearchForm';
 
 export interface ProfileItemType {
@@ -14,9 +15,13 @@ export default function JobContent() {
   return (
     <ProfileContainer>
       <JobSearchForm />
-      <Suspense fallback={<div>로딩중</div>}>
-        <JobPortfolios />
-      </Suspense>
+      <ErrorBoundary
+        FallbackComponent={() => <div>해당 직무는 존재하지 않습니다.</div>}
+      >
+        <Suspense fallback={<div>로딩중</div>}>
+          <JobPortfoliosByCategory />
+        </Suspense>
+      </ErrorBoundary>
     </ProfileContainer>
   );
 }

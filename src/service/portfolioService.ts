@@ -1,22 +1,22 @@
 import { AxiosRequestConfig } from 'axios';
 import Http from '@src/network/http';
-import { createPortfolioTemplate } from '@src/service/types/portfolio';
-import { JobPortfolioCardResponse } from '@src/service/types/jobCard';
+import {
+  createPortfolioTemplateRequest,
+  createPortfolioTemplateResponse,
+} from '@src/service/types/portfolio';
 
 export class PortfolioService {
   constructor(private http: Http) {}
 
-  async createPortfolioTemplate(data: createPortfolioTemplate) {
+  async createPortfolioTemplate(data: createPortfolioTemplateRequest) {
     const { job } = data;
     const config: AxiosRequestConfig = {
       method: 'POST',
     };
 
-    return this.http.fetchJson<JobPortfolioCardResponse>(
+    return this.http.fetchJson<createPortfolioTemplateResponse>(
       `/member/portfolio?job=${job}`,
       config
     );
-	}
-	
-	
+  }
 }

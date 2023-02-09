@@ -13,6 +13,7 @@ export const mainTheme: DefaultTheme = {
   bgSemiDarkColor: 'rgb(239, 237, 237);',
   bgAccentColor: 'black',
   darkBgColor: 'rgba(0, 0, 0, 0.1)',
+  modalBackgroundColor: 'rgba(0, 0, 0, 0.4)',
   textColor: 'black',
   textColorToneDown: '#d3d3d3',
   textColorToneDownTick: 'rgb(165, 165, 165)',
