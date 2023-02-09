@@ -5,7 +5,6 @@ import JobNavbarVerticality from '../../components/home/JobPage/JobNavbarVertica
 
 export default function JobPages() {
   const param = useParams();
-  console.log(param);
   return (
     <Container>
       <JobNavbarVerticality />

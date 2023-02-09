@@ -1,11 +1,10 @@
-import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import JobContent from '../../components/home/JobPage/JobContent';
 import JobNavbarVerticality from '../../components/home/JobPage/JobNavbarVerticality';
 
+import { breakPoint, mediaMin } from '../../styledComponents/media';
+
 export default function JobPages() {
-  const param = useParams();
-  console.log(param);
   return (
     <Container>
       <JobNavbarVerticality />

@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Login from './components/auth/Login';
 import SignUp from './components/auth/SignUp';
 import AuthPage from './pages/auth/AuthPage';
@@ -18,20 +18,25 @@ export const router = createBrowserRouter([
     element: <Root />,
     children: [
       { path: '', element: <MainPage /> },
-      { path: 'job', element: <Navigate to={'/job/전체'}></Navigate> },
+      {
+        path: '/job',
+        element: <div>123</div>,
+        children: [
+          {
+            path: '/:type',
+            element: (
+              <RouterProtect>
+                <JobPages />
+              </RouterProtect>
+            ),
+          },
+        ],
+      },
       {
         path: 'job/search/:keyword',
         element: (
           <RouterProtect>
             <JobSearchPage />
-          </RouterProtect>
-        ),
-      },
-      {
-        path: 'job/:type',
-        element: (
-          <RouterProtect>
-            <JobPages />
           </RouterProtect>
         ),
       },
