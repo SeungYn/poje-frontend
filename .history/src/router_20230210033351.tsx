@@ -3,7 +3,6 @@ import Login from './components/auth/Login';
 import SignUp from './components/auth/SignUp';
 import AuthPage from './pages/auth/AuthPage';
 import JobPages from './pages/home/JobPages';
-import JobSearchPage from './pages/home/JobSearchPage';
 import MainPage from './pages/home/MainPage';
 import Root from './pages/home/Root';
 import NotFound from './pages/notFound/NotFound';
@@ -31,7 +30,7 @@ export const router = createBrowserRouter([
         path: 'job/search/:keyword',
         element: (
           <RouterProtect>
-            <JobSearchPage />
+            <JobPages />
           </RouterProtect>
         ),
       },

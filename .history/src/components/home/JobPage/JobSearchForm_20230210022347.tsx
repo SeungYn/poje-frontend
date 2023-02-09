@@ -13,14 +13,12 @@ export default function JobSearchForm() {
         <SearchBar />
         <SearchBtn />
       </Container>
-      {param.type && (
-        <PortfolioMakeBtn
-          type='button'
-          onClick={() => createPortfolio({ job: param.type || '전체' })}
-        >
-          포트폴리오 만들기
-        </PortfolioMakeBtn>
-      )}
+      <PortfolioMakeBtn
+        type='button'
+        onClick={() => createPortfolio({ job: param.type || '전체' })}
+      >
+        포트폴리오 만들기
+      </PortfolioMakeBtn>
     </Form>
   );
 }
