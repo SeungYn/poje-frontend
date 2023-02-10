@@ -1,9 +1,9 @@
 import CommonModal from '@src/components/common/CommonModal';
-import { createContext, useMemo, useContext } from 'react';
+import { createContext, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
 type ContextType = {
-  portfolioId: string;
+  portfolioId: number;
 };
 const PortfolioInfoContext = createContext<ContextType | undefined>(undefined);
 
@@ -12,7 +12,7 @@ type ContextPropType = {
 };
 
 type ParamsType = {
-  portfolioId: string;
+  portfolio: string;
 };
 
 export default function PortfolioInfoContextProvider({
@@ -20,7 +20,7 @@ export default function PortfolioInfoContextProvider({
 }: ContextPropType) {
   const { portfolioId } = useParams() as ParamsType;
 
-  const context = useMemo<ContextType>(() => ({ portfolioId }), [portfolioId]);
+  const context = useMemo(() => ({ portfolioId }), [portfolioId]);
   return (
     <PortfolioInfoContext.Provider value={context}>
       <CommonModal />
@@ -28,5 +28,3 @@ export default function PortfolioInfoContextProvider({
     </PortfolioInfoContext.Provider>
   );
 }
-
-export const usePoftfolioInfo = () => useContext(PortfolioInfoContext);
