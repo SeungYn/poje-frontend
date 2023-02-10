@@ -69,7 +69,6 @@ export const router = createBrowserRouter([
       <button
         onClick={() => {
           fetch('http://localhost:8080/jointest', { method: 'POST' });
-          fetch('http://localhost:8080/jobtest', { method: 'POST' });
         }}
       >
         {' '}
