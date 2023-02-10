@@ -31,7 +31,7 @@ export default function PortfolioIntroModify({
   };
 
   return (
-    <ModifyIntro
+    <Intro
       imgUrl={copiedPfIntro.backgroundImg}
       onClick={(e) => {
         if (e.currentTarget === e.target) console.log('akwfakw');
@@ -52,7 +52,7 @@ export default function PortfolioIntroModify({
           onChange={onChange}
         />
       </PortfolioSection>
-    </ModifyIntro>
+    </Intro>
   );
 }
 

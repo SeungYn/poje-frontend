@@ -31,10 +31,11 @@ export default function PortfolioIntroModify({
   };
 
   return (
-    <ModifyIntro
+    <Intro
       imgUrl={copiedPfIntro.backgroundImg}
       onClick={(e) => {
-        if (e.currentTarget === e.target) console.log('akwfakw');
+        e.stopPropagation();
+        console.log(e.target);
       }}
     >
       <PortfolioSection>
@@ -52,32 +53,9 @@ export default function PortfolioIntroModify({
           onChange={onChange}
         />
       </PortfolioSection>
-    </ModifyIntro>
+    </Intro>
   );
 }
-
-const ModifyIntro = styled(Intro)`
-  &:hover ::before {
-    content: '';
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background-color: rgba(235, 234, 234, 0.172);
-  }
-  &:hover ::after {
-    content: '클릭시 배경화면을 바꿀수 있습니다.';
-    color: white;
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
-  }
-`;
 
 const PortfolioSection = styled.section`
   color: white;
@@ -86,7 +64,6 @@ const PortfolioSection = styled.section`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  z-index: 10;
 `;
 
 const CommonTextInput = styled.input`

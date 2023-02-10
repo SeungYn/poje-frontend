@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const Intro = styled.section<{ imgUrl: string }>`
   position: relative;
   padding: 10rem 6rem 6rem 6rem;
+  &:hover {
+    background: white;
+  }
 
   &::before {
     content: '';
