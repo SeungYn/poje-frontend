@@ -1,6 +1,21 @@
 import { AiTwotoneHeart } from 'react-icons/ai';
 import styled from 'styled-components';
-import { PortfolioItemType } from '@src/service/types/jobCard';
+import { JobPortfolioCardResponse } from '@src/service/types/jobCard';
+
+type PortfolioItemType = {
+  portfolioId: number;
+  title: string;
+  description: string;
+  backgroundImg: string;
+  nickName: string;
+  profileImg: string;
+  likeCount: number;
+};
+
+type PortfolioListItemType = Pick<
+  Pick<JobPortfolioCardResponse, 'result'>['result'],
+  'pfAndMemberResp'
+>['pfAndMemberResp'];
 
 export default function ProfileItemRemaster(data: PortfolioItemType) {
   const { title, description, backgroundImg, profileImg, nickName, likeCount } =

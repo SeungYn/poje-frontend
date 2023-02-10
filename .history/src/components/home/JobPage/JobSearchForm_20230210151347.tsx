@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import { BiSearchAlt2 } from 'react-icons/bi';
 import usePortfolioCRUD from '@src/hooks/portfolio/usePortfolioCRUD';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useCallback, useState } from 'react';
-import useJobSearch from '@src/hooks/job/useJobSearch';
 export default function JobSearchForm() {
   const param = useParams<{ type: string }>();
-  const navigate = useNavigate();
   const { createPortfolio } = usePortfolioCRUD();
-  const { prefetchJobSearch } = useJobSearch();
+
   const [keyword, setKeyword] = useState<string>('');
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e);
@@ -18,10 +16,10 @@ export default function JobSearchForm() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    prefetchJobSearch(keyword);
-    navigate(`/job/search/${keyword}`);
+    test();
   };
 
+  const test = useCallback(() => console.log(keyword), []);
   return (
     <Form onSubmit={onSubmit}>
       <Container>

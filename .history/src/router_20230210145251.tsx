@@ -18,24 +18,33 @@ export const router = createBrowserRouter([
     element: <Root />,
     children: [
       { path: '', element: <MainPage /> },
-
-      { path: 'job', element: <Navigate to={'/job/전체'}></Navigate> },
       {
-        path: 'job/search/:keyword',
+        path: 'job',
         element: (
-          <RouterProtect>
-            <JobSearchPage />
-          </RouterProtect>
+          <div>
+            <Outlet />
+            123
+          </div>
         ),
+        children: [{ index: true, element: <div>12444</div> }],
       },
-      {
-        path: 'job/:type',
-        element: (
-          <RouterProtect>
-            <JobPages />
-          </RouterProtect>
-        ),
-      },
+      //{ path: 'job', element: <Navigate to={'/job/전체'}></Navigate> },
+      // {
+      //   path: 'job/search/:keyword',
+      //   element: (
+      //     <RouterProtect>
+      //       <JobSearchPage />
+      //     </RouterProtect>
+      //   ),
+      // },
+      // {
+      //   path: 'job/:type',
+      //   element: (
+      //     <RouterProtect>
+      //       <JobPages />
+      //     </RouterProtect>
+      //   ),
+      // },
     ],
     errorElement: <NotFound />,
   },

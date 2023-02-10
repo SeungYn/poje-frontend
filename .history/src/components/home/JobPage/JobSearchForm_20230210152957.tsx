@@ -19,7 +19,6 @@ export default function JobSearchForm() {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     prefetchJobSearch(keyword);
-    navigate(`/job/search/${keyword}`);
   };
 
   return (
