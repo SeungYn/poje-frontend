@@ -6,8 +6,6 @@ export interface CreatePortfolioTemplateRequest {
 
 export interface CreatePortfolioTemplateResponse extends BasicResponse {}
 
-//인트로 파트 타입
-
 export interface GetPortfolioIntroRequest {
   portfolioId: number;
 }
@@ -22,11 +20,4 @@ export type PortfolioIntroType = {
 
 export interface GetPortfolioIntroResponse extends BasicResponse {
   result: PortfolioIntroType;
-}
-
-// 인트로 수정
-export interface ModifyPortfolioIntroRequest {
-  img: File;
-  title: string;
-  description: string;
 }

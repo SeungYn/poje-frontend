@@ -5,7 +5,6 @@ import {
   CreatePortfolioTemplateResponse,
   GetPortfolioIntroRequest,
   GetPortfolioIntroResponse,
-  ModifyPortfolioIntroRequest,
 } from '@src/service/types/portfolio';
 
 export class PortfolioService {
@@ -35,9 +34,5 @@ export class PortfolioService {
       );
 
     return { portfolioIntro: result };
-  }
-
-  async modifyPortfolioIntro(data: ModifyPortfolioIntroRequest) {
-    console.log(data);
   }
 }

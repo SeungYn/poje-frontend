@@ -23,10 +23,3 @@ export type PortfolioIntroType = {
 export interface GetPortfolioIntroResponse extends BasicResponse {
   result: PortfolioIntroType;
 }
-
-// 인트로 수정
-export interface ModifyPortfolioIntroRequest {
-  img: File;
-  title: string;
-  description: string;
-}

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import useModifyMode from '../../hooks/useModifyMode';
-import ModifyBtn from './common/ModifyBtn';
-import PortfolioIntro from './introPart/PortfolioIntro';
-import PortfolioIntroModify from './introPart/PortfolioIntroModify';
-import { PortfolioIntroPropType } from './introPart/portfolioIntroType';
+import useModifyMode from '../../../hooks/useModifyMode';
+import ModifyBtn from '../common/ModifyBtn';
+import PortfolioIntro from './PortfolioIntro';
+import PortfolioIntroModify from './PortfolioIntroModify';
+import { PortfolioIntroPropType } from './portfolioIntroType';
 
 const BAKCGROUND_IMAGE = `${process.env.PUBLIC_URL}/public_assets/portfolioBackground.jpg`;
 

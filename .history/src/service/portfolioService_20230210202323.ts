@@ -4,8 +4,6 @@ import {
   CreatePortfolioTemplateRequest,
   CreatePortfolioTemplateResponse,
   GetPortfolioIntroRequest,
-  GetPortfolioIntroResponse,
-  ModifyPortfolioIntroRequest,
 } from '@src/service/types/portfolio';
 
 export class PortfolioService {
@@ -23,21 +21,5 @@ export class PortfolioService {
     );
   }
 
-  async getPortfolioIntro(data: GetPortfolioIntroRequest) {
-    const { portfolioId } = data;
-    const config: AxiosRequestConfig = {
-      method: 'GET',
-    };
-    const { data: result } =
-      await this.http.fetchJson<GetPortfolioIntroResponse>(
-        `/protfolio/${portfolioId}`,
-        config
-      );
-
-    return { portfolioIntro: result };
-  }
-
-  async modifyPortfolioIntro(data: ModifyPortfolioIntroRequest) {
-    console.log(data);
-  }
+  async getPortfolioIntro(data: GetPortfolioIntroRequest) {}
 }
