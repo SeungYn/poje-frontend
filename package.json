@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
+    "@types/uuid": "^9.0.0",
     "craco-alias": "^3.0.1",
     "msw": "^1.0.0",
     "react-app-alias": "^2.2.2"
