@@ -13,8 +13,7 @@ export const Intro = styled.section<{ imgUrl: string }>`
     background-image: url(imgUrl);
     background-size: cover;
     background-position: center;
-    background: black;
-    filter: brightness(0.5);
+    filter: brightness(1);
     z-index: -1;
   }
 `;

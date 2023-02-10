@@ -31,7 +31,7 @@ export default function PortfolioIntroModify({
   };
 
   return (
-    <Intro imgUrl={copiedPfIntro.backgroundImg}>
+    <Intro>
       <PortfolioSection>
         <IntroTitleInput
           ref={titleRef}

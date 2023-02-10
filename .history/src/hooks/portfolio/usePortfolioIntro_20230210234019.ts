@@ -7,18 +7,15 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
 import { useState } from 'react';
 
-type CopiedPfIntroType = PortfolioIntroType & {
-  backgroundImgFile: File | null;
-};
+type CopiedPfIntroType = PortfolioIntroType & { backgroundImgFile: File };
 
 export default function usePortfolioIntro() {
-  const [copiedPfIntro, setCopiedPfIntro] = useState<CopiedPfIntroType>({
+  const [copiedPfIntro, setCopiedPfIntro] = useState<PortfolioIntroType>({
     title: '',
     description: '',
     portfolioId: '',
     jobName: '',
     backgroundImg: '',
-    backgroundImgFile: null,
   });
 
   const { portfolioId } = usePortfolioInfo();
@@ -29,7 +26,7 @@ export default function usePortfolioIntro() {
     {
       suspense: true,
       onSuccess(data) {
-        setCopiedPfIntro({ ...data, backgroundImgFile: null });
+        setCopiedPfIntro({ ...data });
       },
     }
   );

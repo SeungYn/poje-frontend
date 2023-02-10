@@ -6,20 +6,8 @@ import {
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
 import { useState } from 'react';
-
-type CopiedPfIntroType = PortfolioIntroType & {
-  backgroundImgFile: File | null;
-};
-
 export default function usePortfolioIntro() {
-  const [copiedPfIntro, setCopiedPfIntro] = useState<CopiedPfIntroType>({
-    title: '',
-    description: '',
-    portfolioId: '',
-    jobName: '',
-    backgroundImg: '',
-    backgroundImgFile: null,
-  });
+  const [copiedPfIntro, setCopiedPfIntro] = useState<PortfolioIntroType>();
 
   const { portfolioId } = usePortfolioInfo();
   //todo 인트로 보내기 가져오기
@@ -29,7 +17,7 @@ export default function usePortfolioIntro() {
     {
       suspense: true,
       onSuccess(data) {
-        setCopiedPfIntro({ ...data, backgroundImgFile: null });
+        setCopiedPfIntro({ ...data });
       },
     }
   );
@@ -44,10 +32,5 @@ export default function usePortfolioIntro() {
     return Promise.resolve();
   }, {});
 
-  return {
-    pfIntro: data!,
-    updateIntro: updateIntro.mutate,
-    copiedPfIntro,
-    setCopiedPfIntro,
-  };
+  return { pfIntro: data!, updateIntro: updateIntro.mutate };
 }

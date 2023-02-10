@@ -1,14 +1,15 @@
-import usePortfolioIntro from '@src/hooks/portfolio/usePortfolioIntro';
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { Intro } from './commonIntroStyledComponent';
 import { PortfolioIntroPropType } from './portfolioIntroType';
 
 export default function PortfolioIntroModify({
   title,
   description,
 }: PortfolioIntroPropType) {
-  const { copiedPfIntro, setCopiedPfIntro, updateIntro } = usePortfolioIntro();
+  const [info, setInfo] = useState<PortfolioIntroPropType>({
+    title,
+    description,
+  });
   const titleRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -24,30 +25,28 @@ export default function PortfolioIntroModify({
     const { name, value } = e.target;
     switch (name) {
       case 'title':
-        return setCopiedPfIntro((e) => ({ ...e, title: value }));
+        return setInfo((e) => ({ ...e, title: value }));
       case 'description':
-        return setCopiedPfIntro((e) => ({ ...e, description: value }));
+        return setInfo((e) => ({ ...e, description: value }));
     }
   };
 
   return (
-    <Intro imgUrl={copiedPfIntro.backgroundImg}>
-      <PortfolioSection>
-        <IntroTitleInput
-          ref={titleRef}
-          type='text'
-          name={'title'}
-          onChange={onChange}
-          value={copiedPfIntro.title}
-        />
-        <IntroHr />
-        <IntroDescriptionInput
-          name={'description'}
-          value={copiedPfIntro.description}
-          onChange={onChange}
-        />
-      </PortfolioSection>
-    </Intro>
+    <PortfolioSection>
+      <IntroTitleInput
+        ref={titleRef}
+        type='text'
+        name={'title'}
+        onChange={onChange}
+        value={info.title}
+      />
+      <IntroHr />
+      <IntroDescriptionInput
+        name={'description'}
+        value={info.description}
+        onChange={onChange}
+      />
+    </PortfolioSection>
   );
 }
 

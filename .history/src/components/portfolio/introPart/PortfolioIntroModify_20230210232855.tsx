@@ -1,7 +1,6 @@
 import usePortfolioIntro from '@src/hooks/portfolio/usePortfolioIntro';
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { Intro } from './commonIntroStyledComponent';
 import { PortfolioIntroPropType } from './portfolioIntroType';
 
 export default function PortfolioIntroModify({
@@ -31,23 +30,21 @@ export default function PortfolioIntroModify({
   };
 
   return (
-    <Intro imgUrl={copiedPfIntro.backgroundImg}>
-      <PortfolioSection>
-        <IntroTitleInput
-          ref={titleRef}
-          type='text'
-          name={'title'}
-          onChange={onChange}
-          value={copiedPfIntro.title}
-        />
-        <IntroHr />
-        <IntroDescriptionInput
-          name={'description'}
-          value={copiedPfIntro.description}
-          onChange={onChange}
-        />
-      </PortfolioSection>
-    </Intro>
+    <PortfolioSection>
+      <IntroTitleInput
+        ref={titleRef}
+        type='text'
+        name={'title'}
+        onChange={onChange}
+        value={copiedPfIntro.title}
+      />
+      <IntroHr />
+      <IntroDescriptionInput
+        name={'description'}
+        value={copiedPfIntro.description}
+        onChange={onChange}
+      />
+    </PortfolioSection>
   );
 }
 

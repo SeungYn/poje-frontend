@@ -29,7 +29,7 @@ export default function usePortfolioIntro() {
     {
       suspense: true,
       onSuccess(data) {
-        setCopiedPfIntro({ ...data, backgroundImgFile: null });
+        setCopiedPfIntro({ ...data });
       },
     }
   );
