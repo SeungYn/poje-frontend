@@ -16,7 +16,7 @@ export default function useModal() {
       setIsOpen(true);
       setModalContent({ message });
       setCallback((e) => ({
-        fn: callbackFn,
+        callback: callbackFn,
       }));
     },
     []
@@ -25,8 +25,8 @@ export default function useModal() {
   const closeModal = useCallback(() => {
     setIsOpen(false);
     setModalContent({ message: '' });
-    callback.fn();
-    setCallback({ fn: () => {} });
+    callback.callback();
+    setCallback({ callback: () => {} });
   }, []);
 
   return { isOpen, setModal, closeModal, modalContent };

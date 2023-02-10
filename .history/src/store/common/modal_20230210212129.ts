@@ -16,7 +16,7 @@ export const commonModalContent = atom<commonModalContentType>({
   },
 });
 
-export const commonModalCallbak = atom<{ fn: () => void }>({
-  key: 'commonModalCallback',
-  default: { fn: () => {} },
+export const commonModalCallbak = atom<{ callback: () => void }>({
+  key: 'commonModalContent',
+  default: () => {},
 });

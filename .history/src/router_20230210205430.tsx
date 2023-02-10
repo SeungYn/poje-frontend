@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
         <PortfolioRootPage />
       </RouterProtect>
     ),
-    children: [{ path: ':portfolioId', element: <PortfolioMain /> }],
+    children: [{ path: '/:portfolioId', element: <PortfolioMain /> }],
     errorElement: <NotFound />,
   },
   {
