@@ -2,20 +2,20 @@ import usePortfolioIntro from '@src/hooks/portfolio/usePortfolioIntro';
 import useGetPortfolioIntro from '@src/hooks/portfolio/usePortfolioIntro';
 import { useRef } from 'react';
 import styled from 'styled-components';
-import { Intro } from './commonIntroStyledComponent';
 import { PortfolioIntroPropType } from './portfolioIntroType';
 
-export default function PortfolioIntro() {
+export default function PortfolioIntro({
+  title,
+  description,
+}: PortfolioIntroPropType) {
   const { pfIntro } = usePortfolioIntro();
   console.log(pfIntro);
   return (
-    <Intro imgUrl={pfIntro.backgroundImg}>
-      <PortfolioSection>
-        <IntroTitle>{pfIntro.title}</IntroTitle>
-        <IntroHr />
-        <IntroDescription>{pfIntro.description}</IntroDescription>
-      </PortfolioSection>
-    </Intro>
+    <PortfolioSection>
+      <IntroTitle>{pfIntro.title}</IntroTitle>
+      <IntroHr />
+      <IntroDescription>{description}</IntroDescription>
+    </PortfolioSection>
   );
 }
 

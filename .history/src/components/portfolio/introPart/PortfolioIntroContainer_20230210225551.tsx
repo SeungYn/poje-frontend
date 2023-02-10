@@ -18,7 +18,9 @@ export default function PortfolioIntroContainer() {
 
   return (
     <Container>
-      {!isModifyMode && <PortfolioIntro />}
+      {!isModifyMode && (
+        <PortfolioIntro title={info.title} description={info.description} />
+      )}
       {isModifyMode && (
         <PortfolioIntroModify
           title={info.title}

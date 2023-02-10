@@ -17,8 +17,10 @@ export default function PortfolioIntroContainer() {
   });
 
   return (
-    <Container>
-      {!isModifyMode && <PortfolioIntro />}
+    <div>
+      {!isModifyMode && (
+        <PortfolioIntro title={info.title} description={info.description} />
+      )}
       {isModifyMode && (
         <PortfolioIntroModify
           title={info.title}
@@ -26,7 +28,7 @@ export default function PortfolioIntroContainer() {
         />
       )}
       <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
-    </Container>
+    </div>
   );
 }
 

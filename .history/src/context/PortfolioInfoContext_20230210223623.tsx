@@ -29,5 +29,4 @@ export default function PortfolioInfoContextProvider({
   );
 }
 
-export const usePortfolioInfo = () =>
-  useContext(PortfolioInfoContext)! as ContextType;
+export const usePortfolioInfo = () => useContext(PortfolioInfoContext);
