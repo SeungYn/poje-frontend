@@ -28,12 +28,11 @@ export class PortfolioService {
     const config: AxiosRequestConfig = {
       method: 'GET',
     };
-    const {
-      data: { result },
-    } = await this.http.fetchJson<GetPortfolioIntroResponse>(
-      `/member/portfolio/${portfolioId}`,
-      config
-    );
+    const { data: result } =
+      await this.http.fetchJson<GetPortfolioIntroResponse>(
+        `/protfolio/${portfolioId}`,
+        config
+      );
 
     return result;
   }

@@ -5,11 +5,14 @@ import styled from 'styled-components';
 import { Intro } from './commonIntroStyledComponent';
 import { PortfolioIntroPropType } from './portfolioIntroType';
 
-export default function PortfolioIntro() {
+export default function PortfolioIntro({
+  title,
+  description,
+}: PortfolioIntroPropType) {
   const { pfIntro } = usePortfolioIntro();
   console.log(pfIntro);
   return (
-    <Intro imgUrl={pfIntro.backgroundImg}>
+    <Intro>
       <PortfolioSection>
         <IntroTitle>{pfIntro.title}</IntroTitle>
         <IntroHr />
