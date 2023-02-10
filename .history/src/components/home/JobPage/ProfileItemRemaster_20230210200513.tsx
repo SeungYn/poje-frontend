@@ -14,9 +14,9 @@ export default function ProfileItemRemaster(data: PortfolioItemType) {
     likeCount,
   } = data;
   const navigate = useNavigate();
-  const onClickToPortfolio = () => navigate(`/portfolio/${portfolioId}`);
+  const onClickToPortfolio = () => navigate(``);
   return (
-    <Container onClick={onClickToPortfolio}>
+    <Container>
       <ProfileTop>
         <ProfileImgBackground src={backgroundImg} />
       </ProfileTop>

@@ -16,7 +16,7 @@ export default function ProfileItemRemaster(data: PortfolioItemType) {
   const navigate = useNavigate();
   const onClickToPortfolio = () => navigate(`/portfolio/${portfolioId}`);
   return (
-    <Container onClick={onClickToPortfolio}>
+    <Container>
       <ProfileTop>
         <ProfileImgBackground src={backgroundImg} />
       </ProfileTop>
