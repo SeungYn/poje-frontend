@@ -1,5 +1,5 @@
 import CommonModal from '@src/components/common/CommonModal';
-import { createContext, useMemo, useContext } from 'react';
+import { createContext, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
 type ContextType = {
@@ -28,5 +28,3 @@ export default function PortfolioInfoContextProvider({
     </PortfolioInfoContext.Provider>
   );
 }
-
-export const usePoftfolioInfo = () => useContext(PortfolioInfoContext);
