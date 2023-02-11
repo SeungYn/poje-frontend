@@ -1,10 +1,8 @@
-import usePortfolioIntro from '@src/hooks/portfolio/usePortfolioIntro';
 import usePortfolioModifyForm from '@src/hooks/portfolio/usePortfolioModifyForm';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { Intro } from './commonIntroStyledComponent';
-import { PortfolioIntroPropType } from './portfolioIntroType';
 
 export default function PortfolioIntroModify() {
   const {
