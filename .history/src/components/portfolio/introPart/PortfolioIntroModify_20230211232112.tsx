@@ -7,8 +7,13 @@ import { Intro } from './commonIntroStyledComponent';
 import { PortfolioIntroPropType } from './portfolioIntroType';
 
 export default function PortfolioIntroModify() {
-  const { copiedPfIntro, onChangeInputEl, onChangeTextArea, discriptionRef } =
-    usePortfolioModifyForm();
+  const {
+    copiedPfIntro,
+
+    onChangeInputEl,
+    onChangeTextArea,
+    discriptionRef,
+  } = usePortfolioModifyForm();
   const titleRef = useRef<HTMLInputElement>(null);
   const hiddenFileBtnRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -19,7 +24,6 @@ export default function PortfolioIntroModify() {
 
   return (
     <ModifyIntro
-      as='form'
       imgUrl={copiedPfIntro.backgroundImg}
       onClick={(e) => {
         if (e.currentTarget === e.target) hiddenFileBtnRef.current?.click();

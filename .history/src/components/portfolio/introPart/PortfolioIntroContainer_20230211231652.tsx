@@ -21,7 +21,7 @@ export default function PortfolioIntroContainer() {
         </Suspense>
       )}
       {isModifyMode && <PortfolioIntroModify />}
-      <ModifyBtn />
+      <ModifyBtn isModifyMode={isModifyMode} handleModifyMode={toggleModify} />
     </Container>
   );
 }

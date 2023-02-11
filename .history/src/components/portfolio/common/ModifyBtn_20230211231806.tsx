@@ -14,7 +14,7 @@ export default function ModifyBtn() {
   const [isModify, setIsModify] = useRecoilState(
     isModifyModeFromPortfolioIntro
   );
-  if (isModify) return <></>;
+  if (!isModify) return <></>;
   return (
     <Container>
       <ModifyButton onClick={() => setIsModify((e) => !e)}>수정</ModifyButton>

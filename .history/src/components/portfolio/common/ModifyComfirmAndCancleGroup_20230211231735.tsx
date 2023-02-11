@@ -23,7 +23,7 @@ export default function ModifyComfirmAndCancleGroup({
 
   return (
     <Container>
-      <ComfirmButton type={'submit'}>확인</ComfirmButton>
+      <ComfirmButton onClick={onSubmit}>확인</ComfirmButton>
       <CancleButton onClick={() => setIsModify((e) => !e)}>취소</CancleButton>
     </Container>
   );
