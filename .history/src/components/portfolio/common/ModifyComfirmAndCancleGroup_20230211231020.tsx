@@ -3,13 +3,7 @@ import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { Container } from './modifyCommonStyledComponent';
 
-type PropType = {
-  handleSubmit: () => void;
-};
-
-export default function ModifyComfirmAndCancleGroup({
-  handleSubmit,
-}: PropType) {
+export default function ModifyComfirmAndCancleGroup() {
   const [isModify, setIsModify] = useRecoilState(
     isModifyModeFromPortfolioIntro
   );
