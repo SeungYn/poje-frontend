@@ -1,33 +1,34 @@
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { Container } from './modifyCommonStyledComponent';
 
-type PropType = {
-  handleSubmit: () => void;
-};
+export interface ModifyBtnType {
+  isModifyMode: boolean;
+  handleSubmit?: () => void;
+  handleCancle?: () => void;
+  handleModifyMode?: () => void;
+}
 
-export default function ModifyComfirmAndCancleGroup({
-  handleSubmit,
-}: PropType) {
+export default function ModifyBtn({
+  isModifyMode,
+  handleModifyMode,
+}: ModifyBtnType) {
   const [isModify, setIsModify] = useRecoilState(
     isModifyModeFromPortfolioIntro
   );
-
-  const onSubmit = () => {
-    handleSubmit();
-    setIsModify((e) => !e);
-  };
-
-  if (!isModify) return <></>;
-
+  if (!isModify) return;
   return (
     <Container>
-      <ComfirmButton onClick={onSubmit}>확인</ComfirmButton>
-      <CancleButton onClick={() => setIsModify((e) => !e)}>취소</CancleButton>
+      <ModifyButton onClick={() => setIsModify((e) => !e)}>수정</ModifyButton>
     </Container>
   );
 }
+
+const Container = styled.article`
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+`;
 
 const CommomButton = styled.button`
   font-size: ${({ theme }) => theme.fontRegular};
@@ -36,6 +37,8 @@ const CommomButton = styled.button`
   border-radius: 2rem;
   border: 1px solid black;
 `;
+
+const ModifyButton = styled(CommomButton)``;
 
 const ComfirmButton = styled(CommomButton)``;
 

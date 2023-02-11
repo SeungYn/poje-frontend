@@ -13,17 +13,16 @@ export default function ModifyComfirmAndCancleGroup({
   const [isModify, setIsModify] = useRecoilState(
     isModifyModeFromPortfolioIntro
   );
+  if (!isModify) return;
 
   const onSubmit = () => {
     handleSubmit();
     setIsModify((e) => !e);
   };
 
-  if (!isModify) return <></>;
-
   return (
     <Container>
-      <ComfirmButton onClick={onSubmit}>확인</ComfirmButton>
+      <ComfirmButton>확인</ComfirmButton>
       <CancleButton onClick={() => setIsModify((e) => !e)}>취소</CancleButton>
     </Container>
   );

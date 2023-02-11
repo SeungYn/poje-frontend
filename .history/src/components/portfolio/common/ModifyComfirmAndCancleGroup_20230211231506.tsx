@@ -13,13 +13,12 @@ export default function ModifyComfirmAndCancleGroup({
   const [isModify, setIsModify] = useRecoilState(
     isModifyModeFromPortfolioIntro
   );
+  if (!isModify) return <></>;
 
   const onSubmit = () => {
     handleSubmit();
     setIsModify((e) => !e);
   };
-
-  if (!isModify) return <></>;
 
   return (
     <Container>
