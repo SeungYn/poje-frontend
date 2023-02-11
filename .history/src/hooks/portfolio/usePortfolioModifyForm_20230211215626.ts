@@ -29,8 +29,7 @@ export default function usePortfolioModifyForm() {
   const onChangeTextArea = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       if (discriptionRef.current) {
-        discriptionRef.current.style.height = 'auto';
-        discriptionRef.current.style.height = `${discriptionRef.current.scrollHeight}px`;
+        discriptionRef.current?.style.height = 'auto';
       }
       setCopiedPfIntro((p) => ({ ...p, description: e.target.value }));
     },
