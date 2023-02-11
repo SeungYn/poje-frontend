@@ -1,6 +1,6 @@
 import usePortfolioIntro from '@src/hooks/portfolio/intro/usePortfolioIntro';
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import useModifyMode from '../../../hooks/useModifyMode';
@@ -13,10 +13,7 @@ const BAKCGROUND_IMAGE = `${process.env.PUBLIC_URL}/public_assets/portfolioBackg
 
 export default function PortfolioIntroContainer() {
   const isModifyMode = useRecoilValue(isModifyModeFromPortfolioIntro);
-  const { isLoading, isFetching } = usePortfolioIntro();
-  useEffect(() => {
-    console.log(isFetching);
-  }, [isLoading, isFetching]);
+  const { isLoading } = usePortfolioIntro();
   return (
     <Container>
       {!isModifyMode && (

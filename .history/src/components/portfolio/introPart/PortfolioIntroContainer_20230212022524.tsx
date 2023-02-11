@@ -15,8 +15,8 @@ export default function PortfolioIntroContainer() {
   const isModifyMode = useRecoilValue(isModifyModeFromPortfolioIntro);
   const { isLoading, isFetching } = usePortfolioIntro();
   useEffect(() => {
-    console.log(isFetching);
-  }, [isLoading, isFetching]);
+    console.log(isLoading);
+  }, [isLoading]);
   return (
     <Container>
       {!isModifyMode && (

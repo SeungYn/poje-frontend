@@ -1,13 +1,14 @@
-import usePortfolioIntro from '@src/hooks/portfolio/intro/usePortfolioIntro';
+import usePortfolioIntro from '@src/hooks/portfolio/usePortfolioIntro';
+import useGetPortfolioIntro from '@src/hooks/portfolio/usePortfolioIntro';
+import { useRef } from 'react';
 import styled from 'styled-components';
-import LoadingSpiner from '../common/LoadingSpiner';
 import { Intro } from './commonIntroStyledComponent';
+import { PortfolioIntroPropType } from './portfolioIntroType';
 
 export default function PortfolioIntro() {
-  const { pfIntro, isFetching } = usePortfolioIntro();
+  const { pfIntro } = usePortfolioIntro();
   return (
     <Intro imgUrl={pfIntro.backgroundImg}>
-      {isFetching && <LoadingSpiner text={'업데이트 중'} />}
       <PortfolioSection>
         <IntroTitle>{pfIntro.title}</IntroTitle>
         <IntroHr />
@@ -45,5 +46,5 @@ const IntroDescription = styled.p`
   filter: brightness(0.9);
   letter-spacing: 2px;
   line-height: calc(${({ theme }) => theme.fontMiddleSize} + 0.4rem);
-  white-space: pre-line;
+  word-break: break-all;
 `;

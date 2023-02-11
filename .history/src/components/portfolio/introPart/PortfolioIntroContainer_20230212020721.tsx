@@ -13,10 +13,10 @@ const BAKCGROUND_IMAGE = `${process.env.PUBLIC_URL}/public_assets/portfolioBackg
 
 export default function PortfolioIntroContainer() {
   const isModifyMode = useRecoilValue(isModifyModeFromPortfolioIntro);
-  const { isLoading, isFetching } = usePortfolioIntro();
+  const { isLoading } = usePortfolioIntro();
   useEffect(() => {
-    console.log(isFetching);
-  }, [isLoading, isFetching]);
+    console.log(isLo\)
+  }, [isLoading]);
   return (
     <Container>
       {!isModifyMode && (

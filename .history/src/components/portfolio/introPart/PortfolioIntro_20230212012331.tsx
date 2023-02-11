@@ -1,13 +1,11 @@
 import usePortfolioIntro from '@src/hooks/portfolio/intro/usePortfolioIntro';
 import styled from 'styled-components';
-import LoadingSpiner from '../common/LoadingSpiner';
 import { Intro } from './commonIntroStyledComponent';
 
 export default function PortfolioIntro() {
-  const { pfIntro, isFetching } = usePortfolioIntro();
+  const { pfIntro } = usePortfolioIntro();
   return (
     <Intro imgUrl={pfIntro.backgroundImg}>
-      {isFetching && <LoadingSpiner text={'업데이트 중'} />}
       <PortfolioSection>
         <IntroTitle>{pfIntro.title}</IntroTitle>
         <IntroHr />
