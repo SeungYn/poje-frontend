@@ -15,7 +15,6 @@ export default function PortfolioIntroModify() {
   const titleRef = useRef<HTMLInputElement>(null);
   const hiddenFileBtnRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    //처음 수정모드로 들어 갔을때 타이틀에 포커스
     if (titleRef.current) {
       titleRef.current.focus();
     }
@@ -132,6 +131,5 @@ const IntroDescriptionInput = styled.textarea`
   border: none;
   outline: none;
   width: 100%;
-  height: auto;
   resize: none;
 `;

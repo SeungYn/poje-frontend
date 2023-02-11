@@ -31,7 +31,10 @@ export default function usePortfolioModifyForm() {
 
   const onChangeTextArea = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      resizeAutoTextArea();
+      if (discriptionRef.current) {
+        discriptionRef.current.style.height = 'auto';
+        discriptionRef.current.style.height = `${discriptionRef.current.scrollHeight}px`;
+      }
       setCopiedPfIntro((p) => ({ ...p, description: e.target.value }));
     },
     []
@@ -45,14 +48,11 @@ export default function usePortfolioModifyForm() {
     updateIntro({ title, description, portfolioId, backgroundImgFile });
   };
 
-  const resizeAutoTextArea = () => {
+  useEffect(() => {
     if (discriptionRef.current) {
       discriptionRef.current.style.height = 'auto';
       discriptionRef.current.style.height = `${discriptionRef.current.scrollHeight}px`;
     }
-  };
-  useEffect(() => {
-    resizeAutoTextArea();
   }, [discriptionRef.current]);
 
   return {
