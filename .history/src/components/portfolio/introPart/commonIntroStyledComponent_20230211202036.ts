@@ -12,9 +12,7 @@ export const Intro = styled.section<{ imgUrl: string }>`
     position: absolute;
     background-image: url(${({ imgUrl }) => imgUrl});
     background-size: contain;
-    background-repeat: no-repeat;
     background-position: center;
-    background-color: black;
     filter: brightness(0.5);
     z-index: -3;
   }

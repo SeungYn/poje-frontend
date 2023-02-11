@@ -43,7 +43,6 @@ export default function usePortfolioIntro() {
     return Promise.resolve();
   }, {});
 
-  //1에 대한 해결법으로 useEffect를 걸어놓으면 됨 , 결과의 데이터를 기준으로
   useEffect(() => {
     data && setCopiedPfIntro((e) => ({ ...data, backgroundImgFile: null }));
   }, [data]);

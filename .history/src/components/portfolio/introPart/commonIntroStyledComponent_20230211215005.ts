@@ -14,7 +14,6 @@ export const Intro = styled.section<{ imgUrl: string }>`
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: black;
     filter: brightness(0.5);
     z-index: -3;
   }

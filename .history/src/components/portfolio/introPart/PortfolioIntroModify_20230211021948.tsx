@@ -9,13 +9,7 @@ export default function PortfolioIntroModify({
   title,
   description,
 }: PortfolioIntroPropType) {
-  const {
-    copiedPfIntro,
-    setCopiedPfIntro,
-    onChangeInputEl,
-    onChangeTextArea,
-    discriptionRef,
-  } = usePortfolioModifyForm();
+  const { copiedPfIntro, setCopiedPfIntro } = usePortfolioModifyForm();
   const titleRef = useRef<HTMLInputElement>(null);
   const hiddenFileBtnRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -24,9 +18,18 @@ export default function PortfolioIntroModify({
     }
   }, []);
 
-  useEffect(() => {
-    console.log(copiedPfIntro);
-  }, [copiedPfIntro]);
+  const onChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    console.log(e.target.name);
+    const { name, value } = e.target;
+    switch (name) {
+      case 'title':
+        return setCopiedPfIntro((e) => ({ ...e, title: value }));
+      case 'description':
+        return setCopiedPfIntro((e) => ({ ...e, description: value }));
+    }
+  };
 
   return (
     <ModifyIntro
@@ -35,55 +38,40 @@ export default function PortfolioIntroModify({
         if (e.currentTarget === e.target) hiddenFileBtnRef.current?.click();
       }}
     >
-      <input
-        ref={hiddenFileBtnRef}
-        type='file'
-        style={{ display: 'none' }}
-        accept={'image/gif, image/jpeg, image/png'}
-        name={'file'}
-        onChange={onChangeInputEl}
-      />
+      <input ref={hiddenFileBtnRef} type='file' />
       <PortfolioSection>
         <IntroTitleInput
           ref={titleRef}
           type='text'
           name={'title'}
-          onChange={onChangeInputEl}
+          onChange={onChange}
           value={copiedPfIntro.title}
         />
         <IntroHr />
         <IntroDescriptionInput
-          ref={discriptionRef}
           name={'description'}
           value={copiedPfIntro.description}
-          onChange={onChangeTextArea}
+          onChange={onChange}
         />
       </PortfolioSection>
     </ModifyIntro>
   );
 }
 
-// &:hover::before {
-//   content: '';
-//   width: 100%;
-//   height: 100%;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   z-index: -2;
-//   background-color: rgba(97, 97, 97, 0.053);
-// }
-
 const ModifyIntro = styled(Intro)`
   cursor: pointer;
-  background-size: cover;
-
-  &:hover {
-    background-color: rgba(183, 183, 183, 0.374);
+  &:hover::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: rgba(131, 131, 131, 0.059);
   }
-
   &:hover::after {
-    content: '테두리를 클릭시 배경화면을 바꿀수 있습니다.';
+    content: '클릭시 배경화면을 바꿀수 있습니다.';
     color: white;
     position: absolute;
     bottom: 1rem;
@@ -132,5 +120,4 @@ const IntroDescriptionInput = styled.textarea`
   background: transparent;
   border: none;
   outline: none;
-  width: 100%;
 `;

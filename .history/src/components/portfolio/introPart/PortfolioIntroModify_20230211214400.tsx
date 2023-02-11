@@ -77,7 +77,7 @@ export default function PortfolioIntroModify({
 const ModifyIntro = styled(Intro)`
   cursor: pointer;
   background-size: cover;
-
+  filter: brightness(0.5);
   &:hover {
     background-color: rgba(183, 183, 183, 0.374);
   }

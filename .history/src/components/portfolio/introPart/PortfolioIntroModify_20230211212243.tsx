@@ -9,13 +9,8 @@ export default function PortfolioIntroModify({
   title,
   description,
 }: PortfolioIntroPropType) {
-  const {
-    copiedPfIntro,
-    setCopiedPfIntro,
-    onChangeInputEl,
-    onChangeTextArea,
-    discriptionRef,
-  } = usePortfolioModifyForm();
+  const { copiedPfIntro, setCopiedPfIntro, onChangeInputEl, onChangeTextArea } =
+    usePortfolioModifyForm();
   const titleRef = useRef<HTMLInputElement>(null);
   const hiddenFileBtnRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -53,7 +48,6 @@ export default function PortfolioIntroModify({
         />
         <IntroHr />
         <IntroDescriptionInput
-          ref={discriptionRef}
           name={'description'}
           value={copiedPfIntro.description}
           onChange={onChangeTextArea}
@@ -77,7 +71,6 @@ export default function PortfolioIntroModify({
 const ModifyIntro = styled(Intro)`
   cursor: pointer;
   background-size: cover;
-
   &:hover {
     background-color: rgba(183, 183, 183, 0.374);
   }
@@ -129,8 +122,7 @@ const IntroDescriptionInput = styled.textarea`
   filter: brightness(0.9);
   letter-spacing: 2px;
   line-height: calc(${({ theme }) => theme.fontMiddleSize} + 0.4rem);
-  background: transparent;
+  background: yellow;
   border: none;
   outline: none;
-  width: 100%;
 `;

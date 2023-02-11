@@ -10,11 +10,10 @@ export const Intro = styled.section<{ imgUrl: string }>`
     top: 0;
     left: 0;
     position: absolute;
-    background-image: url(${({ imgUrl }) => imgUrl});
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-image: url(imgUrl);
+    background-size: cover;
     background-position: center;
-    background-color: black;
+    background: pink;
     filter: brightness(0.5);
     z-index: -3;
   }
