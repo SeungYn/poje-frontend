@@ -36,17 +36,14 @@ export default function usePortfolioIntro() {
   const updateIntro = useMutation<
     void,
     unknown,
-    Pick<
-      CopiedPfIntroType,
-      'backgroundImgFile' | 'title' | 'description' | 'portfolioId'
-    >,
+    Pick<CopiedPfIntroType, 'backgroundImgFile' | 'title' | 'description'>,
     unknown
-  >(({ title, description, backgroundImgFile, portfolioId }) => {
+  >(({ title, description, backgroundImgFile }) => {
+    console.log(data);
     return service.portfolio.modifyPortfolioIntro({
       title,
       description,
       img: backgroundImgFile!,
-      portfolioId,
     });
   }, {});
 

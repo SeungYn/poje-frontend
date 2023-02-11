@@ -37,8 +37,7 @@ export default function usePortfolioModifyForm() {
     []
   );
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     const { title, description, portfolioId, backgroundImgFile } =
       copiedPfIntro;
     updateIntro({ title, description, portfolioId, backgroundImgFile });

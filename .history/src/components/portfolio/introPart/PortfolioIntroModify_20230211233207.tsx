@@ -7,13 +7,8 @@ import { Intro } from './commonIntroStyledComponent';
 import { PortfolioIntroPropType } from './portfolioIntroType';
 
 export default function PortfolioIntroModify() {
-  const {
-    copiedPfIntro,
-    onChangeInputEl,
-    onChangeTextArea,
-    discriptionRef,
-    handleSubmit,
-  } = usePortfolioModifyForm();
+  const { copiedPfIntro, onChangeInputEl, onChangeTextArea, discriptionRef } =
+    usePortfolioModifyForm();
   const titleRef = useRef<HTMLInputElement>(null);
   const hiddenFileBtnRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -24,7 +19,6 @@ export default function PortfolioIntroModify() {
 
   return (
     <ModifyIntro
-      onSubmit={handleSubmit}
       as='form'
       imgUrl={copiedPfIntro.backgroundImg}
       onClick={(e) => {
@@ -133,5 +127,4 @@ const IntroDescriptionInput = styled.textarea`
   border: none;
   outline: none;
   width: 100%;
-  resize: none;
 `;

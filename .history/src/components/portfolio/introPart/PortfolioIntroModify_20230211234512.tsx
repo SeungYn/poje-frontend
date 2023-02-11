@@ -133,5 +133,4 @@ const IntroDescriptionInput = styled.textarea`
   border: none;
   outline: none;
   width: 100%;
-  resize: none;
 `;

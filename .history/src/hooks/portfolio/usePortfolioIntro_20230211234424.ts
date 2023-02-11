@@ -42,6 +42,7 @@ export default function usePortfolioIntro() {
     >,
     unknown
   >(({ title, description, backgroundImgFile, portfolioId }) => {
+    console.log(data);
     return service.portfolio.modifyPortfolioIntro({
       title,
       description,
