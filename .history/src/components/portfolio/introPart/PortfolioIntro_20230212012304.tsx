@@ -1,6 +1,9 @@
-import usePortfolioIntro from '@src/hooks/portfolio/intro/usePortfolioIntro';
+import usePortfolioIntro from '@src/hooks/portfolio/usePortfolioIntro';
+import useGetPortfolioIntro from '@src/hooks/portfolio/intro/usePortfolioIntro';
+import { useRef } from 'react';
 import styled from 'styled-components';
 import { Intro } from './commonIntroStyledComponent';
+import { PortfolioIntroPropType } from './portfolioIntroType';
 
 export default function PortfolioIntro() {
   const { pfIntro } = usePortfolioIntro();
