@@ -23,7 +23,7 @@ export default function usePortfolioIntro() {
   //todo 인트로 보내기 가져오기
 
   //1. suspense 사용시 onSuccess에 setState를 등록하면 업데이트가 안됨 이유는 unmount상태에서 변경했기때문
-  const { data, isLoading, isFetching } = useQuery(
+  const { data } = useQuery(
     ['portfolioIntro', portfolioId],
     async () => await service.portfolio.getPortfolioIntro({ portfolioId }),
     {
@@ -49,12 +49,8 @@ export default function usePortfolioIntro() {
       });
     },
     {
-      onMutate: () => {
-        queryClient.invalidateQueries(['portfolioIntro', portfolioId]);
-      },
       onSuccess: () => {
-        console.log('success에서 실행');
-        //return queryClient.invalidateQueries(['portfolioIntro', portfolioId]);
+        queryClient.invalidateQueries(['portfolioIntro', portfolioId]);
       },
     }
   );
@@ -69,7 +65,5 @@ export default function usePortfolioIntro() {
     updateIntro: updateIntro.mutate,
     copiedPfIntro,
     setCopiedPfIntro,
-    isLoading,
-    isFetching,
   };
 }

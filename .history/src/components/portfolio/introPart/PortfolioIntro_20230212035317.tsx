@@ -7,7 +7,7 @@ export default function PortfolioIntro() {
   const { pfIntro, isFetching } = usePortfolioIntro();
   return (
     <Intro imgUrl={pfIntro.backgroundImg}>
-      {isFetching && <LoadingSpiner text={'업데이트 중'} />}
+      {isFetching && <LoadingSpiner Text={'업데이트 중'} />}
       <PortfolioSection>
         <IntroTitle>{pfIntro.title}</IntroTitle>
         <IntroHr />

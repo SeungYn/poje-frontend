@@ -49,9 +49,6 @@ export default function usePortfolioIntro() {
       });
     },
     {
-      onMutate: () => {
-        queryClient.invalidateQueries(['portfolioIntro', portfolioId]);
-      },
       onSuccess: () => {
         console.log('success에서 실행');
         //return queryClient.invalidateQueries(['portfolioIntro', portfolioId]);
