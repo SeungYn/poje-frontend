@@ -1,9 +1,6 @@
 import service from '@src/service';
-import {
-  GetPortfolioIntroRequest,
-  PortfolioIntroType,
-} from '@src/service/types/portfolio';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { PortfolioIntroType } from '@src/service/types/portfolio';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
 import { useEffect, useState } from 'react';
 
@@ -12,6 +9,7 @@ type CopiedPfIntroType = PortfolioIntroType & {
 };
 
 export default function usePortfolioIntro() {
+  const queryClient = useQueryClient();
   const [copiedPfIntro, setCopiedPfIntro] = useState<CopiedPfIntroType>({
     title: '',
     description: '',
@@ -41,14 +39,21 @@ export default function usePortfolioIntro() {
       'backgroundImgFile' | 'title' | 'description' | 'portfolioId'
     >,
     unknown
-  >(({ title, description, backgroundImgFile, portfolioId }) => {
-    return service.portfolio.modifyPortfolioIntro({
-      title,
-      description,
-      img: backgroundImgFile!,
-      portfolioId,
-    });
-  }, {});
+  >(
+    ({ title, description, backgroundImgFile, portfolioId }) => {
+      return service.portfolio.modifyPortfolioIntro({
+        title,
+        description,
+        img: backgroundImgFile!,
+        portfolioId,
+      });
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(['portfolioIntro', portfolioId]);
+      },
+    }
+  );
 
   //1에 대한 해결법으로 useEffect를 걸어놓으면 됨 , 결과의 데이터를 기준으로
   useEffect(() => {
