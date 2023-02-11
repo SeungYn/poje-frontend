@@ -41,6 +41,7 @@ export default function usePortfolioModifyForm() {
   }, [copiedPfIntro]);
   return {
     copiedPfIntro,
+    setCopiedPfIntro,
     onChangeInputEl,
     onChangeTextArea,
     discriptionRef,
