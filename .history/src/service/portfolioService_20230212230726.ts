@@ -11,9 +11,7 @@ import {
   GetSkillsRequest,
   ModifyAboutMeRequest,
   ModifyPortfolioIntroRequest,
-  PutSkillsRequest,
   SkillsResponse,
-  SkillsType,
 } from '@src/service/types/portfolio';
 
 export class PortfolioService {
@@ -147,23 +145,5 @@ export class PortfolioService {
       `/member/portfolio/${portfolioId}/skills`,
       config
     );
-    return result;
-  }
-
-  async putSkills(data: PutSkillsRequest) {
-    const { portfolioId, skillSet } = data;
-    const config: AxiosRequestConfig = {
-      method: 'PUT',
-      data: { skillSet },
-    };
-
-    const {
-      data: { result },
-    } = await this.http.fetchJson<SkillsResponse>(
-      `/member/portfolio/${portfolioId}/skills`,
-      config
-    );
-
-    return result;
   }
 }

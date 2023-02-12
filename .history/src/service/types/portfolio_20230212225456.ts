@@ -61,25 +61,23 @@ export interface ModifyAboutMeRequest extends Omit<AboutMeType, 'profileImg'> {
 }
 
 // Skills
-export type SkillItemType = {
-  skillId: number;
-  name: string;
-  path: string;
-};
+export type SkillItemType = {};
 
 export type SkillsType = {
   type: string;
-  skills: SkillItemType[];
+  skills: [
+    {
+      skillId: 20;
+      name: 'java';
+      path: 'div/sesfe/fsa';
+    },
+    {
+      skillId: 21;
+      name: 'springboot';
+      path: 'div/sesfe/fsq';
+    }
+  ];
 };
 export interface GetSkillsRequest {
   portfolioId: string;
-}
-
-export interface PutSkillsRequest {
-  portfolioId: string;
-  skillSet: SkillsType[] | [];
-}
-
-export interface SkillsResponse extends BasicResponse {
-  result: SkillsType[];
 }

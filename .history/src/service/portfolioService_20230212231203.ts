@@ -156,14 +156,5 @@ export class PortfolioService {
       method: 'PUT',
       data: { skillSet },
     };
-
-    const {
-      data: { result },
-    } = await this.http.fetchJson<SkillsResponse>(
-      `/member/portfolio/${portfolioId}/skills`,
-      config
-    );
-
-    return result;
   }
 }

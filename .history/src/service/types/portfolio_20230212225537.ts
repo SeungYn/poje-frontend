@@ -74,12 +74,3 @@ export type SkillsType = {
 export interface GetSkillsRequest {
   portfolioId: string;
 }
-
-export interface PutSkillsRequest {
-  portfolioId: string;
-  skillSet: SkillsType[] | [];
-}
-
-export interface SkillsResponse extends BasicResponse {
-  result: SkillsType[];
-}

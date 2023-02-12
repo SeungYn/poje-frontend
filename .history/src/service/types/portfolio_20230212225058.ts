@@ -61,25 +61,7 @@ export interface ModifyAboutMeRequest extends Omit<AboutMeType, 'profileImg'> {
 }
 
 // Skills
-export type SkillItemType = {
-  skillId: number;
-  name: string;
-  path: string;
-};
 
-export type SkillsType = {
-  type: string;
-  skills: SkillItemType[];
-};
 export interface GetSkillsRequest {
   portfolioId: string;
-}
-
-export interface PutSkillsRequest {
-  portfolioId: string;
-  skillSet: SkillsType[] | [];
-}
-
-export interface SkillsResponse extends BasicResponse {
-  result: SkillsType[];
 }
