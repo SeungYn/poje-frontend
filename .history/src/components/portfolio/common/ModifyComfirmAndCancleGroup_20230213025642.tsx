@@ -16,15 +16,9 @@ export default function ModifyComfirmAndCancleGroup({
 }: PropType) {
   if (!isModifyMode) return <></>;
 
-  const onClick = () => {
-    handleSubmit && handleSubmit();
-  };
-
   return (
     <Container>
-      <ComfirmButton type={'submit'} onClick={onClick}>
-        확인
-      </ComfirmButton>
+      <ComfirmButton type={'submit'}>확인</ComfirmButton>
       <CancleButton onClick={() => setIsModifyMode((e) => !e)}>
         취소
       </CancleButton>

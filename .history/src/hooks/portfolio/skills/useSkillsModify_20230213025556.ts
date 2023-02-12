@@ -85,6 +85,5 @@ export default function useSkillsModify() {
     setCopiedSkills,
     handleAddSkillToCopiedSkills,
     handleSkillFromCopiedSkills,
-    handleSubmit,
   };
 }

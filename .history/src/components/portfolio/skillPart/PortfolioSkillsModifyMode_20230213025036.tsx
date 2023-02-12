@@ -8,7 +8,6 @@ import { SkillItemType, SkillsType } from '@src/service/types/portfolio';
 import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { useRecoilState } from 'recoil';
 import { isModifyModeFromSkills } from '@src/store/portfolio/modify';
-import useSkills from '@src/hooks/portfolio/skills/useSkills';
 
 interface PortfolioSkillsModifyModeType {
   skillList: SkillListType[];
@@ -23,12 +22,10 @@ export default function PortfolioSkillsModifyMode({
     setCopiedSkills: setModifySkillList,
     handleAddSkillToCopiedSkills: handleAddSkill,
     handleSkillFromCopiedSkills: handleSkillIconDelete,
-    handleSubmit,
   } = useSkillsModify();
   const [isModifyMode, setIsModifyMode] = useRecoilState(
     isModifyModeFromSkills
   );
-  const { isLoading } = useSkills();
   //const [modifySkillList, setModifySkillList] = useState([...skillList]);
 
   return (
@@ -46,7 +43,7 @@ export default function PortfolioSkillsModifyMode({
         isModifyMode={isModifyMode}
         setIsModifyMode={setIsModifyMode}
         handleSubmit={() => {
-          handleSubmit();
+          console.log('확인');
         }}
       />
     </>

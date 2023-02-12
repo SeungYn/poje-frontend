@@ -46,7 +46,7 @@ export default function PortfolioSkillsModifyMode({
         isModifyMode={isModifyMode}
         setIsModifyMode={setIsModifyMode}
         handleSubmit={() => {
-          handleSubmit();
+          console.log('확인');
         }}
       />
     </>

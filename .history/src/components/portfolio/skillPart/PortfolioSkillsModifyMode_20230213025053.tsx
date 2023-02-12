@@ -23,7 +23,6 @@ export default function PortfolioSkillsModifyMode({
     setCopiedSkills: setModifySkillList,
     handleAddSkillToCopiedSkills: handleAddSkill,
     handleSkillFromCopiedSkills: handleSkillIconDelete,
-    handleSubmit,
   } = useSkillsModify();
   const [isModifyMode, setIsModifyMode] = useRecoilState(
     isModifyModeFromSkills
@@ -46,7 +45,7 @@ export default function PortfolioSkillsModifyMode({
         isModifyMode={isModifyMode}
         setIsModifyMode={setIsModifyMode}
         handleSubmit={() => {
-          handleSubmit();
+          console.log('확인');
         }}
       />
     </>
