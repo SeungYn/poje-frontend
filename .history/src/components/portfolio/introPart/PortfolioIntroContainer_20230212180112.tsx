@@ -8,9 +8,7 @@ import PortfolioIntro from './PortfolioIntro';
 import PortfolioIntroModify from './PortfolioIntroModify';
 
 export default function PortfolioIntroContainer() {
-  const [isModifyMode, setIsModifyMode] = useRecoilState(
-    isModifyModeFromPortfolioIntro
-  );
+  const [isModifyMode setIsModifyMode] = useRecoilState(isModifyModeFromPortfolioIntro);
 
   return (
     <Container>
@@ -20,10 +18,7 @@ export default function PortfolioIntroContainer() {
         </Suspense>
       )}
       {isModifyMode && <PortfolioIntroModify />}
-      <ModifyBtn
-        isModifyMode={isModifyMode}
-        handleModifyMode={() => setIsModifyMode(true)}
-      />
+      <ModifyBtn />
     </Container>
   );
 }

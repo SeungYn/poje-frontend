@@ -22,7 +22,7 @@ export default function PortfolioIntroContainer() {
       {isModifyMode && <PortfolioIntroModify />}
       <ModifyBtn
         isModifyMode={isModifyMode}
-        handleModifyMode={() => setIsModifyMode(true)}
+        handleModifyMode={() => setIsModifyMode(false)}
       />
     </Container>
   );

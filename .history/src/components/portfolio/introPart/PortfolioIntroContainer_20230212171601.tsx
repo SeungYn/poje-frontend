@@ -1,29 +1,29 @@
 import usePortfolioIntro from '@src/hooks/portfolio/intro/usePortfolioIntro';
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
 import { Suspense, useEffect } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import ModifyBtn from '../common/ModifyBtn';
 import PortfolioIntro from './PortfolioIntro';
 import PortfolioIntroModify from './PortfolioIntroModify';
 
 export default function PortfolioIntroContainer() {
-  const [isModifyMode, setIsModifyMode] = useRecoilState(
-    isModifyModeFromPortfolioIntro
-  );
-
+  const isModifyMode = useRecoilValue(isModifyModeFromPortfolioIntro);
+  const { isLoading, isFetching } = usePortfolioIntro();
+  useEffect(() => {
+    console.log(isFetching);
+  }, [isLoading, isFetching]);
   return (
     <Container>
       {!isModifyMode && (
-        <Suspense fallback={<div>로딩중</div>}>
+        <Suspense
+          fallback={!isLoading ? <div>로딩중</div> : <div>로딩중22</div>}
+        >
           <PortfolioIntro />
         </Suspense>
       )}
       {isModifyMode && <PortfolioIntroModify />}
-      <ModifyBtn
-        isModifyMode={isModifyMode}
-        handleModifyMode={() => setIsModifyMode(true)}
-      />
+      <ModifyBtn />
     </Container>
   );
 }

@@ -9,5 +9,5 @@ export default function usePortfolioAboutMe() {
     async () => await service.portfolio.getAboutMe({ portfolioId }),
     { suspense: true }
   );
-  return { aboutMe: data! };
+  return { data: aboutMe! };
 }

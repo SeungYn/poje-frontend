@@ -4,12 +4,10 @@ import { AiFillTag } from 'react-icons/ai';
 import ModifyBtn from '../common/ModifyBtn';
 import { useState } from 'react';
 import PortfolioAboutMeModify from './PortfolioAboutMeModify';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { isModifyModeFormPortfolioAboutMe } from '@src/store/portfolio/modify';
 export default function PortAboutMeContainer() {
-  const [isModifyMode, setIsModifyMode] = useRecoilState(
-    isModifyModeFormPortfolioAboutMe
-  );
+  const isModifyMode = useRecoilValue(isModifyModeFormPortfolioAboutMe);
   const [data, setData] = useState({
     email: 'abc@123.com',
     phoneNum: '0101231231',
@@ -26,10 +24,7 @@ export default function PortAboutMeContainer() {
       </S.CommonHeader>
       {!isModifyMode && <PortfolioAboutMe {...data} />}
       {isModifyMode && <PortfolioAboutMeModify {...data} />}
-      <ModifyBtn
-        isModifyMode={isModifyMode}
-        handleModifyMode={() => setIsModifyMode(true)}
-      />
+      <ModifyBtn />
     </S.CommonSection>
   );
 }

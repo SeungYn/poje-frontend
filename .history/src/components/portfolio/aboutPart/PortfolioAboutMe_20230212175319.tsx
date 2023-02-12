@@ -8,7 +8,6 @@ import usePortfolioAboutMe from '@src/hooks/portfolio/aboutMe/usePortfolioAboutM
 
 export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {
   const { aboutMe } = usePortfolioAboutMe();
-  console.log(aboutMe);
   return (
     <>
       <InfoList>
@@ -16,14 +15,14 @@ export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {
           <BsFillPersonFill className='font' />
           <InfoText>
             <p>이름</p>
-            <p>{aboutMe.nickName}</p>
+            <p>{data.name}</p>
           </InfoText>
         </InfoItem>
         <InfoItem>
           <MdEmail className='font' />
           <InfoText>
             <p>이메일</p>
-            <p>{aboutMe.email}</p>
+            <p>{data.email}</p>
           </InfoText>
         </InfoItem>
         <InfoItem>
@@ -37,14 +36,14 @@ export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {
           <AiFillCalendar className='font' />
           <InfoText>
             <p>생년월일</p>
-            <p>{aboutMe.birth}</p>
+            <p>{data.birth}</p>
           </InfoText>
         </InfoItem>
         <InfoItem>
           <BsFillPencilFill className='font' />
           <InfoText>
             <p>학력</p>
-            <p>{aboutMe.academic}</p>
+            <p>{data.academic}</p>
           </InfoText>
         </InfoItem>
 
@@ -52,7 +51,7 @@ export default function PortfolioAboutMe(data: PortfolioAboutMePropType) {
           <BsFillPencilFill className='font' />
           <InfoText>
             <p>학과</p>
-            <p>{aboutMe.dept}</p>
+            <p>{data.dept}</p>
           </InfoText>
         </InfoItem>
       </InfoList>

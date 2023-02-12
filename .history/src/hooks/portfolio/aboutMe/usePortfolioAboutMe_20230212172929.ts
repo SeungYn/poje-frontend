@@ -6,8 +6,7 @@ export default function usePortfolioAboutMe() {
   const { portfolioId } = usePortfolioInfo();
   const { data } = useQuery(
     ['portfolioAboutMe', portfolioId],
-    async () => await service.portfolio.getAboutMe({ portfolioId }),
-    { suspense: true }
+    async () => await service.portfolio.getAboutMe({ portfolioId })
   );
-  return { aboutMe: data! };
+  return 123;
 }

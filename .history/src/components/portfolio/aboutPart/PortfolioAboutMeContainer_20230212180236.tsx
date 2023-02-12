@@ -28,7 +28,7 @@ export default function PortAboutMeContainer() {
       {isModifyMode && <PortfolioAboutMeModify {...data} />}
       <ModifyBtn
         isModifyMode={isModifyMode}
-        handleModifyMode={() => setIsModifyMode(true)}
+        handleModifyMode={() => setIsModifyMode(false)}
       />
     </S.CommonSection>
   );
