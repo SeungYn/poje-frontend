@@ -31,11 +31,8 @@ export default function useSkills() {
       return await service.portfolio.putSkills(data);
     },
     {
-      onMutate: () => setIsLoading(true),
       onSuccess: (skills) => {
         queryClient.setQueryData(['portfolioSkills', portfolioId], skills);
-        setIsLoading(false);
-        setModifyMode(false);
       },
     }
   );
