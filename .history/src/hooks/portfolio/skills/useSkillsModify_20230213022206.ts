@@ -48,36 +48,24 @@ export default function useSkillsModify() {
     });
   };
 
-  const handleSkillFromCopiedSkills = (type: string, skillName: string) => {
+  const handleSkillIconDelete = (type: string, skillName: string) => {
     console.log(123);
     setCopiedSkills((list) => {
-      const targetSetIndex = list.findIndex((skill) => skill.type === type);
+      const targetSkillSetIndex = list.findIndex(
+        (skill) => skill.type === type
+      );
       const targetSkillSet = list.find((skill) => skill.type === type)!;
-      const deletedTargetSkillList = targetSkillSet.skills.filter(
+      const deletedTargetSkillSet = targetSkillSet.skills.filter(
         (skill) => skill.name !== skillName
       );
       const newSkillList = list.filter((item) => item.type !== type);
 
-      //제거된 스킬 리스트가 0개라면 항목에서 통째로 제거
-      if (deletedTargetSkillList.length === 0) {
-        return [...newSkillList];
-      }
-
-      const skillsFront = list.slice(0, targetSetIndex);
-      const skillsBack = list.slice(targetSetIndex + 1);
-
       return [
-        ...skillsFront,
-        { ...targetSkillSet, skills: [...deletedTargetSkillList] },
-        ...skillsBack,
+        ...newSkillList,
+        { ...targetSkillSet, skills: [...deletedTargetSkillSet] },
       ];
     });
   };
 
-  return {
-    copiedSkills,
-    setCopiedSkills,
-    handleAddSkillToCopiedSkills,
-    handleSkillFromCopiedSkills,
-  };
+  return { copiedSkills, setCopiedSkills, handleAddSkillToCopiedSkills };
 }

@@ -22,6 +22,22 @@ export default function PortfolioSkillsModifyMode({
   } = useSkillsModify();
   //const [modifySkillList, setModifySkillList] = useState([...skillList]);
 
+  const handleSkillIconDelete = (type: string, name: string) => {
+    console.log(123);
+    setModifySkillList((list) => {
+      const targetSkillSet = list.find((skill) => skill.type === type)!;
+      const deletedTargetSkillSet = targetSkillSet.skills.filter(
+        (skill) => skill.name !== name
+      );
+      const newSkillList = list.filter((item) => item.type !== type);
+
+      return [
+        ...newSkillList,
+        { ...targetSkillSet, skills: [...deletedTargetSkillSet] },
+      ];
+    });
+  };
+
   return (
     <>
       <PortfolioSkills

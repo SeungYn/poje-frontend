@@ -81,7 +81,7 @@ export default function PortfolioSkillAddPalette({
 }
 
 function isExistOriginSkillList(
-  originSkillList: SkillsType[],
+  originSkillList: SkillListType[],
   targetItem: SkillIconSetType,
   selectedIconType: SkillIconType
 ) {

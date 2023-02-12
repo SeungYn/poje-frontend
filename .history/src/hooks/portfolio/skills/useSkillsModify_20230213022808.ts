@@ -48,7 +48,7 @@ export default function useSkillsModify() {
     });
   };
 
-  const handleSkillFromCopiedSkills = (type: string, skillName: string) => {
+  const handleSkillIconDelete = (type: string, skillName: string) => {
     console.log(123);
     setCopiedSkills((list) => {
       const targetSetIndex = list.findIndex((skill) => skill.type === type);
@@ -74,10 +74,5 @@ export default function useSkillsModify() {
     });
   };
 
-  return {
-    copiedSkills,
-    setCopiedSkills,
-    handleAddSkillToCopiedSkills,
-    handleSkillFromCopiedSkills,
-  };
+  return { copiedSkills, setCopiedSkills, handleAddSkillToCopiedSkills };
 }

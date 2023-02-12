@@ -14,7 +14,6 @@ export default function useIconImagesSet(modifySkillList: SkillsType[]) {
     extractSkillIconFromFolder,
   ]);
 
-  //frontend, backend... 각 기술 타입
   const iconTypes = Object.keys(iconsList) as IconListKeyType[];
   const [icons, setIcons] = useState<IconListType>({ ...iconsList });
 
