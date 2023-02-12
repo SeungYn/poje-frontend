@@ -1,5 +1,3 @@
-import { SkillItemType } from '@src/service/types/portfolio';
-
 export type SkillIconSetType = {
   name: string;
   path: string;
@@ -7,7 +5,7 @@ export type SkillIconSetType = {
 
 export type SkillIconType = 'frontend' | 'backend' | 'test1' | 'test2';
 
-export type IconListType = Record<SkillIconType, SkillItemType[]>;
+export type IconListType = Record<SkillIconType, SkillIconSetType[]>;
 
 export type IconListKeyType = keyof IconListType;
 

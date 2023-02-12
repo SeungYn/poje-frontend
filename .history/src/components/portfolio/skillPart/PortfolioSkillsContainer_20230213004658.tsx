@@ -9,7 +9,6 @@ import PortfolioSkillsModifyMode from './PortfolioSkillsModifyMode';
 import { SkillIconSetType, SkillIconType } from '../../../util/skillicons';
 import { isModifyModeFromSkills } from '@src/store/portfolio/modify';
 import { useRecoilState } from 'recoil';
-import PortfolioViewMode from './PortfolioViewMode';
 
 export type SkillListType = {
   type: SkillIconType;
@@ -30,7 +29,7 @@ export default function PortfolioSkillsContainer() {
         <S.HeaderTitle>Skills</S.HeaderTitle>
       </S.CommonHeader>
       <Content>
-        <PortfolioViewMode />
+        {/* <PortfolioSkills skillList={skillList} /> */}
         {isModifyMode && <PortfolioSkillsModifyMode skillList={skillList} />}
       </Content>
       <ModifyBtn

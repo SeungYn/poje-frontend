@@ -59,7 +59,7 @@ export default function PortfolioSkillsModifyMode({
 
   return (
     <>
-      {/* <PortfolioSkills
+      <PortfolioSkills
         skillList={modifySkillList}
         handleSkillIconDelete={handleSkillIconDelete}
       />
@@ -67,7 +67,7 @@ export default function PortfolioSkillsModifyMode({
         onModifyMode={() => {}}
         handleAddSkill={handleAddSkill}
         modifySkillList={modifySkillList}
-      /> */}
+      />
     </>
   );
 }

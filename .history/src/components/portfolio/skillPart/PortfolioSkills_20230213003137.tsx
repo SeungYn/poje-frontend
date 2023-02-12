@@ -1,5 +1,4 @@
 import useSkills from '@src/hooks/portfolio/skills/useSkills';
-import { SkillsType } from '@src/service/types/portfolio';
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react';
 import Masonry from 'react-masonry-css';
 import uuid from 'react-uuid';
@@ -17,7 +16,7 @@ const breakpointColumnsObj = Object.freeze({
 });
 
 export interface PortfolioSkillsType {
-  skillList: SkillsType[];
+  skillList: SkillListType[];
   setModifySkillList?: Dispatch<SetStateAction<SkillListType[]>>;
   handleSkillIconDelete?: (type: string, name: string) => void;
 }
@@ -27,13 +26,14 @@ export default function PortfolioSkills({
   setModifySkillList,
   handleSkillIconDelete,
 }: PortfolioSkillsType) {
+  const { skills } = useSkills();
   return (
     <Masonry
       breakpointCols={breakpointColumnsObj}
       className='skillsContainer'
       columnClassName='skillsStack'
     >
-      {skillList.map((skillSet) => (
+      {skills.map((skillSet) => (
         <PortfolioSkillItem
           key={uuid()}
           skillType={skillSet.type}

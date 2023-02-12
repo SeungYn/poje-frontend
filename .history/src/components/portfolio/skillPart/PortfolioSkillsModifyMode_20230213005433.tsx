@@ -9,10 +9,8 @@ interface PortfolioSkillsModifyModeType {
   //toggleModify: () => void;
 }
 
-export default function PortfolioSkillsModifyMode({
-  skillList,
-}: PortfolioSkillsModifyModeType) {
-  const [modifySkillList, setModifySkillList] = useState([...skillList]);
+export default function PortfolioSkillsModifyMode() {
+  const [modifySkillList, setModifySkillList] = useState([]);
 
   const handleAddSkill = ({
     item,

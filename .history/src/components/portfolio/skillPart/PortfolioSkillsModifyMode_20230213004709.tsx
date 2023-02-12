@@ -59,15 +59,15 @@ export default function PortfolioSkillsModifyMode({
 
   return (
     <>
-      {/* <PortfolioSkills
-        skillList={modifySkillList}
+      <PortfolioSkills
+        // skillList={modifySkillList}
         handleSkillIconDelete={handleSkillIconDelete}
       />
       <PortfolioSkillAddPalette
         onModifyMode={() => {}}
         handleAddSkill={handleAddSkill}
         modifySkillList={modifySkillList}
-      /> */}
+      />
     </>
   );
 }

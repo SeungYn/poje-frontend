@@ -9,5 +9,5 @@ export default function useSkills() {
     () => service.portfolio.getSkills({ portfolioId }),
     { suspense: true }
   );
-  return { skills: data! };
+  return { skillList: data! };
 }

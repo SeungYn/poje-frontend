@@ -27,13 +27,15 @@ export default function PortfolioSkills({
   setModifySkillList,
   handleSkillIconDelete,
 }: PortfolioSkillsType) {
+  const { skills } = useSkills();
+  console.log(skills);
   return (
     <Masonry
       breakpointCols={breakpointColumnsObj}
       className='skillsContainer'
       columnClassName='skillsStack'
     >
-      {skillList.map((skillSet) => (
+      {skills.map((skillSet) => (
         <PortfolioSkillItem
           key={uuid()}
           skillType={skillSet.type}

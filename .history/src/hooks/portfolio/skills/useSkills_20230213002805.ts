@@ -4,10 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 
 export default function useSkills() {
   const { portfolioId } = usePortfolioInfo();
-  const { data } = useQuery(
-    ['portfolioSkills', portfolioId],
-    () => service.portfolio.getSkills({ portfolioId }),
-    { suspense: true }
+  const { data } = useQuery(['portfolioSkills', portfolioId], () =>
+    service.portfolio.getSkills({ portfolioId })
   );
-  return { skills: data! };
+  return 1;
 }

@@ -11,6 +11,14 @@ export default function PortAboutMeContainer() {
   const [isModifyMode, setIsModifyMode] = useRecoilState(
     isModifyModeFormPortfolioAboutMe
   );
+  const [data, setData] = useState({
+    email: 'abc@123.com',
+    phoneNum: '0101231231',
+    birth: '1998/2/33',
+    dept: '철학과',
+    academic: '서울대',
+    name: '유명수',
+  });
   return (
     <S.CommonSection>
       <S.CommonHeader>
