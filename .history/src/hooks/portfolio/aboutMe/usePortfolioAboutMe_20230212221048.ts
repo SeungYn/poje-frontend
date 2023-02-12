@@ -29,11 +29,9 @@ export default function usePortfolioAboutMe() {
       return await service.portfolio.putAboutMe({ ...data });
     },
     {
-      onMutate: () => setIsLoading(true),
       onSuccess: (data) => {
         const { result } = data;
         queryClient.setQueryData(['portfolioAboutMe', portfolioId], result);
-        setIsLoading(false);
       },
     }
   );

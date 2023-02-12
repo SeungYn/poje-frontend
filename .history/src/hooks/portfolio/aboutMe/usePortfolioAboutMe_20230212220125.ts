@@ -6,10 +6,8 @@ import {
   ModifyAboutMeRequest,
 } from '@src/service/types/portfolio';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { useState } from 'react';
 
 export default function usePortfolioAboutMe() {
-  const [isLoading, setIsLoading] = useState(false);
   const queryClient = useQueryClient();
   const { portfolioId } = usePortfolioInfo();
   const { data } = useQuery(
@@ -18,7 +16,6 @@ export default function usePortfolioAboutMe() {
     { suspense: true }
   );
 
-  //mutation 안에서 업데이트 성공시 해당 쿼리키를 클라이언트에서 업데이트 시킴
   const updateAboutMe = useMutation<
     AboutMeResponse,
     unknown,
@@ -29,13 +26,11 @@ export default function usePortfolioAboutMe() {
       return await service.portfolio.putAboutMe({ ...data });
     },
     {
-      onMutate: () => setIsLoading(true),
       onSuccess: (data) => {
-        const { result } = data;
-        queryClient.setQueryData(['portfolioAboutMe', portfolioId], result);
-        setIsLoading(false);
+        console.log('update!', data);
+        queryClient.setQueryData(['portfolioAboutMe', portfolioId], data);
       },
     }
   );
-  return { aboutMe: data!, update: updateAboutMe.mutate, isLoading };
+  return { aboutMe: data!, update: updateAboutMe.mutate };
 }

@@ -10,7 +10,6 @@ import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { useRecoilState } from 'recoil';
 import { isModifyModeFormPortfolioAboutMe } from '@src/store/portfolio/modify';
 import usePortfolioAboutMe from '@src/hooks/portfolio/aboutMe/usePortfolioAboutMe';
-import LoadingSpiner from '../common/LoadingSpiner';
 
 export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
   const { form, onChange, onSubmit } = useAboutMeModifyForm();
@@ -20,7 +19,6 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
   );
   return (
     <FormContainer onSubmit={onSubmit}>
-      {true && <LoadingSpiner text={'업데이트중'} />}
       <InfoList>
         <InfoItem>
           <BsFillPersonFill className='font' />

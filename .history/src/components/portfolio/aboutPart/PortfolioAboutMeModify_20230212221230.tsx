@@ -20,7 +20,7 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
   );
   return (
     <FormContainer onSubmit={onSubmit}>
-      {true && <LoadingSpiner text={'업데이트중'} />}
+      {isLoading && <LoadingSpiner text={'업데이트중'} />}
       <InfoList>
         <InfoItem>
           <BsFillPersonFill className='font' />

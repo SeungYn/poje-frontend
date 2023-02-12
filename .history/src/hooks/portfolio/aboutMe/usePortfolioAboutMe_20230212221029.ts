@@ -6,7 +6,6 @@ import {
   ModifyAboutMeRequest,
 } from '@src/service/types/portfolio';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { useState } from 'react';
 
 export default function usePortfolioAboutMe() {
   const [isLoading, setIsLoading] = useState(false);
@@ -29,13 +28,11 @@ export default function usePortfolioAboutMe() {
       return await service.portfolio.putAboutMe({ ...data });
     },
     {
-      onMutate: () => setIsLoading(true),
       onSuccess: (data) => {
         const { result } = data;
         queryClient.setQueryData(['portfolioAboutMe', portfolioId], result);
-        setIsLoading(false);
       },
     }
   );
-  return { aboutMe: data!, update: updateAboutMe.mutate, isLoading };
+  return { aboutMe: data!, update: updateAboutMe.mutate };
 }
