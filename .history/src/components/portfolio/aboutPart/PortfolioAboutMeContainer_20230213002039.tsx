@@ -25,11 +25,9 @@ export default function PortAboutMeContainer() {
         <AiFillTag />
         <S.HeaderTitle>About Me</S.HeaderTitle>
       </S.CommonHeader>
-      {!isModifyMode && (
-        <Suspense fallback={<div>로딩중</div>}>
-          <PortfolioAboutMe {...data} />
-        </Suspense>
-      )}
+      {!isModifyMode && <Suspense fallback={<div>로딩중</div>}>
+        <PortfolioAboutMe {...data}
+      </Suspense> />}
       {isModifyMode && <PortfolioAboutMeModify {...data} />}
       <ModifyBtn
         isModifyMode={isModifyMode}
