@@ -56,12 +56,7 @@ export default function usePortfolioModifyForm() {
   }, [discriptionRef.current]);
 
   //컴포넌트 unMount시 URL.Object헤제
-  useEffect(() => {
-    return () => {
-      copiedPfIntro.backgroundImgFile &&
-        URL.revokeObjectURL(copiedPfIntro.backgroundImg);
-    };
-  }, []);
+  useEffect(() => {}, []);
 
   return {
     copiedPfIntro,

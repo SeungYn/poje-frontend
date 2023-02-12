@@ -98,6 +98,7 @@ export class PortfolioService {
       new Blob(
         [
           JSON.stringify({
+            portfolioId,
             email,
             nickName,
             phoneNum,

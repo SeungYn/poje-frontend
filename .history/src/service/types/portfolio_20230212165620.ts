@@ -52,10 +52,27 @@ export interface AboutMeRequest {
 }
 
 export interface AboutMeResponse extends BasicResponse {
-  result: AboutMeType;
+  nickName: string;
+  email: string;
+  phoneNum: string;
+  gender: string;
+  academic: string;
+  dept: string;
+  birth: string;
+  profileImg: string;
+  gitHubLink: string;
+  blogLink: string;
 }
 
-export interface ModifyAboutMeRequest extends Omit<AboutMeType, 'profileImg'> {
-  portfolioId: string;
-  profileImgFile: File | null;
+export interface ModifyAboutMeRequest {
+  nickName: string;
+  email: string;
+  phoneNum: string;
+  gender: string;
+  academic: string;
+  dept: string;
+  birth: string;
+  profileImg?: File;
+  gitHubLink: string;
+  blogLink: string;
 }

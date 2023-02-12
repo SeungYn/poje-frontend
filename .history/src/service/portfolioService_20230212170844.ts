@@ -73,8 +73,6 @@ export class PortfolioService {
     const {
       data: { result },
     } = await this.http.fetchJson<AboutMeResponse>(`/member`, config);
-
-    return result;
   }
 
   async putAboutMe(data: ModifyAboutMeRequest) {
@@ -98,6 +96,7 @@ export class PortfolioService {
       new Blob(
         [
           JSON.stringify({
+            portfolioId,
             email,
             nickName,
             phoneNum,
@@ -112,19 +111,7 @@ export class PortfolioService {
         { type: 'application/json' }
       )
     );
-    if (profileImgFile) {
-      formData.append('profileImg', profileImgFile);
+    if (profileImg) {
     }
-
-    const config: AxiosRequestConfig = {
-      method: 'put',
-      data: formData,
-      headers: { 'Content-Type': 'multipart/form-data' },
-    };
-
-    const { data: result } = await this.http.fetchJson<AboutMeResponse>(
-      '/member',
-      config
-    );
   }
 }

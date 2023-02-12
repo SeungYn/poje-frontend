@@ -55,7 +55,6 @@ export interface AboutMeResponse extends BasicResponse {
   result: AboutMeType;
 }
 
-export interface ModifyAboutMeRequest extends Omit<AboutMeType, 'profileImg'> {
+export interface ModifyAboutMeRequest extends AboutMeType {
   portfolioId: string;
-  profileImgFile: File | null;
 }

@@ -34,7 +34,11 @@ export interface ModifyPortfolioIntroRequest {
 
 // AboutMe
 
-export type AboutMeType = {
+export interface AboutMeRequest {
+  portfolioId: string;
+}
+
+export interface AboutMeResponse extends BasicResponse {
   nickName: string;
   email: string;
   phoneNum: string;
@@ -45,17 +49,17 @@ export type AboutMeType = {
   profileImg: string;
   gitHubLink: string;
   blogLink: string;
-};
-
-export interface AboutMeRequest {
-  portfolioId: string;
 }
 
-export interface AboutMeResponse extends BasicResponse {
-  result: AboutMeType;
-}
-
-export interface ModifyAboutMeRequest extends Omit<AboutMeType, 'profileImg'> {
-  portfolioId: string;
-  profileImgFile: File | null;
+export interface ModifyAboutMeRequest {
+  nickName: string;
+  email: string;
+  phoneNum: string;
+  gender: string;
+  academic: string;
+  dept: string;
+  birth: string;
+  profileImg?: File;
+  gitHubLink: string;
+  blogLink: string;
 }

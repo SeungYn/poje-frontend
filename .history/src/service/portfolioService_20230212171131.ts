@@ -73,8 +73,6 @@ export class PortfolioService {
     const {
       data: { result },
     } = await this.http.fetchJson<AboutMeResponse>(`/member`, config);
-
-    return result;
   }
 
   async putAboutMe(data: ModifyAboutMeRequest) {
@@ -98,6 +96,7 @@ export class PortfolioService {
       new Blob(
         [
           JSON.stringify({
+            portfolioId,
             email,
             nickName,
             phoneNum,

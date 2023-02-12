@@ -34,28 +34,19 @@ export interface ModifyPortfolioIntroRequest {
 
 // AboutMe
 
-export type AboutMeType = {
-  nickName: string;
-  email: string;
-  phoneNum: string;
-  gender: string;
-  academic: string;
-  dept: string;
-  birth: string;
-  profileImg: string;
-  gitHubLink: string;
-  blogLink: string;
-};
-
 export interface AboutMeRequest {
   portfolioId: string;
 }
 
 export interface AboutMeResponse extends BasicResponse {
-  result: AboutMeType;
-}
-
-export interface ModifyAboutMeRequest extends Omit<AboutMeType, 'profileImg'> {
-  portfolioId: string;
-  profileImgFile: File | null;
+  nickName: '싸르';
+  email: 'abc@123.com';
+  phoneNum: '01011111111';
+  gender: 'MALE';
+  academic: null;
+  dept: null;
+  birth: '1998/10/13';
+  profileImg: 'C:/Users/명수/Documents/공부/스프링/포제/profile/default_profile.PNG';
+  gitHubLink: null;
+  blogLink: null;
 }
