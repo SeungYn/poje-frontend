@@ -128,6 +128,6 @@ export class PortfolioService {
       config
     );
 
-    return result;
+    return result as AboutMeType;
   }
 }

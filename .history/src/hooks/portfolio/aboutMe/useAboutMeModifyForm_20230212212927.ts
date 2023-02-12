@@ -8,7 +8,7 @@ type AboutMeFormType = AboutMeType & { profileImgFile: File | null };
 
 export default function useAboutMeModifyForm() {
   const { portfolioId } = usePortfolioInfo();
-  const { update } = usePortfolioAboutMe();
+  const { update } = usePortfolioAboutMe;
   const queryClient = useQueryClient();
   const [form, setForm] = useState<AboutMeFormType>({
     ...queryClient.getQueryData<AboutMeType>([
@@ -41,9 +41,7 @@ export default function useAboutMeModifyForm() {
     }
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    update({ ...form, portfolioId });
-  };
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {};
 
   return { form, onChange, onSubmit };
 }

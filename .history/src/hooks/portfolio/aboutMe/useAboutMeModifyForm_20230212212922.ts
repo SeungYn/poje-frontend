@@ -2,13 +2,13 @@ import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
 import { AboutMeType } from '@src/service/types/portfolio';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import usePortfolioAboutMe from '@src/hooks/portfolio/aboutMe/usePortfolioAboutMe';
+import usePortfolioAboutMe from '@src/hooks/portfolio/usePortfolioAboutMe';
 
 type AboutMeFormType = AboutMeType & { profileImgFile: File | null };
 
 export default function useAboutMeModifyForm() {
   const { portfolioId } = usePortfolioInfo();
-  const { update } = usePortfolioAboutMe();
+  const { update } = usePortfolioAboutMe;
   const queryClient = useQueryClient();
   const [form, setForm] = useState<AboutMeFormType>({
     ...queryClient.getQueryData<AboutMeType>([
@@ -41,9 +41,7 @@ export default function useAboutMeModifyForm() {
     }
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    update({ ...form, portfolioId });
-  };
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {};
 
   return { form, onChange, onSubmit };
 }

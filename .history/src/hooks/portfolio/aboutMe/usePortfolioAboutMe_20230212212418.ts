@@ -1,7 +1,6 @@
 import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
 import service from '@src/service';
 import {
-  AboutMeResponse,
   AboutMeType,
   ModifyAboutMeRequest,
 } from '@src/service/types/portfolio';
@@ -15,20 +14,13 @@ export default function usePortfolioAboutMe() {
     { suspense: true }
   );
 
-  const updateAboutMe = useMutation<
-    AboutMeResponse,
+  const update = useMutation<
+    AboutMeType,
     unknown,
     ModifyAboutMeRequest,
     unknown
-  >(
-    async (data: ModifyAboutMeRequest) => {
-      return await service.portfolio.putAboutMe({ ...data });
-    },
-    {
-      onSuccess: (data) => {
-        console.log('update!', data);
-      },
-    }
-  );
-  return { aboutMe: data!, update: updateAboutMe.mutate };
+  >(async (data: ModifyAboutMeRequest) => {
+    return service.portfolio.putAboutMe({ ...data });
+  }, {});
+  return { aboutMe: data! };
 }

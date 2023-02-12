@@ -30,5 +30,5 @@ export default function usePortfolioAboutMe() {
       },
     }
   );
-  return { aboutMe: data!, update: updateAboutMe.mutate };
+  return { aboutMe: data!, update: updateAboutMe };
 }

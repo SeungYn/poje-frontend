@@ -3,7 +3,6 @@ import Http from '@src/network/http';
 import {
   AboutMeRequest,
   AboutMeResponse,
-  AboutMeType,
   CreatePortfolioTemplateRequest,
   CreatePortfolioTemplateResponse,
   GetPortfolioIntroRequest,
@@ -128,6 +127,6 @@ export class PortfolioService {
       config
     );
 
-    return result;
+    return result as AboutMeType;
   }
 }

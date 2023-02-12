@@ -15,20 +15,13 @@ export default function usePortfolioAboutMe() {
     { suspense: true }
   );
 
-  const updateAboutMe = useMutation<
+  const update = useMutation<
     AboutMeResponse,
     unknown,
     ModifyAboutMeRequest,
     unknown
-  >(
-    async (data: ModifyAboutMeRequest) => {
-      return await service.portfolio.putAboutMe({ ...data });
-    },
-    {
-      onSuccess: (data) => {
-        console.log('update!', data);
-      },
-    }
-  );
-  return { aboutMe: data!, update: updateAboutMe.mutate };
+  >(async (data: ModifyAboutMeRequest) => {
+    return await service.portfolio.putAboutMe({ ...data });
+  }, {});
+  return { aboutMe: data! };
 }

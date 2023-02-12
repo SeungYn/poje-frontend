@@ -3,7 +3,6 @@ import Http from '@src/network/http';
 import {
   AboutMeRequest,
   AboutMeResponse,
-  AboutMeType,
   CreatePortfolioTemplateRequest,
   CreatePortfolioTemplateResponse,
   GetPortfolioIntroRequest,

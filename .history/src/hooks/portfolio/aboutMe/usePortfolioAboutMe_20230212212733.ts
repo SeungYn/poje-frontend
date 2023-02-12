@@ -15,7 +15,7 @@ export default function usePortfolioAboutMe() {
     { suspense: true }
   );
 
-  const updateAboutMe = useMutation<
+  const update = useMutation<
     AboutMeResponse,
     unknown,
     ModifyAboutMeRequest,
@@ -30,5 +30,5 @@ export default function usePortfolioAboutMe() {
       },
     }
   );
-  return { aboutMe: data!, update: updateAboutMe.mutate };
+  return { aboutMe: data! };
 }

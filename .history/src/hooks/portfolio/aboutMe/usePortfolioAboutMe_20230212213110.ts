@@ -18,10 +18,10 @@ export default function usePortfolioAboutMe() {
   const updateAboutMe = useMutation<
     AboutMeResponse,
     unknown,
-    ModifyAboutMeRequest,
+    AboutMeType,
     unknown
   >(
-    async (data: ModifyAboutMeRequest) => {
+    async (data) => {
       return await service.portfolio.putAboutMe({ ...data });
     },
     {

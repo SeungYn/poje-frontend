@@ -25,7 +25,7 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
             <InputText
               name='nickName'
               onChange={onChange}
-              value={form.nickName || ''}
+              value={form.nickName}
             />
           </InfoText>
         </InfoItem>
@@ -33,11 +33,7 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
           <MdEmail className='font' />
           <InfoText>
             <p>이메일</p>
-            <InputText
-              name='email'
-              onChange={onChange}
-              value={form.email || ''}
-            />
+            <InputText name='email' onChange={onChange} value={form.email} />
           </InfoText>
         </InfoItem>
         <InfoItem>
@@ -47,7 +43,7 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
             <InputText
               name='phoneNum'
               onChange={onChange}
-              value={form.phoneNum || ''}
+              value={form.phoneNum}
             />
           </InfoText>
         </InfoItem>
@@ -55,11 +51,7 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
           <AiFillCalendar className='font' />
           <InfoText>
             <p>생년월일</p>
-            <InputText
-              name='birth'
-              onChange={onChange}
-              value={form.birth || ''}
-            />
+            <InputText name='birth' onChange={onChange} value={form.birth} />
           </InfoText>
         </InfoItem>
         <InfoItem>
@@ -69,7 +61,7 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
             <InputText
               name='academic'
               onChange={onChange}
-              value={form.academic || ''}
+              value={form.academic}
             />
           </InfoText>
         </InfoItem>
@@ -77,11 +69,7 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
           <BsFillPencilFill className='font' />
           <InfoText>
             <p>학과</p>
-            <InputText
-              name='dept'
-              onChange={onChange}
-              value={form.dept || ''}
-            />
+            <InputText name='dept' onChange={onChange} value={form.dept} />
           </InfoText>
         </InfoItem>
       </InfoList>

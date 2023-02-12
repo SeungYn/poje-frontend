@@ -41,9 +41,7 @@ export default function useAboutMeModifyForm() {
     }
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    update({ ...form, portfolioId });
-  };
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {};
 
   return { form, onChange, onSubmit };
 }
