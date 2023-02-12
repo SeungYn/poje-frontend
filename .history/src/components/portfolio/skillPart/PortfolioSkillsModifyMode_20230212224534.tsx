@@ -6,12 +6,10 @@ import PortfolioSkills from './PortfolioSkills';
 
 interface PortfolioSkillsModifyModeType {
   skillList: SkillListType[];
-  //toggleModify: () => void;
+  toggleModify: () => void;
 }
 
-export default function PortfolioSkillsModifyMode({
-  skillList,
-}: PortfolioSkillsModifyModeType) {
+export default function PortfolioSkillsModifyMode() {
   const [modifySkillList, setModifySkillList] = useState([...skillList]);
 
   const handleAddSkill = ({
@@ -64,7 +62,7 @@ export default function PortfolioSkillsModifyMode({
         handleSkillIconDelete={handleSkillIconDelete}
       />
       <PortfolioSkillAddPalette
-        onModifyMode={() => {}}
+        onModifyMode={toggleModify}
         handleAddSkill={handleAddSkill}
         modifySkillList={modifySkillList}
       />

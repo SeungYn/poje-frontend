@@ -64,7 +64,7 @@ export default function PortfolioSkillsModifyMode({
         handleSkillIconDelete={handleSkillIconDelete}
       />
       <PortfolioSkillAddPalette
-        onModifyMode={() => {}}
+        onModifyMode={toggleModify}
         handleAddSkill={handleAddSkill}
         modifySkillList={modifySkillList}
       />

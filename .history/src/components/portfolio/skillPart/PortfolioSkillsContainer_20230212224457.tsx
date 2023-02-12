@@ -16,7 +16,7 @@ export type SkillListType = {
 };
 
 export default function PortfolioSkillsContainer() {
-  const [isModifyMode, setIsModifyMode] = useRecoilState(
+  const { isModifyMode, setIsModifyMode } = useRecoilState(
     isModifyModeFromSkills
   );
   const [skillList, setSkillList] = useState<SkillListType[]>([]);
@@ -30,7 +30,12 @@ export default function PortfolioSkillsContainer() {
       </S.CommonHeader>
       <Content>
         <PortfolioSkills skillList={skillList} />
-        {isModifyMode && <PortfolioSkillsModifyMode skillList={skillList} />}
+        {isModifyMode && (
+          <PortfolioSkillsModifyMode
+            skillList={skillList}
+            toggleModify={setIsModifyMode}
+          />
+        )}
       </Content>
       <ModifyBtn
         isModifyMode={isModifyMode}

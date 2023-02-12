@@ -30,7 +30,12 @@ export default function PortfolioSkillsContainer() {
       </S.CommonHeader>
       <Content>
         <PortfolioSkills skillList={skillList} />
-        {isModifyMode && <PortfolioSkillsModifyMode skillList={skillList} />}
+        {isModifyMode && (
+          <PortfolioSkillsModifyMode
+            skillList={skillList}
+            toggleModify={setIsModifyMode}
+          />
+        )}
       </Content>
       <ModifyBtn
         isModifyMode={isModifyMode}
