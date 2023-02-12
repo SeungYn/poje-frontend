@@ -7,14 +7,9 @@ import { PortfolioAboutMePropType } from './portfolioAboutMeType';
 import { useState } from 'react';
 import useAboutMeModifyForm from '@src/hooks/portfolio/aboutMe/useAboutMeModifyForm';
 import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
-import { useRecoilState } from 'recoil';
-import { isModifyModeFormPortfolioAboutMe } from '@src/store/portfolio/modify';
 
 export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
   const { form, onChange, onSubmit } = useAboutMeModifyForm();
-  const [isModifyMode, setIsModifyMode] = useRecoilState(
-    isModifyModeFormPortfolioAboutMe
-  );
   return (
     <FormContainer onSubmit={onSubmit}>
       <InfoList>
@@ -75,8 +70,6 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
       </InfoList>
 
       <ModifyComfirmAndCancleGroup
-        isModifyMode={isModifyMode}
-        setIsModifyMode={setIsModifyMode}
         handleSubmit={() => {
           console.log('확인');
         }}

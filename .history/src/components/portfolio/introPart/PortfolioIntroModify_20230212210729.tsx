@@ -1,7 +1,7 @@
 import usePortfolioModifyForm from '@src/hooks/portfolio/intro/usePortfolioModifyForm';
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
 import { useEffect, useRef } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { Intro } from './commonIntroStyledComponent';
@@ -16,7 +16,7 @@ export default function PortfolioIntroModify() {
   } = usePortfolioModifyForm();
   const titleRef = useRef<HTMLInputElement>(null);
   const hiddenFileBtnRef = useRef<HTMLInputElement>(null);
-  const [isModifyMode, setIsModifyMode] = useRecoilState(
+  const [isModifyMode, setIsModifyMode] = useRecoilValue(
     isModifyModeFromPortfolioIntro
   );
   useEffect(() => {

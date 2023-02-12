@@ -75,8 +75,6 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
       </InfoList>
 
       <ModifyComfirmAndCancleGroup
-        isModifyMode={isModifyMode}
-        setIsModifyMode={setIsModifyMode}
         handleSubmit={() => {
           console.log('확인');
         }}

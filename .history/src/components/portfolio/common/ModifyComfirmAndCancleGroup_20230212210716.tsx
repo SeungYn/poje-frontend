@@ -18,7 +18,7 @@ export default function ModifyComfirmAndCancleGroup({
     handleSubmit();
   };
 
-  if (!isModifyMode) return <></>;
+  if (!isModify) return <></>;
 
   return (
     <Container>

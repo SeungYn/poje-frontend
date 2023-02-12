@@ -5,27 +5,25 @@ import { Container } from './modifyCommonStyledComponent';
 
 type PropType = {
   handleSubmit: () => void;
-  isModifyMode: boolean;
-  setIsModifyMode: SetterOrUpdater<boolean>;
+  isModify: boolean;
+  setIsModify: SetterOrUpdater<boolean>;
 };
 
 export default function ModifyComfirmAndCancleGroup({
   handleSubmit,
-  isModifyMode,
-  setIsModifyMode,
+  isModify,
+  setIsModify,
 }: PropType) {
   const onSubmit = () => {
     handleSubmit();
   };
 
-  if (!isModifyMode) return <></>;
+  if (!isModify) return <></>;
 
   return (
     <Container>
       <ComfirmButton type={'submit'}>확인</ComfirmButton>
-      <CancleButton onClick={() => setIsModifyMode((e) => !e)}>
-        취소
-      </CancleButton>
+      <CancleButton onClick={() => setIsModify((e) => !e)}>취소</CancleButton>
     </Container>
   );
 }

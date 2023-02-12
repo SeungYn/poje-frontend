@@ -1,7 +1,7 @@
 import usePortfolioModifyForm from '@src/hooks/portfolio/intro/usePortfolioModifyForm';
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
 import { useEffect, useRef } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { Intro } from './commonIntroStyledComponent';
@@ -16,9 +16,7 @@ export default function PortfolioIntroModify() {
   } = usePortfolioModifyForm();
   const titleRef = useRef<HTMLInputElement>(null);
   const hiddenFileBtnRef = useRef<HTMLInputElement>(null);
-  const [isModifyMode, setIsModifyMode] = useRecoilState(
-    isModifyModeFromPortfolioIntro
-  );
+  const isModify = useRecoilValue(isModifyModeFromPortfolioIntro);
   useEffect(() => {
     //처음 수정모드로 들어 갔을때 타이틀에 포커스
     if (titleRef.current) {
@@ -60,8 +58,7 @@ export default function PortfolioIntroModify() {
         />
       </PortfolioSection>
       <ModifyComfirmAndCancleGroup
-        isModifyMode={isModifyMode}
-        setIsModifyMode={setIsModifyMode}
+        isModify={isModify}
         handleSubmit={() => {
           console.log('확인');
         }}

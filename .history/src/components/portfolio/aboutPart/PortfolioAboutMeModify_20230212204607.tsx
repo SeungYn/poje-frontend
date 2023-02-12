@@ -6,81 +6,57 @@ import { breakPoint } from '../../../styledComponents/media';
 import { PortfolioAboutMePropType } from './portfolioAboutMeType';
 import { useState } from 'react';
 import useAboutMeModifyForm from '@src/hooks/portfolio/aboutMe/useAboutMeModifyForm';
-import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
-import { useRecoilState } from 'recoil';
-import { isModifyModeFormPortfolioAboutMe } from '@src/store/portfolio/modify';
 
 export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
-  const { form, onChange, onSubmit } = useAboutMeModifyForm();
-  const [isModifyMode, setIsModifyMode] = useRecoilState(
-    isModifyModeFormPortfolioAboutMe
-  );
+  const [inputData, setInputData] = useState({ ...data });
+  const { form } = useAboutMeModifyForm();
   return (
-    <FormContainer onSubmit={onSubmit}>
+    <FormContainer>
       <InfoList>
         <InfoItem>
           <BsFillPersonFill className='font' />
           <InfoText>
             <p>이름</p>
-            <InputText
-              name='nickName'
-              onChange={onChange}
-              value={form.nickName}
-            />
+            <InputText value={form.nickName} />
           </InfoText>
         </InfoItem>
         <InfoItem>
           <MdEmail className='font' />
           <InfoText>
             <p>이메일</p>
-            <InputText name='email' onChange={onChange} value={form.email} />
+            <InputText value={form.email} />
           </InfoText>
         </InfoItem>
         <InfoItem>
           <BsFillPersonFill className='font' />
           <InfoText>
             <p>연락처</p>
-            <InputText
-              name='phoneNum'
-              onChange={onChange}
-              value={form.phoneNum}
-            />
+            <InputText value={form.phoneNum} />
           </InfoText>
         </InfoItem>
         <InfoItem>
           <AiFillCalendar className='font' />
           <InfoText>
             <p>생년월일</p>
-            <InputText name='birth' onChange={onChange} value={form.birth} />
+            <InputText value={form.birth} />
           </InfoText>
         </InfoItem>
         <InfoItem>
           <BsFillPencilFill className='font' />
           <InfoText>
             <p>학력</p>
-            <InputText
-              name='academic'
-              onChange={onChange}
-              value={form.academic}
-            />
+            <InputText value={form.academic} />
           </InfoText>
         </InfoItem>
+
         <InfoItem>
           <BsFillPencilFill className='font' />
           <InfoText>
             <p>학과</p>
-            <InputText name='dept' onChange={onChange} value={form.dept} />
+            <InputText value={form.dept} />
           </InfoText>
         </InfoItem>
       </InfoList>
-
-      <ModifyComfirmAndCancleGroup
-        isModifyMode={isModifyMode}
-        setIsModifyMode={setIsModifyMode}
-        handleSubmit={() => {
-          console.log('확인');
-        }}
-      />
     </FormContainer>
   );
 }
@@ -118,7 +94,7 @@ const InfoItem = styled.li`
 
 const InfoText = styled.div`
   margin-left: 1rem;
-  width: 100%;
+
   & p {
     font-size: ${({ theme }) => theme.fontMiddleSize};
   }

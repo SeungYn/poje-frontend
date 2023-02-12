@@ -6,17 +6,12 @@ import { breakPoint } from '../../../styledComponents/media';
 import { PortfolioAboutMePropType } from './portfolioAboutMeType';
 import { useState } from 'react';
 import useAboutMeModifyForm from '@src/hooks/portfolio/aboutMe/useAboutMeModifyForm';
-import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
-import { useRecoilState } from 'recoil';
-import { isModifyModeFormPortfolioAboutMe } from '@src/store/portfolio/modify';
 
 export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
-  const { form, onChange, onSubmit } = useAboutMeModifyForm();
-  const [isModifyMode, setIsModifyMode] = useRecoilState(
-    isModifyModeFormPortfolioAboutMe
-  );
+  const [inputData, setInputData] = useState({ ...data });
+  const { form, onChange } = useAboutMeModifyForm();
   return (
-    <FormContainer onSubmit={onSubmit}>
+    <FormContainer>
       <InfoList>
         <InfoItem>
           <BsFillPersonFill className='font' />
@@ -65,6 +60,7 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
             />
           </InfoText>
         </InfoItem>
+
         <InfoItem>
           <BsFillPencilFill className='font' />
           <InfoText>
@@ -73,14 +69,6 @@ export default function PortfolioAboutMeModify(data: PortfolioAboutMePropType) {
           </InfoText>
         </InfoItem>
       </InfoList>
-
-      <ModifyComfirmAndCancleGroup
-        isModifyMode={isModifyMode}
-        setIsModifyMode={setIsModifyMode}
-        handleSubmit={() => {
-          console.log('확인');
-        }}
-      />
     </FormContainer>
   );
 }
@@ -118,7 +106,7 @@ const InfoItem = styled.li`
 
 const InfoText = styled.div`
   margin-left: 1rem;
-  width: 100%;
+
   & p {
     font-size: ${({ theme }) => theme.fontMiddleSize};
   }
