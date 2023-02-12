@@ -23,7 +23,7 @@ export function extractSkillIconFromFolder() {
     true,
     /.png$|.ipg$/
   );
-
+  console.log(imgContext);
   const icons: IconListType = {
     frontend: [],
     backend: [],
@@ -31,7 +31,6 @@ export function extractSkillIconFromFolder() {
     test2: [],
   };
 
-  //./backend/node.png 이런애들이 Keys()에 있음
   imgContext.keys().forEach((k) => {
     console.log('실행');
     const extractedSkill = extractSkillTypeAndName(k);

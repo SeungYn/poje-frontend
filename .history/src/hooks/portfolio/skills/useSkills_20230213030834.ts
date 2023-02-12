@@ -28,7 +28,6 @@ export default function useSkills() {
     unknown
   >(
     async (data) => {
-      console.log('보낸 스킬스', data);
       return await service.portfolio.putSkills(data);
     },
     {

@@ -17,13 +17,11 @@ type SkillTypeAndNameType = {
 };
 
 export function extractSkillIconFromFolder() {
-  //skill_icon 하위 폴더들의 이미지들을 가져옴
   const imgContext = require.context(
     '/public/public_assets/skill_icon',
     true,
     /.png$|.ipg$/
   );
-
   const icons: IconListType = {
     frontend: [],
     backend: [],
@@ -31,7 +29,6 @@ export function extractSkillIconFromFolder() {
     test2: [],
   };
 
-  //./backend/node.png 이런애들이 Keys()에 있음
   imgContext.keys().forEach((k) => {
     console.log('실행');
     const extractedSkill = extractSkillTypeAndName(k);
