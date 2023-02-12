@@ -38,7 +38,6 @@ export default function usePortfolioAboutMe() {
         const { result } = data;
         queryClient.setQueryData(['portfolioAboutMe', portfolioId], result);
         setIsLoading(false);
-        setModifyMode(false);
       },
     }
   );

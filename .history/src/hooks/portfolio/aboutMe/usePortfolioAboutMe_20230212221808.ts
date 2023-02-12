@@ -1,4 +1,4 @@
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
 import service from '@src/service';
 import {
@@ -9,11 +9,9 @@ import {
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { aboutMeLoading } from '@src/store/portfolio/loading';
-import { isModifyModeFormPortfolioAboutMe } from '@src/store/portfolio/modify';
 
 export default function usePortfolioAboutMe() {
   const [isLoading, setIsLoading] = useRecoilState(aboutMeLoading);
-  const setModifyMode = useSetRecoilState(isModifyModeFormPortfolioAboutMe);
   const queryClient = useQueryClient();
   const { portfolioId } = usePortfolioInfo();
   const { data } = useQuery(
@@ -38,7 +36,6 @@ export default function usePortfolioAboutMe() {
         const { result } = data;
         queryClient.setQueryData(['portfolioAboutMe', portfolioId], result);
         setIsLoading(false);
-        setModifyMode(false);
       },
     }
   );
