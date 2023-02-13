@@ -14,12 +14,10 @@ import {
   ModifyAboutMeRequest,
   ModifyPortfolioIntroRequest,
   ProjectResponse,
-  PutProjectRequest,
   PutSkillsRequest,
   SkillsResponse,
   SkillsType,
 } from '@src/service/types/portfolio';
-import { BasicResponse } from './types/basicResponse';
 
 export class PortfolioService {
   constructor(private http: Http) {}
@@ -192,28 +190,5 @@ export class PortfolioService {
     }
     const { data:{result} } = await this.http.fetchJson<ProjectResponse>(`/member/portfolio/${portfolioId}/projects`, config);
     return result;
-  }
-
-  async putProject(data: PutProjectRequest) {
-    const { projectId, prInfo, prAwardInfo, prSkillList, prImgList } = data;
-
-    const formData = new FormData();
-    formData.append('projectUpdateReq', new Blob([JSON.stringify({
-      prInfo, prAwardInfo, skillSet: prSkillList,
-    })], { type: 'application/json' }))
-    if (prImgList.length > 0) {
-      for (let file of prImgList) {
-        formData.append('projectImg', file);
-      }
-    }
-    
-    
-    const config: AxiosRequestConfig = {
-      method: 'PUT',
-      data: formData,
-      headers: {'Content-Type':'multipart/form-data'}
-    }
-
-    const { data: result } = await this.http.fetchJson<BasicResponse>(`/member/project/${projectId}`, config);
   }
 }

@@ -120,11 +120,11 @@ export type ProjectType = {
 
 
 export interface PutProjectRequest{
-  projectId:string;
+  portfolioId:string;
   prInfo: Omit<ProjectInfoType, 'portfolioId'>;
   prAwardInfo : ProjectAwardInfoType;
   prSkillList:ProjectSkillType[];
-  prImgList:File[];
+  prImgList:File[]
 }
 
 export interface ProjectResponse{

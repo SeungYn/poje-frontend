@@ -214,6 +214,6 @@ export class PortfolioService {
       headers: {'Content-Type':'multipart/form-data'}
     }
 
-    const { data: result } = await this.http.fetchJson<BasicResponse>(`/member/project/${projectId}`, config);
+    const {data:result} = await this.http.fetchJson<BasicResponse>(`/member/project/${projectId}`, config)
   }
 }
