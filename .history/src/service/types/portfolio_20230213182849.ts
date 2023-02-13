@@ -128,7 +128,7 @@ export interface PutProjectRequest{
 }
 
 export interface ProjectResponse extends BasicResponse{
-  result: ProjectType;
+  returl: ProjectType;
 }
 
 export interface ProjectsResponse extends BasicResponse{

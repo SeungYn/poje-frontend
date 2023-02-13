@@ -127,10 +127,6 @@ export interface PutProjectRequest{
   prImgList:File[];
 }
 
-export interface ProjectResponse extends BasicResponse{
-  result: ProjectType;
-}
-
-export interface ProjectsResponse extends BasicResponse{
+export interface ProjectResponse{
   result:ProjectType[];
 }
