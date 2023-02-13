@@ -178,6 +178,6 @@ export class PortfolioService {
     }
 
     const { data:{result} } = await this.http.fetchJson<ProjectResponse>(`/member/portfolio/${portfolioId}/project`, config);
-    return result;
+
   }
 }

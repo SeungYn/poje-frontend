@@ -90,10 +90,6 @@ export interface CreateProjectRequest{
   portfolioId : string;
 }
 
-export interface GetProjectRequest{
-  portfolioId : string;
-}
-
 export type ProjectInfoType = {
   projectId: string;
   name: string;
@@ -119,14 +115,6 @@ export type ProjectType = {
 }
 
 
-export interface PutProjectRequest{
-  portfolioId:string;
-  prInfo: Omit<ProjectInfoType, 'portfolioId'>;
-  prAwardInfo : ProjectAwardInfoType;
-  skillSet:ProjectSkillType[];
-
-  
-}
 
 export interface ProjectResponse{
   result:ProjectType;

@@ -90,11 +90,7 @@ export interface CreateProjectRequest{
   portfolioId : string;
 }
 
-export interface GetProjectRequest{
-  portfolioId : string;
-}
-
-export type ProjectInfoType = {
+export type PrInfoType = {
   projectId: string;
   name: string;
   duration: string;
@@ -103,31 +99,14 @@ export type ProjectInfoType = {
   link: string;
 }
 
-export type ProjectAwardInfoType = {
-  supervision: string;
-  grade: string;
-  description: string;
-}
-
-export type ProjectSkillType = Omit<SkillItemType, 'path'>;
-
-export type ProjectType = {
-  prInfo: ProjectInfoType;
-  prAwardInfo : ProjectAwardInfoType;
-  prSkillList: ProjectSkillType[];
-  prImgList : string[]
+export type PrAwardInfoType ={
+  "supervision": "주관을 입력해주세요.",
+            "grade": "순위를 입력해주세요. (e.g.3등 or 동상)",
+            "description": "설명을 입력해주세요."
 }
 
 
-export interface PutProjectRequest{
-  portfolioId:string;
-  prInfo: Omit<ProjectInfoType, 'portfolioId'>;
-  prAwardInfo : ProjectAwardInfoType;
-  skillSet:ProjectSkillType[];
-
-  
-}
 
 export interface ProjectResponse{
-  result:ProjectType;
+  
 }

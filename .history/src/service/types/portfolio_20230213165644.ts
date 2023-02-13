@@ -86,48 +86,7 @@ export interface SkillsResponse extends BasicResponse {
 
 // Project
 
-export interface CreateProjectRequest{
+export interface CreateProfectRequest{
   portfolioId : string;
-}
-
-export interface GetProjectRequest{
-  portfolioId : string;
-}
-
-export type ProjectInfoType = {
-  projectId: string;
-  name: string;
-  duration: string;
-  description: string;
-  belong: string;
-  link: string;
-}
-
-export type ProjectAwardInfoType = {
-  supervision: string;
-  grade: string;
-  description: string;
-}
-
-export type ProjectSkillType = Omit<SkillItemType, 'path'>;
-
-export type ProjectType = {
-  prInfo: ProjectInfoType;
-  prAwardInfo : ProjectAwardInfoType;
-  prSkillList: ProjectSkillType[];
-  prImgList : string[]
-}
-
-
-export interface PutProjectRequest{
-  portfolioId:string;
-  prInfo: Omit<ProjectInfoType, 'portfolioId'>;
-  prAwardInfo : ProjectAwardInfoType;
-  skillSet:ProjectSkillType[];
-
   
-}
-
-export interface ProjectResponse{
-  result:ProjectType;
 }
