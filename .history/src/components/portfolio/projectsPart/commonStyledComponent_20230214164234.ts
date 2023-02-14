@@ -41,16 +41,3 @@ export const DescriptionWrapper = styled.div`
 export const ProjectHeader = styled.div`
   text-align: center;
 `;
-
-export const ExplainSectionWrapper = styled.div``;
-
-export const SubExplainWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-auto-rows: auto;
-  justify-items: center;
-  align-items: flex-start;
-  @media screen and (max-width: ${breakPoint.mm}) {
-    grid-template-columns: 1fr;
-  }
-`;
