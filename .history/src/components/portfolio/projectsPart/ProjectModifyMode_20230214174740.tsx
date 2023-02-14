@@ -99,7 +99,6 @@ const Property = styled.h4`
 `;
 
 const Value = styled.p`
-  width: 100%;
   text-align: center;
   font-size: ${({ theme }) => theme.fontRegular};
 `;

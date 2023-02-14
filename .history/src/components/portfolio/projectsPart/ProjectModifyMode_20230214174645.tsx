@@ -41,15 +41,15 @@ export default function ProjectModifyMode({ item }: PropType) {
         </ExplainSectionWrapper>
         <SubExplainWrapper>
           <Property>기간</Property>
-          <ValueInput value={prInfo.duration} />
+          <Value as='input' value={prInfo.duration} />
           <Property>깃허브 링크</Property>
-          <ValueInput value={prInfo.link} />
+          <Value as='input' value={prInfo.link} />
           <Property>수상 기관</Property>
-          <ValueInput value={prAwardInfo.supervision} />
+          <Value as='input' value={prAwardInfo.supervision} />
           <Property>수상 순위</Property>
-          <ValueInput value={prAwardInfo.grade} />
+          <Value as='input' value={prAwardInfo.grade} />
           <Property>수상 소감</Property>
-          <ValueInput value={prAwardInfo.description} />
+          <Value as='input' value={prAwardInfo.description} />
           <Property>사용 기술</Property>
           <Value>
             {prSkillList.reduce((p, c, i, origin) => {
@@ -99,9 +99,6 @@ const Property = styled.h4`
 `;
 
 const Value = styled.p`
-  width: 100%;
   text-align: center;
   font-size: ${({ theme }) => theme.fontRegular};
 `;
-
-const ValueInput = styled(CommonTextInput)``;

@@ -36,20 +36,20 @@ export default function ProjectModifyMode({ item }: PropType) {
           <ProjectSubTitle value={prInfo.belong} />
         </ProjectHeaderWrapper>
         <ExplainSectionWrapper>
-          <Explain value={prInfo.description} />
+          <Explain>{prInfo.description}</Explain>
           <Hr />
         </ExplainSectionWrapper>
         <SubExplainWrapper>
           <Property>기간</Property>
-          <ValueInput value={prInfo.duration} />
+          <Value>{prInfo.duration}</Value>
           <Property>깃허브 링크</Property>
-          <ValueInput value={prInfo.link} />
+          <Value>{prInfo.link}</Value>
           <Property>수상 기관</Property>
-          <ValueInput value={prAwardInfo.supervision} />
+          <Value>{prAwardInfo.supervision}</Value>
           <Property>수상 순위</Property>
-          <ValueInput value={prAwardInfo.grade} />
+          <Value>{prAwardInfo.grade}</Value>
           <Property>수상 소감</Property>
-          <ValueInput value={prAwardInfo.description} />
+          <Value>{prAwardInfo.description}</Value>
           <Property>사용 기술</Property>
           <Value>
             {prSkillList.reduce((p, c, i, origin) => {
@@ -71,7 +71,6 @@ const CommonTextInput = styled.input`
   border-bottom: 1px solid rgb(139, 139, 139);
   margin-bottom: 0.4rem;
   outline: none;
-  padding-bottom: 0.4rem;
 `;
 
 const ProjectTitle = styled(CommonTextInput)`
@@ -83,13 +82,8 @@ const ProjectSubTitle = styled(CommonTextInput)`
   color: ${({ theme }) => theme.textColorToneDown};
 `;
 
-const Explain = styled.textarea`
-  width: 100%;
+const Explain = styled.p`
   font-size: ${({ theme }) => theme.fontRegular};
-  border: none;
-  outline: none;
-  height: auto;
-  resize: none;
 `;
 
 const Hr = styled.hr``;
@@ -99,9 +93,6 @@ const Property = styled.h4`
 `;
 
 const Value = styled.p`
-  width: 100%;
   text-align: center;
   font-size: ${({ theme }) => theme.fontRegular};
 `;
-
-const ValueInput = styled(CommonTextInput)``;
