@@ -1,5 +1,8 @@
 import { ProjectType } from '@src/service/types/portfolio';
+import { breakPoint } from '@src/styledComponents/media';
 import styled from 'styled-components';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   DescriptionWrapper,
   ExplainSectionWrapper,

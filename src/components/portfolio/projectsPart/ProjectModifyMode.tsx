@@ -10,14 +10,12 @@ import {
   SubExplainWrapper,
 } from './commonStyledComponent';
 import ImageSlider from './ImageSlider';
-
 type PropType = {
   item: ProjectType;
 };
 
-export default function Project({ item }: PropType) {
+export default function ProjectModifyMode({ item }: PropType) {
   const { prInfo, prAwardInfo, prSkillList, prImgList } = item;
-
   return (
     <ProjectWrapper>
       <ImgSectionWrapper>

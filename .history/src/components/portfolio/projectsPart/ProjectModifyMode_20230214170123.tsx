@@ -1,5 +1,4 @@
 import { ProjectType } from '@src/service/types/portfolio';
-import styled from 'styled-components';
 import {
   DescriptionWrapper,
   ExplainSectionWrapper,
@@ -10,14 +9,12 @@ import {
   SubExplainWrapper,
 } from './commonStyledComponent';
 import ImageSlider from './ImageSlider';
-
 type PropType = {
   item: ProjectType;
 };
 
-export default function Project({ item }: PropType) {
+export default function ProjectModifyMode({ item }: PropType) {
   const { prInfo, prAwardInfo, prSkillList, prImgList } = item;
-
   return (
     <ProjectWrapper>
       <ImgSectionWrapper>

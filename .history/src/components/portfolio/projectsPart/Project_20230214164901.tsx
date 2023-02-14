@@ -1,5 +1,8 @@
 import { ProjectType } from '@src/service/types/portfolio';
+import { breakPoint } from '@src/styledComponents/media';
 import styled from 'styled-components';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   DescriptionWrapper,
   ExplainSectionWrapper,
@@ -86,5 +89,4 @@ const Property = styled.h4`
 
 const Value = styled.p`
   text-align: center;
-  font-size: ${({ theme }) => theme.fontRegular};
 `;

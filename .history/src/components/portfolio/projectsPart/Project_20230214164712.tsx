@@ -1,5 +1,8 @@
 import { ProjectType } from '@src/service/types/portfolio';
+import { breakPoint } from '@src/styledComponents/media';
 import styled from 'styled-components';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   DescriptionWrapper,
   ExplainSectionWrapper,
@@ -21,13 +24,12 @@ export default function Project({ item }: PropType) {
   return (
     <ProjectWrapper>
       <ImgSectionWrapper>
-        {/* 등록된 이미지가 하나도 없으면 이미지가 없다는 이미지를 등록시켜주기 */}
         <ImageSlider
-          imgList={
-            prImgList.length > 0
-              ? prImgList
-              : [`${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`]
-          }
+          imgList={[
+            `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
+            `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
+            `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
+          ]}
           StyledComponent={ProjectImg}
         />
       </ImgSectionWrapper>
@@ -86,5 +88,4 @@ const Property = styled.h4`
 
 const Value = styled.p`
   text-align: center;
-  font-size: ${({ theme }) => theme.fontRegular};
 `;

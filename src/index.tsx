@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { router } from './router';
+import AppRouter, { router } from './router';
 import { GlobalStyle } from './styledComponents/styledComponents';
 import { mainTheme } from './styledComponents/theme';
 import './index.css';
@@ -22,7 +22,7 @@ root.render(
     <ThemeProvider theme={mainTheme}>
       <QueryClientProvider client={queryClient}>
         <RecoilRoot>
-          <RouterProvider router={router} />
+          <AppRouter />
         </RecoilRoot>
         <ReactQueryDevtools />
       </QueryClientProvider>
