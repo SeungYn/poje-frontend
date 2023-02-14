@@ -7,13 +7,13 @@ type PropType = {
 
 export default function ModifyHorizonBtn({ title, handleClick }: PropType) {
   return (
-    <Horizon>
-      <ModifyButton onClick={handleClick}>{title}</ModifyButton>
-    </Horizon>
+    <ModifyHorizonButton>
+      <ModifyButton>{title}</ModifyButton>
+    </ModifyHorizonButton>
   );
 }
 
-const Horizon = styled.div`
+const ModifyHorizonButton = styled.button`
   position: absolute;
   width: 100%;
   bottom: 10px;

@@ -7,7 +7,7 @@ type PropType = {
   item: ProjectType;
 };
 
-export default function Project(data: PropType) {
+export default function Project() {
   return (
     <Container>
       <ImgSection>

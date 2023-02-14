@@ -29,9 +29,7 @@ export default function ModifyComfirmAndCancleGroup({
       </ComfirmButton>
       <CancleButton
         onClick={() =>
-          setIsModifyMode
-            ? setIsModifyMode((e) => !e)
-            : handleCloseBtn && handleCloseBtn()
+          setIsModifyMode ? setIsModifyMode((e) => !e) : handleCloseBtn()
         }
       >
         취소

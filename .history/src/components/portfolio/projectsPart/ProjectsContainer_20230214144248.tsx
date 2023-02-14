@@ -1,4 +1,3 @@
-import useProject from '@src/hooks/portfolio/project/useProject';
 import { Suspense } from 'react';
 import styled, { useTheme } from 'styled-components';
 import 'swiper/css/pagination';
@@ -28,7 +27,6 @@ const test = [
 
 export default function ProjectsContainer() {
   const theme = useTheme();
-  const { createProject } = useProject();
   return (
     <Container>
       <PartHeader title={'Projects'} color={theme.textColor} />
@@ -37,12 +35,7 @@ export default function ProjectsContainer() {
           <Projects />
         </Suspense>
       </Content>
-      <ModifyHorizonBtn
-        title={'추가'}
-        handleClick={() => {
-          createProject();
-        }}
-      />
+      <ModifyHorizonBtn />
     </Container>
   );
 }
