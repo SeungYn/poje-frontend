@@ -5,19 +5,19 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 type PropType = {
   imgList: string[];
   StyledComponent: StyledComponentBase<'img', DefaultTheme, {}, never>;
-  handleClick?: () => void;
+  handleClick: () => void;
 };
 
 export default function ImageSlider({
   imgList,
-  handleClick = () => {},
+  handleClick,
   StyledComponent,
 }: PropType) {
   return (
     <Swiper modules={[Navigation, Pagination]} navigation pagination>
       {imgList.map((src) => (
         <SwiperSlide>
-          <StyledComponent src={src} onClick={handleClick} />
+          <StyledComponent src={src} />
         </SwiperSlide>
       ))}
     </Swiper>
