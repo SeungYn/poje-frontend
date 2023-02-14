@@ -16,14 +16,7 @@ export default function Project({ item }: PropType) {
   return (
     <Container>
       <ImgSection>
-        <ImageSlider
-          imgList={[
-            `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-            `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-            `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-          ]}
-          StyledComponent={ProjectImg}
-        />
+        <ImageSlider prImgList={prImgList} StyledComponent={ProjectImg} />
       </ImgSection>
 
       <Description>

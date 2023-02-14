@@ -3,8 +3,6 @@ import { breakPoint } from '@src/styledComponents/media';
 import styled from 'styled-components';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { ProjectImg } from './commonStyledComponent';
-import ImageSlider from './ImageSlider';
 
 type PropType = {
   item: ProjectType;
@@ -16,14 +14,26 @@ export default function Project({ item }: PropType) {
   return (
     <Container>
       <ImgSection>
-        <ImageSlider
-          imgList={[
-            `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-            `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-            `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-          ]}
-          StyledComponent={ProjectImg}
-        />
+        <Swiper modules={[Navigation, Pagination]} navigation pagination>
+          <SwiperSlide>
+            <img
+              src={`${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`}
+              alt=''
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src={`${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`}
+              alt=''
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src={`${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`}
+              alt=''
+            />
+          </SwiperSlide>
+        </Swiper>
       </ImgSection>
 
       <Description>
@@ -78,7 +88,6 @@ const ImgSection = styled.div`
 
 const Description = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: column;
   gap: 1rem;
 `;
@@ -101,8 +110,6 @@ const ExplainSection = styled.div``;
 const Explain = styled.p`
   font-size: ${({ theme }) => theme.fontRegular};
 `;
-
-const test = styled.img``;
 
 const Hr = styled.hr``;
 
