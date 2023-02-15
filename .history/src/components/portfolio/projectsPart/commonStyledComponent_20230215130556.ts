@@ -20,8 +20,6 @@ export const SliderWrapper = styled.div`
   }
 
   @media screen and (max-width: ${breakPoint.mmm}) {
-    min-width: 200px;
-    min-height: 400px;
   }
 `;
 

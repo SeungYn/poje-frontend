@@ -42,8 +42,8 @@ export default function ProjectModifyMode({
             }}
             StyledComponent={HoverImgSliderWrapper}
           />
-          <ImgUploadLabel htmlFor='file'>이미지 등록하기</ImgUploadLabel>
-          <input type='file' id='file' style={{ display: 'none' }} />
+          <input type='file' style={{ display: 'none' }} />
+          <div style={{ display: 'none' }}></div>
         </ImgSectionWrapper>
 
         <DescriptionWrapper>
@@ -129,8 +129,6 @@ const ProjectSubTitle = styled(CommonTextInput)`
   font-size: ${({ theme }) => theme.fontRegular};
   color: ${({ theme }) => theme.textColorToneDown};
 `;
-
-const ImgUploadLabel = styled.label``;
 
 const Explain = styled.textarea`
   width: 100%;
