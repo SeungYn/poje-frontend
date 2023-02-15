@@ -74,10 +74,6 @@ export default function ProjectModifyMode({
               }, '')}
             </Value>
           </SubExplainWrapper>
-          <ModifyComfirmAndCancleGroup
-            handleSubmit={() => {}}
-            handleCloseBtn={handleModifyMode}
-          />
         </DescriptionWrapper>
       </ProjectWrapper>
     </>
@@ -96,6 +92,26 @@ const CommonTextInput = styled.input`
 `;
 
 const HoverImgSliderWrapper = styled(SliderWrapper)`
+  .swiper-slide {
+    position: relative;
+  }
+
+  .slide-overlay {
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .swiper-slide:hover .slide-overlay {
     opacity: 1;
   }

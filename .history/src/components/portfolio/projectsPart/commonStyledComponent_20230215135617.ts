@@ -11,25 +11,15 @@ export const SubInfoWrapper = styled.div`
 
 export const SliderWrapper = styled.div`
   position: relative;
+  height: 80%;
+  min-height: 500px;
   width: 100%;
   .swiper {
     height: 100%;
   }
 
-  .slide-overlay {
-    color: white;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  @media screen and (max-width: ${breakPoint.mmm}) {
+    min-height: 400px;
   }
 `;
 
@@ -57,7 +47,7 @@ export const ProjectWrapper = styled.div`
 
 export const ImgSectionWrapper = styled.div`
   position: relative;
-  width: 50%;
+  flex-basis: 50%;
   @media screen and (max-width: ${breakPoint.mmm}) {
     width: 100%;
     padding-bottom: 4rem;
@@ -65,8 +55,8 @@ export const ImgSectionWrapper = styled.div`
 `;
 export const DescriptionWrapper = styled.div`
   display: flex;
-  flex-shrink: 0;
   flex-basis: 50%;
+  width: 100%;
   flex-direction: column;
   gap: 1rem;
 `;

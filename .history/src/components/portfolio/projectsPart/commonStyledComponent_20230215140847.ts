@@ -15,22 +15,6 @@ export const SliderWrapper = styled.div`
   .swiper {
     height: 100%;
   }
-
-  .slide-overlay {
-    color: white;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 `;
 
 export const ProjectImg = styled.img`
