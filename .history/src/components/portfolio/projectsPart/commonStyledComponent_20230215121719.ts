@@ -9,17 +9,6 @@ export const SubInfoWrapper = styled.div`
   }
 `;
 
-export const SliderWrapper = styled.div`
-  height: 80%;
-  min-height: 500px;
-  width: 100%;
-  min-width: 300px;
-
-  .swiper {
-    height: 100%;
-  }
-`;
-
 export const ProjectImg = styled.img`
   width: 100%;
   height: 100%;

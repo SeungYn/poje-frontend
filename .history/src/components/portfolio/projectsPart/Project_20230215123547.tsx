@@ -7,7 +7,6 @@ import {
   ProjectHeaderWrapper,
   ProjectImg,
   ProjectWrapper,
-  SliderWrapper,
   SubExplainWrapper,
 } from './commonStyledComponent';
 import ImageSlider from './ImageSlider';
@@ -29,7 +28,6 @@ export default function Project({ item }: PropType) {
               ? prImgList
               : [`${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`]
           }
-          StyledComponent={SliderWrapper}
         />
       </ImgSectionWrapper>
 

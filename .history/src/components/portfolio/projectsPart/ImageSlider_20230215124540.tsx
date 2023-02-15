@@ -19,9 +19,7 @@ export default function ImageSlider({
         {imgList.map((src) => (
           <SwiperSlide>
             <ProjectImg src={src} />
-            <div className='slide-overlay' onClick={handleClick}>
-              클릭시 이미지가 삭제됩니다.
-            </div>
+            <div className='slide-overlay' onClick={handleClick}></div>
           </SwiperSlide>
         ))}
       </Swiper>

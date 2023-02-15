@@ -99,8 +99,8 @@ const HoverImgSliderWrapper = styled(SliderWrapper)`
   }
 
   .slide-overlay {
+    content: '클릭시 이미지가 삭제됩니다.';
     color: white;
-    cursor: pointer;
     position: absolute;
     top: 0;
     left: 0;
@@ -109,9 +109,6 @@ const HoverImgSliderWrapper = styled(SliderWrapper)`
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .swiper-slide:hover .slide-overlay {

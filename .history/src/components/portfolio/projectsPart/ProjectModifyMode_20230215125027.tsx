@@ -100,7 +100,7 @@ const HoverImgSliderWrapper = styled(SliderWrapper)`
 
   .slide-overlay {
     color: white;
-    cursor: pointer;
+		cursor:pointer
     position: absolute;
     top: 0;
     left: 0;

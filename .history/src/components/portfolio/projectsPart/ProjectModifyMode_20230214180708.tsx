@@ -7,20 +7,17 @@ import {
   ProjectHeaderWrapper,
   ProjectImg,
   ProjectWrapper,
-  SliderWrapper,
   SubExplainWrapper,
 } from './commonStyledComponent';
 import ImageSlider from './ImageSlider';
-
 type PropType = {
   item: ProjectType;
 };
 
-export default function Project({ item }: PropType) {
+export default function ProjectModifyMode({ item }: PropType) {
   const { prInfo, prAwardInfo, prSkillList, prImgList } = item;
-
   return (
-    <ProjectWrapper>
+    <ProjectWrapper as='form'>
       <ImgSectionWrapper>
         {/* 등록된 이미지가 하나도 없으면 이미지가 없다는 이미지를 등록시켜주기 */}
         <ImageSlider
@@ -29,30 +26,30 @@ export default function Project({ item }: PropType) {
               ? prImgList
               : [`${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`]
           }
-          StyledComponent={SliderWrapper}
+          StyledComponent={ProjectImg}
         />
       </ImgSectionWrapper>
 
       <DescriptionWrapper>
         <ProjectHeaderWrapper>
-          <ProjectTitle>{prInfo.name}</ProjectTitle>
-          <ProjectSubTitle>({prInfo.belong})</ProjectSubTitle>
+          <ProjectTitle value={prInfo.name} />
+          <ProjectSubTitle value={prInfo.belong} />
         </ProjectHeaderWrapper>
         <ExplainSectionWrapper>
-          <Explain>{prInfo.description}</Explain>
+          <Explain value={prInfo.description} />
           <Hr />
         </ExplainSectionWrapper>
         <SubExplainWrapper>
           <Property>기간</Property>
-          <Value>{prInfo.duration}</Value>
+          <ValueInput value={prInfo.duration} />
           <Property>깃허브 링크</Property>
-          <Value>{prInfo.link}</Value>
+          <ValueInput value={prInfo.link} />
           <Property>수상 기관</Property>
-          <Value>{prAwardInfo.supervision}</Value>
+          <ValueInput value={prAwardInfo.supervision} />
           <Property>수상 순위</Property>
-          <Value>{prAwardInfo.grade}</Value>
+          <ValueInput value={prAwardInfo.grade} />
           <Property>수상 소감</Property>
-          <Value>{prAwardInfo.description}</Value>
+          <ValueInput value={prAwardInfo.description} />
           <Property>사용 기술</Property>
           <Value>
             {prSkillList.reduce((p, c, i, origin) => {
@@ -66,17 +63,33 @@ export default function Project({ item }: PropType) {
   );
 }
 
-const ProjectTitle = styled.h3`
+const CommonTextInput = styled.input`
+  border: none;
+  background: transparent;
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid rgb(139, 139, 139);
+  margin-bottom: 0.4rem;
+  outline: none;
+  padding-bottom: 0.4rem;
+`;
+
+const ProjectTitle = styled(CommonTextInput)`
   font-size: ${({ theme }) => theme.fontLargeSize};
 `;
 
-const ProjectSubTitle = styled.h4`
+const ProjectSubTitle = styled(CommonTextInput)`
   font-size: ${({ theme }) => theme.fontRegular};
   color: ${({ theme }) => theme.textColorToneDown};
 `;
 
-const Explain = styled.p`
+const Explain = styled.textarea`
+  width: 100%;
   font-size: ${({ theme }) => theme.fontRegular};
+  border: none;
+  outline: none;
+  height: auto;
+  resize: none;
 `;
 
 const Hr = styled.hr``;
@@ -86,6 +99,9 @@ const Property = styled.h4`
 `;
 
 const Value = styled.p`
+  width: 100%;
   text-align: center;
   font-size: ${({ theme }) => theme.fontRegular};
 `;
+
+const ValueInput = styled(CommonTextInput)``;

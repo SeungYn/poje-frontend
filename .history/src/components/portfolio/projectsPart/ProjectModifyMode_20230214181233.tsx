@@ -1,6 +1,5 @@
 import { ProjectType } from '@src/service/types/portfolio';
 import styled from 'styled-components';
-import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import {
   DescriptionWrapper,
   ExplainSectionWrapper,
@@ -8,19 +7,14 @@ import {
   ProjectHeaderWrapper,
   ProjectImg,
   ProjectWrapper,
-  SliderWrapper,
   SubExplainWrapper,
 } from './commonStyledComponent';
 import ImageSlider from './ImageSlider';
 type PropType = {
   item: ProjectType;
-  handleModifyMode: () => void;
 };
 
-export default function ProjectModifyMode({
-  item,
-  handleModifyMode,
-}: PropType) {
+export default function ProjectModifyMode({ item }: PropType) {
   const { prInfo, prAwardInfo, prSkillList, prImgList } = item;
   return (
     <>
@@ -31,16 +25,9 @@ export default function ProjectModifyMode({
             imgList={
               prImgList.length > 0
                 ? prImgList
-                : [
-                    `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-                    `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-                    `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-                  ]
+                : [`${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`]
             }
-            handleClick={() => {
-              console.log('click');
-            }}
-            StyledComponent={HoverImgSliderWrapper}
+            StyledComponent={ProjectImg}
           />
         </ImgSectionWrapper>
 
@@ -74,10 +61,6 @@ export default function ProjectModifyMode({
           </SubExplainWrapper>
         </DescriptionWrapper>
       </ProjectWrapper>
-      <ModifyComfirmAndCancleGroup
-        handleSubmit={() => {}}
-        handleCloseBtn={handleModifyMode}
-      />
     </>
   );
 }
@@ -91,32 +74,6 @@ const CommonTextInput = styled.input`
   margin-bottom: 0.4rem;
   outline: none;
   padding-bottom: 0.4rem;
-`;
-
-const HoverImgSliderWrapper = styled(SliderWrapper)`
-  .swiper-slide {
-    position: relative;
-  }
-
-  .slide-overlay {
-    color: white;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .swiper-slide:hover .slide-overlay {
-    opacity: 1;
-  }
 `;
 
 const ProjectTitle = styled(CommonTextInput)`

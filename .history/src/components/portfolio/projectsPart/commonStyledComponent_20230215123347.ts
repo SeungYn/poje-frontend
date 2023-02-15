@@ -14,10 +14,6 @@ export const SliderWrapper = styled.div`
   min-height: 500px;
   width: 100%;
   min-width: 300px;
-
-  .swiper {
-    height: 100%;
-  }
 `;
 
 export const ProjectImg = styled.img`

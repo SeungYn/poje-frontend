@@ -8,7 +8,6 @@ import {
   ProjectHeaderWrapper,
   ProjectImg,
   ProjectWrapper,
-  SliderWrapper,
   SubExplainWrapper,
 } from './commonStyledComponent';
 import ImageSlider from './ImageSlider';
@@ -25,24 +24,20 @@ export default function ProjectModifyMode({
   return (
     <>
       <ProjectWrapper as='form'>
-        <ImgSectionWrapper>
+        <HoverImgSectionWrapper>
           {/* 등록된 이미지가 하나도 없으면 이미지가 없다는 이미지를 등록시켜주기 */}
           <ImageSlider
             imgList={
               prImgList.length > 0
                 ? prImgList
-                : [
-                    `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-                    `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-                    `${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`,
-                  ]
+                : [`${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`]
             }
             handleClick={() => {
               console.log('click');
             }}
-            StyledComponent={HoverImgSliderWrapper}
+            StyledComponent={ProjectImg}
           />
-        </ImgSectionWrapper>
+        </HoverImgSectionWrapper>
 
         <DescriptionWrapper>
           <ProjectHeaderWrapper>
@@ -93,29 +88,15 @@ const CommonTextInput = styled.input`
   padding-bottom: 0.4rem;
 `;
 
-const HoverImgSliderWrapper = styled(SliderWrapper)`
-  .swiper-slide {
-    position: relative;
+const HoverImgSectionWrapper = styled(ImgSectionWrapper)`
+  &:hover {
+    background: black;
   }
+`;
 
-  .slide-overlay {
-    color: white;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .swiper-slide:hover .slide-overlay {
-    opacity: 1;
+const HoverProjectImg = styled(ProjectImg)`
+  &:hover {
+    background: black;
   }
 `;
 
