@@ -46,7 +46,11 @@ export default function ProjectModifyMode({
       <ImgSectionWrapper>
         {/* 등록된 이미지가 하나도 없으면 이미지가 없다는 이미지를 등록시켜주기 */}
         <ImageSlider
-          imgList={prImgList}
+          imgList={
+            prImgList.length > 0
+              ? prImgList
+              : [`${process.env.PUBLIC_URL}/public_assets/loginBanner.jpg`]
+          }
           handleClick={() => {
             console.log('click');
           }}
