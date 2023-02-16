@@ -9,14 +9,14 @@ interface ConfirmModalContentType {
   message: string;
 }
 
-export const confirmModalContent = atom<ConfirmModalContentType>({
+export const ConfirmModalContent = atom<ConfirmModalContentType>({
   key: 'confirmModalContent',
   default: {
     message: '안녕하세요',
   },
 });
 
-export const confirmModalCallback = atom<{ fn: () => void }>({
+export const commonModalCallback = atom<{ fn: () => void }>({
   key: 'confirmModalCallback',
   default: { fn: () => {} },
 });

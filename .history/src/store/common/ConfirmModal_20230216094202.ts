@@ -16,7 +16,7 @@ export const confirmModalContent = atom<ConfirmModalContentType>({
   },
 });
 
-export const confirmModalCallback = atom<{ fn: () => void }>({
+export const commonModalCallback = atom<{ fn: () => void }>({
   key: 'confirmModalCallback',
   default: { fn: () => {} },
 });
