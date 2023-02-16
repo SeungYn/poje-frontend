@@ -17,6 +17,8 @@ export default class Http {
 
     this.client.interceptors.request.use((req) => {
       console.log('request :', req);
+      console.log(cookies.get('refreshToken'), 'refresh');
+      console.log(cookies.getAll());
       req.headers.Authorization = `Bearer ${this.localStorage.get<string>(
         'TOKEN'
       )}`;
@@ -46,33 +48,15 @@ export default class Http {
       console.log(e);
       if (axios.isAxiosError(e)) {
         console.log(e.config);
-        if (e.status === 401) {
-          const re = await this.client({
-            url: '/reissue',
-            headers: {
-              accessToken: `Bearer ${this.localStorage.get<string>('TOKEN')}`,
-              refreshToken: cookies.get('refreshToekn'),
-            },
-          });
+        // if (e.status === 401) {
+        //   const re = await this.client({
+        //     url: '/reissue',
+        //     data: {
+        //       accessToken: `Bearer ${this.localStorage.get<string>('TOKEN')}`,
+        //     },
+        //   });
 
-          if (re.headers.authorization) {
-            const accessToken = re.headers.authorization.split(' ')[1];
-            this.localStorage.set<string>('TOKEN', accessToken);
-            cookies.set('refreshToken', data.headers.refreshtoken, {
-              maxAge: 60 * 60 * 24 * 7,
-              path: '/',
-            });
-
-            //취소된 요청 config을 다시 요청
-            return this.client({
-              ...e.config!,
-              headers: {
-                ...e.config?.headers,
-                hauthorization: `Bearer ${accessToken}`,
-              },
-            });
-          }
-        }
+        // }
         const message = e.response?.data?.message;
         if (message) {
           throw new Error(message);

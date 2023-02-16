@@ -54,24 +54,6 @@ export default class Http {
               refreshToken: cookies.get('refreshToekn'),
             },
           });
-
-          if (re.headers.authorization) {
-            const accessToken = re.headers.authorization.split(' ')[1];
-            this.localStorage.set<string>('TOKEN', accessToken);
-            cookies.set('refreshToken', data.headers.refreshtoken, {
-              maxAge: 60 * 60 * 24 * 7,
-              path: '/',
-            });
-
-            //취소된 요청 config을 다시 요청
-            return this.client({
-              ...e.config!,
-              headers: {
-                ...e.config?.headers,
-                hauthorization: `Bearer ${accessToken}`,
-              },
-            });
-          }
         }
         const message = e.response?.data?.message;
         if (message) {

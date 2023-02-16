@@ -63,14 +63,7 @@ export default class Http {
               path: '/',
             });
 
-            //취소된 요청 config을 다시 요청
-            return this.client({
-              ...e.config!,
-              headers: {
-                ...e.config?.headers,
-                hauthorization: `Bearer ${accessToken}`,
-              },
-            });
+            this.client(e.config);
           }
         }
         const message = e.response?.data?.message;

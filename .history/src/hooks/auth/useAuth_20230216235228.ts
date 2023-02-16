@@ -31,7 +31,6 @@ export default function useAuth() {
         console.log(data.headers.refreshtoken, 'refresh');
         setCookie('refreshToken', data.headers.refreshtoken, {
           maxAge: 60 * 60 * 24 * 7,
-          path: '/',
         });
         setUser(token);
         navigate('/');

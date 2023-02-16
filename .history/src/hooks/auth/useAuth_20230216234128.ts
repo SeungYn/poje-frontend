@@ -7,7 +7,6 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { accessTokenState } from '@src/store/auth/auth';
 import { useState } from 'react';
 import useUser from './useUser';
-import { useCookies } from 'react-cookie';
 
 type LoginIdDuplicateType = {
   message: string;
@@ -16,7 +15,6 @@ type LoginIdDuplicateType = {
 
 export default function useAuth() {
   const navigate = useNavigate();
-  const [cookies, setCookie] = useCookies();
   const { clearUser, setUser } = useUser();
 
   const login = useMutation(
@@ -29,10 +27,6 @@ export default function useAuth() {
         console.log(data);
         const token = data.headers.authorization.split(' ')[1];
         console.log(data.headers.refreshtoken, 'refresh');
-        setCookie('refreshToken', data.headers.refreshtoken, {
-          maxAge: 60 * 60 * 24 * 7,
-          path: '/',
-        });
         setUser(token);
         navigate('/');
       },
