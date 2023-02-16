@@ -1,0 +1,90 @@
+import styled from 'styled-components';
+import { breakPoint } from '@src/styledComponents/media';
+
+export const SubInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: ${breakPoint.mmm}) {
+    flex-direction: column;
+  }
+`;
+
+export const SliderWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  .swiper {
+    height: 100%;
+  }
+
+  .slide-overlay {
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const ProjectImg = styled.img`
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: white;
+`;
+
+export const ProjectWrapper = styled.div`
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  background: ${({ theme }) => theme.bgColor};
+  border-radius: 1rem;
+  padding: 2rem;
+  flex-direction: row;
+  @media screen and (max-width: ${breakPoint.mmm}) {
+    flex-direction: column-reverse;
+  }
+`;
+
+export const ImgSectionWrapper = styled.div`
+  position: relative;
+  width: 50%;
+  @media screen and (max-width: ${breakPoint.mmm}) {
+    width: 100%;
+    padding-bottom: 4rem;
+  }
+`;
+export const DescriptionWrapper = styled.div`
+  display: flex;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 4rem;
+`;
+
+export const ProjectHeaderWrapper = styled.div`
+  text-align: center;
+`;
+
+export const ExplainSectionWrapper = styled.div``;
+
+export const SubExplainWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-items: flex-start;
+  @media screen and (max-width: ${breakPoint.mm}) {
+    grid-template-columns: 1fr;
+  }
+`;
