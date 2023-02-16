@@ -22,20 +22,14 @@ export default function ImageSlider({
         pagination
         autoHeight={false}
       >
-        {imgList.length === 0 && (
-          <SwiperSlide>
-            <ProjectImg src={'f'} />
+        {imgList.map((src) => (
+          <SwiperSlide key={uuidV4()}>
+            <ProjectImg src={src} />
+            <div className='slide-overlay' onClick={handleClick}>
+              클릭시 이미지가 삭제됩니다.
+            </div>
           </SwiperSlide>
-        )}
-        {imgList.length !== 0 &&
-          imgList.map((src) => (
-            <SwiperSlide key={uuidV4()}>
-              <ProjectImg src={src} />
-              <div className='slide-overlay' onClick={handleClick}>
-                클릭시 이미지가 삭제됩니다.
-              </div>
-            </SwiperSlide>
-          ))}
+        ))}
       </Swiper>
     </StyledComponent>
   );
