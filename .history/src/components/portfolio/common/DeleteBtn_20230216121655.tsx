@@ -2,9 +2,7 @@ import styled from 'styled-components';
 export default function DeleteBtn({ callback }: { callback: () => void }) {
   return (
     <Container>
-      <CommomButton onClick={callback} type='button'>
-        삭제
-      </CommomButton>
+      <CommomButton type='button'>삭제</CommomButton>
     </Container>
   );
 }
