@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export default function DeleteBtn() {
+export default function DeleteBtn({ projectId: string }) {
   return (
     <Container>
       <CommomButton>삭제</CommomButton>
@@ -10,7 +10,7 @@ export default function DeleteBtn() {
 const Container = styled.article`
   position: absolute;
   bottom: 1rem;
-  left: 2rem;
+  right: 2rem;
 `;
 
 const CommomButton = styled.button`

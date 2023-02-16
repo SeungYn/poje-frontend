@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export default function DeleteBtn() {
+export default function DeleteBtn({ projectId: string }) {
   return (
     <Container>
       <CommomButton>삭제</CommomButton>
