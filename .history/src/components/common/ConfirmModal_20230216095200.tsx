@@ -1,5 +1,4 @@
 import useConfirmModal from '@src/hooks/common/useConfirmModal';
-import { breakPoint } from '@src/styledComponents/media';
 import styled from 'styled-components';
 
 export default function ConfirmModal() {
@@ -9,16 +8,7 @@ export default function ConfirmModal() {
     <Container>
       <Modal>
         <Message>{modalContent.message}</Message>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            gap: '1rem',
-          }}
-        >
-          <ConfirmBtn onClick={confirmModal}>확인</ConfirmBtn>
-          <ConfirmBtn onClick={cancelModal}>취소</ConfirmBtn>
-        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-around' }}></div>
       </Modal>
     </Container>
   );
@@ -45,10 +35,6 @@ const Modal = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-  @media screen and (max-width: ${breakPoint.mmm}) {
-    width: 100%;
-  }
 `;
 
 const Message = styled.p`

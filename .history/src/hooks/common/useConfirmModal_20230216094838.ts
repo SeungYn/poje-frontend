@@ -15,18 +15,12 @@ export default function useConfirmModal() {
     setModalContent({ message });
     setCallback({ fn: callbackFn });
   };
-  const confirmModal = () => {
+  const closeModal = () => {
     callback.fn();
     setIsOpen(false);
     setModalContent({ message: '' });
     setCallback({ fn: () => {} });
   };
 
-  const cancelModal = () => {
-    setIsOpen(false);
-    setModalContent({ message: '' });
-    setCallback({ fn: () => {} });
-  };
-
-  return { isOpen, setConfirmModal, confirmModal, cancelModal, modalContent };
+  return { isOpen, setConfirmModal, closeModal, modalContent };
 }

@@ -28,5 +28,5 @@ export default function useConfirmModal() {
     setCallback({ fn: () => {} });
   };
 
-  return { isOpen, setConfirmModal, confirmModal, cancelModal, modalContent };
+  return { isOpen, setConfirmModal, confirmModal, modalContent };
 }
