@@ -1,5 +1,4 @@
 import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
-import useConfirmModal from '@src/hooks/common/useConfirmModal';
 import service from '@src/service';
 import {
   DeleteProjectRequest,
@@ -28,7 +27,6 @@ type Action =
 export default function useProjectModify(data: ProjectType) {
   const queryClient = useQueryClient();
   const { portfolioId } = usePortfolioInfo();
-  const { setConfirmModal } = useConfirmModal();
   //복사된 프로젝트에서 이미지리스트는 초기화
   const [copiedProject, setCopiedProject] = useState<CopiedProjectType>({
     ...data,
@@ -138,31 +136,13 @@ export default function useProjectModify(data: ProjectType) {
     unknown,
     DeleteProjectRequest,
     unknown
-  >(
-    async (data) => {
-      setLoading(true);
-      return await service.portfolio.deleteProject({
-        projectId: data.projectId,
-      });
-    },
-
-    {
-      onSuccess: () => {
-        alert('삭제 성공');
-      },
-      onSettled: () => setLoading(false),
-    }
-  );
+  >(async (data) => {
+    return await service.portfolio.deleteProject({ projectId: data.projectId });
+  });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     putProject.mutate(copiedProject);
-  };
-
-  const handleDelete = () => {
-    setConfirmModal('정말로 삭제하시겠습니까?', () => {
-      deleteProject.mutate({ projectId: copiedProject.prInfo.projectId });
-    });
   };
 
   //textarea 사이즈 초기화
@@ -177,6 +157,5 @@ export default function useProjectModify(data: ProjectType) {
     discriptionRef,
     loading,
     handleSubmit,
-    handleDelete,
   };
 }

@@ -159,9 +159,9 @@ export default function useProjectModify(data: ProjectType) {
     putProject.mutate(copiedProject);
   };
 
-  const handleDelete = () => {
+  const handleDelete = (projectId: string) => {
     setConfirmModal('정말로 삭제하시겠습니까?', () => {
-      deleteProject.mutate({ projectId: copiedProject.prInfo.projectId });
+      deleteProject.mutate({ projectId });
     });
   };
 
@@ -177,6 +177,6 @@ export default function useProjectModify(data: ProjectType) {
     discriptionRef,
     loading,
     handleSubmit,
-    handleDelete,
+    deleteProject,
   };
 }

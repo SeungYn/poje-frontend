@@ -140,17 +140,14 @@ export default function useProjectModify(data: ProjectType) {
     unknown
   >(
     async (data) => {
-      setLoading(true);
       return await service.portfolio.deleteProject({
         projectId: data.projectId,
       });
     },
-
     {
       onSuccess: () => {
         alert('삭제 성공');
       },
-      onSettled: () => setLoading(false),
     }
   );
 
@@ -159,11 +156,7 @@ export default function useProjectModify(data: ProjectType) {
     putProject.mutate(copiedProject);
   };
 
-  const handleDelete = () => {
-    setConfirmModal('정말로 삭제하시겠습니까?', () => {
-      deleteProject.mutate({ projectId: copiedProject.prInfo.projectId });
-    });
-  };
+  const handleDelete = () => {};
 
   //textarea 사이즈 초기화
   useEffect(() => {
@@ -177,6 +170,6 @@ export default function useProjectModify(data: ProjectType) {
     discriptionRef,
     loading,
     handleSubmit,
-    handleDelete,
+    deleteProject,
   };
 }

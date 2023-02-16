@@ -133,6 +133,24 @@ export default function useProjectModify(data: ProjectType) {
     }
   );
 
+  const createProject = useMutation<ProjectType, unknown, void, unknown>(
+    async () => {
+      return await service.portfolio.createProject({ portfolioId });
+    },
+    {
+      onSuccess: (data) => {
+        const projects = queryClient.getQueryData<ProjectType[]>([
+          'portfolioProject',
+          portfolioId,
+        ])!;
+        queryClient.setQueryData(
+          ['portfolioProject', portfolioId],
+          [...projects, data]
+        );
+      },
+    }
+  );
+
   const deleteProject = useMutation<
     void,
     unknown,
@@ -178,5 +196,6 @@ export default function useProjectModify(data: ProjectType) {
     loading,
     handleSubmit,
     handleDelete,
+    createProject: createProject.mutate,
   };
 }

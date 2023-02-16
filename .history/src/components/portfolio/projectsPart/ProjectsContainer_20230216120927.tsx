@@ -1,4 +1,3 @@
-import useCreateProject from '@src/hooks/portfolio/project/useCreateProject';
 import useProject from '@src/hooks/portfolio/project/useProject';
 import useProjectModify from '@src/hooks/portfolio/project/useProjectModify';
 import { Suspense } from 'react';
@@ -30,7 +29,7 @@ const test = [
 
 export default function ProjectsContainer() {
   const theme = useTheme();
-  const createProject = useCreateProject();
+  const { createProject } = useProjectModify();
   return (
     <Container>
       <PartHeader title={'Projects'} color={theme.textColor} />
@@ -42,7 +41,7 @@ export default function ProjectsContainer() {
       <ModifyHorizonBtn
         title={'추가'}
         handleClick={() => {
-          createProject();
+          //createProject();
         }}
       />
     </Container>

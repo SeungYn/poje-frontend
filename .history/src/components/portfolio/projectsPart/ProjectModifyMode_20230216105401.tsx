@@ -33,7 +33,6 @@ export default function ProjectModifyMode({
     discriptionRef,
     loading,
     handleSubmit,
-    handleDelete,
   } = useProjectModify(item);
   const { prInfo, prAwardInfo, prSkillList, prImgList } = copiedProject;
 
