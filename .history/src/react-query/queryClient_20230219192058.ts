@@ -17,18 +17,17 @@ const queryConfig:QueryClientConfig = {
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
       onError:(e:unknown)=>{
-        // if(e instanceof Error){
-        //   QueryErrorHandler(e);
-        // }
-        console.log('error', e);
+        if(e instanceof Error){
+          QueryErrorHandler(e);
+        }
       }
     },
     
     mutations: {
       onError:(e:unknown)=>{
-        // if(e instanceof Error){
-        //   QueryErrorHandler(e);
-        // }
+        if(e instanceof Error){
+          QueryErrorHandler(e);
+        }
       }
     },
   },

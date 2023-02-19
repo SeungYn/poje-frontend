@@ -9,6 +9,9 @@ export default function useJobCategory() {
     ['category'],
     () => {
       return service.job.getJobCategory();
+    },
+    {
+      suspense: true,
     }
   );
   return { category, isLoading };

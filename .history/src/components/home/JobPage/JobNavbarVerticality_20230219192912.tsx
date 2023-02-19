@@ -12,7 +12,9 @@ type NavType = {
 export default function JobNavbarVerticality() {
   return (
     <JobNav>
+     
         <JobCategory />
+   
     </JobNav>
   );
 }

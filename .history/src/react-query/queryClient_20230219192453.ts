@@ -20,7 +20,6 @@ const queryConfig:QueryClientConfig = {
         // if(e instanceof Error){
         //   QueryErrorHandler(e);
         // }
-        console.log('error', e);
       }
     },
     

@@ -1,11 +1,11 @@
 import useModal from '@src/hooks/common/useModal';
 import { QueryClient, QueryClientConfig } from '@tanstack/react-query';
+import axios from 'axios';
 
 
-
-const QueryErrorHandler = (err:Error)=>{
+const queryErrorHandler = (err:Error)=>{
   const {setModal}  = useModal();
-  setModal(err.message);
+
 }
 
 const queryConfig:QueryClientConfig = {
@@ -17,20 +17,13 @@ const queryConfig:QueryClientConfig = {
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
       onError:(e:unknown)=>{
-        // if(e instanceof Error){
-        //   QueryErrorHandler(e);
-        // }
-        console.log('error', e);
+        if(e instanceof Error){
+          queryErrorHandler(e);
+        }
       }
     },
     
-    mutations: {
-      onError:(e:unknown)=>{
-        // if(e instanceof Error){
-        //   QueryErrorHandler(e);
-        // }
-      }
-    },
+    mutations: {},
   },
 };
 
