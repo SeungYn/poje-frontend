@@ -11,6 +11,7 @@ export default function JobSearchForm() {
   const { prefetchJobSearch } = useJobSearch();
   const [keyword, setKeyword] = useState<string>('');
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e);
     const { value } = e.target;
     setKeyword(value);
   }, []);
