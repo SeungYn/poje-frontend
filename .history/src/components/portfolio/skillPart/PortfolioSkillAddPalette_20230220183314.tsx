@@ -137,7 +137,7 @@ const IconList = styled.div`
 const IconItem = styled.img`
   width: 40px;
   object-fit: cover;
-  cursor: pointer;
+
   &:not(:first-child) {
     margin-left: 0.4rem;
   }

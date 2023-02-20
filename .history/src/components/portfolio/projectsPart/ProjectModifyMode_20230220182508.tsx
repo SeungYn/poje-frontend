@@ -159,10 +159,6 @@ const ProjectSubTitle = styled(CommonTextInput)`
 const ImgUploadLabel = styled.label`
   border: 1px solid black;
   margin-top: 1rem;
-  border-radius: 1rem;
-  text-align: center;
-  padding: 0.6rem 0;
-  cursor: pointer;
 `;
 
 const Explain = styled.textarea`

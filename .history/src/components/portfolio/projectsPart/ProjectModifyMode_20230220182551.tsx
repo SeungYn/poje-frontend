@@ -162,7 +162,6 @@ const ImgUploadLabel = styled.label`
   border-radius: 1rem;
   text-align: center;
   padding: 0.6rem 0;
-  cursor: pointer;
 `;
 
 const Explain = styled.textarea`

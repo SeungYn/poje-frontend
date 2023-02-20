@@ -8,7 +8,8 @@ interface RouterProtectType {
 
 export default function RouterProtect({ children }: RouterProtectType) {
   const { user } = useUser();
-
+  const test = useLocation();
+  console.log(test);
   if (!user) return <Navigate to={'/auth/login'} />;
   return <>{children}</>;
 }

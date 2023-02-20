@@ -23,6 +23,6 @@ export default class TokenStorage implements LocalStorage {
 
   remove(key: keyof KeysType) {
     console.log('tokenKey', key);
-    return localStorage.removeItem(keys[key]);
+    return localStorage.removeItem(key);
   }
 }
