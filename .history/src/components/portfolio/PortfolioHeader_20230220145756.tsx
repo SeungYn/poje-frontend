@@ -15,19 +15,23 @@ export default function PortfolioHeader() {
 }
 
 const Container = styled.header`
-  position: fixed;
-
-  padding: 1rem 1.6rem;
-  border: 1px solid black;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 2rem 2.8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: ${({ theme }) => theme.textColorToneDown};
   background: transparent;
+  z-index: 100;
 `;
 
 const Title = styled.h2`
   font-size: ${({ theme }) => theme.fontLargeSize};
+  &:hover {
+    color: ${({ theme }) => theme.textAccentColor};
+  }
 `;
 
 const Navbar = styled.ul`
