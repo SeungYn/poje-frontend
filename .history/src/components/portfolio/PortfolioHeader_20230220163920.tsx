@@ -8,43 +8,13 @@ export default function PortfolioHeader() {
     <Container isIntroDisapper={isIntroDisapper}>
       <Title isIntroDisapper={isIntroDisapper}>Poje</Title>
       <Navbar>
-        <NavbarItem
-          isIntroDisapper={isIntroDisapper}
-          data-link='#intro'
-          onClick={moverToPart}
-        >
-          Intro
-        </NavbarItem>
-        <NavbarItem
-          isIntroDisapper={isIntroDisapper}
-          data-link='#aboutme'
-          onClick={moverToPart}
-        >
-          About Me
-        </NavbarItem>
-        <NavbarItem
-          isIntroDisapper={isIntroDisapper}
-          data-link='#skills'
-          onClick={moverToPart}
-        >
-          Skills
-        </NavbarItem>
-        <NavbarItem
-          isIntroDisapper={isIntroDisapper}
-          data-link='#projects'
-          onClick={moverToPart}
-        >
-          Projects
-        </NavbarItem>
+        <NavbarItem isIntroDisapper={isIntroDisapper}>About me</NavbarItem>
+        <NavbarItem isIntroDisapper={isIntroDisapper}>Skills</NavbarItem>
+        <NavbarItem isIntroDisapper={isIntroDisapper}>Archiving</NavbarItem>
+        <NavbarItem isIntroDisapper={isIntroDisapper}>Projects</NavbarItem>
       </Navbar>
     </Container>
   );
-}
-
-function moverToPart(e: React.MouseEvent) {
-  const target = e.target as HTMLLIElement;
-  const targetPart = document.querySelector(`${target.dataset.link}`);
-  targetPart?.scrollIntoView({ behavior: 'smooth' });
 }
 
 const Container = styled.header<{ isIntroDisapper: boolean }>`
@@ -77,9 +47,8 @@ const Container = styled.header<{ isIntroDisapper: boolean }>`
 const Title = styled.h1<{ isIntroDisapper: boolean }>`
   font-size: ${({ theme }) => theme.fontLargeSize};
   &:hover {
-    color: ${({ isIntroDisapper }) => (isIntroDisapper ? '#7c7c7c' : 'white')};
+    color: ${({ theme }) => theme.textAccentColor};
   }
-  cursor: pointer;
 `;
 
 const Navbar = styled.ul`
@@ -91,7 +60,6 @@ const Navbar = styled.ul`
 
 const NavbarItem = styled.li<{ isIntroDisapper: boolean }>`
   &:hover {
-    color: ${({ isIntroDisapper }) => (isIntroDisapper ? '#7c7c7c' : 'white')};
+    color: ${({ theme }) => theme.textAccentColor};
   }
-  cursor: pointer;
 `;

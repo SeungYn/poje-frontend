@@ -43,8 +43,7 @@ export default function PortfolioHeader() {
 
 function moverToPart(e: React.MouseEvent) {
   const target = e.target as HTMLLIElement;
-  const targetPart = document.querySelector(`${target.dataset.link}`);
-  targetPart?.scrollIntoView({ behavior: 'smooth' });
+  console.log(target.dataset.link);
 }
 
 const Container = styled.header<{ isIntroDisapper: boolean }>`

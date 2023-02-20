@@ -8,32 +8,16 @@ export default function PortfolioHeader() {
     <Container isIntroDisapper={isIntroDisapper}>
       <Title isIntroDisapper={isIntroDisapper}>Poje</Title>
       <Navbar>
-        <NavbarItem
-          isIntroDisapper={isIntroDisapper}
-          data-link='#intro'
-          onClick={moverToPart}
-        >
+        <NavbarItem isIntroDisapper={isIntroDisapper} data-link='#intro'>
           Intro
         </NavbarItem>
-        <NavbarItem
-          isIntroDisapper={isIntroDisapper}
-          data-link='#aboutme'
-          onClick={moverToPart}
-        >
+        <NavbarItem isIntroDisapper={isIntroDisapper} data-link='#aboutme'>
           About Me
         </NavbarItem>
-        <NavbarItem
-          isIntroDisapper={isIntroDisapper}
-          data-link='#skills'
-          onClick={moverToPart}
-        >
+        <NavbarItem isIntroDisapper={isIntroDisapper} data-link='#skills'>
           Skills
         </NavbarItem>
-        <NavbarItem
-          isIntroDisapper={isIntroDisapper}
-          data-link='#projects'
-          onClick={moverToPart}
-        >
+        <NavbarItem isIntroDisapper={isIntroDisapper} data-link='#projects'>
           Projects
         </NavbarItem>
       </Navbar>
@@ -43,8 +27,7 @@ export default function PortfolioHeader() {
 
 function moverToPart(e: React.MouseEvent) {
   const target = e.target as HTMLLIElement;
-  const targetPart = document.querySelector(`${target.dataset.link}`);
-  targetPart?.scrollIntoView({ behavior: 'smooth' });
+  console.log(target);
 }
 
 const Container = styled.header<{ isIntroDisapper: boolean }>`

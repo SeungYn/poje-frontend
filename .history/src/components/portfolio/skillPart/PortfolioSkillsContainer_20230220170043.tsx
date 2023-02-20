@@ -17,7 +17,7 @@ export default function PortfolioSkillsContainer() {
   );
 
   return (
-    <Container id='skills'>
+    <Container id='#skills'>
       <S.CommonHeader>
         <AiFillTag />
         <S.HeaderTitle>Skills</S.HeaderTitle>

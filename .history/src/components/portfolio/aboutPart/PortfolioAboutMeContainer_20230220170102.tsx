@@ -14,7 +14,7 @@ export default function PortAboutMeContainer() {
     isModifyModeFormPortfolioAboutMe
   );
   return (
-    <S.CommonSection id='aboutme'>
+    <S.CommonSection id='#aboutme'>
       <S.CommonHeader>
         <AiFillTag />
         <S.HeaderTitle>About Me</S.HeaderTitle>
