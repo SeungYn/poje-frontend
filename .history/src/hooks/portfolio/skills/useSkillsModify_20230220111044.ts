@@ -14,7 +14,7 @@ export default function useSkillsModify() {
       portfolioId,
     ])!,
   ]);
-  const { updateSkills, isLoading } = useSkills();
+  const { updateSkills } = useSkills();
 
   const handleAddSkillToCopiedSkills = ({
     item,
@@ -90,6 +90,5 @@ export default function useSkillsModify() {
     handleAddSkillToCopiedSkills,
     handleRemoveSkillFromCopiedSkills,
     handleSubmit,
-    isLoading,
   };
 }

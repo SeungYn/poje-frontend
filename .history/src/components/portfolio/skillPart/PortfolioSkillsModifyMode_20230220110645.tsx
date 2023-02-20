@@ -9,23 +9,23 @@ import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { useRecoilState } from 'recoil';
 import { isModifyModeFromSkills } from '@src/store/portfolio/modify';
 import useSkills from '@src/hooks/portfolio/skills/useSkills';
-import LoadingSpiner from '../common/LoadingSpiner';
 
 export default function PortfolioSkillsModifyMode() {
   const {
     copiedSkills: modifySkillList,
+    setCopiedSkills: setModifySkillList,
     handleAddSkillToCopiedSkills: handleAddSkill,
     handleRemoveSkillFromCopiedSkills: handleSkillIconDelete,
     handleSubmit,
-    isLoading,
   } = useSkillsModify();
   const [isModifyMode, setIsModifyMode] = useRecoilState(
     isModifyModeFromSkills
   );
+  const { isLoading } = useSkills();
+  //const [modifySkillList, setModifySkillList] = useState([...skillList]);
 
   return (
     <>
-      {isLoading && <LoadingSpiner text='로딩중' />}
       <PortfolioSkills
         skillList={modifySkillList}
         handleSkillIconDelete={handleSkillIconDelete}

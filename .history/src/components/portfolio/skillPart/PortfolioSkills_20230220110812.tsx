@@ -1,6 +1,8 @@
 import { SkillsType } from '@src/service/types/portfolio';
+
 import Masonry from 'react-masonry-css';
 import uuid from 'react-uuid';
+
 import PortfolioSkillItem from './PortfolioSkillItem';
 
 const breakpointColumnsObj = Object.freeze({

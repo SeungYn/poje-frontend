@@ -142,15 +142,13 @@ export default function useProjectModify(data: ProjectType) {
     unknown
   >(
     async (data) => {
+      setLoading(true);
       return await service.portfolio.deleteProject({
         projectId: data.projectId,
       });
     },
 
     {
-      onMutate: () => {
-        setLoading(true);
-      },
       onSuccess: () => {
         alert('삭제 성공');
         queryClient.invalidateQueries(['portfolioProject', portfolioId]);
