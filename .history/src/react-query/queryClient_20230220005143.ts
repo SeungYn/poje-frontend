@@ -3,6 +3,11 @@ import { QueryClient, QueryClientConfig } from '@tanstack/react-query';
 
 
 
+const QueryErrorHandler = (err:Error)=>{
+  const {setModal}  = useModal();
+  setModal(err.message);
+}
+
 const queryConfig:QueryClientConfig = {
   defaultOptions: {
     queries: {
@@ -11,7 +16,10 @@ const queryConfig:QueryClientConfig = {
       refetchOnMount: false,
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
+      
     },
+    
+    
   },
 };
 

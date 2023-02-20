@@ -46,16 +46,14 @@ export default class Http {
       if (axios.isAxiosError(e)) {
         if (e.response?.status === 401) {
           console.log('status 401');
-          console.log(cookies.get('refreshToken'));
           const re = await this.client({
             url: '/reissue',
-            method: 'POST',
             headers: {
               accessToken: `Bearer ${this.localStorage.get<string>('TOKEN')}`,
-              refreshToken: cookies.get('refreshToken'),
+              refreshToken: cookies.get('refreshToekn'),
             },
           });
-          console.log('토큰 재전송', re);
+          console.log('토큰 재전송');
           if (re.headers.authorization) {
             const accessToken = re.headers.authorization.split(' ')[1];
             this.localStorage.set<string>('TOKEN', accessToken);
@@ -69,7 +67,7 @@ export default class Http {
               ...e.config!,
               headers: {
                 ...e.config?.headers,
-                authorization: `Bearer ${accessToken}`,
+                hauthorization: `Bearer ${accessToken}`,
               },
             });
           }

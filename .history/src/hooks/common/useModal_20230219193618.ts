@@ -32,4 +32,6 @@ export default function useModal() {
   return { isOpen, setModal, closeModal, modalContent };
 }
 
-
+export function setCommonModal(message: string, callbackFn: () => void = () => { }) {
+  const [isOpen, setIsOpen] = useRecoilState(isOpenCommonModal);
+}

@@ -32,4 +32,3 @@ export default function useModal() {
   return { isOpen, setModal, closeModal, modalContent };
 }
 
-

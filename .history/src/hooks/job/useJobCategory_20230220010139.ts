@@ -14,10 +14,10 @@ export default function useJobCategory() {
       return service.job.getJobCategory();
     }, {
       onError: (e: unknown) => {
-        console.log('에러에요에어에어에어에어에어에어에어');
+        console.log('에러에요에어에어에어에어에어에어에어')
         if (axios.isAxiosError(e)) {
           setModal(e.message);
-          console.log('에러에요에어에어에어에어에어에어에어');
+          console.log('에러에요에어에어에어에어에어에어에어')
         }
       }
     }

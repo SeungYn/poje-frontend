@@ -49,7 +49,7 @@ export default class Http {
           console.log(cookies.get('refreshToken'));
           const re = await this.client({
             url: '/reissue',
-            method: 'POST',
+            methos: 'POST',
             headers: {
               accessToken: `Bearer ${this.localStorage.get<string>('TOKEN')}`,
               refreshToken: cookies.get('refreshToken'),

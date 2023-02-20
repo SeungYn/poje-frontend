@@ -3,10 +3,12 @@ import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import styled from 'styled-components';
 import JobPortfoliosByCategory from './JobPortfoliosByCategory';
+import JobSearchForm from './JobSearchForm';
 
-export default function JobSearchContent() {
+export default function JobContent() {
   return (
     <ProfileContainer>
+      <JobSearchForm />
       <ErrorBoundary FallbackComponent={CommonError}>
         <Suspense fallback={<div>로딩중</div>}>
           <JobPortfoliosByCategory />
