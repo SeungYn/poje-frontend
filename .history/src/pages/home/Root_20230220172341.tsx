@@ -3,10 +3,11 @@ import MainHeader from '../../components/common/MainHeader';
 
 export default function Root() {
   const location = useLocation();
-  console.log(location);
+  const isHomePath = location.pathname === '/' ? true : false;
   return (
     <>
-      <MainHeader />
+      <MainHeader isHomePath={isHomePath} />
+
       <Outlet />
     </>
   );

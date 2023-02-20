@@ -17,9 +17,7 @@ export default function usePortfolioCRUD() {
             result: { portfolioId },
           },
         } = data;
-        setModal('포트폴리오 생성완료', () => {
-          navigate(`/portfolio/${portfolioId}`);
-        });
+        setModal('포트폴리오 생성완료', navigate(`/portfolio/${portfolioId}`);
       },
       onError: (data: Error) => {
         console.log(data.message);

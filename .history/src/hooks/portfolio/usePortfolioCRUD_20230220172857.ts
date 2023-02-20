@@ -12,14 +12,8 @@ export default function usePortfolioCRUD() {
       service.portfolio.createPortfolioTemplate(data),
     {
       onSuccess: (data) => {
-        const {
-          data: {
-            result: { portfolioId },
-          },
-        } = data;
-        setModal('포트폴리오 생성완료', () => {
-          navigate(`/portfolio/${portfolioId}`);
-        });
+        console.log(data);
+        setModal('포트폴리오 생성완료');
       },
       onError: (data: Error) => {
         console.log(data.message);
