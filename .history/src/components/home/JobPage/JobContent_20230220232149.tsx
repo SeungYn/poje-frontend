@@ -1,4 +1,4 @@
-//import CommonError from '../../error/CommonError';
+import CommonError from '../../error/CommonError';
 import LoadingSpiner from '@src/components/portfolio/common/LoadingSpiner';
 import { Suspense } from 'react';
 //import { ErrorBoundary } from 'react-error-boundary';
