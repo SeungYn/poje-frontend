@@ -1,4 +1,3 @@
-import CommonError from '@src/components/error/CommonError';
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
 import { Suspense, useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -16,7 +15,7 @@ export default function PortfolioIntroContainer() {
   return (
     <Container>
       {!isModifyMode && (
-        <ErrorBoundary FallbackComponent={CommonError}>
+        <ErrorBoundary fallback={<CommonError />}>
           <Suspense fallback={<div>로딩중</div>}>
             <PortfolioIntro />
           </Suspense>

@@ -11,6 +11,11 @@ import { ErrorBoundary } from 'react-error-boundary';
 import CommonError from '@src/components/error/CommonError';
 import { SkillIconSetType, SkillIconType } from '@src/util/skillicons';
 
+export type SkillListType = {
+  type: SkillIconType;
+  skills: SkillIconSetType[];
+};
+
 export default function PortfolioSkillsContainer() {
   const [isModifyMode, setIsModifyMode] = useRecoilState(
     isModifyModeFromSkills

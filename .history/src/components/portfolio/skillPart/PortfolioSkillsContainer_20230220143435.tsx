@@ -9,7 +9,6 @@ import { useRecoilState } from 'recoil';
 import PortfolioViewMode from './PortfolioViewMode';
 import { ErrorBoundary } from 'react-error-boundary';
 import CommonError from '@src/components/error/CommonError';
-import { SkillIconSetType, SkillIconType } from '@src/util/skillicons';
 
 export default function PortfolioSkillsContainer() {
   const [isModifyMode, setIsModifyMode] = useRecoilState(
