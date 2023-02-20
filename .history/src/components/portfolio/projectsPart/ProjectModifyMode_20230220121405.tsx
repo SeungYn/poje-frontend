@@ -34,7 +34,6 @@ export default function ProjectModifyMode({
     loading,
     handleSubmit,
     handleDelete,
-    handlePrevImgRemove,
   } = useProjectModify(item);
   const { prInfo, prAwardInfo, prSkillList, prImgList } = copiedProject;
 
@@ -48,7 +47,7 @@ export default function ProjectModifyMode({
         {/* 등록된 이미지가 하나도 없으면 이미지가 없다는 이미지를 등록시켜주기 */}
         <ImageSlider
           imgList={prImgList}
-          handleClick={handlePrevImgRemove}
+          handleClick={handleDelete}
           StyledComponent={HoverImgSliderWrapper}
         />
         <ImgUploadLabel htmlFor='file'>이미지 등록하기</ImgUploadLabel>

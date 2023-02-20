@@ -6,7 +6,7 @@ import { v4 as uuidV4 } from 'uuid';
 type PropType = {
   imgList: string[];
   StyledComponent: StyledComponentBase<'div', DefaultTheme, {}, never>;
-  handleClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  handleClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export default function ImageSlider({
@@ -46,17 +46,15 @@ export default function ImageSlider({
 }
 
 const ProjectImg = styled.img`
-  background-size: contain !important;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center center;
   background-color: white;
-  max-height: 100%;
-  max-width: 100%;
 `;
 
 const UploadContainer = styled.div`
   height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

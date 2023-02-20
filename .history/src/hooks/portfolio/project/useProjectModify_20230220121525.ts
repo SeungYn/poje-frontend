@@ -171,9 +171,8 @@ export default function useProjectModify(data: ProjectType) {
   };
 
   const handlePrevImgRemove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const target = e.target as HTMLDivElement;
     setCopiedProject((item) => {
-      const prImgList = item.prImgList.filter((s) => s !== target.dataset.src);
+      const prImgList = item.prImgList.filter((s) => s !== src);
       return { ...item, prImgList };
     });
   };

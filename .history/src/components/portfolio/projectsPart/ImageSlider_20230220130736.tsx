@@ -46,17 +46,15 @@ export default function ImageSlider({
 }
 
 const ProjectImg = styled.img`
+  width: 100%;
+  height: 100%;
   background-size: contain !important;
   background-repeat: no-repeat;
-  background-position: center center;
   background-color: white;
-  max-height: 100%;
-  max-width: 100%;
 `;
 
 const UploadContainer = styled.div`
   height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

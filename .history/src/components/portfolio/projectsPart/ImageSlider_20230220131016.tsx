@@ -50,13 +50,10 @@ const ProjectImg = styled.img`
   background-repeat: no-repeat;
   background-position: center center;
   background-color: white;
-  max-height: 100%;
-  max-width: 100%;
 `;
 
 const UploadContainer = styled.div`
   height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

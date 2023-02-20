@@ -35,9 +35,6 @@ export const SliderWrapper = styled.div`
   .swiper-slide {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .swiper-slide img {

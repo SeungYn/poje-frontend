@@ -32,15 +32,11 @@ export const SliderWrapper = styled.div`
     align-items: center;
   }
 
-  .swiper-slide {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .swiper-slide img {
+    height: 100%;
+    background-size: cover; /* 이미지를 늘리거나 줄여서 슬라이드에 맞게 조절합니다. */
+    background-position: center;
+    background-repeat: no-repeat;
   }
 `;
 
