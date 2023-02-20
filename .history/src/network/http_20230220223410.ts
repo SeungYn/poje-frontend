@@ -39,10 +39,13 @@ export default class Http {
     let res: AxiosResponse;
     try {
       res = await this.client(request);
+      console.log(res);
       return res;
     } catch (e) {
       if (axios.isAxiosError(e)) {
         if (e.response?.status === 401) {
+          console.log('status 401');
+          console.log(cookies.get('refreshToken'));
           const re = await this.client({
             url: '/reissue',
             method: 'POST',
@@ -81,7 +84,6 @@ export default class Http {
   }
   //process.env.REACT_APP_BASE_URL as string,
   public static getHttpInstance() {
-    const endPoint = process.env.NODE_ENV === 'development' ?'http://localhost:8080' : '';
     if (!Http.instance) {
       Http.instance = new Http('http://localhost:8080', new TokenStorage());
     }

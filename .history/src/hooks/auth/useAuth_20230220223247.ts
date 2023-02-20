@@ -5,6 +5,11 @@ import { useMutation } from '@tanstack/react-query';
 import useUser from './useUser';
 import { useCookies } from 'react-cookie';
 
+type LoginIdDuplicateType = {
+  message: string;
+  isValid: boolean;
+};
+
 export default function useAuth() {
   const navigate = useNavigate();
   const [, setCookie] = useCookies();

@@ -1,13 +1,22 @@
 import { useNavigate } from 'react-router-dom';
+import LocalStorage from '@src/db/localStorage';
 import service from '@src/service';
 import { JoinRequest, LoginRequest } from '@src/service/types/auth';
 import { useMutation } from '@tanstack/react-query';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { accessTokenState } from '@src/store/auth/auth';
+import { useState } from 'react';
 import useUser from './useUser';
 import { useCookies } from 'react-cookie';
 
+type LoginIdDuplicateType = {
+  message: string;
+  isValid: boolean;
+};
+
 export default function useAuth() {
   const navigate = useNavigate();
-  const [, setCookie] = useCookies();
+  const [_, setCookie] = useCookies();
   const { clearUser, setUser } = useUser();
 
   const login = useMutation(

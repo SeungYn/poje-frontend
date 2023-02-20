@@ -81,7 +81,6 @@ export default class Http {
   }
   //process.env.REACT_APP_BASE_URL as string,
   public static getHttpInstance() {
-    const endPoint = process.env.NODE_ENV === 'development' ?'http://localhost:8080' : '';
     if (!Http.instance) {
       Http.instance = new Http('http://localhost:8080', new TokenStorage());
     }

@@ -1,6 +1,6 @@
 import { isDisapperIntro } from '@src/store/portfolio/header';
 import { useEffect, useRef } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 export default function useIntroObserver() {
   const setState = useSetRecoilState(isDisapperIntro);
