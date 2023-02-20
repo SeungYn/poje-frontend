@@ -86,7 +86,7 @@ export default class Http {
         ? 'http://localhost:8080'
         : 'http://15.164.128.201:8080';
     if (!Http.instance) {
-      Http.instance = new Http(endPoint, new TokenStorage());
+      Http.instance = new Http('http://localhost:8080', new TokenStorage());
     }
     return Http.instance;
   }
