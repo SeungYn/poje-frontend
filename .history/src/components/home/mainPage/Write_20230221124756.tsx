@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
   ImgContainer,
@@ -11,10 +12,12 @@ interface type {
 export default function Write({ imgUrl }: type) {
   return (
     <ImgContainer imgUrl={imgUrl}>
-      <MainButton>
-        <span>포토폴리오</span>
-        <span>작성하기</span>
-      </MainButton>
+      <Link to='/job'>
+        <MainButton>
+          <span>포토폴리오</span>
+          <span>작성하기</span>
+        </MainButton>
+      </Link>
     </ImgContainer>
   );
 }

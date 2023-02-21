@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled, { DefaultTheme, keyframes } from 'styled-components';
 import {
   ImgContainer,
@@ -14,12 +13,10 @@ export default function Resume({ imgUrl }: type) {
   return (
     <>
       <ImgContainer imgUrl={imgUrl}>
-        <Link to='/job'>
-          <MainButton>
-            <span>포토폴리오</span>
-            <span>들러보기</span>
-          </MainButton>
-        </Link>
+        <MainButton>
+          <span>포토폴리오</span>
+          <span>들러보기</span>
+        </MainButton>
       </ImgContainer>
     </>
   );
