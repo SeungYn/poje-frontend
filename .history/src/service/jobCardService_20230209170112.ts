@@ -8,6 +8,7 @@ import {
   LikeResponse,
 } from '@src/service/types/jobCard';
 
+export {};
 export default class JobCardService {
   constructor(private http: Http) {}
 

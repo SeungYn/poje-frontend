@@ -60,7 +60,7 @@ const Container = styled.header<{ isIntroDisapper: boolean }>`
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
