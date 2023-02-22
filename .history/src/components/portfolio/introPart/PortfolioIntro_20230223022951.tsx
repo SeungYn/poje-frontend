@@ -1,5 +1,6 @@
 import usePortfolioIntro from '@src/hooks/portfolio/intro/usePortfolioIntro';
 import styled from 'styled-components';
+
 import { Intro } from './commonIntroStyledComponent';
 
 export default function PortfolioIntro() {

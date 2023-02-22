@@ -4,7 +4,6 @@ import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
 import { useEffect, useRef } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import LoadingSpiner from '../common/LoadingSpiner';
 import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { Intro } from './commonIntroStyledComponent';
 
@@ -38,7 +37,6 @@ export default function PortfolioIntroModify() {
         if (e.currentTarget === e.target) hiddenFileBtnRef.current?.click();
       }}
     >
-      {isLoading && <LoadingSpiner text='업데이트중' />}
       <input
         ref={hiddenFileBtnRef}
         type='file'

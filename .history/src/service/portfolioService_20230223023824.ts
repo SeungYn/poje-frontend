@@ -71,9 +71,7 @@ export class PortfolioService {
       data: formData,
       headers: { 'Content-Type': 'multipart/form-data' },
     };
-    const {
-      data: { result },
-    } = await this.http.fetchJson<PutIntroResponse>(
+    const { data: result } = await this.http.fetchJson<PutIntroResponse>(
       `/member/portfolio/${portfolioId}`,
       config
     );

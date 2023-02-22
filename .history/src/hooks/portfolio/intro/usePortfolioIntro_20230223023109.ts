@@ -1,14 +1,10 @@
 import { useSetRecoilState } from 'recoil';
 import service from '@src/service';
-import {
-  PortfolioIntroType,
-  PutIntroResponse,
-} from '@src/service/types/portfolio';
+import { PortfolioIntroType } from '@src/service/types/portfolio';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
 import { useEffect, useState } from 'react';
 import { introLoading } from '@src/store/portfolio/loading';
-import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
 
 type CopiedPfIntroType = PortfolioIntroType & {
   backgroundImgFile: File | null;
@@ -25,7 +21,6 @@ export default function usePortfolioIntro() {
     backgroundImgFile: null,
   });
   const setIsLoading = useSetRecoilState(introLoading);
-  const setModify = useSetRecoilState(isModifyModeFromPortfolioIntro);
   const { portfolioId } = usePortfolioInfo();
   //todo 인트로 보내기 가져오기
 
@@ -39,7 +34,7 @@ export default function usePortfolioIntro() {
   );
 
   const updateIntro = useMutation<
-    PortfolioIntroType,
+    void,
     unknown,
     Pick<
       CopiedPfIntroType,
@@ -58,17 +53,11 @@ export default function usePortfolioIntro() {
     },
     {
       onMutate: () => {
-        setIsLoading(true);
         //queryClient.invalidateQueries(['portfolioIntro', portfolioId]);
       },
-      onSuccess: (data) => {
+      onSuccess: () => {
         console.log('success에서 실행');
-        console.log(data, '수정된 인트로');
-        queryClient.setQueryData(['portfolioIntro', portfolioId], data);
-      },
-      onSettled: () => {
-        setIsLoading(false);
-        setModify(false);
+        return queryClient.invalidateQueries(['portfolioIntro', portfolioId]);
       },
     }
   );
