@@ -48,7 +48,7 @@ export default function Project({ item }: PropType) {
           <Property>수상 소감</Property>
           <Value>{prAwardInfo.description}</Value>
           <Property>사용 기술</Property>
-          <ProjectSkillList skillList={prSkillList} isModifyMode={false} />
+          <ProjectSkillList skillList={prSkillList} />
         </SubExplainWrapper>
       </DescriptionWrapper>
     </ProjectWrapper>

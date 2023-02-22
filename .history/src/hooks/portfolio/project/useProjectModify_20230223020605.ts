@@ -10,6 +10,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 export type CopiedProjectType = ProjectType & { fileList: File[] };
 export type HandleDeleteProjectSkill = {
+  e: React.MouseEvent<HTMLLIElement>;
   skillName: string;
   skillType: string;
 };

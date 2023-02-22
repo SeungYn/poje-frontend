@@ -9,10 +9,18 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 export type CopiedProjectType = ProjectType & { fileList: File[] };
-export type HandleDeleteProjectSkill = {
-  skillName: string;
-  skillType: string;
-};
+
+// type Action =
+//   | { type: 'copy'; payload: CopiedProjectType }
+//   | { type: 'file'; payload: File[] }
+//   | { type: 'name'; payload: string }
+//   | { type: 'belong'; payload: string }
+//   | { type: 'project-description'; payload: string }
+//   | { type: 'duration'; payload: string }
+//   | { type: 'link'; payload: string }
+//   | { type: 'supervision'; payload: string }
+//   | { type: 'grade'; payload: string }
+//   | { type: 'award-description'; payload: string };
 
 //프로젝트를 인자로 받아옴
 // 포트폴리오 파트는
@@ -206,13 +214,14 @@ export default function useProjectModify(data: ProjectType) {
     });
   };
 
-  const handleDeleteProjectSkill = ({
-    skillName,
-    skillType,
-  }: HandleDeleteProjectSkill) => {
+  const handleDeleteProjectSkill = (
+    e: React.MouseEvent<HTMLLIElement>,
+    skillName: string,
+    skillType: string
+  ) => {
     setCopiedProject((pr) => {
       const targetSkillObj = pr.prSkillList.find(
-        (skillObj) => skillObj.type === skillType
+        (skillObj) => skillObj.type === type
       );
 
       const skillListDeleted = targetSkillObj?.skills.filter(
@@ -220,9 +229,10 @@ export default function useProjectModify(data: ProjectType) {
       )!;
 
       const restSkillList = pr.prSkillList.filter(
-        (skillObj) => skillObj.type !== skillType
+        (skillObj) => skillObj.type !== type
       );
-
+      console.log(restSkillList);
+      console.log('type', type);
       return {
         ...pr,
         prSkillList: [

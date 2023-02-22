@@ -1,4 +1,3 @@
-import { HandleDeleteProjectSkill } from '@src/hooks/portfolio/project/useProjectModify';
 import useProjectSkillList from '@src/hooks/portfolio/project/useProjectSkillList';
 import { ProjectSkillListType } from '@src/service/types/portfolio';
 import React from 'react';
@@ -7,7 +6,11 @@ import { v4 as uuidV4 } from 'uuid';
 type PropType = {
   skillList: ProjectSkillListType[];
   isModifyMode: boolean;
-  handleDeleteProjectSkill?: (paramType: HandleDeleteProjectSkill) => void;
+  handleDeleteProjectSkill?: (
+    e: React.MouseEvent<HTMLLIElement>,
+    skillName: string,
+    skillType: string
+  ) => void;
 };
 export default function ProjectSkillList({
   skillList,
@@ -25,10 +28,7 @@ export default function ProjectSkillList({
             isModifyMode={isModifyMode}
             onClick={(e) =>
               handleDeleteProjectSkill &&
-              handleDeleteProjectSkill({
-                skillName: item.name,
-                skillType: item.type,
-              })
+              handleDeleteProjectSkill(e, item.name, item.type)
             }
           >
             {/* <img src={item.path} alt='스킬이미지' style={{ width: '1.4rem' }} /> */}

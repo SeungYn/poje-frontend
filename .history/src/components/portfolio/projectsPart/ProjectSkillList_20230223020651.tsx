@@ -25,10 +25,7 @@ export default function ProjectSkillList({
             isModifyMode={isModifyMode}
             onClick={(e) =>
               handleDeleteProjectSkill &&
-              handleDeleteProjectSkill({
-                skillName: item.name,
-                skillType: item.type,
-              })
+              handleDeleteProjectSkill(e, item.name, item.type)
             }
           >
             {/* <img src={item.path} alt='스킬이미지' style={{ width: '1.4rem' }} /> */}

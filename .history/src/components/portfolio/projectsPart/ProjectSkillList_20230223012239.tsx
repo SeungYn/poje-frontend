@@ -1,18 +1,14 @@
-import { HandleDeleteProjectSkill } from '@src/hooks/portfolio/project/useProjectModify';
 import useProjectSkillList from '@src/hooks/portfolio/project/useProjectSkillList';
 import { ProjectSkillListType } from '@src/service/types/portfolio';
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { v4 as uuidV4 } from 'uuid';
 type PropType = {
   skillList: ProjectSkillListType[];
   isModifyMode: boolean;
-  handleDeleteProjectSkill?: (paramType: HandleDeleteProjectSkill) => void;
 };
 export default function ProjectSkillList({
   skillList,
   isModifyMode,
-  handleDeleteProjectSkill,
 }: PropType) {
   const { currentSkillList } = useProjectSkillList(skillList);
   console.log(currentSkillList);
@@ -20,17 +16,7 @@ export default function ProjectSkillList({
     <SkillListContainer>
       <SkillList>
         {currentSkillList.map((item) => (
-          <SkillItem
-            key={uuidV4()}
-            isModifyMode={isModifyMode}
-            onClick={(e) =>
-              handleDeleteProjectSkill &&
-              handleDeleteProjectSkill({
-                skillName: item.name,
-                skillType: item.type,
-              })
-            }
-          >
+          <SkillItem key={uuidV4()} isModifyMode={isModifyMode}>
             {/* <img src={item.path} alt='스킬이미지' style={{ width: '1.4rem' }} /> */}
             <span>{item.name}</span>
           </SkillItem>

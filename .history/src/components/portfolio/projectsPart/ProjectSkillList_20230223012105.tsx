@@ -1,18 +1,14 @@
-import { HandleDeleteProjectSkill } from '@src/hooks/portfolio/project/useProjectModify';
 import useProjectSkillList from '@src/hooks/portfolio/project/useProjectSkillList';
 import { ProjectSkillListType } from '@src/service/types/portfolio';
-import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { v4 as uuidV4 } from 'uuid';
 type PropType = {
   skillList: ProjectSkillListType[];
   isModifyMode: boolean;
-  handleDeleteProjectSkill?: (paramType: HandleDeleteProjectSkill) => void;
 };
 export default function ProjectSkillList({
   skillList,
   isModifyMode,
-  handleDeleteProjectSkill,
 }: PropType) {
   const { currentSkillList } = useProjectSkillList(skillList);
   console.log(currentSkillList);
@@ -20,17 +16,7 @@ export default function ProjectSkillList({
     <SkillListContainer>
       <SkillList>
         {currentSkillList.map((item) => (
-          <SkillItem
-            key={uuidV4()}
-            isModifyMode={isModifyMode}
-            onClick={(e) =>
-              handleDeleteProjectSkill &&
-              handleDeleteProjectSkill({
-                skillName: item.name,
-                skillType: item.type,
-              })
-            }
-          >
+          <SkillItem key={uuidV4()} isModifyMode={isModifyMode}>
             {/* <img src={item.path} alt='스킬이미지' style={{ width: '1.4rem' }} /> */}
             <span>{item.name}</span>
           </SkillItem>
@@ -63,25 +49,18 @@ const SkillItem = styled.li<{ isModifyMode: boolean }>`
     flex-shrink: 0;
   }
 
-  ${({ isModifyMode }) => {
-    return (
-      isModifyMode &&
-      css`
-        &:hover::before {
-          content: '제거';
-          color: white;
-          font-size: 0.8rem;
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          background: #5b5b5bac;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      `
-    );
-  }}
+  &:hover::before {
+    content: '제거';
+    color: white;
+    font-size: 0.8rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #5b5b5bac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;

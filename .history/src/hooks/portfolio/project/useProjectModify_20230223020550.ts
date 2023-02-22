@@ -10,6 +10,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 export type CopiedProjectType = ProjectType & { fileList: File[] };
 export type HandleDeleteProjectSkill = {
+  e: React.MouseEvent<HTMLLIElement>;
   skillName: string;
   skillType: string;
 };
@@ -206,10 +207,11 @@ export default function useProjectModify(data: ProjectType) {
     });
   };
 
-  const handleDeleteProjectSkill = ({
-    skillName,
-    skillType,
-  }: HandleDeleteProjectSkill) => {
+  const handleDeleteProjectSkill = (
+    { e
+    skillName
+    skillType }:HandleDeleteProjectSkill
+  ) => {
     setCopiedProject((pr) => {
       const targetSkillObj = pr.prSkillList.find(
         (skillObj) => skillObj.type === skillType

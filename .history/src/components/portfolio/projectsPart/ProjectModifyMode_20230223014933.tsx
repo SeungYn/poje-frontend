@@ -112,16 +112,18 @@ export default function ProjectModifyMode({
           />
           <Property>사용 기술</Property>
           <SkillListValue>
-            <ProjectSkillList
-              skillList={prSkillList}
-              isModifyMode
-              handleDeleteProjectSkill={handleDeleteProjectSkill}
-            />
+            <ProjectSkillList skillList={prSkillList} isModifyMode />
             <ProjectSkillListSelect
               skillList={prSkillList}
               onChange={onChange}
             />
           </SkillListValue>
+          {/* <Value>
+            {prSkillList.reduce((p, c, i, origin) => {
+              if (i === origin.length - 1) return p + c;
+              return p + `${c},`;
+            }, '')}
+          </Value> */}
         </SubExplainWrapper>
       </DescriptionWrapper>
       <DeleteBtn

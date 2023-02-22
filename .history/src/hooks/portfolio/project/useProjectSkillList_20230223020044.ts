@@ -9,7 +9,6 @@ import { useMemo } from 'react';
 type SkillType = {
   path: string;
   name: string;
-  type: string;
 };
 // 받을 스킬리스트를 flat 작업을 해준후 반환
 export default function useProjectSkillList(skillList: ProjectSkillListType[]) {
@@ -26,11 +25,7 @@ export default function useProjectSkillList(skillList: ProjectSkillListType[]) {
       const imgPath = skillIconNameAndImagePathArray[skillType].find(
         (val) => val.name === skill.name
       )?.path;
-      return {
-        name: skill.name,
-        path: imgPath || '',
-        type: skillType as string,
-      };
+      return { name: skill.name, path: imgPath || '', type: skillType };
     });
   });
 
