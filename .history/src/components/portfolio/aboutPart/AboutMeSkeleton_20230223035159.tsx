@@ -2,7 +2,7 @@ import Shimmer from '@src/components/common/Shimmer';
 import { EmptyDiv } from '@src/styles/skeletion';
 import styled from 'styled-components';
 
-export default function IntroSkeleton() {
+export default function AboutMeSkeleton() {
   return (
     <Container>
       <EmptyDiv1>
@@ -16,10 +16,14 @@ export default function IntroSkeleton() {
 }
 
 const Container = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   padding: 8rem 4rem;
   background: black;
 `;
-
 const EmptyDiv1 = styled(EmptyDiv)`
   width: 100%;
   height: 50px;

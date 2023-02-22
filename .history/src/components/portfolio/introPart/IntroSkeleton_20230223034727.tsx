@@ -1,5 +1,4 @@
 import Shimmer from '@src/components/common/Shimmer';
-import { EmptyDiv } from '@src/styles/skeletion';
 import styled from 'styled-components';
 
 export default function IntroSkeleton() {
@@ -20,14 +19,18 @@ const Container = styled.div`
   background: black;
 `;
 
-const EmptyDiv1 = styled(EmptyDiv)`
+const EmptyDiv1 = styled.div`
   width: 100%;
   height: 50px;
+
+  margin: 0 auto;
   border-radius: 1rem;
 `;
 
-const EmptyDiv2 = styled(EmptyDiv)`
+const EmptyDiv2 = styled.div`
   width: 80%;
   height: 100px;
+
+  margin: 0 auto;
   margin-top: 40px;
 `;

@@ -21,7 +21,8 @@ export default function PortAboutMeContainer() {
       </S.CommonHeader>
       {!isModifyMode && (
         <ErrorBoundary FallbackComponent={CommonError}>
-          <Suspense fallback={<AboutMeSkeleton />}>
+          <AboutMeSkeleton />
+          <Suspense fallback={<div>로딩중</div>}>
             <PortfolioAboutMe />
           </Suspense>
         </ErrorBoundary>
