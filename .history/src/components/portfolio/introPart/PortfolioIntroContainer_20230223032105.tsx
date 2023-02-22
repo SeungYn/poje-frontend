@@ -18,9 +18,10 @@ export default function PortfolioIntroContainer() {
 
   return (
     <Container ref={introRef} id='intro'>
+      <IntroSkeleton />
       {!isModifyMode && (
         <ErrorBoundary FallbackComponent={CommonError}>
-          <Suspense fallback={<IntroSkeleton />}>
+          <Suspense fallback={<div>로딩중</div>}>
             <PortfolioIntro />
           </Suspense>
         </ErrorBoundary>
