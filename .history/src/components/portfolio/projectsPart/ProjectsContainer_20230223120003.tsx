@@ -18,7 +18,8 @@ export default function ProjectsContainer() {
       <PartHeader title={'Projects'} color={theme.textColor} />
       <Content>
         <ErrorBoundary FallbackComponent={CommonError}>
-          <Suspense fallback={<ProjectSkeleton />}>
+          <ProjectSkeleton />
+          <Suspense fallback={<div>로딩중</div>}>
             <Projects />
           </Suspense>
         </ErrorBoundary>
