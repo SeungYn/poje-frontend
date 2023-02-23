@@ -6,6 +6,9 @@ import styled from 'styled-components';
 export default function SkillSkeleton() {
   return (
     <Container>
+      <EmptyDiv2>
+        <Shimmer />
+      </EmptyDiv2>
       <MiddleContainer>
         <EmptyDiv1>
           <Shimmer />

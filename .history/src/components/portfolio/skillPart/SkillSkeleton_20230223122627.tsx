@@ -6,6 +6,9 @@ import styled from 'styled-components';
 export default function SkillSkeleton() {
   return (
     <Container>
+      <EmptyDiv2>
+        <Shimmer />
+      </EmptyDiv2>
       <MiddleContainer>
         <EmptyDiv1>
           <Shimmer />
@@ -28,11 +31,11 @@ export default function SkillSkeleton() {
 }
 
 const Container = styled(SkeletionContainer)`
+  position: relative;
   background: ${({ theme }) => theme.colorPink};
   height: auto;
   display: flex;
   flex-direction: column;
-  z-index: 7000;
 `;
 
 const MiddleContainer = styled.div`

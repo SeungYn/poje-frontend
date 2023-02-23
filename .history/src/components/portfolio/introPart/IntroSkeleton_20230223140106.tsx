@@ -1,10 +1,13 @@
 import Shimmer from '@src/components/common/Shimmer';
-import { EmptyDiv, SkeletionContainer } from '@src/styles/skeletion';
+import { EmptyDiv } from '@src/styles/skeletion';
 import styled from 'styled-components';
 
-export default function AboutMeSkeleton() {
+export default function IntroSkeleton() {
   return (
     <Container>
+      <EmptyDiv1>
+        <Shimmer />
+      </EmptyDiv1>
       <EmptyDiv2>
         <Shimmer />
       </EmptyDiv2>
@@ -12,9 +15,13 @@ export default function AboutMeSkeleton() {
   );
 }
 
-const Container = styled(SkeletionContainer)`
-  background: white;
+const Container = styled.div`
+  position: absolute;
+  width: 100%;
+  padding: 8rem 4rem;
+  background: black;
 `;
+
 const EmptyDiv1 = styled(EmptyDiv)`
   width: 100%;
   height: 50px;
@@ -23,6 +30,6 @@ const EmptyDiv1 = styled(EmptyDiv)`
 
 const EmptyDiv2 = styled(EmptyDiv)`
   width: 80%;
-  height: 200px;
+  height: 100px;
   margin-top: 40px;
 `;

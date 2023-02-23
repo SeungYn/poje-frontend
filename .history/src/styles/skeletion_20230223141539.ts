@@ -12,5 +12,6 @@ export const EmptyDiv = styled.div`
 export const SkeletionContainer = styled.div`
   width: 100%;
   height: auto;
+  padding: 8rem 4rem;
   z-index: 1000;
 `;

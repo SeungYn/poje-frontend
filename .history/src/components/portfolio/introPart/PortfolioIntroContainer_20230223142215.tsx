@@ -26,6 +26,10 @@ export default function PortfolioIntroContainer() {
         </ErrorBoundary>
       )}
       {isModifyMode && <PortfolioIntroModify />}
+      <ModifyBtn
+        isModifyMode={isModifyMode}
+        handleModifyMode={() => setIsModifyMode(true)}
+      />
     </Container>
   );
 }

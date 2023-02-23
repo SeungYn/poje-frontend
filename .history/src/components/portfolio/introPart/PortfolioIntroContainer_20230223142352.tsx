@@ -18,6 +18,7 @@ export default function PortfolioIntroContainer() {
 
   return (
     <Container ref={introRef} id='intro'>
+      <IntroSkeleton />
       {!isModifyMode && (
         <ErrorBoundary FallbackComponent={CommonError}>
           <Suspense fallback={<IntroSkeleton />}>

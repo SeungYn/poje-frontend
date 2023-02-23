@@ -19,14 +19,13 @@ export default function PortAboutMeContainer() {
         <AiFillTag />
         <S.HeaderTitle>About Me</S.HeaderTitle>
       </S.CommonHeader>
-      <AboutMeSkeleton />
-      {/* {!isModifyMode && (
+      {!isModifyMode && (
         <ErrorBoundary FallbackComponent={CommonError}>
           <Suspense fallback={<AboutMeSkeleton />}>
             <PortfolioAboutMe />
           </Suspense>
         </ErrorBoundary>
-      )} */}
+      )}
       {isModifyMode && <PortfolioAboutMeModify />}
       <ModifyBtn
         isModifyMode={isModifyMode}

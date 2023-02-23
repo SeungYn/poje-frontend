@@ -20,12 +20,17 @@ export default function PortfolioIntroContainer() {
     <Container ref={introRef} id='intro'>
       {!isModifyMode && (
         <ErrorBoundary FallbackComponent={CommonError}>
+          <IntroSkeleton />
           <Suspense fallback={<IntroSkeleton />}>
             <PortfolioIntro />
           </Suspense>
         </ErrorBoundary>
       )}
       {isModifyMode && <PortfolioIntroModify />}
+      <ModifyBtn
+        isModifyMode={isModifyMode}
+        handleModifyMode={() => setIsModifyMode(true)}
+      />
     </Container>
   );
 }

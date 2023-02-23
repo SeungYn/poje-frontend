@@ -10,7 +10,11 @@ export const EmptyDiv = styled.div`
 `;
 
 export const SkeletionContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: auto;
+  padding: 8rem 4rem;
   z-index: 1000;
 `;

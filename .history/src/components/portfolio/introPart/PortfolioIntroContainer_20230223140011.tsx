@@ -18,14 +18,19 @@ export default function PortfolioIntroContainer() {
 
   return (
     <Container ref={introRef} id='intro'>
-      {!isModifyMode && (
+      <IntroSkeleton />
+      {/* {!isModifyMode && (
         <ErrorBoundary FallbackComponent={CommonError}>
           <Suspense fallback={<IntroSkeleton />}>
             <PortfolioIntro />
           </Suspense>
         </ErrorBoundary>
-      )}
+      )} */}
       {isModifyMode && <PortfolioIntroModify />}
+      <ModifyBtn
+        isModifyMode={isModifyMode}
+        handleModifyMode={() => setIsModifyMode(true)}
+      />
     </Container>
   );
 }

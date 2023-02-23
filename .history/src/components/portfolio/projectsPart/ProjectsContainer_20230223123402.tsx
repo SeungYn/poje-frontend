@@ -17,12 +17,11 @@ export default function ProjectsContainer() {
     <Container id='projects'>
       <PartHeader title={'Projects'} color={theme.textColor} />
       <Content>
-        <ProjectSkeleton />
-        {/* <ErrorBoundary FallbackComponent={CommonError}>
+        <ErrorBoundary FallbackComponent={CommonError}>
           <Suspense fallback={<ProjectSkeleton />}>
             <Projects />
           </Suspense>
-        </ErrorBoundary> */}
+        </ErrorBoundary>
       </Content>
       <ModifyHorizonBtn
         title={'추가'}
