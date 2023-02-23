@@ -14,7 +14,7 @@ export const SkeletionContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+
   padding: 8rem 4rem;
   z-index: 1000;
 `;
