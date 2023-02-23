@@ -25,6 +25,10 @@ export default function PortAboutMeContainer() {
         </ErrorBoundary>
       )}
       {isModifyMode && <PortfolioAboutMeModify />}
+      <ModifyBtn
+        isModifyMode={isModifyMode}
+        handleModifyMode={() => setIsModifyMode(true)}
+      />
     </S.CommonSection>
   );
 }

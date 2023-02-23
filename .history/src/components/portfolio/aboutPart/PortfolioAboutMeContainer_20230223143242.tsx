@@ -17,6 +17,7 @@ export default function PortAboutMeContainer() {
         <AiFillTag />
         <S.HeaderTitle>About Me</S.HeaderTitle>
       </S.CommonHeader>
+
       {!isModifyMode && (
         <ErrorBoundary FallbackComponent={CommonError}>
           <Suspense fallback={<AboutMeSkeleton />}>

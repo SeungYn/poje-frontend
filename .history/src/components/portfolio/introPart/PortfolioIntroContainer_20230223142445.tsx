@@ -3,14 +3,16 @@ import useIntroObserver from '@src/hooks/portfolio/intro/useIntroObserver';
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import IntroSkeleton from './IntroSkeleton';
 import PortfolioIntro from './PortfolioIntro';
 import PortfolioIntroModify from './PortfolioIntroModify';
 
 export default function PortfolioIntroContainer() {
-  const isModifyMode = useRecoilValue(isModifyModeFromPortfolioIntro);
+  const [isModifyMode, setIsModifyMode] = useRecoilState(
+    isModifyModeFromPortfolioIntro
+  );
   const { introRef } = useIntroObserver();
 
   return (

@@ -6,7 +6,6 @@ import { breakPoint } from '../../../styledComponents/media';
 import usePortfolioAboutMe from '@src/hooks/portfolio/aboutMe/usePortfolioAboutMe';
 import { useRecoilState } from 'recoil';
 import ModifyBtn from '../common/ModifyBtn';
-import { isModifyModeFormPortfolioAboutMe } from '@src/store/portfolio/modify';
 
 export default function PortfolioAboutMe() {
   const { aboutMe } = usePortfolioAboutMe();
