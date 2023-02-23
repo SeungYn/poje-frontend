@@ -21,12 +21,13 @@ export default function PortfolioSkillsContainer() {
         <S.HeaderTitle>Skills</S.HeaderTitle>
       </S.CommonHeader>
       <Content>
-        <ErrorBoundary FallbackComponent={CommonError}>
+        <SkillSkeleton />
+        {/* <ErrorBoundary FallbackComponent={CommonError}>
           <Suspense fallback={<SkillSkeleton />}>
             {!isModifyMode && <PortfolioViewMode />}
+            {isModifyMode && <PortfolioSkillsModifyMode />}
           </Suspense>
-        </ErrorBoundary>
-        {isModifyMode && <PortfolioSkillsModifyMode />}
+        </ErrorBoundary> */}
       </Content>
     </Container>
   );

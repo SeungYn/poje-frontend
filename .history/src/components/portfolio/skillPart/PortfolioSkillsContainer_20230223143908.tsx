@@ -24,9 +24,9 @@ export default function PortfolioSkillsContainer() {
         <ErrorBoundary FallbackComponent={CommonError}>
           <Suspense fallback={<SkillSkeleton />}>
             {!isModifyMode && <PortfolioViewMode />}
+            {isModifyMode && <PortfolioSkillsModifyMode />}
           </Suspense>
         </ErrorBoundary>
-        {isModifyMode && <PortfolioSkillsModifyMode />}
       </Content>
     </Container>
   );
