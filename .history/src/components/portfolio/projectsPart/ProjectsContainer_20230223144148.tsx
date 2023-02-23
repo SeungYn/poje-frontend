@@ -12,6 +12,7 @@ import ProjectSkeleton from './ProjectSkeleton';
 
 export default function ProjectsContainer() {
   const theme = useTheme();
+  const createProject = useCreateProject();
   return (
     <Container id='projects'>
       <PartHeader title={'Projects'} color={theme.textColor} />
@@ -22,6 +23,12 @@ export default function ProjectsContainer() {
           </Suspense>
         </ErrorBoundary>
       </Content>
+      <ModifyHorizonBtn
+        title={'추가'}
+        handleClick={() => {
+          createProject();
+        }}
+      />
     </Container>
   );
 }
