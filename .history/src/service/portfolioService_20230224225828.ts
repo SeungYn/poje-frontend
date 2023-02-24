@@ -270,6 +270,5 @@ export class PortfolioService {
       `/member/portfolio/${portfolioId}/permission`,
       config
     );
-    return result;
   }
 }

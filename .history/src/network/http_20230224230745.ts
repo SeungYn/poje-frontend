@@ -50,34 +50,33 @@ export default class Http {
       res = await this.client(request);
       return res;
     } catch (e) {
-      //console.log('받은 에러', e);
+      console.log('받은 에러', e);
       if (axios.isAxiosError(e)) {
         const originRequestConfig = e.config;
         if (e.response?.status === 401) {
           if (!this.isTokenRefreshing) {
-            //console.log('reissue 시작');
+            console.log('reissue 시작');
             this.setIsTokenRefreshing(true);
-            try {
-              const re = await this.fetchJson('/reissue', {
-                method: 'POST',
-                headers: {
-                  accessToken: `${this.localStorage.get<string>('TOKEN')}`,
-                  refreshToken: cookies.get('refreshToken'),
-                },
-              });
+            const re = await this.fetchJson('/reissue', {
+              method: 'POST',
+              headers: {
+                accessToken: `${this.localStorage.get<string>('TOKEN')}`,
+                refreshToken: cookies.get('refreshToken'),
+              },
+            });
 
-              //console.log(re, '리이슈 보낸결과');
-              if (re.headers.authorization) {
-                const accessToken = re.headers.authorization.split(' ')[1];
-                this.localStorage.set<string>('TOKEN', accessToken);
-                cookies.set('refreshToken', re.headers.refreshtoken, {
-                  maxAge: 60 * 60 * 24 * 7,
-                  path: '/',
-                });
-              }
-            } catch (e) {
-              //todo 리프레시 토큰 만료시 처리
-              console.log(e);
+            console.log(re, '리이슈 보낸결과');
+            if (re.headers.authorization) {
+              const accessToken = re.headers.authorization.split(' ')[1];
+              this.localStorage.set<string>('TOKEN', accessToken);
+              cookies.set('refreshToken', re.headers.refreshtoken, {
+                maxAge: 60 * 60 * 24 * 7,
+                path: '/',
+              });
+            }
+
+            if (re.status === 400) {
+              console.log('로그아웃 시켜야됨');
             }
 
             this.onReRequest();
@@ -90,7 +89,7 @@ export default class Http {
             });
           }
 
-          //console.log('큐에 들어갈 요청들', originRequestConfig);
+          console.log('큐에 들어갈 요청들', originRequestConfig);
           return new Promise((resolve) =>
             this.reRequestWaitQueue.push(() => {
               console.log('큐에 대기하는 요청들', originRequestConfig);
@@ -119,7 +118,7 @@ export default class Http {
 
   onReRequest() {
     //쌓여있는 요청들을 다 호출하기
-    //console.log('현재 큐에 호출될 요청들', this.reRequestWaitQueue);
+    console.log('현재 큐에 호출될 요청들', this.reRequestWaitQueue);
     this.reRequestWaitQueue.forEach((cb) => cb());
     //다 호출하면 비워주기
     this.reRequestWaitQueue = [];
@@ -155,7 +154,7 @@ export default class Http {
         : 'http://15.164.128.201:8080';
     if (!Http.instance) {
       Http.instance = new Http(
-        'http://15.164.128.201:8080',
+        'https://7c87b08cff53da.lhr.life',
         new TokenStorage()
       );
     }

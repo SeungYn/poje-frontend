@@ -22,10 +22,9 @@ export default function PortfolioInfoContextProvider({
 }: ContextPropType) {
   const { portfolioId } = useParams() as ParamsType;
   const permissionModify = useProtfolioModifyPermission(portfolioId);
-  console.log(permissionModify);
   const context = useMemo<ContextType>(
     () => ({ portfolioId, permissionModify }),
-    [portfolioId, permissionModify]
+    [portfolioId]
   );
   return (
     <PortfolioInfoContext.Provider value={context}>

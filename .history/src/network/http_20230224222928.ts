@@ -1,11 +1,6 @@
 import TokenStorage from '@src/db/localStorage';
 import LocalStorage from '@src/db/localStorage';
-import axios, {
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-  InternalAxiosRequestConfig,
-} from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Cookies } from 'react-cookie';
 
 const cookies = new Cookies();
@@ -50,47 +45,42 @@ export default class Http {
       res = await this.client(request);
       return res;
     } catch (e) {
-      //console.log('받은 에러', e);
+      console.log('받은 에러', e);
       if (axios.isAxiosError(e)) {
         const originRequestConfig = e.config;
         if (e.response?.status === 401) {
           if (!this.isTokenRefreshing) {
-            //console.log('reissue 시작');
-            this.setIsTokenRefreshing(true);
-            try {
-              const re = await this.fetchJson('/reissue', {
-                method: 'POST',
-                headers: {
-                  accessToken: `${this.localStorage.get<string>('TOKEN')}`,
-                  refreshToken: cookies.get('refreshToken'),
-                },
-              });
-
-              //console.log(re, '리이슈 보낸결과');
-              if (re.headers.authorization) {
-                const accessToken = re.headers.authorization.split(' ')[1];
-                this.localStorage.set<string>('TOKEN', accessToken);
-                cookies.set('refreshToken', re.headers.refreshtoken, {
-                  maxAge: 60 * 60 * 24 * 7,
-                  path: '/',
-                });
-              }
-            } catch (e) {
-              //todo 리프레시 토큰 만료시 처리
-              console.log(e);
-            }
-
-            this.onReRequest();
-            this.setIsTokenRefreshing(false);
-            return this.client({
-              ...originRequestConfig!,
+            console.log('reissue 시작');
+            this.isTokenRefreshing = true;
+            const re = await this.fetchJson('/reissue', {
+              method: 'POST',
               headers: {
-                ...originRequestConfig?.headers,
+                accessToken: `${this.localStorage.get<string>('TOKEN')}`,
+                refreshToken: cookies.get('refreshToken'),
               },
             });
-          }
 
-          //console.log('큐에 들어갈 요청들', originRequestConfig);
+            console.log(re, '리이슈 보낸결과');
+            if (re.headers.authorization) {
+              const accessToken = re.headers.authorization.split(' ')[1];
+              this.localStorage.set<string>('TOKEN', accessToken);
+              cookies.set('refreshToken', re.headers.refreshtoken, {
+                maxAge: 60 * 60 * 24 * 7,
+                path: '/',
+              });
+            }
+
+            if (re.status === 400) {
+              console.log('로그아웃 시켜야됨');
+            }
+
+            //쌓여있는 요청들을 다 호출하기
+            this.reRequestWaitQueue.forEach((cb) => cb());
+            //다 호출하면 비워주기
+            this.reRequestWaitQueue = [];
+            this.isTokenRefreshing = false;
+          }
+          console.log('큐에 들어갈 요청들', originRequestConfig);
           return new Promise((resolve) =>
             this.reRequestWaitQueue.push(() => {
               console.log('큐에 대기하는 요청들', originRequestConfig);
@@ -117,35 +107,7 @@ export default class Http {
     }
   }
 
-  onReRequest() {
-    //쌓여있는 요청들을 다 호출하기
-    //console.log('현재 큐에 호출될 요청들', this.reRequestWaitQueue);
-    this.reRequestWaitQueue.forEach((cb) => cb());
-    //다 호출하면 비워주기
-    this.reRequestWaitQueue = [];
-  }
-
-  setIsTokenRefreshing(state: boolean) {
-    this.isTokenRefreshing = state;
-  }
-
-  generateNewPromiseForWaitRequest(
-    originRequestConfig: InternalAxiosRequestConfig
-  ) {
-    return new Promise((resolve) =>
-      this.reRequestWaitQueue.push(() => {
-        console.log('큐에 대기하는 요청들', originRequestConfig);
-        resolve(
-          this.client({
-            ...originRequestConfig!,
-            headers: {
-              ...originRequestConfig?.headers,
-            },
-          })
-        );
-      })
-    );
-  }
+  onReRequest() {}
 
   //process.env.REACT_APP_BASE_URL as string,
   public static getHttpInstance() {
@@ -155,7 +117,7 @@ export default class Http {
         : 'http://15.164.128.201:8080';
     if (!Http.instance) {
       Http.instance = new Http(
-        'http://15.164.128.201:8080',
+        'https://addd20f141a3f3.lhr.life',
         new TokenStorage()
       );
     }
