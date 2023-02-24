@@ -54,7 +54,6 @@ export default class Http {
           });
           console.log(re, '리이슈 보낸결과');
           if (re.headers.authorization) {
-            console.log(re.headers, '새로받은 헤더');
             const accessToken = re.headers.authorization.split(' ')[1];
             this.localStorage.set<string>('TOKEN', accessToken);
             cookies.set('refreshToken', re.headers.refreshtoken, {
@@ -89,7 +88,10 @@ export default class Http {
         ? 'http://localhost:8080'
         : 'http://15.164.128.201:8080';
     if (!Http.instance) {
-      Http.instance = new Http('http://localhost:8080', new TokenStorage());
+      Http.instance = new Http(
+        'https://b51ee72e75f52e.lhr.life',
+        new TokenStorage()
+      );
     }
     return Http.instance;
   }

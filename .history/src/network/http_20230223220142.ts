@@ -44,20 +44,19 @@ export default class Http {
       console.log('받은 에러', e);
       if (axios.isAxiosError(e)) {
         if (e.response?.status === 401) {
-          console.log('401에러임');
-          const re = await this.fetchJson('/reissue', {
+          const re = await this.client({
+            url: '/reissue',
             method: 'POST',
             headers: {
               accessToken: `${this.localStorage.get<string>('TOKEN')}`,
               refreshToken: cookies.get('refreshToken'),
             },
           });
-          console.log(re, '리이슈 보낸결과');
+
           if (re.headers.authorization) {
-            console.log(re.headers, '새로받은 헤더');
             const accessToken = re.headers.authorization.split(' ')[1];
             this.localStorage.set<string>('TOKEN', accessToken);
-            cookies.set('refreshToken', re.headers.refreshtoken, {
+            cookies.set('refreshToken', data.headers.refreshtoken, {
               maxAge: 60 * 60 * 24 * 7,
               path: '/',
             });
@@ -67,12 +66,11 @@ export default class Http {
               ...e.config!,
               headers: {
                 ...e.config?.headers,
-                //Authorization: `Bearer ${accessToken}`,
+                authorization: `Bearer ${accessToken}`,
               },
             });
           }
         }
-
         const message = e.response?.data?.message;
         if (message) {
           throw new Error(message);
@@ -89,7 +87,7 @@ export default class Http {
         ? 'http://localhost:8080'
         : 'http://15.164.128.201:8080';
     if (!Http.instance) {
-      Http.instance = new Http('http://localhost:8080', new TokenStorage());
+      Http.instance = new Http(endPoint, new TokenStorage());
     }
     return Http.instance;
   }
