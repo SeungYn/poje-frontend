@@ -21,18 +21,10 @@ export default function usePortfolioLike() {
           'portfolioLike',
           portfolioId,
         ])!;
-
-        if (!currentLike.likeStatus) {
-          queryClient.setQueryData(['portfolioLike', portfolioId], {
-            likeStatus: true,
-            likeCount: currentLike.likeCount + 1,
-          });
-        } else {
-          queryClient.setQueryData(['portfolioLike', portfolioId], {
-            likeStatus: false,
-            likeCount: currentLike.likeCount - 1,
-          });
-        }
+        queryClient.setQueryData(['portfolioLike', portfolioId], {
+          likeStatus: true,
+          likeCount: currentLike.likeCount + 1,
+        });
       },
     }
   );
