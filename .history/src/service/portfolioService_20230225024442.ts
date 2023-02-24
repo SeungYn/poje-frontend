@@ -301,7 +301,7 @@ export class PortfolioService {
     const { portfolioId } = data;
 
     const config: AxiosRequestConfig = {
-      method: 'POST',
+      method: 'GET',
     };
 
     const {

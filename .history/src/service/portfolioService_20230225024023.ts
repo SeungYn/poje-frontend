@@ -12,12 +12,11 @@ import {
   GetModifyPermissionResponse,
   GetPortfolioIntroRequest,
   GetPortfolioIntroResponse,
+  GetPortfolioLikeRequest,
   GetProjectRequest,
   GetSkillsRequest,
   ModifyAboutMeRequest,
   ModifyPortfolioIntroRequest,
-  PortfolioLikeRequest,
-  PortfolioLikeResponse,
   ProjectResponse,
   ProjectsResponse,
   PutIntroResponse,
@@ -280,38 +279,12 @@ export class PortfolioService {
     );
   }
 
-  async getPortfolioLike(data: PortfolioLikeRequest) {
+  async getPortfolioLike(data: GetPortfolioLikeRequest) {
     const { portfolioId } = data;
-
+    
     const config: AxiosRequestConfig = {
-      method: 'GET',
+      method:'GET,
     };
-
-    const {
-      data: { result },
-    } = await this.http.fetchJson<PortfolioLikeResponse>(
-      `/member/portfolio/${portfolioId}`,
-      config
-    );
-
-    return result;
-  }
-
-  async postPortfolioLike(data: PortfolioLikeRequest) {
-    const { portfolioId } = data;
-
-    const config: AxiosRequestConfig = {
-      method: 'POST',
-    };
-
-    const {
-      data: { result },
-    } = await this.http.fetchJson<PortfolioLikeResponse>(
-      `/member/portfolio/${portfolioId}`,
-      config
-    );
-
-    return result;
   }
 
   async getPortfolioModifyPermission(data: GetModifyPermissionRequest) {

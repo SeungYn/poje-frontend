@@ -152,18 +152,6 @@ export interface ProjectsResponse extends BasicResponse {
   result: ProjectType[];
 }
 
-// 포트폴리오 좋아요
-export interface GetPortfolioLikeRequest {
-  portfolioId: string;
-}
-
-export interface PortfolioLikeResponse extends BasicResponse {
-  result: {
-    likeStatus: boolean;
-    likeCount: number;
-  };
-}
-
 // 수정모드 권한
 export interface GetModifyPermissionRequest {
   portfolioId: string;

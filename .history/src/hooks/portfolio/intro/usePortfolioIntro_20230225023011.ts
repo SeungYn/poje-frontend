@@ -10,10 +10,7 @@ import { useEffect, useState } from 'react';
 import { introLoading } from '@src/store/portfolio/loading';
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
 
-type CopiedPfIntroType = Omit<
-  PortfolioIntroType,
-  'likeStatus' | 'likeCount'
-> & {
+type CopiedPfIntroType = Omit<PortfolioIntroType, 'likeStatus', 'likeCount'> & {
   backgroundImgFile: File | null;
 };
 

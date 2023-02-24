@@ -157,7 +157,7 @@ export interface GetPortfolioLikeRequest {
   portfolioId: string;
 }
 
-export interface PortfolioLikeResponse extends BasicResponse {
+export interface GetPortfolioLikeResponse extends BasicResponse {
   result: {
     likeStatus: boolean;
     likeCount: number;
