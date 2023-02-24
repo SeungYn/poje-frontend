@@ -13,7 +13,7 @@ export const SliderWrapper = styled.div`
   position: relative;
 
   width: 100%;
-  max-height: 800px;
+  aspect-ratio: 16/9;
   .swiper {
     height: 100%;
   }

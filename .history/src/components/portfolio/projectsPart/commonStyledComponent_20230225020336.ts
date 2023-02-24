@@ -12,8 +12,6 @@ export const SubInfoWrapper = styled.div`
 export const SliderWrapper = styled.div`
   position: relative;
 
-  width: 100%;
-  max-height: 800px;
   .swiper {
     height: 100%;
   }
