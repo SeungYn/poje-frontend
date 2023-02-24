@@ -1,11 +1,6 @@
 import TokenStorage from '@src/db/localStorage';
 import LocalStorage from '@src/db/localStorage';
-import axios, {
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-  InternalAxiosRequestConfig,
-} from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { Cookies } from 'react-cookie';
 
 const cookies = new Cookies();
@@ -88,7 +83,6 @@ export default class Http {
               },
             });
           }
-
           console.log('큐에 들어갈 요청들', originRequestConfig);
           return new Promise((resolve) =>
             this.reRequestWaitQueue.push(() => {
@@ -128,22 +122,21 @@ export default class Http {
     this.isTokenRefreshing = state;
   }
 
-  generateNewPromiseForWaitRequest(
-    originRequestConfig: InternalAxiosRequestConfig
-  ) {
+  generateNewPromiseForWaitRequest(originRequestConfig:InternalAxiosRequestConfig) {
     return new Promise((resolve) =>
-      this.reRequestWaitQueue.push(() => {
-        console.log('큐에 대기하는 요청들', originRequestConfig);
-        resolve(
-          this.client({
-            ...originRequestConfig!,
-            headers: {
-              ...originRequestConfig?.headers,
-            },
-          })
-        );
-      })
-    );
+    this.reRequestWaitQueue.push(() => {
+      console.log('큐에 대기하는 요청들', originRequestConfig);
+      resolve(
+        this.client({
+          ...originRequestConfig!,
+          headers: {
+            ...originRequestConfig?.headers,
+          },
+        })
+      );
+    })
+  );
+}
   }
 
   //process.env.REACT_APP_BASE_URL as string,
@@ -154,7 +147,7 @@ export default class Http {
         : 'http://15.164.128.201:8080';
     if (!Http.instance) {
       Http.instance = new Http(
-        'https://7aaaea04c86205.lhr.life',
+        'https://addd20f141a3f3.lhr.life',
         new TokenStorage()
       );
     }

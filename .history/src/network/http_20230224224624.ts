@@ -154,7 +154,7 @@ export default class Http {
         : 'http://15.164.128.201:8080';
     if (!Http.instance) {
       Http.instance = new Http(
-        'https://7aaaea04c86205.lhr.life',
+        'https://addd20f141a3f3.lhr.life',
         new TokenStorage()
       );
     }

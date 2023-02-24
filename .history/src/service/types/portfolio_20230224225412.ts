@@ -150,10 +150,10 @@ export interface ProjectsResponse extends BasicResponse {
   result: ProjectType[];
 }
 
-export interface GetModifyPermissionRequest {
+export interface ModifyPermissionRequest {
   portfolioId: string;
 }
 
-export interface GetModifyPermissionResponse extends BasicResponse {
+export interface ModifyPermissionResponse extends BasicResponse {
   result: boolean;
 }
