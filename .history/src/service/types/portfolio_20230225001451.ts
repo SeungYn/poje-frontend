@@ -135,7 +135,7 @@ export interface PutProjectRequest {
   prAwardInfo: ProjectAwardInfoType;
   prSkillList: ProjectSkillListType[];
   prImgList: File[];
-  prImgDelList?: string[];
+  //prImgDelList: string[];
 }
 
 export interface DeleteProjectRequest {

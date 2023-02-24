@@ -23,6 +23,8 @@ export default class Http {
     });
 
     this.client.interceptors.request.use((req) => {
+      //console.log('request :', req);
+      console.log(this.reRequestWaitQueue);
       req.headers.Authorization = `Bearer ${this.localStorage.get<string>(
         'TOKEN'
       )}`;
@@ -89,7 +91,19 @@ export default class Http {
           }
 
           //console.log('큐에 들어갈 요청들', originRequestConfig);
-          return this.generateNewPromiseForWaitRequest(originRequestConfig!);
+          return new Promise((resolve) =>
+            this.reRequestWaitQueue.push(() => {
+              console.log('큐에 대기하는 요청들', originRequestConfig);
+              resolve(
+                this.client({
+                  ...originRequestConfig!,
+                  headers: {
+                    ...originRequestConfig?.headers,
+                  },
+                })
+              );
+            })
+          );
         }
 
         const message = e.response?.data?.message;

@@ -23,6 +23,8 @@ export default class Http {
     });
 
     this.client.interceptors.request.use((req) => {
+      //console.log('request :', req);
+      console.log(this.reRequestWaitQueue);
       req.headers.Authorization = `Bearer ${this.localStorage.get<string>(
         'TOKEN'
       )}`;
