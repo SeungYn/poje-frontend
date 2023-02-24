@@ -80,12 +80,6 @@ export default class Http {
             //다 호출하면 비워주기
             this.reRequestWaitQueue = [];
             this.isTokenRefreshing = false;
-            return this.client({
-              ...originRequestConfig!,
-              headers: {
-                ...originRequestConfig?.headers,
-              },
-            });
           }
           console.log('큐에 들어갈 요청들', originRequestConfig);
           return new Promise((resolve) =>

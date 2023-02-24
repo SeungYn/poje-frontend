@@ -9,7 +9,7 @@ export default class Http {
   private static instance: Http;
   private readonly client: AxiosInstance;
   private isTokenRefreshing = false;
-  private reRequestWaitQueue: (() => void)[] = [];
+  //private refreshWaitQueue:[()=>void];
 
   private constructor(baseURL: string, private localStorage: LocalStorage) {
     this.client = axios.create({
@@ -19,7 +19,6 @@ export default class Http {
 
     this.client.interceptors.request.use((req) => {
       //console.log('request :', req);
-      console.log(this.reRequestWaitQueue);
       req.headers.Authorization = `Bearer ${this.localStorage.get<string>(
         'TOKEN'
       )}`;
@@ -50,7 +49,6 @@ export default class Http {
         const originRequestConfig = e.config;
         if (e.response?.status === 401) {
           if (!this.isTokenRefreshing) {
-            console.log('reissue 시작');
             this.isTokenRefreshing = true;
             const re = await this.fetchJson('/reissue', {
               method: 'POST',
@@ -74,33 +72,15 @@ export default class Http {
               console.log('로그아웃 시켜야됨');
             }
 
-            //쌓여있는 요청들을 다 호출하기
-            console.log('현재 큐에 호출될 요청들', this.reRequestWaitQueue);
-            this.reRequestWaitQueue.forEach((cb) => cb());
-            //다 호출하면 비워주기
-            this.reRequestWaitQueue = [];
-            this.isTokenRefreshing = false;
+            //취소된 요청 config을 다시 요청
             return this.client({
-              ...originRequestConfig!,
+              ...e.config!,
               headers: {
-                ...originRequestConfig?.headers,
+                ...e.config?.headers,
+                //Authorization: `Bearer ${accessToken}`,
               },
             });
           }
-          console.log('큐에 들어갈 요청들', originRequestConfig);
-          return new Promise((resolve) =>
-            this.reRequestWaitQueue.push(() => {
-              console.log('큐에 대기하는 요청들', originRequestConfig);
-              resolve(
-                this.client({
-                  ...originRequestConfig!,
-                  headers: {
-                    ...originRequestConfig?.headers,
-                  },
-                })
-              );
-            })
-          );
         }
 
         const message = e.response?.data?.message;
@@ -124,7 +104,7 @@ export default class Http {
         : 'http://15.164.128.201:8080';
     if (!Http.instance) {
       Http.instance = new Http(
-        'https://addd20f141a3f3.lhr.life',
+        'http://15.164.128.201:8080',
         new TokenStorage()
       );
     }

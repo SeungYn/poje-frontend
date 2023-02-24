@@ -19,7 +19,7 @@ export default class Http {
 
     this.client.interceptors.request.use((req) => {
       //console.log('request :', req);
-      console.log(this.reRequestWaitQueue);
+      console.log(reRequestWaitQueue);
       req.headers.Authorization = `Bearer ${this.localStorage.get<string>(
         'TOKEN'
       )}`;
@@ -75,22 +75,13 @@ export default class Http {
             }
 
             //쌓여있는 요청들을 다 호출하기
-            console.log('현재 큐에 호출될 요청들', this.reRequestWaitQueue);
             this.reRequestWaitQueue.forEach((cb) => cb());
             //다 호출하면 비워주기
             this.reRequestWaitQueue = [];
             this.isTokenRefreshing = false;
-            return this.client({
-              ...originRequestConfig!,
-              headers: {
-                ...originRequestConfig?.headers,
-              },
-            });
           }
-          console.log('큐에 들어갈 요청들', originRequestConfig);
           return new Promise((resolve) =>
             this.reRequestWaitQueue.push(() => {
-              console.log('큐에 대기하는 요청들', originRequestConfig);
               resolve(
                 this.client({
                   ...originRequestConfig!,
