@@ -29,5 +29,5 @@ export default function usePortfolioLike() {
     }
   );
 
-  return { data, handleLikeClick: handleLikeClick.mutate };
+  return { data };
 }

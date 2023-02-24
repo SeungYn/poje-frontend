@@ -153,17 +153,15 @@ export interface ProjectsResponse extends BasicResponse {
 }
 
 // 포트폴리오 좋아요
-export type PortfolioLikeType = {
-  likeStatus: boolean;
-  likeCount: number;
-};
-
 export interface PortfolioLikeRequest {
   portfolioId: string;
 }
 
 export interface PortfolioLikeResponse extends BasicResponse {
-  result: PortfolioLikeType;
+  result: {
+    likeStatus: boolean;
+    likeCount: number;
+  };
 }
 
 // 수정모드 권한
