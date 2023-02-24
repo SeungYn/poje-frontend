@@ -80,7 +80,7 @@ export default function useProjectModify(data: ProjectType) {
           return setCopiedProject((pj) => ({
             ...pj,
             fileList: [...files!],
-            prImgList: [...pj.prImgList, ...fileImgs],
+            prImgList: [...fileImgs],
           }));
         case 'name':
           return setCopiedProject((pj) => ({
@@ -209,17 +209,15 @@ export default function useProjectModify(data: ProjectType) {
   const handlePrevImgRemove = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
     const { dataset } = target;
+    console.log(dataset.src);
     const reg = /^https/;
-
+    console.log(reg.test(dataset.src!));
     if (reg.test(dataset.src!)) {
-      setCopiedProject((item) => {
-        return { ...item, prImgDelList: [...item.prImgDelList, dataset.src!] };
-      });
     }
-    setCopiedProject((item) => {
-      const prImgList = item.prImgList.filter((s) => s !== target.dataset.src);
-      return { ...item, prImgList };
-    });
+    // setCopiedProject((item) => {
+    //   const prImgList = item.prImgList.filter((s) => s !== target.dataset.src);
+    //   return { ...item, prImgList };
+    // });
   };
 
   const handleDeleteProjectSkill = ({

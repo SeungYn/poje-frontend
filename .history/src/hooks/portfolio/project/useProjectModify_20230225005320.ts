@@ -80,7 +80,7 @@ export default function useProjectModify(data: ProjectType) {
           return setCopiedProject((pj) => ({
             ...pj,
             fileList: [...files!],
-            prImgList: [...pj.prImgList, ...fileImgs],
+            prImgList: [...fileImgs],
           }));
         case 'name':
           return setCopiedProject((pj) => ({

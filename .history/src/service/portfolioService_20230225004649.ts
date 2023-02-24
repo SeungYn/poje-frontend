@@ -220,7 +220,7 @@ export class PortfolioService {
       prImgList,
       prImgDelList,
     } = data;
-    console.log(data);
+
     const formData = new FormData();
     formData.append(
       'projectUpdateReq',
@@ -241,18 +241,12 @@ export class PortfolioService {
       }
     }
 
-    if (prImgDelList.length > 0)
+    if (prImgDelList)
       formData.append(
         'prImgDelList',
-        new Blob([JSON.stringify({ prImgDelList })], {
-          type: 'application/json',
-        })
+        new Blob([JSON.stringify(prImgDelList)], { type: 'application/json' })
       );
 
-    const entries = formData.entries();
-    for (const k of entries) {
-      console.log(k[0], k[1]);
-    }
     const config: AxiosRequestConfig = {
       method: 'PUT',
       data: formData,

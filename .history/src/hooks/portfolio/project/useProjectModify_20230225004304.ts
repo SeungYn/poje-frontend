@@ -28,7 +28,6 @@ export default function useProjectModify(data: ProjectType) {
   const [copiedProject, setCopiedProject] = useState<CopiedProjectType>({
     ...data,
     fileList: [],
-    prImgDelList: [],
   });
 
   const discriptionRef = useRef<HTMLTextAreaElement>(null);
@@ -80,7 +79,7 @@ export default function useProjectModify(data: ProjectType) {
           return setCopiedProject((pj) => ({
             ...pj,
             fileList: [...files!],
-            prImgList: [...pj.prImgList, ...fileImgs],
+            prImgList: [...fileImgs],
           }));
         case 'name':
           return setCopiedProject((pj) => ({
@@ -146,16 +145,13 @@ export default function useProjectModify(data: ProjectType) {
 
   const putProject = useMutation<void, unknown, CopiedProjectType, unknown>(
     async (copiedProject) => {
-      const { prSkillList, prAwardInfo, prInfo, fileList, prImgDelList } =
-        copiedProject;
-
+      const { prSkillList, prAwardInfo, prInfo, fileList } = copiedProject;
       return await service.portfolio.putProject({
         projectId: prInfo.projectId,
         prImgList: fileList,
         prInfo,
         prAwardInfo,
         prSkillList,
-        prImgDelList,
       });
     },
     {
@@ -209,17 +205,15 @@ export default function useProjectModify(data: ProjectType) {
   const handlePrevImgRemove = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
     const { dataset } = target;
+    console.log(dataset.src);
     const reg = /^https/;
-
+    console.log(reg.test(dataset.src!));
     if (reg.test(dataset.src!)) {
-      setCopiedProject((item) => {
-        return { ...item, prImgDelList: [...item.prImgDelList, dataset.src!] };
-      });
     }
-    setCopiedProject((item) => {
-      const prImgList = item.prImgList.filter((s) => s !== target.dataset.src);
-      return { ...item, prImgList };
-    });
+    // setCopiedProject((item) => {
+    //   const prImgList = item.prImgList.filter((s) => s !== target.dataset.src);
+    //   return { ...item, prImgList };
+    // });
   };
 
   const handleDeleteProjectSkill = ({
