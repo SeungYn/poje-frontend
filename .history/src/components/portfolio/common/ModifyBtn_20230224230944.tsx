@@ -14,8 +14,7 @@ export default function ModifyBtn({
   handleModifyMode,
 }: ModifyBtnType) {
   const { permissionModify } = usePortfolioInfo();
-  console.log(permissionModify);
-  if (isModifyMode || !permissionModify) return <></>;
+  if (isModifyMode) return <></>;
   return (
     <Container>
       <ModifyButton onClick={handleModifyMode}>수정</ModifyButton>

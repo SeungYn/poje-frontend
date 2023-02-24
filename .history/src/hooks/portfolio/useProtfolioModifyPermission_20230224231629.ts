@@ -15,9 +15,8 @@ export default function useProtfolioModifyPermission(portfolioId: string) {
     (data: GetModifyPermissionRequest) =>
       service.portfolio.getPortfolioModifyPermission(data),
     {
-      onSuccess: (result) => {
-        console.log(result);
-        setPermissionModify((e) => true);
+      onSuccess: () => {
+        setPermissionModify(true);
       },
     }
   );

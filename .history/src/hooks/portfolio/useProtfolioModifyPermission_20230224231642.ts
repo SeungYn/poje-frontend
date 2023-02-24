@@ -17,7 +17,7 @@ export default function useProtfolioModifyPermission(portfolioId: string) {
     {
       onSuccess: (result) => {
         console.log(result);
-        setPermissionModify((e) => true);
+        setPermissionModify(true);
       },
     }
   );

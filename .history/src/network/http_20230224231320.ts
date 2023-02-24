@@ -57,27 +57,26 @@ export default class Http {
           if (!this.isTokenRefreshing) {
             //console.log('reissue 시작');
             this.setIsTokenRefreshing(true);
-            try {
-              const re = await this.fetchJson('/reissue', {
-                method: 'POST',
-                headers: {
-                  accessToken: `${this.localStorage.get<string>('TOKEN')}`,
-                  refreshToken: cookies.get('refreshToken'),
-                },
-              });
+            const re = await this.fetchJson('/reissue', {
+              method: 'POST',
+              headers: {
+                accessToken: `${this.localStorage.get<string>('TOKEN')}`,
+                refreshToken: cookies.get('refreshToken'),
+              },
+            });
 
-              //console.log(re, '리이슈 보낸결과');
-              if (re.headers.authorization) {
-                const accessToken = re.headers.authorization.split(' ')[1];
-                this.localStorage.set<string>('TOKEN', accessToken);
-                cookies.set('refreshToken', re.headers.refreshtoken, {
-                  maxAge: 60 * 60 * 24 * 7,
-                  path: '/',
-                });
-              }
-            } catch (e) {
-              //todo 리프레시 토큰 만료시 처리
-              console.log(e);
+            //console.log(re, '리이슈 보낸결과');
+            if (re.headers.authorization) {
+              const accessToken = re.headers.authorization.split(' ')[1];
+              this.localStorage.set<string>('TOKEN', accessToken);
+              cookies.set('refreshToken', re.headers.refreshtoken, {
+                maxAge: 60 * 60 * 24 * 7,
+                path: '/',
+              });
+            }
+
+            if (re.status === 400) {
+              console.log('로그아웃 시켜야됨');
             }
 
             this.onReRequest();
@@ -155,7 +154,7 @@ export default class Http {
         : 'http://15.164.128.201:8080';
     if (!Http.instance) {
       Http.instance = new Http(
-        'http://15.164.128.201:8080',
+        'https://7c87b08cff53da.lhr.life',
         new TokenStorage()
       );
     }

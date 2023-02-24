@@ -6,18 +6,12 @@ import { useEffect, useState } from 'react';
 export default function useProtfolioModifyPermission(portfolioId: string) {
   const [permissionModify, setPermissionModify] = useState(false);
 
-  const getModifyPermission = useMutation<
-    boolean,
-    unknown,
-    GetModifyPermissionRequest,
-    unknown
-  >(
+  const getModifyPermission = useMutation(
     (data: GetModifyPermissionRequest) =>
       service.portfolio.getPortfolioModifyPermission(data),
     {
-      onSuccess: (result) => {
-        console.log(result);
-        setPermissionModify((e) => true);
+      onSuccess: () => {
+        setPermissionModify(true);
       },
     }
   );

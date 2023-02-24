@@ -76,7 +76,6 @@ export default class Http {
                 });
               }
             } catch (e) {
-              //todo 리프레시 토큰 만료시 처리
               console.log(e);
             }
 
@@ -155,7 +154,7 @@ export default class Http {
         : 'http://15.164.128.201:8080';
     if (!Http.instance) {
       Http.instance = new Http(
-        'http://15.164.128.201:8080',
+        'https://7c87b08cff53da.lhr.life',
         new TokenStorage()
       );
     }
