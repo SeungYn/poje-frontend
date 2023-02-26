@@ -26,6 +26,5 @@ const ProfileContainer = styled.section`
   padding: 1rem 2rem;
   overflow: auto;
   max-width: 1600px;
-  margin:0 auto;
 `;
-
+console.log();
