@@ -1,17 +1,19 @@
-import usePortfolioLists from '@src/hooks/job/usePortfolioLists';
+import { PortfolioItemType } from '@src/service/types/jobCard';
 import { breakPoint } from '@src/styledComponents/media';
-import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import ProfileItemRemaster from './ProfileItemRemaster';
-import { v4 as uuidv4 } from 'uuid';
-import JobPortfolioList from './JobPortfolioList';
 
-export default function JobPortfoliosByCategory() {
-  const { type } = useParams<{ type: string }>();
-  const { jobList } = usePortfolioLists({ jobName: type! });
-  //param.type! as string
+type JobPortfolioListType = {
+  list: PortfolioItemType[]
+}
+
+export default function JobPortfolioList({list}:JobPortfolioListType) {
   return (
-    <JobPortfolioList list={jobList} />
+    <ProfileList>
+      {list.map((item) => (
+        <ProfileItemRemaster key={item.portfolioId}{...item} />
+      ))}
+    </ProfileList>
   );
 }
 
@@ -20,15 +22,15 @@ const ProfileList = styled.ul`
   margin: 0 auto;
   padding: 0.6rem 0.6rem;
   display: grid;
-  grid-auto-rows: 340px;
-  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 376px;
+  grid-template-columns: repeat(4, 320px);
   overflow-y: auto;
   min-height: 0;
   gap: 2rem;
   max-width: 1600px;
 
   @media screen and (max-width: ${breakPoint.l}) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 320px);
   }
 
   @media screen and (max-width: ${breakPoint.ss}) {
