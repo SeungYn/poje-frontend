@@ -17,4 +17,12 @@ const queryConfig: QueryClientConfig = {
 export const queryClient = new QueryClient(queryConfig);
 
 
+export default function CustomQueryClient() {
+  return (
+    1
+  );
+}
+
+
+
 

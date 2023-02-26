@@ -4,13 +4,11 @@ import { JoinRequest, LoginRequest } from '@src/service/types/auth';
 import { useMutation } from '@tanstack/react-query';
 import useUser from './useUser';
 import { useCookies } from 'react-cookie';
-import useModal from '../common/useModal';
 
 export default function useAuth() {
   const navigate = useNavigate();
   const [, setCookie] = useCookies();
   const { clearUser, setUser } = useUser();
-  const {setModal } = useModal();
 
   const login = useMutation(
     (data: LoginRequest) => {
@@ -18,7 +16,9 @@ export default function useAuth() {
       return service.auth.login(data);
     },
     {
-     
+      onMutate: () => {
+        throw new Error('asd');
+      },
       onSuccess: (data) => {
         console.log(data);
         const token = data.headers.authorization.split(' ')[1];
@@ -33,8 +33,9 @@ export default function useAuth() {
         
         navigate('/');
       },
-      onError: (err:Error) => {
-        setModal(err.message);
+      onError: (err) => {
+        alert(`${err} auth에서 발생한 에러`);
+        throw err;
       },
     }
   );
@@ -47,9 +48,6 @@ export default function useAuth() {
       onSuccess: (data) => {
         navigate('/auth/login');
       },
-      onError: (err:Error) => {
-        setModal(err.message);
-      }
     }
   );
 

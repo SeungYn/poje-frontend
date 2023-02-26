@@ -1,3 +1,5 @@
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import {
   createBrowserRouter,
   Navigate,
@@ -20,6 +22,7 @@ import PortfolioMain from './pages/portfolio/PortfolioMain';
 import PortfolioMakePage from './pages/portfolio/PortfolioMakePage';
 import PortfolioRootPage from './pages/portfolio/PortfolioRootPage';
 import RouterProtect from './pages/RouterProtect';
+import { queryClient } from './react-query/queryClient';
 
 export const router = createBrowserRouter([
   {
@@ -98,10 +101,13 @@ export default function AppRouter() {
     setModal(error.message);
   }
   return (
+    <QueryClientProvider client={queryClient}>
     <ErrorBoundary onError={handleError}>
       <ConfirmModal />
       <CommonModal />
       <RouterProvider router={router} />
-    </ErrorBoundary>
+      </ErrorBoundary>
+      <ReactQueryDevtools />
+      </QueryClientProvider>
   );
 }

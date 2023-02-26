@@ -11,10 +11,14 @@ const queryConfig: QueryClientConfig = {
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
     },
+    mutations: {
+      onError: (err:Error) => {
+        const { setModal } = useModal();
+        setModal(err.message);
+      }
+    }
   },
+  
 };
 
 export const queryClient = new QueryClient(queryConfig);
-
-
-

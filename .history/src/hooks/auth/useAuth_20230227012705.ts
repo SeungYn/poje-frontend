@@ -47,9 +47,6 @@ export default function useAuth() {
       onSuccess: (data) => {
         navigate('/auth/login');
       },
-      onError: (err:Error) => {
-        setModal(err.message);
-      }
     }
   );
 

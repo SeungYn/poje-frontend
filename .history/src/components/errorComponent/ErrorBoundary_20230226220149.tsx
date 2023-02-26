@@ -20,7 +20,6 @@ class ErrorBoundary extends Component<PropsWithChildren<Props>, State> {
 	}
 
 	componentDidCatch(error: Error) {
-		console.log(error);
 		alert(error);
 		this.props.onError?.(error);
 	}

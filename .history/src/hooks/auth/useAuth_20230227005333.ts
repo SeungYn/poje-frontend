@@ -33,8 +33,8 @@ export default function useAuth() {
         
         navigate('/');
       },
-      onError: (err:Error) => {
-        setModal(err.message);
+      onError: (err) => {
+        setModal(err.message)
       },
     }
   );
@@ -47,9 +47,6 @@ export default function useAuth() {
       onSuccess: (data) => {
         navigate('/auth/login');
       },
-      onError: (err:Error) => {
-        setModal(err.message);
-      }
     }
   );
 

@@ -11,10 +11,9 @@ const queryConfig: QueryClientConfig = {
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
     },
+    
   },
+  
 };
 
 export const queryClient = new QueryClient(queryConfig);
-
-
-
