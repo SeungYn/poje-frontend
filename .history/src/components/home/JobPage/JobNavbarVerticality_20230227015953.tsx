@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import JobCategory from './JobCategory';
 
+
+
 export default function JobNavbarVerticality() {
   return (
     <JobNav>

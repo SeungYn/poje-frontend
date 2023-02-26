@@ -15,7 +15,7 @@ type styledPropsType = {
 };
 
 export default function LoginView({ isHomePath }: props) {
-  const { user} = useUser();
+  const { user, setUser } = useUser();
   const { logOut } = useAuth();
   const navigate = useNavigate();
   const [loginIsOpen, loginRef, loginToggleHander] =

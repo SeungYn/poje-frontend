@@ -1,5 +1,7 @@
 import usePortfolioLists from '@src/hooks/job/usePortfolioLists';
+import { breakPoint } from '@src/styledComponents/media';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import JobPortfolioList from './JobPortfolioList';
 
 export default function JobPortfoliosByCategory() {

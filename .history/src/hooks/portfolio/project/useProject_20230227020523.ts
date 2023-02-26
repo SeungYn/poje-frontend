@@ -4,7 +4,7 @@ import {
   ProjectType,
 } from '@src/service/types/portfolio';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-
+import { CopiedProjectType } from './useProjectModify';
 
 export default function useProject() {
   const queryClient = useQueryClient();

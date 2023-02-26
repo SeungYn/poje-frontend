@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import styled, { useTheme } from 'styled-components';
+import styled, { useTheme, CSSProp } from 'styled-components';
 import BeforeButton from '../common/BeforeBtn';
 
 export default function PortfolioMakeForm() {
@@ -27,7 +27,18 @@ export default function PortfolioMakeForm() {
   );
 }
 
+const MakeFormContainer = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
+  width: 460px;
+
+  @media screen and (max-width: 450px) {
+    width: 100%;
+  }
+`;
 
 const MakeForm = styled.form`
   overflow: hidden;

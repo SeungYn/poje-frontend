@@ -22,6 +22,7 @@ export default function AuthSignUpForm() {
   const {
     register,
     handleSubmit,
+    formState,
     getValues,
   } = useForm<JoinRequest>();
   const { join } = useAuth();

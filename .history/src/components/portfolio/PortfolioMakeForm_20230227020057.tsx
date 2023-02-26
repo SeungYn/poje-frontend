@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import styled, { useTheme } from 'styled-components';
+import styled, { useTheme, CSSProp } from 'styled-components';
 import BeforeButton from '../common/BeforeBtn';
 
 export default function PortfolioMakeForm() {
