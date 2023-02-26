@@ -14,13 +14,12 @@ export default function ModifyBtn({
   handleModifyMode,
 }: ModifyBtnType) {
   const { permissionModify } = usePortfolioInfo();
-  const data = usePortfolioInfo();
-console.log(data);
+
   console.log(permissionModify, 'permission');
   if (isModifyMode || !permissionModify) return <></>;
   return (
     <Container>
-      <ModifyButton onClick={handleModifyMode}>수정</ModifyButton>
+      <ModifyButton onClick={handleModifyMode}>정</ModifyButton>
     </Container>
   );
 }

@@ -17,7 +17,7 @@ export default function useProtfolioModifyPermission(portfolioId: string) {
     {
       onSuccess: (result) => {
         console.log(result, '수정권한');
-        result && setPermissionModify((e) => true);
+        setPermissionModify((e) => true);
       },
     }
   );
