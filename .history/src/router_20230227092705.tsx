@@ -13,7 +13,6 @@ import useModal from './hooks/common/useModal';
 import AuthPage from './pages/auth/AuthPage';
 import AuthRouterProtect from './pages/AuthRouterProtect';
 import JobPages from './pages/home/JobPages';
-import JobRoot from './pages/home/JobRoot';
 import JobSearchPage from './pages/home/JobSearchPage';
 import MainPage from './pages/home/MainPage';
 import Root from './pages/home/Root';
@@ -31,11 +30,11 @@ export const router = createBrowserRouter([
       { path: '', element: <MainPage /> },
       {
         path: 'job',
-        element: <JobRoot />,
+        element: <><Outlet /></>,
         children: [
           { index:true, element: <Navigate to={'/job/전체'}></Navigate> },
           {
-            path: 'search/:keyword',
+            path: 'job/search/:keyword',
             element: (
               <RouterProtect>
                 <JobSearchPage />
@@ -43,7 +42,7 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: ':type',
+            path: 'job/:type',
             element: (
               <RouterProtect>
                 <JobPages />
@@ -52,6 +51,7 @@ export const router = createBrowserRouter([
           },
         ]
       },
+      
     ],
     errorElement: <NotFound />,
   },
@@ -112,23 +112,3 @@ export default function AppRouter() {
     </ErrorBoundary>
   );
 }
-
-
-
-// { path: 'job', element: <Navigate to={'/job/전체'}></Navigate> },
-//       {
-//         path: 'job/search/:keyword',
-//         element: (
-//           <RouterProtect>
-//             <JobSearchPage />
-//           </RouterProtect>
-//         ),
-//       },
-//       {
-//         path: 'job/:type',
-//         element: (
-//           <RouterProtect>
-//             <JobPages />
-//           </RouterProtect>
-//         ),
-//       },

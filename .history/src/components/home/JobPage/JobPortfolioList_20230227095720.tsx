@@ -41,6 +41,7 @@ const ProfileList = styled.ul`
     grid-template-columns: repeat(1, 1fr);
   }
 
+ 
 
   @media screen and (min-width: ${breakPoint.ll}) {
     grid-template-columns: repeat(4, 320px);
