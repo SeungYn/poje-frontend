@@ -61,10 +61,10 @@ const Container = styled.div`
     font-size: 2rem;
   }
   display: flex;
-  align-items: center;
   flex-wrap: nowrap;
   border-radius: 1rem;
   overflow: hidden;
+  font-size: ${({ theme }) => theme.fontMiddleSize};
 
   
   @media screen and (max-width:${breakPoint.mmm}){
@@ -76,8 +76,6 @@ const Container = styled.div`
 const SearchBar = styled.input.attrs({ type: 'text' })`
   width: 100%;
   border: none;
-  font-size: ${({ theme }) => theme.fontMiddleSize};
-  padding:0.4rem;
 `;
 
 const SearchBtn = styled.button`

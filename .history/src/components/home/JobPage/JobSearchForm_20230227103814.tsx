@@ -61,7 +61,6 @@ const Container = styled.div`
     font-size: 2rem;
   }
   display: flex;
-  align-items: center;
   flex-wrap: nowrap;
   border-radius: 1rem;
   overflow: hidden;

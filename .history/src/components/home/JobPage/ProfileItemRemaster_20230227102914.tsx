@@ -27,8 +27,8 @@ export default function ProfileItemRemaster(data: PortfolioItemType) {
       <Footer>
         <InfoGroup>
           <ProfileImg src={profileImg} />
-          <p>{nickName}</p>
         </InfoGroup>
+        <p>{nickName}</p>
         <LikeGroup>
           <AiTwotoneHeart className='like' />
           <p>{likeCount}</p>
@@ -95,7 +95,7 @@ const Footer = styled.footer`
   justify-content: space-between;
   padding: 0.2rem 0.8rem;
   border-top: 2px solid ${({ theme }) => theme.bgSemiDarkColor};
-  font-size: ${({theme})=> theme.fontRegular};
+font-size: ${({theme})=> theme.fontRegular};
 `;
 
 const InfoGroup = styled.div`
@@ -121,5 +121,4 @@ const ProfileImg = styled.img`
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  margin-right:0.4rem;
 `;

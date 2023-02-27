@@ -121,5 +121,4 @@ const ProfileImg = styled.img`
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  margin-right:0.4rem;
 `;

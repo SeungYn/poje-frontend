@@ -47,7 +47,6 @@ const Form = styled.form`
   display: flex;
   align-items: center;
   margin-bottom: 0.3rem;
-
   @media screen and (max-width:${breakPoint.mmm}){
     flex-direction: column;
   }
@@ -61,23 +60,13 @@ const Container = styled.div`
     font-size: 2rem;
   }
   display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
   border-radius: 1rem;
   overflow: hidden;
-
-  
-  @media screen and (max-width:${breakPoint.mmm}){
-    position: relative;
-    width: 100%;
-  }
 `;
 
 const SearchBar = styled.input.attrs({ type: 'text' })`
   width: 100%;
   border: none;
-  font-size: ${({ theme }) => theme.fontMiddleSize};
-  padding:0.4rem;
 `;
 
 const SearchBtn = styled.button`
@@ -93,9 +82,4 @@ const PortfolioMakeBtn = styled.button`
   padding: 0.6rem;
   border-radius: 1rem;
   cursor: pointer;
-
-  @media screen and (max-width:${breakPoint.mmm}){
-    flex-direction: column;
-    position: relative;
-  }
 `;
