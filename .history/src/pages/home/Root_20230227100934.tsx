@@ -6,7 +6,7 @@ export default function Root() {
   const location = useLocation();
   const isHomePath = location.pathname === '/' ? true : false;
   return (
-    <DefaultBackground isHomePath={isHomePath}>
+    <DefaultBackground>
       <MainHeader isHomePath={isHomePath} />
       <Outlet />
     </DefaultBackground>
