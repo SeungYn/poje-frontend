@@ -33,8 +33,6 @@ const JobList = styled.ul`
   border-left: 1px solid ${({ theme }) => theme.textColor};
   @media screen and (max-width:${breakPoint.mm}){
     flex-direction: row;
-    border-top: 1px solid ${({ theme }) => theme.textColor};
-    border-left: none;
   }
 
 

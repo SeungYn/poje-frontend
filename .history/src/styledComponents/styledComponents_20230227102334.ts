@@ -68,13 +68,14 @@ button{
 }
 html{
 	height:100%;
+
   font-size:62.5%;
   @media screen and (min-width:${breakPoint.mmm}){
     font-size:80.5%;
     
   }
   @media screen and (min-width:${breakPoint.mm}){
-    font-size:100%;
+    font-size:80.5%;
     
   }
 }

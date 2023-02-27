@@ -30,7 +30,7 @@ const ProfileContainer = styled.section`
   margin:0 auto;
 
   @media screen and (max-width:${breakPoint.s}){
-    padding: 0rem 0rem;
+    padding: 0rem 1rem;
   }
 `;
 

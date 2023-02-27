@@ -34,7 +34,6 @@ const JobList = styled.ul`
   @media screen and (max-width:${breakPoint.mm}){
     flex-direction: row;
     border-top: 1px solid ${({ theme }) => theme.textColor};
-    border-left: none;
   }
 
 
