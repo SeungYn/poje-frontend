@@ -54,6 +54,5 @@ export default class MemberService {
 
     const {data:{result}} = await this.http.fetchJson<MemberInfoResponse>(`/member`, config);
 
-    return result;
   }
 }

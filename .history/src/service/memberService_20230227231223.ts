@@ -41,19 +41,5 @@ export default class MemberService {
           blogLink,}),
       ], {type:'application/json'})
     );
-
-    if(profileImgFile){
-      formData.append('projileImg', profileImgFile);
-    }
-
-    const config:AxiosRequestConfig = {
-      method:'PUT',
-      data:formData,
-      headers: {'Content-Type': 'multipart/form-data'},
-    };
-
-    const {data:{result}} = await this.http.fetchJson<MemberInfoResponse>(`/member`, config);
-
-    return result;
   }
 }
