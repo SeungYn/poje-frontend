@@ -13,5 +13,6 @@ const JobRootContainer = styled.section`
 	background-color: ${(props) => props.theme.bgSemiDarkColor};
 	width:100%;
 	height:100%;
+
 `
 

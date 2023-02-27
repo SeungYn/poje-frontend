@@ -15,7 +15,6 @@ import JobPages from './pages/home/JobPages';
 import JobRoot from './pages/home/JobRoot';
 import JobSearchPage from './pages/home/JobSearchPage';
 import MainPage from './pages/home/MainPage';
-import MyInfoPage from './pages/home/MyInfoPage';
 import Root from './pages/home/Root';
 import NotFound from './pages/notFound/NotFound';
 import PortfolioMain from './pages/portfolio/PortfolioMain';
@@ -52,10 +51,6 @@ export const router = createBrowserRouter([
           },
         ]
       },
-      {
-        path: 'myinfo',
-        element:<MyInfoPage />
-      }
     ],
     errorElement: <NotFound />,
   },

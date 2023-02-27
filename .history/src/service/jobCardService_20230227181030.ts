@@ -37,18 +37,19 @@ export default class JobCardService {
 
   async getPortfolioCards(data: JobPortfolioCardRequest) {
     const { name, page } = data;
+    console.log(name, page);
     const config: AxiosRequestConfig = {
       method: 'GET',
     };
     const {
       data: {
-        result: { data:{pfAndMemberResp}, pagingUtil },
+        result: { pfAndMemberResp },
       },
     } = await this.http.fetchJson<JobPortfolioCardResponse>(
       `/member/portfolios?name=${name}`,
       config
     );
-    return {pfAndMemberResp, pagingUtil};
+    return pfAndMemberResp;
   }
 
   async getPortfoliosPagInfo(data: GetPortfoliosPagInfoRequest){

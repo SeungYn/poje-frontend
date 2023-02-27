@@ -31,8 +31,7 @@ export type PortfoliosPagInfoType = {
 
 export interface JobPortfolioCardResponse extends BasicResponse {
   result: {
-    data: { pfAndMemberResp: PortfolioItemType[]; },
-    pagingUtil: PortfolioItemType,
+    pfAndMemberResp: PortfolioItemType[];
   };
 }
 

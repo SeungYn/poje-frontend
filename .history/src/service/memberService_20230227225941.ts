@@ -10,11 +10,6 @@ export default class MemberService {
       method:'GET',
     }
 
-    const {data:{result}} = await this.http.fetchJson<GetMemberInfoResponse>('member', config);
-    return result;
-  }
-
-  async putMemberInfo(){
-    
+    const {data} = this.http.fetchJson<GetMemberInfoResponse>('member', config);
   }
 }

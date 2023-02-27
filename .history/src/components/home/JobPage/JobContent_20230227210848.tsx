@@ -27,6 +27,7 @@ const ProfileContainer = styled.section`
   padding: 1rem 2rem;
   max-width: 1600px;
   margin:0 auto;
+  border:10px solid blue;
   display:flex;
   flex-direction: column;
   @media screen and (max-width:${breakPoint.s}){

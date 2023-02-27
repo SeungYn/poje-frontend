@@ -48,7 +48,7 @@ export default class JobCardService {
       `/member/portfolios?name=${name}`,
       config
     );
-    return {pfAndMemberResp, pagingUtil};
+    return pfAndMemberResp;
   }
 
   async getPortfoliosPagInfo(data: GetPortfoliosPagInfoRequest){

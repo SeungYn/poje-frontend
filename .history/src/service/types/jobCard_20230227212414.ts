@@ -33,6 +33,7 @@ export interface JobPortfolioCardResponse extends BasicResponse {
   result: {
     data: { pfAndMemberResp: PortfolioItemType[]; },
     pagingUtil: PortfolioItemType,
+    
   };
 }
 

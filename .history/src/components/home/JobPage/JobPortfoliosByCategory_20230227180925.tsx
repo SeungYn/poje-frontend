@@ -5,14 +5,12 @@ import JobPortfolioList from './JobPortfolioList';
 
 export default function JobPortfoliosByCategory() {
   const { type, page } = useParams<{ type: string, page:string }>();
-  // const { jobList } = usePortfolioLists({ jobName: type! , page:page!});
+  const { jobList } = usePortfolioLists({ jobName: type! , page:page!});
   console.log(type, page);
   //param.type! as string
   return (
     <Container >
-      <JobPortfolioListContainer>
-        {/* <JobPortfolioList list={jobList} /> */}
-      </JobPortfolioListContainer>
+      <JobPortfolioList list={jobList} />
       <p>123</p>
    </Container>
   );
@@ -20,9 +18,8 @@ export default function JobPortfoliosByCategory() {
 
 
 const Container = styled.div`
-  display:flex;
-  flex-direction: column;
   height:100%;
+  overflow: hidden;
   width:100%;
   & > p{
     height:50px;
@@ -31,10 +28,3 @@ const Container = styled.div`
  
   }
 `;
-
-const JobPortfolioListContainer = styled.div`
-position:relative;
- height: 100%;
-  overflow: hidden;
-  
-`
