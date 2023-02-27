@@ -40,15 +40,11 @@ export interface GetPortfoliosPagInfoRequest{
   page: string;
 }
 
-export type PortfoliosPagInfoType = {
+export interface GetPortfoliosPagInfoResponse extends BasicResponse{
   totalRecordCnt:number;       // 전체 데이터 수
   totalPageCnt:number;      // 전체 페이지 수
   startPage:number;           // 첫 페이지 번호
   endPage:number;             // 끝 페이지 번호
   isPrev:boolean;                 // 이전 페이지 표시 여부
-  isNext:boolean; 
-}
-
-export interface GetPortfoliosPagInfoResponse extends BasicResponse{
-  result: PortfoliosPagInfoType;  
+  isNext:boolean;    
 }

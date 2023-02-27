@@ -60,8 +60,8 @@ export default class JobCardService {
 
     const {
       data:{result},
-    } = await this.http.fetchJson<GetPortfoliosPagInfoResponse>(`1`, config);
+    } = await this.http.fetchJson<GetPortfoliosPagInfoResponse>(``, config);
 
-    return result;
+
   }
 }

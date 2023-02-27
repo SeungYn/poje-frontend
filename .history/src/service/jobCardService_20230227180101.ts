@@ -62,6 +62,6 @@ export default class JobCardService {
       data:{result},
     } = await this.http.fetchJson<GetPortfoliosPagInfoResponse>(`1`, config);
 
-    return result;
+
   }
 }

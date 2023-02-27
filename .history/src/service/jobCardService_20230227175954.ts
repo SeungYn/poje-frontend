@@ -59,9 +59,7 @@ export default class JobCardService {
     };
 
     const {
-      data:{result},
-    } = await this.http.fetchJson<GetPortfoliosPagInfoResponse>(`1`, config);
-
-    return result;
+      data:{result}
+    } = await this.http.fetchJson<GetPortfoliosPagInfoResponse>(``, config);
   }
 }

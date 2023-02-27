@@ -2,7 +2,6 @@ import { AxiosRequestConfig } from 'axios';
 import Http from '@src/network/http';
 import {
   GetPortfoliosPagInfoRequest,
-  GetPortfoliosPagInfoResponse,
   JobCategoryResponse,
   JobPortfolioCardRequest,
   JobPortfolioCardResponse,
@@ -58,10 +57,5 @@ export default class JobCardService {
       method:'GET',
     };
 
-    const {
-      data:{result},
-    } = await this.http.fetchJson<GetPortfoliosPagInfoResponse>(`1`, config);
-
-    return result;
   }
 }

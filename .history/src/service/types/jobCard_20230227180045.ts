@@ -50,5 +50,5 @@ export type PortfoliosPagInfoType = {
 }
 
 export interface GetPortfoliosPagInfoResponse extends BasicResponse{
-  result: PortfoliosPagInfoType;  
+  return: PortfoliosPagInfoType;  
 }
