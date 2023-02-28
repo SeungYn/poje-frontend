@@ -89,14 +89,14 @@ export default function PortfolioAboutMeModify() {
           </InfoText>
         </InfoItem>
       </InfoList>
-      <Footer>
+    <Footer>
         <div>
           <RxGithubLogo className='font'/>
-          <SiteLink name='gitHubLink' onChange={onChange} value={form.gitHubLink || ''} />
+          <SiteLink value={form.gitHubLink} />
         </div>
         <div>
           <FaBloggerB className='font'/>
-          <SiteLink name='blogLink' onChange={onChange} value={form.blogLink || ''} />
+          <SiteLink value={form.blogLink} />
         </div>
       </Footer>
       <ModifyComfirmAndCancleGroup
@@ -159,9 +159,7 @@ const InfoText = styled.div`
 const InputText = styled.input`
   font-size: ${({ theme }) => theme.fontRegular};
   width: 90%;
-  outline:none;
-  border:none;
-  border-bottom:1px solid black;
+
 `;
 
 
@@ -190,7 +188,4 @@ const Footer = styled.div`
 const SiteLink = styled.input`
   margin-left:0.8rem;
   font-size: ${({ theme }) => theme.fontMiddleSize};
-  outline:none;
-  border:none;
-  border-bottom:1px solid black;
 `;

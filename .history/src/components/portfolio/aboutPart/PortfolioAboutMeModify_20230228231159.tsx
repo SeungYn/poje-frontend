@@ -92,11 +92,11 @@ export default function PortfolioAboutMeModify() {
       <Footer>
         <div>
           <RxGithubLogo className='font'/>
-          <SiteLink name='gitHubLink' onChange={onChange} value={form.gitHubLink || ''} />
+          <SiteLink onChange={onChange} value={form.gitHubLink || ''} />
         </div>
         <div>
           <FaBloggerB className='font'/>
-          <SiteLink name='blogLink' onChange={onChange} value={form.blogLink || ''} />
+          <SiteLink onChange={onChange} value={form.blogLink || ''} />
         </div>
       </Footer>
       <ModifyComfirmAndCancleGroup
