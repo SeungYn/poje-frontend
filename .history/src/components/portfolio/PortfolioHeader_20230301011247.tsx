@@ -12,7 +12,7 @@ export default function PortfolioHeader() {
   const isIntroDisapper = useRecoilValue(isDisapperIntro);
   
   return (
-    <Container isIntroDisapper={isIntroDisapper} isOpen={isOpen}>
+    <Container isIntroDisapper={isIntroDisapper} isOpen={ isOpen}>
       <Title
         isIntroDisapper={isIntroDisapper}
         isOpen={ isOpen}

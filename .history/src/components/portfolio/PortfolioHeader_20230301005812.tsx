@@ -12,7 +12,7 @@ export default function PortfolioHeader() {
   const isIntroDisapper = useRecoilValue(isDisapperIntro);
   
   return (
-    <Container isIntroDisapper={isIntroDisapper} isOpen={isOpen}>
+    <Container isIntroDisapper={isIntroDisapper} isOpen={ isOpen}>
       <Title
         isIntroDisapper={isIntroDisapper}
         isOpen={ isOpen}
@@ -100,7 +100,7 @@ const Container = styled.header<{ isIntroDisapper: boolean; isOpen: boolean; }>`
   @media screen and (max-width:${breakPoint.mm}){
     flex-direction:column;
     align-items:flex-start;
-    
+    max-width:400px;
   }
 
 

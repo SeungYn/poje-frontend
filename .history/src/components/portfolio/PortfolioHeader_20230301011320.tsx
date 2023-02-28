@@ -12,7 +12,7 @@ export default function PortfolioHeader() {
   const isIntroDisapper = useRecoilValue(isDisapperIntro);
   
   return (
-    <Container isIntroDisapper={isIntroDisapper} isOpen={isOpen}>
+    <Container isIntroDisapper={isIntroDisapper} isOpen={ isOpen}>
       <Title
         isIntroDisapper={isIntroDisapper}
         isOpen={ isOpen}
@@ -67,7 +67,12 @@ function moverToPart(e: React.MouseEvent) {
   const targetPart = document.querySelector(`${target.dataset.link}`);
   targetPart?.scrollIntoView({ behavior: 'smooth' });
 }
-
+const testDiv = styled.div`
+  position: fixed;
+  width:100%;
+  height:200px;
+  background-color: black;
+`
 const Container = styled.header<{ isIntroDisapper: boolean; isOpen: boolean; }>`
   position: fixed;
   width:100%;

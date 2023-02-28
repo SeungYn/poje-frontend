@@ -12,7 +12,7 @@ export default function PortfolioHeader() {
   const isIntroDisapper = useRecoilValue(isDisapperIntro);
   
   return (
-    <Container isIntroDisapper={isIntroDisapper} isOpen={isOpen}>
+    <Container isIntroDisapper={isIntroDisapper} isOpen={ isOpen}>
       <Title
         isIntroDisapper={isIntroDisapper}
         isOpen={ isOpen}
@@ -70,10 +70,7 @@ function moverToPart(e: React.MouseEvent) {
 
 const Container = styled.header<{ isIntroDisapper: boolean; isOpen: boolean; }>`
   position: fixed;
-  width:100%;
   top: 0;
-  right:0;
-  left:0;
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
@@ -100,10 +97,7 @@ const Container = styled.header<{ isIntroDisapper: boolean; isOpen: boolean; }>`
   @media screen and (max-width:${breakPoint.mm}){
     flex-direction:column;
     align-items:flex-start;
-    
   }
-
-
 `;
 
 const Title = styled.h1<{ isIntroDisapper: boolean; isOpen: boolean; }>`
@@ -144,12 +138,17 @@ const HamburgerButton = styled.button<{ isIntroDisapper: boolean; isOpen: boolea
   display:none;
   right:1rem;
   color: ${({ theme ,isOpen, isIntroDisapper}) => (isIntroDisapper || isOpen  ?  'black' : theme.textColorToneDown)};
-  font-size:3rem;
-  top:1rem;
+  font-size:2rem;
+  top:50%;
+  transform: translateY(-50%);
   &:hover {
     color: ${({ isIntroDisapper,isOpen }) => (isIntroDisapper || isOpen ? '#7c7c7c' : 'white')};
   }
 
+
+  .icon{
+    font-size:2rem;
+  }
   @media screen and (max-width:${breakPoint.mm}){
     display:block;
   }

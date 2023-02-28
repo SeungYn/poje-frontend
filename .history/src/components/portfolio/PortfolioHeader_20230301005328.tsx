@@ -12,7 +12,7 @@ export default function PortfolioHeader() {
   const isIntroDisapper = useRecoilValue(isDisapperIntro);
   
   return (
-    <Container isIntroDisapper={isIntroDisapper} isOpen={isOpen}>
+    <Container isIntroDisapper={isIntroDisapper} isOpen={ isOpen}>
       <Title
         isIntroDisapper={isIntroDisapper}
         isOpen={ isOpen}
@@ -72,11 +72,9 @@ const Container = styled.header<{ isIntroDisapper: boolean; isOpen: boolean; }>`
   position: fixed;
   width:100%;
   top: 0;
-  right:0;
-  left:0;
   width: 100%;
   padding: 1rem 2rem;
-  display: flex;
+  
   justify-content: space-between;
   align-items: center;
   color: ${({ theme }) => theme.textColorToneDown};
@@ -100,7 +98,7 @@ const Container = styled.header<{ isIntroDisapper: boolean; isOpen: boolean; }>`
   @media screen and (max-width:${breakPoint.mm}){
     flex-direction:column;
     align-items:flex-start;
-    
+    max-width:700px;
   }
 
 

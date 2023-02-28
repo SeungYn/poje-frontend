@@ -13,6 +13,7 @@ export default function PortfolioHeader() {
   
   return (
     <Container isIntroDisapper={isIntroDisapper} isOpen={isOpen}>
+      <TestDiv></TestDiv>
       <Title
         isIntroDisapper={isIntroDisapper}
         isOpen={ isOpen}
@@ -67,7 +68,12 @@ function moverToPart(e: React.MouseEvent) {
   const targetPart = document.querySelector(`${target.dataset.link}`);
   targetPart?.scrollIntoView({ behavior: 'smooth' });
 }
-
+const TestDiv = styled.div`
+  position: fixed;
+  width:100%;
+  height:200px;
+  background-color: black;
+`
 const Container = styled.header<{ isIntroDisapper: boolean; isOpen: boolean; }>`
   position: fixed;
   width:100%;

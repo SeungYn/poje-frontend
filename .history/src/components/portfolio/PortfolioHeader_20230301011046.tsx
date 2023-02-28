@@ -12,7 +12,7 @@ export default function PortfolioHeader() {
   const isIntroDisapper = useRecoilValue(isDisapperIntro);
   
   return (
-    <Container isIntroDisapper={isIntroDisapper} isOpen={isOpen}>
+    <Container isIntroDisapper={isIntroDisapper} isOpen={ isOpen}>
       <Title
         isIntroDisapper={isIntroDisapper}
         isOpen={ isOpen}
@@ -70,7 +70,7 @@ function moverToPart(e: React.MouseEvent) {
 
 const Container = styled.header<{ isIntroDisapper: boolean; isOpen: boolean; }>`
   position: fixed;
-  width:100%;
+  width:100vw;
   top: 0;
   right:0;
   left:0;
