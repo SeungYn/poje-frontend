@@ -118,17 +118,12 @@ const Navbar = styled.ul<{ isOpen: boolean; }>`
     display:${({isOpen})=>isOpen ? 'block' : 'none'};
     flex-direction: column;
     align-self: center;
-    width:100%;
-    text-align: center;
   }
 `;
 
 const NavbarItem = styled.li<{ isIntroDisapper: boolean; isOpen: boolean; }>`
   &:hover {
     color: ${({ isIntroDisapper,isOpen }) => (isIntroDisapper || isOpen ? '#7c7c7c' : 'white')};
-  }
-  @media screen and (max-width:${breakPoint.mm}){
-    padding:auto;
   }
   cursor: pointer;
 `;

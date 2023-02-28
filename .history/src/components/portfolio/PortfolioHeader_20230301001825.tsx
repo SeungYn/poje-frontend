@@ -118,8 +118,6 @@ const Navbar = styled.ul<{ isOpen: boolean; }>`
     display:${({isOpen})=>isOpen ? 'block' : 'none'};
     flex-direction: column;
     align-self: center;
-    width:100%;
-    text-align: center;
   }
 `;
 

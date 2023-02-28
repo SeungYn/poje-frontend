@@ -119,7 +119,6 @@ const Navbar = styled.ul<{ isOpen: boolean; }>`
     flex-direction: column;
     align-self: center;
     width:100%;
-    text-align: center;
   }
 `;
 

@@ -3,7 +3,6 @@ import { breakPoint } from '@src/styledComponents/media';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import styled, { css } from 'styled-components';
 
 export default function PortfolioHeader() {
@@ -15,16 +14,14 @@ export default function PortfolioHeader() {
     <Container isIntroDisapper={isIntroDisapper} isOpen={ isOpen}>
       <Title
         isIntroDisapper={isIntroDisapper}
-        isOpen={ isOpen}
         onClick={() => {
           navigate('/job');
         }}
       >
         Poje
       </Title>
-      <Navbar isOpen={ isOpen}>
+      <Navbar>
         <NavbarItem
-          isOpen={ isOpen}
           isIntroDisapper={isIntroDisapper}
           data-link='#intro'
           onClick={moverToPart}
@@ -32,7 +29,6 @@ export default function PortfolioHeader() {
           Intro
         </NavbarItem>
         <NavbarItem
-          isOpen={ isOpen}
           isIntroDisapper={isIntroDisapper}
           data-link='#aboutme'
           onClick={moverToPart}
@@ -40,7 +36,6 @@ export default function PortfolioHeader() {
           About Me
         </NavbarItem>
         <NavbarItem
-          isOpen={ isOpen}
           isIntroDisapper={isIntroDisapper}
           data-link='#skills'
           onClick={moverToPart}
@@ -48,7 +43,6 @@ export default function PortfolioHeader() {
           Skills
         </NavbarItem>
         <NavbarItem
-          isOpen={ isOpen}
           isIntroDisapper={isIntroDisapper}
           data-link='#projects'
           onClick={moverToPart}
@@ -56,8 +50,7 @@ export default function PortfolioHeader() {
           Projects
         </NavbarItem>
       </Navbar>
-      <HamburgerButton isOpen={ isOpen}
-          isIntroDisapper={isIntroDisapper} onClick={()=>setIsOpen(f=>!f) }><GiHamburgerMenu /></HamburgerButton>
+      <HamburgerButton onClick={()=>setIsOpen(f=>!f) }>햄버거</HamburgerButton>
     </Container>
   );
 }
@@ -100,49 +93,38 @@ const Container = styled.header<{ isIntroDisapper: boolean; isOpen: boolean; }>`
   }
 `;
 
-const Title = styled.h1<{ isIntroDisapper: boolean; isOpen: boolean; }>`
+const Title = styled.h1<{ isIntroDisapper: boolean }>`
   font-size: ${({ theme }) => theme.fontLargeSize};
   &:hover {
-    color: ${({ isIntroDisapper,isOpen }) => (isIntroDisapper || isOpen ? '#7c7c7c' : 'white')};
+    color: ${({ isIntroDisapper }) => (isIntroDisapper ? '#7c7c7c' : 'white')};
   }
   cursor: pointer;
 `;
 
-const Navbar = styled.ul<{ isOpen: boolean; }>`
+const Navbar = styled.ul`
   display: flex;
   font-size: ${({ theme }) => theme.fontMiddleSize};
   font-weight: 600;
   gap: 0.8rem;
 
   @media screen and (max-width:${breakPoint.mm}){
-    display:${({isOpen})=>isOpen ? 'block' : 'none'};
     flex-direction: column;
     align-self: center;
-    width:100%;
-    text-align: center;
   }
 `;
 
-const NavbarItem = styled.li<{ isIntroDisapper: boolean; isOpen: boolean; }>`
+const NavbarItem = styled.li<{ isIntroDisapper: boolean }>`
   &:hover {
-    color: ${({ isIntroDisapper,isOpen }) => (isIntroDisapper || isOpen ? '#7c7c7c' : 'white')};
-  }
-  @media screen and (max-width:${breakPoint.mm}){
-    padding:auto;
+    color: ${({ isIntroDisapper }) => (isIntroDisapper ? '#7c7c7c' : 'white')};
   }
   cursor: pointer;
 `;
 
-const HamburgerButton = styled.button<{ isIntroDisapper: boolean; isOpen: boolean; }>`
+const HamburgerButton = styled.button`
   position:absolute;
   display:none;
+  color:white;
   right:1rem;
-  top:1rem;
-  color: ${({ theme ,isOpen, isIntroDisapper}) => (isIntroDisapper || isOpen  ?  'black' : theme.textColorToneDown)};
-  font-size:2rem;
-  &:hover {
-    color: ${({ isIntroDisapper,isOpen }) => (isIntroDisapper || isOpen ? '#7c7c7c' : 'white')};
-  }
 
   @media screen and (max-width:${breakPoint.mm}){
     display:block;

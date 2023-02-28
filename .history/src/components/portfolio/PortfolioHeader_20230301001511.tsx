@@ -56,8 +56,7 @@ export default function PortfolioHeader() {
           Projects
         </NavbarItem>
       </Navbar>
-      <HamburgerButton isOpen={ isOpen}
-          isIntroDisapper={isIntroDisapper} onClick={()=>setIsOpen(f=>!f) }><GiHamburgerMenu /></HamburgerButton>
+      <HamburgerButton onClick={()=>setIsOpen(f=>!f) }><GiHamburgerMenu /></HamburgerButton>
     </Container>
   );
 }
@@ -118,8 +117,6 @@ const Navbar = styled.ul<{ isOpen: boolean; }>`
     display:${({isOpen})=>isOpen ? 'block' : 'none'};
     flex-direction: column;
     align-self: center;
-    width:100%;
-    text-align: center;
   }
 `;
 
@@ -127,22 +124,14 @@ const NavbarItem = styled.li<{ isIntroDisapper: boolean; isOpen: boolean; }>`
   &:hover {
     color: ${({ isIntroDisapper,isOpen }) => (isIntroDisapper || isOpen ? '#7c7c7c' : 'white')};
   }
-  @media screen and (max-width:${breakPoint.mm}){
-    padding:auto;
-  }
   cursor: pointer;
 `;
 
-const HamburgerButton = styled.button<{ isIntroDisapper: boolean; isOpen: boolean; }>`
+const HamburgerButton = styled.button`
   position:absolute;
   display:none;
+  color:white;
   right:1rem;
-  top:1rem;
-  color: ${({ theme ,isOpen, isIntroDisapper}) => (isIntroDisapper || isOpen  ?  'black' : theme.textColorToneDown)};
-  font-size:2rem;
-  &:hover {
-    color: ${({ isIntroDisapper,isOpen }) => (isIntroDisapper || isOpen ? '#7c7c7c' : 'white')};
-  }
 
   @media screen and (max-width:${breakPoint.mm}){
     display:block;
