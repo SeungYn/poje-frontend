@@ -2,6 +2,8 @@ import { AxiosRequestConfig } from 'axios';
 import Http from '@src/network/http';
 import {
   GetPortfolioCardWithKeywordRequest,
+  GetPortfoliosPagInfoRequest,
+  GetPortfoliosPagInfoResponse,
   JobCategoryResponse,
   JobPortfolioCardRequest,
   JobPortfolioCardResponse,

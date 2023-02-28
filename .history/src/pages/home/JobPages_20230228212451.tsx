@@ -1,6 +1,7 @@
 import JobPortfoliosByCategory from '@src/components/home/JobPage/JobPortfoliosByCategory';
 import JobPortfolioListContent from '@src/components/home/JobPage/JobProfileListContent';
 import { breakPoint } from '@src/styledComponents/media';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import JobNavbarVerticality from '../../components/home/JobPage/JobNavbarVerticality';
 

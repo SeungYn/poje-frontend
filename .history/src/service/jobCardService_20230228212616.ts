@@ -2,6 +2,8 @@ import { AxiosRequestConfig } from 'axios';
 import Http from '@src/network/http';
 import {
   GetPortfolioCardWithKeywordRequest,
+  GetPortfoliosPagInfoRequest,
+  GetPortfoliosPagInfoResponse,
   JobCategoryResponse,
   JobPortfolioCardRequest,
   JobPortfolioCardResponse,
@@ -63,6 +65,7 @@ export default class JobCardService {
       `/member/portfolios?name=${name}&keyword=${keyword}&page=${page}`,
       config
       );
+    console.log(result);
     return result;
   }
 
