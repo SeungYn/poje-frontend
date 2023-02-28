@@ -25,6 +25,7 @@ const Horizon = styled.div`
   opacity: 0.5;
 
   @media screen and (max-width:${breakPoint.mm}){
+    position:absolute;
     position:relative;
   }
 

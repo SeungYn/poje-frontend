@@ -15,7 +15,7 @@ export default function ModifyHorizonBtn({ title, handleClick }: PropType) {
 }
 
 const Horizon = styled.div`
-  position:absolute;
+  position:relative;
   width: 100%;
   bottom: 10px;
   left: 0;
@@ -25,7 +25,7 @@ const Horizon = styled.div`
   opacity: 0.5;
 
   @media screen and (max-width:${breakPoint.mm}){
-    position:relative;
+    position:absolute;
   }
 
   &:hover {

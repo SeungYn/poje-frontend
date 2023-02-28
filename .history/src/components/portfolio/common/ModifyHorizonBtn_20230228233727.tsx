@@ -1,4 +1,3 @@
-import { breakPoint } from '@src/styledComponents/media';
 import styled from 'styled-components';
 
 type PropType = {
@@ -15,7 +14,6 @@ export default function ModifyHorizonBtn({ title, handleClick }: PropType) {
 }
 
 const Horizon = styled.div`
-  position:absolute;
   width: 100%;
   bottom: 10px;
   left: 0;
@@ -23,10 +21,6 @@ const Horizon = styled.div`
   display: flex;
   justify-content: center;
   opacity: 0.5;
-
-  @media screen and (max-width:${breakPoint.mm}){
-    position:relative;
-  }
 
   &:hover {
     opacity: 1;

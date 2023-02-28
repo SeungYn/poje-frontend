@@ -6,7 +6,6 @@ export const CommonSection = styled.section`
   padding: 6rem 6rem 6rem 6rem;
   @media screen and (max-width:${breakPoint.mm}){
     padding: 1rem 1rem 1rem 1rem;
-    
   }
 `;
 

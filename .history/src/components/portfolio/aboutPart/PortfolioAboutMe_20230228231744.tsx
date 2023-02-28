@@ -120,7 +120,7 @@ const InfoItem = styled.li`
 
   @media screen and (max-width: ${breakPoint.s}) {
     flex-basis: 100%;
-    
+    margin-left:0;
   }
 
   @media screen and (min-width: ${breakPoint.mm}) {

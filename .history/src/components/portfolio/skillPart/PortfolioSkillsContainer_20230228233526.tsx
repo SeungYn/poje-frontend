@@ -32,6 +32,7 @@ export default function PortfolioSkillsContainer() {
 }
 
 const Container = styled(S.CommonSection)`
+
   background: ${({ theme }) => theme.colorPink};
   
   .skillsContainer {
