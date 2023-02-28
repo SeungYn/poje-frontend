@@ -12,34 +12,28 @@ export default function JobSearchForm() {
   const { category } = useJobCategory();
   const { createPortfolio } = usePortfolioCRUD();
   
-  const [keyword, setKeyword] = useState<string>(paramKeyword || '');
+  const [keyword, setKeyword] = useState<string>('');
   const [jobCategoty, setJobCategory] = useState<string>(type!);
-
+  
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setKeyword(value);
   }, []);
-
-  const onChangeCategory = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = e.target;
-    setJobCategory(value);
-  }, []);
   
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/job/${jobCategoty}/search/${keyword}/1`);
+    navigate(`/job/${type!}/search/${keyword}/1`);
   };
 
   return (
     <Form onSubmit={onSubmit}>
   
-      
+      {paramKeyword && <select name="jobCategory" value={ } >
+        {category.map(cate => <option value={cate.name}>{cate.name}</option>)}
+      </select>}
       <Container>
         <BiSearchAlt2 className='icon' />
         <SearchBar onChange={onChange} value={keyword} />
-        {paramKeyword && <select name="jobCategory" onChange={ onChangeCategory} value={ jobCategoty} >
-        {category.map(cate => <option value={cate.name}>{cate.name}</option>)}
-      </select>}
         <SearchBtn />
       </Container>
       {type !== '전체' && (

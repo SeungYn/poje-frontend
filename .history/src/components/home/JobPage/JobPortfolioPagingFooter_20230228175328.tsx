@@ -51,7 +51,7 @@ export default function JobPortfolioPagingFooter(data: PropsType) {
 		<PageList>
 		<PageSetMoveBtn onClick={() => moverStartPage()}>{'<<'}</PageSetMoveBtn>
 			{prev && <PageSetMoveBtn onClick={() => movePrevPage(page)}>{'<'}</PageSetMoveBtn>}
-			{pageArr.map(i => <PageItem key={`${type}/${searchKeyword}/${i}`} isCurrentPage={String(i) ===  currentPage  } onClick={() => moveNumberPage(i)}>{i}</PageItem>)}
+			{pageArr.map(i => <PageItem key={`${type}/${searchKeyword}/${i}`} isCurrentPage={String(i) ===  currentPage  } onClick={() => moveNumberPage(page)}>{i}</PageItem>)}
 			{next && <PageSetMoveBtn onClick={() => moveNextPage(page)}>{'>'}</PageSetMoveBtn>}
 			{totalPageCnt && <PageSetMoveBtn onClick={() => moveEndPage()}>{'>>'}</PageSetMoveBtn>}
 		</PageList>

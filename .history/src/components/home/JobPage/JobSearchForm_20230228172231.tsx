@@ -12,7 +12,7 @@ export default function JobSearchForm() {
   const { category } = useJobCategory();
   const { createPortfolio } = usePortfolioCRUD();
   
-  const [keyword, setKeyword] = useState<string>(paramKeyword || '');
+  const [keyword, setKeyword] = useState<string>('');
   const [jobCategoty, setJobCategory] = useState<string>(type!);
 
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +27,7 @@ export default function JobSearchForm() {
   
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/job/${jobCategoty}/search/${keyword}/1`);
+    navigate(`/job/${type!}/search/${keyword}/1`);
   };
 
   return (

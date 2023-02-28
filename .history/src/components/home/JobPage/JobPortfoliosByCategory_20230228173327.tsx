@@ -33,4 +33,5 @@ const JobPortfolioListContainer = styled.div`
   position:relative;
   height: 100%;
   overflow: hidden;
+  
 `

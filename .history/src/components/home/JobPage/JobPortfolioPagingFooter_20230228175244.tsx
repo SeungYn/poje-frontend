@@ -12,7 +12,7 @@ export default function JobPortfolioPagingFooter(data: PropsType) {
 	const moveNextPage = (nowPage: number) => {
 		const nextPage = (Math.floor((nowPage - 1) / 5) + 1) * 5 + 1;
 		if (searchKeyword) {
-			return navigate(`/job/${type}/search/${searchKeyword}/${nextPage}`);
+			return navigate(`/job/${type}/searchKeyword/${searchKeyword}/${nextPage}`);
 		}
 		return navigate(`/job/${type}/${nextPage}`);
 	}
@@ -20,14 +20,14 @@ export default function JobPortfolioPagingFooter(data: PropsType) {
 	const movePrevPage = (nowPage: number) => {
 		const prevPage = (Math.floor((nowPage - 1) / 5) - 1) * 5 + 1;
 		if (searchKeyword) {
-			return navigate(`/job/${type}/search/${searchKeyword}/${prevPage}`);
+			return navigate(`/job/${type}/searchKeyword/${searchKeyword}/${prevPage}`);
 		}
 		return navigate(`/job/${type}/${prevPage}`);
 	}
 
 	const moverStartPage = () => {
 		if (searchKeyword) {
-			return navigate(`/job/${type}/search/${searchKeyword}/${1}`);
+			return navigate(`/job/${type}/searchKeyword/${searchKeyword}/${1}`);
 		}
 		return navigate(`/job/${type}/${1}`);
 		
@@ -35,14 +35,14 @@ export default function JobPortfolioPagingFooter(data: PropsType) {
 
 	const moveEndPage = () => {
 		if (searchKeyword) {
-			return navigate(`/job/${type}/search/${searchKeyword}/${totalPageCnt}`);
+			return navigate(`/job/${type}/searchKeyword/${searchKeyword}/${totalPageCnt}`);
 		}
 		return navigate(`/job/${type}/${totalPageCnt}`);
 	}
 
 	const moveNumberPage = (page:number) => {
 		if (searchKeyword) {
-			return navigate(`/job/${type}/search/${searchKeyword}/${page}`);
+			return navigate(`/job/${type}/searchKeyword/${searchKeyword}/${page}`);
 		}
 		return navigate(`/job/${type}/${page}`);
 	}
@@ -51,7 +51,7 @@ export default function JobPortfolioPagingFooter(data: PropsType) {
 		<PageList>
 		<PageSetMoveBtn onClick={() => moverStartPage()}>{'<<'}</PageSetMoveBtn>
 			{prev && <PageSetMoveBtn onClick={() => movePrevPage(page)}>{'<'}</PageSetMoveBtn>}
-			{pageArr.map(i => <PageItem key={`${type}/${searchKeyword}/${i}`} isCurrentPage={String(i) ===  currentPage  } onClick={() => moveNumberPage(i)}>{i}</PageItem>)}
+			{pageArr.map(i => <PageItem key={`${type}/${searchKeyword}/${i}`} isCurrentPage={String(i) ===  currentPage  } onClick={() => moveNumberPage(page)}>{i}</PageItem>)}
 			{next && <PageSetMoveBtn onClick={() => moveNextPage(page)}>{'>'}</PageSetMoveBtn>}
 			{totalPageCnt && <PageSetMoveBtn onClick={() => moveEndPage()}>{'>>'}</PageSetMoveBtn>}
 		</PageList>

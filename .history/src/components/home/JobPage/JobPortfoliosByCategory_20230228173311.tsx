@@ -30,7 +30,8 @@ const Container = styled.div`
 `;
 
 const JobPortfolioListContainer = styled.div`
-  position:relative;
-  height: 100%;
+position:relative;
+ height: 100%;
   overflow: hidden;
+  
 `

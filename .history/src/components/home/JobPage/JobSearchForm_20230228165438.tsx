@@ -1,51 +1,38 @@
 import styled from 'styled-components';
 import { BiSearchAlt2 } from 'react-icons/bi';
 import usePortfolioCRUD from '@src/hooks/portfolio/usePortfolioCRUD';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useCallback, useState } from 'react';
 import useJobSearch from '@src/hooks/job/useJobSearch';
 import { breakPoint } from '@src/styledComponents/media';
-import useJobCategory from '@src/hooks/job/useJobCategory';
 export default function JobSearchForm() {
-  const {type, keyword:paramKeyword} = useParams<{ type: string; keyword:string }>();
+  const {type, paramKeyword} = useParams<{ type: string; paramKeyword:string }>();
   const navigate = useNavigate();
-  const { category } = useJobCategory();
+  console.log(location);
   const { createPortfolio } = usePortfolioCRUD();
   
-  const [keyword, setKeyword] = useState<string>(paramKeyword || '');
-  const [jobCategoty, setJobCategory] = useState<string>(type!);
-
+  const [keyword, setKeyword] = useState<string>('');
   const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setKeyword(value);
   }, []);
-
-  const onChangeCategory = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = e.target;
-    setJobCategory(value);
-  }, []);
   
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/job/${jobCategoty}/search/${keyword}/1`);
+    navigate(`/job/${type!}/search/${keyword}/1`);
   };
 
   return (
     <Form onSubmit={onSubmit}>
-  
-      
       <Container>
         <BiSearchAlt2 className='icon' />
         <SearchBar onChange={onChange} value={keyword} />
-        {paramKeyword && <select name="jobCategory" onChange={ onChangeCategory} value={ jobCategoty} >
-        {category.map(cate => <option value={cate.name}>{cate.name}</option>)}
-      </select>}
         <SearchBtn />
       </Container>
-      {type !== '전체' && (
+      {param.type !== '전체' && (
         <PortfolioMakeBtn
           type='button'
-          onClick={() => createPortfolio({ job: type || '전체' })}
+          onClick={() => createPortfolio({ job: param.type || '전체' })}
         >
           포트폴리오 만들기
         </PortfolioMakeBtn>

@@ -26,11 +26,12 @@ const Container = styled.div`
   height:100%;
   width:100%;
 
-  
+  }
 `;
 
 const JobPortfolioListContainer = styled.div`
-  position:relative;
-  height: 100%;
+position:relative;
+ height: 100%;
   overflow: hidden;
+  
 `
