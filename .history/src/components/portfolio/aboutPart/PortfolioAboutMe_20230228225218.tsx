@@ -65,7 +65,7 @@ export default function PortfolioAboutMe() {
       <Footer>
         <div>
           <RxGithubLogo className='font'/>
-          <SiteLink href='https://www.naver.com' target='_blank'>www.naver.com</SiteLink>
+          <SiteLink href='https://www.naver.com'>www.naver.com</SiteLink>
         </div>
         <div>
           <FaBloggerB className='font'/>
@@ -161,7 +161,6 @@ const Footer = styled.div`
   @media screen and (max-width: ${breakPoint.mm}) {
     align-items: center;
     flex-direction: column;
-    gap:1rem;
   }
 `;
 

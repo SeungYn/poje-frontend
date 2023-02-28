@@ -63,14 +63,8 @@ export default function PortfolioAboutMe() {
         </InfoItem>
       </InfoList>
       <Footer>
-        <div>
-          <RxGithubLogo className='font'/>
-          <SiteLink href='https://www.naver.com' target='_blank'>www.naver.com</SiteLink>
-        </div>
-        <div>
-          <FaBloggerB className='font'/>
-          <SiteLink>www.naver.com</SiteLink>
-        </div>
+        <SiteLink>www.naver.com</SiteLink>
+        <SiteLink>www.naver.com</SiteLink>
       </Footer>
       <ModifyBtn
         isModifyMode={isModifyMode}
@@ -147,25 +141,10 @@ const Footer = styled.div`
   display: flex;
   justify-content: space-around;
 
-
-
-  & > div{
-    display:flex;
-    align-items: center;
-  }
-
-  .font {
-    font-size: ${({ theme }) => theme.iconSize};
-  }
-
   @media screen and (max-width: ${breakPoint.mm}) {
     align-items: center;
     flex-direction: column;
-    gap:1rem;
   }
 `;
 
-const SiteLink = styled.a`
-  margin-left:0.8rem;
-  font-size: ${({ theme }) => theme.fontMiddleSize};
-`;
+const SiteLink = styled.a``;

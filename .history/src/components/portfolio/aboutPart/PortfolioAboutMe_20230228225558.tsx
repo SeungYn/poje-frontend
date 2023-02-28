@@ -161,7 +161,6 @@ const Footer = styled.div`
   @media screen and (max-width: ${breakPoint.mm}) {
     align-items: center;
     flex-direction: column;
-    gap:1rem;
   }
 `;
 
