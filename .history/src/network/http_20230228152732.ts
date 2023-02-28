@@ -77,13 +77,9 @@ export default class Http {
               //todo 리프레시 토큰 만료시 처리
               console.log(e);
               console.log('에러발생');
-              alert('로그아웃처리');
               this.localStorage.remove('TOKEN');
-              cookies.remove('refreshToken', {
-                maxAge: 60 * 60 * 24 * 7,
-                path: '/',
-              });
-              window.location.href = '/auth/login';
+              cookies.remove('refreshToken');
+              window.history.pushState('', '', '/auth/login');
               this.reRequestWaitQueue = [];
             }
 

@@ -83,7 +83,7 @@ export default class Http {
                 maxAge: 60 * 60 * 24 * 7,
                 path: '/',
               });
-              window.location.href = '/auth/login';
+              window.history.pushState('', '', '/auth/login');
               this.reRequestWaitQueue = [];
             }
 
