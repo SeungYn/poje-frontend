@@ -80,7 +80,6 @@ export default function PortfolioAboutMe() {
   );
 }
 
-
 const InfoList = styled.ul`
   position:relative;
   display: flex;
@@ -91,6 +90,7 @@ const InfoList = styled.ul`
   }
 
   @media screen and (max-width: ${breakPoint.mm}) {
+    
     
   }
 `;
@@ -108,25 +108,18 @@ const InfoItem = styled.li`
     flex-shrink: 0;
   }
   
-  
+
   
 
   @media screen and (max-width: ${breakPoint.mmm}) {
-    flex-basis: 50%;
-    
-    &:nth-child(odd){
-     
-  }
-
-  &:nth-child(even){
-    
-  }
-    
+    flex-basis: 100%;
+    justify-content: flex-start;
+    margin-left:60%;
 
   }
 
   @media screen and (max-width: ${breakPoint.s}) {
-    flex-basis: 50%;
+    flex-basis: 100%;
     
   }
 

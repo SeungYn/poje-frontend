@@ -108,20 +108,13 @@ const InfoItem = styled.li`
     flex-shrink: 0;
   }
   
-  
+
   
 
   @media screen and (max-width: ${breakPoint.mmm}) {
     flex-basis: 50%;
-    
-    &:nth-child(odd){
-     
-  }
-
-  &:nth-child(even){
-    
-  }
-    
+    justify-content: flex-start;
+    padding-left:25%;
 
   }
 

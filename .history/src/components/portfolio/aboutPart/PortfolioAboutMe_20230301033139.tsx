@@ -108,19 +108,18 @@ const InfoItem = styled.li`
     flex-shrink: 0;
   }
   
-  
+  &:nth-child(odd){
+    background-color: black;
+  }
+
+  &:nth-child(even){
+    background-color: black;
+  }
   
 
   @media screen and (max-width: ${breakPoint.mmm}) {
     flex-basis: 50%;
-    
-    &:nth-child(odd){
-     
-  }
-
-  &:nth-child(even){
-    
-  }
+    justify-content: flex-start;
     
 
   }

@@ -112,10 +112,11 @@ const InfoItem = styled.li`
   
 
   @media screen and (max-width: ${breakPoint.mmm}) {
-    flex-basis: 50%;
     
+    width:50%;
+ 
     &:nth-child(odd){
-     
+    
   }
 
   &:nth-child(even){

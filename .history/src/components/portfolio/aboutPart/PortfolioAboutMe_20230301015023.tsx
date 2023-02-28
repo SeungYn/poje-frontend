@@ -17,69 +17,10 @@ export default function PortfolioAboutMe() {
   );
   return (
     <>
-      <InfoList>
-        <InfoItem>
-          <BsFillPersonFill className='font' />
-          <InfoText>
-            <p>이름</p>
-            <p>{aboutMe.nickName}</p>
-          </InfoText>
-        </InfoItem>
-        <InfoItem>
-          <MdEmail className='font' />
-          <InfoText>
-            <p>이메일</p>
-            <p>{aboutMe.email}</p>
-          </InfoText>
-        </InfoItem>
-        <InfoItem>
-          <BsFillPersonFill className='font' />
-          <InfoText>
-            <p>연락처</p>
-            <p>{aboutMe.phoneNum}</p>
-          </InfoText>
-        </InfoItem>
-        <InfoItem>
-          <AiFillCalendar className='font' />
-          <InfoText>
-            <p>생년월일</p>
-            <p>{aboutMe.birth}</p>
-          </InfoText>
-        </InfoItem>
-        <InfoItem>
-          <BsFillPencilFill className='font' />
-          <InfoText>
-            <p>학력</p>
-            <p>{aboutMe.academic}</p>
-          </InfoText>
-        </InfoItem>
-
-        <InfoItem>
-          <BsFillPencilFill className='font' />
-          <InfoText>
-            <p>학과</p>
-            <p>{aboutMe.dept}</p>
-          </InfoText>
-        </InfoItem>
-      </InfoList>
-      <Footer>
-        <div>
-          <RxGithubLogo className='font'/>
-          <SiteLink href={aboutMe.gitHubLink} target='_blank'>{aboutMe.gitHubLink}</SiteLink>
-        </div>
-        <div>
-          <FaBloggerB className='font'/>
-          <SiteLink href={aboutMe.blogLink} >{aboutMe.blogLink}</SiteLink>
-        </div>
-      </Footer>
-      <ModifyBtn
-        isModifyMode={isModifyMode}
-        handleModifyMode={() => setModifyMode(true)}
-      />
+      
     </>
   );
 }
-
 
 const InfoList = styled.ul`
   position:relative;
@@ -91,6 +32,7 @@ const InfoList = styled.ul`
   }
 
   @media screen and (max-width: ${breakPoint.mm}) {
+    
     
   }
 `;
@@ -108,25 +50,18 @@ const InfoItem = styled.li`
     flex-shrink: 0;
   }
   
-  
+
   
 
   @media screen and (max-width: ${breakPoint.mmm}) {
-    flex-basis: 50%;
-    
-    &:nth-child(odd){
-     
-  }
-
-  &:nth-child(even){
-    
-  }
-    
+    flex-basis: 100%;
+    justify-content: flex-start;
+    margin-left:60%;
 
   }
 
   @media screen and (max-width: ${breakPoint.s}) {
-    flex-basis: 50%;
+    flex-basis: 100%;
     
   }
 

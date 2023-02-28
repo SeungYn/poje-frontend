@@ -16,7 +16,7 @@ export default function PortfolioAboutMe() {
     isModifyModeFormPortfolioAboutMe
   );
   return (
-    <>
+    <Container>
       <InfoList>
         <InfoItem>
           <BsFillPersonFill className='font' />
@@ -76,11 +76,16 @@ export default function PortfolioAboutMe() {
         isModifyMode={isModifyMode}
         handleModifyMode={() => setModifyMode(true)}
       />
-    </>
+    </Container>
   );
 }
 
-
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+`
 const InfoList = styled.ul`
   position:relative;
   display: flex;
@@ -91,6 +96,7 @@ const InfoList = styled.ul`
   }
 
   @media screen and (max-width: ${breakPoint.mm}) {
+    
     
   }
 `;
@@ -108,25 +114,18 @@ const InfoItem = styled.li`
     flex-shrink: 0;
   }
   
-  
+
   
 
   @media screen and (max-width: ${breakPoint.mmm}) {
-    flex-basis: 50%;
     
-    &:nth-child(odd){
-     
-  }
-
-  &:nth-child(even){
-    
-  }
-    
+    justify-content: flex-start;
+   
 
   }
 
   @media screen and (max-width: ${breakPoint.s}) {
-    flex-basis: 50%;
+    flex-basis: 100%;
     
   }
 
