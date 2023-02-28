@@ -3,12 +3,11 @@ import { useQuery } from '@tanstack/react-query';
 
 export default function usePortfolioLists({ jobName, page }: { jobName: string, page:string }) {
   const {data} = useQuery(
-    ['portfolios',jobName, page],
+    ['portfolios'],
     () => service.job.getPortfolioCards({ name: jobName ,page}),
     { suspense: true }
   );
+  console.log(data);
 
-  
-
-  return {pageingUtil: data!.paging, pfAndMemberResp:data!.pfAndMemberResp};
+  return  [];
 }

@@ -7,8 +7,7 @@ export default function usePortfolioLists({ jobName, page }: { jobName: string, 
     () => service.job.getPortfolioCards({ name: jobName ,page}),
     { suspense: true }
   );
+  console.log(data);
 
-  
-
-  return {pageingUtil: data!.paging, pfAndMemberResp:data!.pfAndMemberResp};
+  return  {};
 }

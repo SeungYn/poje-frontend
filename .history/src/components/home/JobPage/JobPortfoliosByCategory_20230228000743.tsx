@@ -1,4 +1,5 @@
 import usePortfolioLists from '@src/hooks/job/usePortfolioLists';
+import { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import JobPortfolioList from './JobPortfolioList';
@@ -11,11 +12,13 @@ export default function JobPortfoliosByCategory() {
   //param.type! as string
   return (
     <Container >
+      <Suspense fallback={<div>로딩중</div>}>
       <JobPortfolioListContainer>
-        <JobPortfolioList list={pfAndMemberResp} />
+        {/* <JobPortfolioList list={jobList} /> */}
       </JobPortfolioListContainer>
-      <JobPortfolioPagingFooter {...pageingUtil} type={type!} />
-    </Container>
+        <JobPortfolioPagingFooter {...pageingUtil} />
+      </Suspense>
+   </Container>
   );
 }
 

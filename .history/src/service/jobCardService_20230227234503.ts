@@ -45,7 +45,7 @@ export default class JobCardService {
         result,
       },
     } = await this.http.fetchJson<JobPortfolioCardResponse>(
-      `/member/portfolios?name=${name}&page=${page}`,
+      `/member/portfolios?name=${name}`,
       config
     );
     return result;

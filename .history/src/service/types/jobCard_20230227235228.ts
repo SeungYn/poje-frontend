@@ -26,14 +26,13 @@ export type PortfoliosPagInfoType = {
   startPage:number;         // 첫 페이지 번호
   endPage:number;           // 끝 페이지 번호
   prev:boolean;             // 이전 페이지 표시 여부
-  next: boolean; 
-  page: number;
+  next:boolean; 
 }
 
 export interface JobPortfolioCardResponse extends BasicResponse {
   result: {
     pfAndMemberResp: PortfolioItemType[],
-    paging: PortfoliosPagInfoType,
+    pagingUtil: PortfolioItemType,
   };
 }
 

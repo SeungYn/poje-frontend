@@ -76,11 +76,6 @@ export default class Http {
             } catch (e) {
               //todo 리프레시 토큰 만료시 처리
               console.log(e);
-              console.log('에러발생');
-              this.localStorage.remove('TOKEN');
-              cookies.remove('refreshToken');
-              window.history.pushState('', '', '/auth/login');
-
             }
 
             this.onReRequest();
@@ -146,7 +141,7 @@ export default class Http {
         : 'http://15.164.128.201:8080';
     if (!Http.instance) {
       Http.instance = new Http(
-        'https://09a7fd88effcd5.lhr.life',
+        'https://3a342c72e864db.lhr.life',
         new TokenStorage()
       );
     }

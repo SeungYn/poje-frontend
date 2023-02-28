@@ -8,7 +8,5 @@ export default function usePortfolioLists({ jobName, page }: { jobName: string, 
     { suspense: true }
   );
 
-  
-
   return {pageingUtil: data!.paging, pfAndMemberResp:data!.pfAndMemberResp};
 }

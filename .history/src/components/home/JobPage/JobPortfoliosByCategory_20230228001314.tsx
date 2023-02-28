@@ -11,11 +11,13 @@ export default function JobPortfoliosByCategory() {
   //param.type! as string
   return (
     <Container >
+      
       <JobPortfolioListContainer>
-        <JobPortfolioList list={pfAndMemberResp} />
+        {/* <JobPortfolioList list={jobList} /> */}
       </JobPortfolioListContainer>
-      <JobPortfolioPagingFooter {...pageingUtil} type={type!} />
-    </Container>
+        <JobPortfolioPagingFooter {...pageingUtil} type={type!} />
+     
+   </Container>
   );
 }
 

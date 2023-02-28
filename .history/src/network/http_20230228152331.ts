@@ -79,7 +79,6 @@ export default class Http {
               console.log('에러발생');
               this.localStorage.remove('TOKEN');
               cookies.remove('refreshToken');
-              window.history.pushState('', '', '/auth/login');
 
             }
 

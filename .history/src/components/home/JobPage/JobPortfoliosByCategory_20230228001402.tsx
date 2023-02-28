@@ -15,7 +15,7 @@ export default function JobPortfoliosByCategory() {
         <JobPortfolioList list={pfAndMemberResp} />
       </JobPortfolioListContainer>
       <JobPortfolioPagingFooter {...pageingUtil} type={type!} />
-    </Container>
+   </Container>
   );
 }
 
