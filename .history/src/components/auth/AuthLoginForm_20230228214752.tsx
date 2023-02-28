@@ -1,5 +1,6 @@
 import useAuth from '@src/hooks/auth/useAuth';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import AuthTopSide from './AuthTopSide';
 import {
   AuthForm,
@@ -7,6 +8,8 @@ import {
   AuthLabel,
   Header,
   LoginBtn,
+  MoveToLoginOrSignUpBtn,
+  TopSide,
 } from './styledComponets';
 
 interface LoginInputType {

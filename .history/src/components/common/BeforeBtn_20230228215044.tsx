@@ -2,12 +2,12 @@ import { MdNavigateBefore } from 'react-icons/md';
 import styled from 'styled-components';
 
 interface BeforeButtonType {
-
+  color: string;
   onClick: () => void;
 }
-export default function BeforeBtn({  onClick }: BeforeButtonType) {
+export default function BeforeBtn({ color, onClick }: BeforeButtonType) {
   return (
-    <Button onClick={onClick} >
+    <Button onClick={onClick} color={color}>
       <MdNavigateBefore className='icon' />
     </Button>
   );

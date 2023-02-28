@@ -7,7 +7,7 @@ interface BeforeButtonType {
 }
 export default function BeforeBtn({  onClick }: BeforeButtonType) {
   return (
-    <Button onClick={onClick} >
+    <Button onClick={onClick} color={color}>
       <MdNavigateBefore className='icon' />
     </Button>
   );

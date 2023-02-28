@@ -1,12 +1,14 @@
 import useAuth from '@src/hooks/auth/useAuth';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import AuthTopSide from './AuthTopSide';
+import { Link } from 'react-router-dom';
 import {
   AuthForm,
   AuthFormContainer,
   AuthLabel,
   Header,
   LoginBtn,
+  MoveToLoginOrSignUpBtn,
+  TopSide,
 } from './styledComponets';
 
 interface LoginInputType {
@@ -26,7 +28,14 @@ export default function AuthLoginForm() {
 
   return (
     <AuthFormContainer onSubmit={handleSubmit(onSumbit)}>
-      <AuthTopSide isLogin={true} />
+      <TopSide>
+        <div>
+          <span>계정이 없으신가요?</span>
+          <MoveToLoginOrSignUpBtn>
+            <Link to='/auth/signup'>SignUp</Link>
+          </MoveToLoginOrSignUpBtn>
+        </div>
+      </TopSide>
       <Header>
         <h1>WelCome Back</h1>
         <p>Login your account</p>

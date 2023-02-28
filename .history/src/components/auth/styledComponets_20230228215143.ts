@@ -13,7 +13,7 @@ export const AuthFormContainer = styled.section`
 
 export const TopSide = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   color: ${(props) => props.theme.mainColor};
   & span {
