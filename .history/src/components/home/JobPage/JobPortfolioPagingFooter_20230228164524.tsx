@@ -5,7 +5,7 @@ import styled from "styled-components";
 type PropsType = PortfoliosPagInfoType & { type: string , currentPage:string, searchKeyword?:string};
 
 export default function JobPortfolioPagingFooter(data: PropsType) {
-	const { startPage, endPage, totalPageCnt, prev, next , page, type, currentPage, searchKeyword} = data;
+	const { startPage, endPage, prev, next , page, type, currentPage, searchKeyword} = data;
 	const pageArr = Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
 	const navigate = useNavigate();
 	
@@ -20,19 +20,19 @@ export default function JobPortfolioPagingFooter(data: PropsType) {
 	}
 
 	const moverStartPage = () => {
-		navigate(`/job/${type}/${1}`);
+		navigate(`/job/${type}/${startPage}`);
 	}
 
 	const moverEndPage = () => {
-		navigate(`/job/${type}/${totalPageCnt}`);
+		navigate(`/job/${type}/${endPage}`);
 	}
 	return (
 		<PageList>
-		<PageSetMoveBtn onClick={() => moverStartPage()}>{'<<'}</PageSetMoveBtn>
+			{prev && <PageSetMoveBtn onClick={() => moverStartPage()}>{'<<'}</PageSetMoveBtn>}
 			{prev && <PageSetMoveBtn onClick={() => movePrevPage(page)}>{'<'}</PageSetMoveBtn>}
 			{pageArr.map(i => <PageItem key={`${type}/${searchKeyword}/${i}`} isCurrentPage={String(i) ===  currentPage  } onClick={() => navigate(`/job/${type}/${i}`)}>{i}</PageItem>)}
 			{next && <PageSetMoveBtn onClick={() => moveNextPage(page)}>{'>'}</PageSetMoveBtn>}
-			{totalPageCnt && <PageSetMoveBtn onClick={() => moverEndPage()}>{'>>'}</PageSetMoveBtn>}
+			{endPage && <PageSetMoveBtn onClick={() => moverEndPage()}>{'>'}</PageSetMoveBtn>}
 		</PageList>
 	);
 }

@@ -6,7 +6,7 @@ import { useCallback, useState } from 'react';
 import useJobSearch from '@src/hooks/job/useJobSearch';
 import { breakPoint } from '@src/styledComponents/media';
 export default function JobSearchForm() {
-  const param = useParams<{ type: string; }>();
+  const param = useParams<{ type: string; keyword: string; page:string }>();
   const navigate = useNavigate();
   const { createPortfolio } = usePortfolioCRUD();
   
@@ -15,10 +15,10 @@ export default function JobSearchForm() {
     const { value } = e.target;
     setKeyword(value);
   }, []);
-  console.log(param);
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/job/${param.type!}/search/${keyword}/1`);
+    navigate(`/job/search/${keyword}`);
   };
 
   return (

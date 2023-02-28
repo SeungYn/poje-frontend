@@ -15,7 +15,7 @@ export default function JobSearchForm() {
     const { value } = e.target;
     setKeyword(value);
   }, []);
-  console.log(param);
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate(`/job/${param.type!}/search/${keyword}/1`);

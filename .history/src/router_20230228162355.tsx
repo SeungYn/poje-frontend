@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
         children: [
           { index:true, element: <Navigate to={'/job/전체/1'}></Navigate> },
           {
-            path: ':type/search/:keyword/:page',
+            path: 'search/:type/:keyword/:page',
             element: (
               <RouterProtect>
                 <JobSearchPage />

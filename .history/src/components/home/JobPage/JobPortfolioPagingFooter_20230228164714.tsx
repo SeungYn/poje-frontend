@@ -32,7 +32,7 @@ export default function JobPortfolioPagingFooter(data: PropsType) {
 			{prev && <PageSetMoveBtn onClick={() => movePrevPage(page)}>{'<'}</PageSetMoveBtn>}
 			{pageArr.map(i => <PageItem key={`${type}/${searchKeyword}/${i}`} isCurrentPage={String(i) ===  currentPage  } onClick={() => navigate(`/job/${type}/${i}`)}>{i}</PageItem>)}
 			{next && <PageSetMoveBtn onClick={() => moveNextPage(page)}>{'>'}</PageSetMoveBtn>}
-			{totalPageCnt && <PageSetMoveBtn onClick={() => moverEndPage()}>{'>>'}</PageSetMoveBtn>}
+			{totalPageCnt && <PageSetMoveBtn onClick={() => moverEndPage()}>{'>'}</PageSetMoveBtn>}
 		</PageList>
 	);
 }
