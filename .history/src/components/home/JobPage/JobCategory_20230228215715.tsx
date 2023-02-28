@@ -5,8 +5,8 @@ import { breakPoint } from '@src/styledComponents/media';
 
 export default function JobCategory() {
   const theme = useTheme();
-  const {type} = useParams<{ type: string }>();
-
+  const param = useParams<{ type: string }>();
+  console.log(param);
   const activeStyle = {
     color: theme.textColor,
   };
@@ -18,7 +18,7 @@ export default function JobCategory() {
         <JobItem key={name}>
           <NavLink
             to={`/job/${name}/1`}
-            style={(type && type === name ? activeStyle : undefined)}
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             {name}
           </NavLink>
