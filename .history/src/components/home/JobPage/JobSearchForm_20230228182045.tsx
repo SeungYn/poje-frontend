@@ -28,7 +28,7 @@ export default function JobSearchForm() {
   
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (keyword === '') return setModal('키워드를 입력해주세요');
+    if (keyword === '') setModal('키워드를 입력해주세요');
     navigate(`/job/${jobCategoty}/search/${keyword}/1`);
   };
 
