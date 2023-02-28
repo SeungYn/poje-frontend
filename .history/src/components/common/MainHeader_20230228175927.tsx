@@ -58,7 +58,6 @@ const Title = styled.div`
   align-items: center;
   font-size: 2.6rem;
   font-weight: bold;
-  cursor: pointer;
 `;
 
 const RightWrapper = styled.div`
