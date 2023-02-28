@@ -93,7 +93,6 @@ const Wrapper = styled.div<styledPropsType>`
 const ProfileImg = styled.img`
   width:3rem;
   height:3rem;
-  border-radius: 50%;
 `
 
 const LoginBtn = styled.button<styledPropsType>`

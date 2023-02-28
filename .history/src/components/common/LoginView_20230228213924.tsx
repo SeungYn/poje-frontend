@@ -1,6 +1,7 @@
 import useAuth from '@src/hooks/auth/useAuth';
 import useUser from '@src/hooks/auth/useUser';
 import useGetMyInfo from '@src/hooks/member/useGetMyInfo';
+import { CgProfile } from 'react-icons/cg';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -33,7 +34,7 @@ export default function LoginView({ isHomePath }: props) {
 
   return (
     <Wrapper ref={loginRef} onClick={loginToggleHander} isHomePath={isHomePath}>
-      <ProfileImg src={data?.profileImg} />
+      
       <MdOutlineKeyboardArrowDown
         className={`icon ${loginIsOpen ? 'open' : ''}`}
         style={{ transition: 'transform 0.2s linear' }}
@@ -91,9 +92,7 @@ const Wrapper = styled.div<styledPropsType>`
 `;
 
 const ProfileImg = styled.img`
-  width:3rem;
-  height:3rem;
-  border-radius: 50%;
+  
 `
 
 const LoginBtn = styled.button<styledPropsType>`
