@@ -67,7 +67,6 @@ const Form = styled.form`
 `;
 
 const Container = styled.div`
-  position:relative;
   background: ${({ theme }) => theme.bgColor};
   width: 60%;
   margin: 0 auto;
@@ -116,13 +115,6 @@ const PortfolioMakeBtn = styled.button`
 
 
 const SelectBox = styled.select`
-  position:absolute;
-  right:0;
-  height:80%;
-  border:none;
-  border-left:2px solid black;
-  padding:0 1rem;
-  outline:none;
-  font-size:1.2rem;
+  height:100%;
 
 `

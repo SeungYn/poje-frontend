@@ -120,9 +120,9 @@ const SelectBox = styled.select`
   right:0;
   height:80%;
   border:none;
-  border-left:2px solid black;
+  border-left:1px solid black;
   padding:0 1rem;
   outline:none;
-  font-size:1.2rem;
+  font-size:1rem;
 
 `

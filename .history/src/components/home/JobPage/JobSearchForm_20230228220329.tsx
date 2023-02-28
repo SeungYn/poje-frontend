@@ -37,9 +37,9 @@ export default function JobSearchForm() {
       <Container>
         <BiSearchAlt2 className='icon' />
         <SearchBar onChange={onChange} value={keyword} />
-        {paramKeyword && <SelectBox name="jobCategory" onChange={ onChangeCategory} value={ jobCategoty} >
+        {paramKeyword && <select name="jobCategory" onChange={ onChangeCategory} value={ jobCategoty} >
           {category.map(cate => <option key={cate.name} value={cate.name}>{cate.name}</option>)}
-      </SelectBox>}
+      </select>}
         <SearchBtn />
       </Container>
       {type !== '전체' && (
@@ -67,7 +67,6 @@ const Form = styled.form`
 `;
 
 const Container = styled.div`
-  position:relative;
   background: ${({ theme }) => theme.bgColor};
   width: 60%;
   margin: 0 auto;
@@ -116,13 +115,6 @@ const PortfolioMakeBtn = styled.button`
 
 
 const SelectBox = styled.select`
-  position:absolute;
-  right:0;
-  height:80%;
-  border:none;
-  border-left:2px solid black;
-  padding:0 1rem;
-  outline:none;
-  font-size:1.2rem;
-
+  
+  
 `

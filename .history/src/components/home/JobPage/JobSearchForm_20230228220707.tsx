@@ -118,11 +118,9 @@ const PortfolioMakeBtn = styled.button`
 const SelectBox = styled.select`
   position:absolute;
   right:0;
-  height:80%;
+  height:100%;
   border:none;
-  border-left:2px solid black;
-  padding:0 1rem;
-  outline:none;
-  font-size:1.2rem;
+  border-left:1px solid black;
+  padding:0 2rem;
 
 `
