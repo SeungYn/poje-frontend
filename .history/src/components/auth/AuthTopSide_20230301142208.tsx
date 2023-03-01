@@ -18,8 +18,8 @@ export default function AuthTopSide({ isLogin }: PropsType) {
       <RightGroup>
         <span>계정이 없으신가요?</span>
         <MoveToLoginOrSignUpBtn>
-          <Link to={isLogin ? '/auth/signup' : '/auth/login'}>
-            {isLogin ? 'SignUp' : 'Login'}
+          <Link to={isLogin ? '/auth/signup' : '/auth/signin'}>
+            {isLogin ? 'login' : 'signUp'}
           </Link>
         </MoveToLoginOrSignUpBtn>
       </RightGroup>

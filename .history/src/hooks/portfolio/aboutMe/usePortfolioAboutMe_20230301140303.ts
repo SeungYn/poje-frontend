@@ -9,6 +9,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { aboutMeLoading } from '@src/store/portfolio/loading';
 import { isModifyModeFormPortfolioAboutMe } from '@src/store/portfolio/modify';
 import useModal from '@src/hooks/common/useModal';
+import { isAxiosError } from 'axios';
 
 export default function usePortfolioAboutMe() {
   const [isLoading, setIsLoading] = useRecoilState(aboutMeLoading);
