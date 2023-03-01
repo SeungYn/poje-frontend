@@ -139,13 +139,13 @@ const InfoDiv = styled.div`
 
   .font {
     font-size: 32px;
-    flex-shrink: 0;
   }
 `
 
 const InfoText = styled.div`
   margin-left: 1rem;
-  flex-shrink: 0;
+  
+
   & p {
     font-size: ${({ theme }) => theme.fontMiddleSize};
   }

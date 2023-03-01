@@ -130,22 +130,10 @@ const InfoItem = styled.li`
   }
 `;
 
-const InfoDiv = styled.div`
-  display:flex;
-  width:100%;
-  max-width:10rem;
-  margin:0 auto;
-  flex-shrink: 0;
-
-  .font {
-    font-size: 32px;
-    flex-shrink: 0;
-  }
-`
-
 const InfoText = styled.div`
   margin-left: 1rem;
-  flex-shrink: 0;
+  
+
   & p {
     font-size: ${({ theme }) => theme.fontMiddleSize};
   }
@@ -158,7 +146,17 @@ const InfoText = styled.div`
   }
 `;
 
+const InfoDiv = styled.div`
+  display:flex;
+  width:100%;
+  max-width:10rem;
+  margin:0 auto;
+  flex-shrink: 0;
 
+  .font {
+    font-size: 32px;
+  }
+`
 
 const Footer = styled.div`
   display: flex;

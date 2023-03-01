@@ -19,59 +19,47 @@ export default function PortfolioAboutMe() {
     <>
       <InfoList>
         <InfoItem>
-          <InfoDiv>
           <BsFillPersonFill className='font' />
           <InfoText>
             <p>이름</p>
             <p>{aboutMe.nickName}</p>
           </InfoText>
-          </InfoDiv>
         </InfoItem>
         <InfoItem>
-          <InfoDiv>
-            <MdEmail className='font' />
-            <InfoText>
-              <p>이메일</p>
-              <p>{aboutMe.email}</p>
-            </InfoText>
-          </InfoDiv>
+          <MdEmail className='font' />
+          <InfoText>
+            <p>이메일</p>
+            <p>{aboutMe.email}</p>
+          </InfoText>
         </InfoItem>
         <InfoItem>
-        <InfoDiv>
           <BsFillPersonFill className='font' />
           <InfoText>
             <p>연락처</p>
             <p>{aboutMe.phoneNum}</p>
-            </InfoText>
-            </InfoDiv>
+          </InfoText>
         </InfoItem>
         <InfoItem>
-        <InfoDiv>
           <AiFillCalendar className='font' />
           <InfoText>
             <p>생년월일</p>
             <p>{aboutMe.birth}</p>
-            </InfoText>
-            </InfoDiv>
+          </InfoText>
         </InfoItem>
         <InfoItem>
-        <InfoDiv>
           <BsFillPencilFill className='font' />
           <InfoText>
             <p>학력</p>
             <p>{aboutMe.academic}</p>
-            </InfoText>
-            </InfoDiv>
+          </InfoText>
         </InfoItem>
 
         <InfoItem>
-        <InfoDiv>
           <BsFillPencilFill className='font' />
           <InfoText>
             <p>학과</p>
             <p>{aboutMe.dept}</p>
-            </InfoText>
-            </InfoDiv>
+          </InfoText>
         </InfoItem>
       </InfoList>
       <Footer>
@@ -96,8 +84,11 @@ export default function PortfolioAboutMe() {
 const InfoList = styled.ul`
   position:relative;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  
+  .font {
+    font-size: ${({ theme }) => theme.iconSize};
+  }
 
   @media screen and (max-width: ${breakPoint.mm}) {
     
@@ -107,45 +98,46 @@ const InfoList = styled.ul`
 const InfoItem = styled.li`
   position:relative;
   padding: 2rem 0;
-  /* display: flex;
+  width:50%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0; */
+  flex-shrink: 0;
   width:calc(100%/3);
-    
+  & > *{
+    flex-shrink: 0;
+  }
+  
+  
   
 
   @media screen and (max-width: ${breakPoint.mmm}) {
-    width:50%;
+   
+    
+    &:nth-child(odd){
+     
+  }
+
+  &:nth-child(even){
+    
+  }
+    
 
   }
 
   @media screen and (max-width: ${breakPoint.s}) {
-    width:100%;
+    flex-basis: 50%;
     
   }
 
   @media screen and (min-width: ${breakPoint.mm}) {
-    
+    flex-basis: 30%;
   }
 `;
 
-const InfoDiv = styled.div`
-  display:flex;
-  width:100%;
-  max-width:10rem;
-  margin:0 auto;
-  flex-shrink: 0;
-
-  .font {
-    font-size: 32px;
-    flex-shrink: 0;
-  }
-`
-
 const InfoText = styled.div`
   margin-left: 1rem;
-  flex-shrink: 0;
+
   & p {
     font-size: ${({ theme }) => theme.fontMiddleSize};
   }
@@ -157,8 +149,6 @@ const InfoText = styled.div`
     font-size: ${({ theme }) => theme.fontRegular};
   }
 `;
-
-
 
 const Footer = styled.div`
   display: flex;

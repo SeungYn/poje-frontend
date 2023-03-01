@@ -145,7 +145,8 @@ const InfoDiv = styled.div`
 
 const InfoText = styled.div`
   margin-left: 1rem;
-  flex-shrink: 0;
+  
+
   & p {
     font-size: ${({ theme }) => theme.fontMiddleSize};
   }

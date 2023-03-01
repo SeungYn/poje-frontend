@@ -28,13 +28,13 @@ export default function PortfolioAboutMe() {
           </InfoDiv>
         </InfoItem>
         <InfoItem>
-          <InfoDiv>
-            <MdEmail className='font' />
-            <InfoText>
-              <p>이메일</p>
-              <p>{aboutMe.email}</p>
+        <InfoDiv>
+          <MdEmail className='font' />
+          <InfoText>
+            <p>이메일</p>
+            <p>{aboutMe.email}</p>
             </InfoText>
-          </InfoDiv>
+            </InfoDiv>
         </InfoItem>
         <InfoItem>
         <InfoDiv>
@@ -97,7 +97,9 @@ const InfoList = styled.ul`
   position:relative;
   display: flex;
   flex-wrap: wrap;
-  
+  .font {
+    font-size: ${({ theme }) => theme.iconSize};
+  }
 
   @media screen and (max-width: ${breakPoint.mm}) {
     
@@ -116,12 +118,21 @@ const InfoItem = styled.li`
   
 
   @media screen and (max-width: ${breakPoint.mmm}) {
-    width:50%;
+   
+    
+    &:nth-child(odd){
+     
+  }
+
+  &:nth-child(even){
+    
+  }
+    
 
   }
 
   @media screen and (max-width: ${breakPoint.s}) {
-    width:100%;
+    
     
   }
 
@@ -130,22 +141,9 @@ const InfoItem = styled.li`
   }
 `;
 
-const InfoDiv = styled.div`
-  display:flex;
-  width:100%;
-  max-width:10rem;
-  margin:0 auto;
-  flex-shrink: 0;
-
-  .font {
-    font-size: 32px;
-    flex-shrink: 0;
-  }
-`
-
 const InfoText = styled.div`
   margin-left: 1rem;
-  flex-shrink: 0;
+
   & p {
     font-size: ${({ theme }) => theme.fontMiddleSize};
   }
@@ -158,7 +156,12 @@ const InfoText = styled.div`
   }
 `;
 
-
+const InfoDiv = styled.div`
+  display:flex;
+  width:100%;
+  max-width:10rem;
+  margin:0 auto;
+`
 
 const Footer = styled.div`
   display: flex;
