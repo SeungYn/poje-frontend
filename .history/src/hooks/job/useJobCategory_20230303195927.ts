@@ -17,5 +17,5 @@ export default function useJobCategory() {
       },
     }
   );
-  return { category, isLoading };
+  return { category: category.push({ name: 'like' }), isLoading };
 }

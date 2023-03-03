@@ -4,6 +4,7 @@ import { breakPoint } from '@src/styledComponents/media';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import styled from 'styled-components';
+import JobSearchForm from './JobSearchForm';
 
 type PropsType = {
   children: React.ReactNode;

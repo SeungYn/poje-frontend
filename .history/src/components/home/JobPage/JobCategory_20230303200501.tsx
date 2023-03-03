@@ -2,6 +2,7 @@ import styled, { useTheme } from 'styled-components';
 import { NavLink, useParams } from 'react-router-dom';
 import useJobCategory from '@src/hooks/job/useJobCategory';
 import { breakPoint } from '@src/styledComponents/media';
+import { useEffect } from 'react';
 
 export default function JobCategory() {
   const theme = useTheme();
@@ -10,6 +11,10 @@ export default function JobCategory() {
     color: theme.textColor,
   };
   const { category } = useJobCategory();
+
+  useEffect(() => {
+    category.push({ name: 'like' });
+  }, []);
 
   return (
     <JobList>

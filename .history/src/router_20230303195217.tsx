@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'like/:page',
+            path: 'like',
             element: (
               <RouterProtect>
                 <JobLikePage />

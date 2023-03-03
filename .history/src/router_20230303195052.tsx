@@ -11,7 +11,6 @@ import ErrorBoundary from './components/errorComponent/ErrorBoundary';
 import useModal from './hooks/common/useModal';
 import AuthPage from './pages/auth/AuthPage';
 import AuthRouterProtect from './pages/AuthRouterProtect';
-import JobLikePage from './pages/home/JobLikePage';
 import JobPages from './pages/home/JobPages';
 import JobRoot from './pages/home/JobRoot';
 import JobSearchPage from './pages/home/JobSearchPage';
@@ -53,10 +52,10 @@ export const router = createBrowserRouter([
             ),
           },
           {
-            path: 'like/:page',
+            path: ':type/:page',
             element: (
               <RouterProtect>
-                <JobLikePage />
+                <JobPages />
               </RouterProtect>
             ),
           },

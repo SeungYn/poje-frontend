@@ -10,7 +10,7 @@ export default function JobCategory() {
     color: theme.textColor,
   };
   const { category } = useJobCategory();
-
+  category.push({ name: 'like' });
   return (
     <JobList>
       {category.map(({ name }, i) => (

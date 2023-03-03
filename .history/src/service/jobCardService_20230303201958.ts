@@ -63,18 +63,5 @@ export default class JobCardService {
     return result;
   }
 
-  async getePortfolioCardsWithLike(data: GetPortfolioCardWithLikeRequest) {
-    const { page } = data;
-    const config: AxiosRequestConfig = {
-      method: 'GET',
-    };
-
-    const {
-      data: { result },
-    } = await this.http.fetchJson<JobPortfolioCardResponse>(
-      `/member/like?page=${page}`,
-      config
-    );
-    return result;
-  }
+  async getePortfolioCardsWithLike(data: GetPortfolioCardWithLikeRequest) {}
 }
