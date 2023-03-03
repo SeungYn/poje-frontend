@@ -1,27 +1,30 @@
-import usePortfolioLists from '@src/hooks/job/usePortfolioLists';
+import useJobSearch from '@src/hooks/job/useJobSearch';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import JobPortfolioList from './JobPortfolioList';
 import JobPortfolioPagingFooter from './JobPortfolioPagingFooter';
 
-export default function JobPortfoliosByCategory() {
-  const { type, page } = useParams<{ type: string; page: string }>();
-  const { pageingUtil, pfAndMemberResp } = usePortfolioLists({
+export default function JobPortfoliosBySearch() {
+  const { type, page, keyword } = useParams<{
+    type: string;
+    page: string;
+    keyword: string;
+  }>();
+  const { pageingUtil, pfAndMemberResp } = useJobSearch({
     jobName: type!,
     page: page!,
+    keyword: keyword!,
   });
-
-  //param.type! as string
   return (
     <Container>
       <JobPortfolioListContainer>
         <JobPortfolioList list={pfAndMemberResp} />
       </JobPortfolioListContainer>
       <JobPortfolioPagingFooter
-        path={`/job/${type}`}
         {...pageingUtil}
         type={type!}
         currentPage={page!}
+        searchKeyword={keyword!}
       />
     </Container>
   );

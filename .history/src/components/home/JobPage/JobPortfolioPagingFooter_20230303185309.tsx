@@ -30,25 +30,39 @@ export default function JobPortfolioPagingFooter(data: PropsType) {
 
   const moveNextPage = (nowPage: number) => {
     const nextPage = (Math.floor((nowPage - 1) / 5) + 1) * 5 + 1;
-    return navigate(`${path}/${nextPage}`);
+    if (searchKeyword) {
+      return navigate(`${path}/${nextPage}`);
+    }
+    return navigate(`/job/${type}/${nextPage}`);
   };
 
   const movePrevPage = (nowPage: number) => {
     const prevPage = (Math.floor((nowPage - 1) / 5) - 1) * 5 + 1;
-
+    if (searchKeyword) {
+      return navigate(`${path}/${prevPage}`);
+    }
     return navigate(`${path}/${prevPage}`);
   };
 
   const moverStartPage = () => {
+    if (searchKeyword) {
+      return navigate(`${path}/${1}`);
+    }
     return navigate(`${path}/${1}`);
   };
 
   const moveEndPage = () => {
-    return navigate(`${path}/${totalPageCnt}`);
+    if (searchKeyword) {
+      return navigate(`${path}/${totalPageCnt}`);
+    }
+    return navigate(`${path}`);
   };
 
   const moveNumberPage = (page: number) => {
-    return navigate(`${path}/${page}`);
+    if (searchKeyword) {
+      return navigate(`${path}/${page}`);
+    }
+    return navigate(`/job/${type}/${page}`);
   };
 
   return (
