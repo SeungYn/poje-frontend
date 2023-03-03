@@ -15,12 +15,15 @@ export default function ImageSlider({
   StyledComponent,
 }: PropType) {
   return (
-    <StyledComponent>
+    <StyledComponent tabIndex={-1}>
       <Swiper
         modules={[Navigation, Pagination]}
         navigation
         pagination
         autoHeight={false}
+        tabIndex={-1}
+        observer={true}
+        observeParents={true}
       >
         {imgList.length === 0 && (
           <SwiperSlide>
@@ -50,8 +53,8 @@ const ProjectImg = styled.img`
   background-repeat: no-repeat;
   background-position: center center;
   background-color: white;
-  max-height: 100%;
-  max-width: 100%;
+  height: 100%;
+  width: 100%;
 `;
 
 const UploadContainer = styled.div`
