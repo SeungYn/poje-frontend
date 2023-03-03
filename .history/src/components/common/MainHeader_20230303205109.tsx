@@ -14,7 +14,7 @@ export default function MainHeader({ isHomePath }: props) {
   const navigate = useNavigate();
   return (
     <Header isHomePath={isHomePath}>
-      <Title onClick={() => navigate('/job/전체/1')}>POJE</Title>
+      <Title onClick={() => navigate('/job/1')}>POJE</Title>
       <RightWrapper>
         <Nav isHomePath={isHomePath}>
           <Item isHomePath={isHomePath}>
