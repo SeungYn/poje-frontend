@@ -52,7 +52,6 @@ export default function Navbar() {
 
 const Container = styled.aside`
   position: absolute;
-  z-index: 1;
   top: 0;
   left: 0;
   height: 100%;
