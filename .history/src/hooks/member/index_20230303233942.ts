@@ -37,7 +37,6 @@ export const useSideNavbar: UseSideNavbarReturnType = <
   }, [containerRef, isOpen]);
 
   const onCloseSide = useCallback(() => {
-    if (!navbarRef.current) return;
     const navbarWidth = navbarRef.current!.offsetWidth;
     if (containerRef.current && isOpen) {
       let calcedPosition = navbarWidth;

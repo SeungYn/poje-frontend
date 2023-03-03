@@ -10,7 +10,7 @@ const ActiveStyle: CSSProperties = {
 };
 
 export default function Navbar() {
-  const [isOpen, containerRef, navbarRef, toggleHandler] = useSideNavbar<
+  const [containerRef, navbarRef, toggleHandler] = useSideNavbar<
     HTMLDivElement,
     HTMLUListElement
   >();
@@ -44,7 +44,7 @@ export default function Navbar() {
         </NavLink>
       </MemberNavbar>
       <ToggleBtn onClick={() => toggleHandler()}>
-        <AiOutlineArrowRight className={`icon ${isOpen ? 'open' : ''} `} />
+        <AiOutlineArrowRight />
       </ToggleBtn>
     </Container>
   );
@@ -75,16 +75,8 @@ const MemberNavbar = styled.nav`
 `;
 
 const ToggleBtn = styled.button`
+  border: 1px solid black;
   font-size: ${({ theme }) => theme.fontLargeRegular};
-  background: ${({ theme }) => theme.bgColor};
-  color: ${({ theme }) => theme.textColor};
   flex-grow: 0;
   flex-shrink: 0;
-  border-radius: 0 1rem 1rem 0;
-  .icon {
-    font-size: 2.2rem;
-  }
-  .open {
-    transform: rotate(180deg);
-  }
 `;
