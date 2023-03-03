@@ -91,7 +91,7 @@ const Wrapper = styled.div<styledPropsType>`
 const ProfileImg = styled.img`
   width: 3rem;
   height: 3rem;
-  border: 2px solid white;
+  border: 2px solid blue;
   border-radius: 50%;
 `;
 

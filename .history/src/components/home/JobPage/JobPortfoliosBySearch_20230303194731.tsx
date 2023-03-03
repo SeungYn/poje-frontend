@@ -1,9 +1,7 @@
 import useJobSearch from '@src/hooks/job/useJobSearch';
 import { useParams } from 'react-router-dom';
-import {
-  JobPortfolioListContainer,
-  JobPortfoliosContainer,
-} from './common/commomJobStyledComponents';
+import styled from 'styled-components';
+import { JobPortfoliosContainer } from './common/commomJobStyledComponents';
 import JobPortfolioList from './JobPortfolioList';
 import JobPortfolioPagingFooter from './JobPortfolioPagingFooter';
 
@@ -19,10 +17,10 @@ export default function JobPortfoliosBySearch() {
     keyword: keyword!,
   });
   return (
-    <JobPortfoliosContainer>
-      <JobPortfolioListContainer>
+    <Container>
+      <JobPortfoliosContainer>
         <JobPortfolioList list={pfAndMemberResp} />
-      </JobPortfolioListContainer>
+      </JobPortfoliosContainer>
       <JobPortfolioPagingFooter
         path={`/job/${type}/search/${keyword}`}
         {...pageingUtil}
@@ -30,6 +28,6 @@ export default function JobPortfoliosBySearch() {
         currentPage={page!}
         searchKeyword={keyword!}
       />
-    </JobPortfoliosContainer>
+    </Container>
   );
 }
