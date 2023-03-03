@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 type PropsType = PortfoliosPagInfoType & {
-  type?: string;
+  type: string;
   currentPage: string;
   searchKeyword?: string;
   path: string;

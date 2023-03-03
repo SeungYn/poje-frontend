@@ -19,6 +19,7 @@ export default function JobPortfoliosByLike() {
       <JobPortfolioPagingFooter
         path={`/job/like`}
         {...pageingUtil}
+        type={type!}
         currentPage={page!}
       />
     </JobPortfoliosContainer>
