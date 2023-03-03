@@ -41,13 +41,10 @@ const Email = styled.p`
   font-size: ${({ theme }) => theme.fontRegular};
 `;
 
-const UpdateBtn = styled.div`
-  border-radius: 2rem;
-  overflow: hidden;
-  margin-top: 0.4rem;
+const UpdateBtn = styled.button`
+  padding: 2rem;
   & > a {
-    display: inline-block;
-    padding: 1rem 2rem;
     background: ${(props) => props.theme.bgSemiDarkColor};
+    height: 100%;
   }
 `;

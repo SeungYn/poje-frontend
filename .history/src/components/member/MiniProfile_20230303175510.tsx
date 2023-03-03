@@ -15,6 +15,7 @@ export default function MiniProfile() {
       <UpdateBtn>
         <Link to='/'>프로필 수정</Link>
       </UpdateBtn>
+      <UpdateBtn href='/'>프로필 수정2</UpdateBtn>
     </Container>
   );
 }
@@ -41,13 +42,7 @@ const Email = styled.p`
   font-size: ${({ theme }) => theme.fontRegular};
 `;
 
-const UpdateBtn = styled.div`
-  border-radius: 2rem;
-  overflow: hidden;
-  margin-top: 0.4rem;
-  & > a {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: ${(props) => props.theme.bgSemiDarkColor};
-  }
+const UpdateBtn = styled.a`
+  background: ${(props) => props.theme.bgSemiDarkColor};
+  padding: 2rem;
 `;

@@ -42,12 +42,10 @@ const Email = styled.p`
 `;
 
 const UpdateBtn = styled.div`
-  border-radius: 2rem;
-  overflow: hidden;
-  margin-top: 0.4rem;
+  border: 50%;
   & > a {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 1rem;
     background: ${(props) => props.theme.bgSemiDarkColor};
   }
 `;

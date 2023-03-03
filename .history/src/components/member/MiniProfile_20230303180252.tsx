@@ -44,7 +44,7 @@ const Email = styled.p`
 const UpdateBtn = styled.div`
   border-radius: 2rem;
   overflow: hidden;
-  margin-top: 0.4rem;
+  margin-top: 00.4rem;
   & > a {
     display: inline-block;
     padding: 1rem 2rem;

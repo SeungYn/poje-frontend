@@ -44,9 +44,9 @@ export default function ProjectModifyMode({
   useEffect(() => {}, []);
 
   return (
-    <ProjectWrapper as='form' onSubmit={handleSubmit} tabIndex={-1}>
+    <ProjectWrapper as='form' onSubmit={handleSubmit}>
       {loading && <LoadingSpiner text={'업데이트중'} />}
-      <ImgSectionWrapper tabIndex={-1}>
+      <ImgSectionWrapper>
         {/* 등록된 이미지가 하나도 없으면 이미지가 없다는 이미지를 등록시켜주기 */}
         <ImageSlider
           imgList={prImgList}

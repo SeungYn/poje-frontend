@@ -74,8 +74,8 @@ export const ImgSectionWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 50%;
+  min-height: 200px;
   @media screen and (max-width: ${breakPoint.mmm}) {
     width: 100%;
     padding-bottom: 4rem;
