@@ -5,14 +5,14 @@ export default function MemberRoot() {
   return (
     <Container>
       <Outlet />
+      sdf sadsa
     </Container>
   );
 }
 
 const Container = styled.section`
-  background-color: ${(props) => props.theme.bgColor};
   height: 100%;
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: 1600px;
+  background: black;
 `;

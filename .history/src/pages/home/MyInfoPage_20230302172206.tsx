@@ -1,4 +1,4 @@
-import useGetMyInfo from '@src/hooks/member/useMyInfo';
+import useGetMyInfo from '@src/hooks/member/useGetMyInfo';
 import styled from 'styled-components';
 
 export default function MyInfoPage() {
@@ -8,6 +8,8 @@ export default function MyInfoPage() {
 }
 
 const MyInfoPageContainer = styled.section`
+  /* background-color: ${(props) => props.theme.bgColor}; */
   width: 100%;
+
   height: 100%;
 `;

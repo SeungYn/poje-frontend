@@ -9,10 +9,4 @@ export default function MemberRoot() {
   );
 }
 
-const Container = styled.section`
-  background-color: ${(props) => props.theme.bgColor};
-  height: 100%;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-`;
+const Container = styled.section``;

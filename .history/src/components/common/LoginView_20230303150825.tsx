@@ -1,6 +1,6 @@
 import useAuth from '@src/hooks/auth/useAuth';
 import useUser from '@src/hooks/auth/useUser';
-import useMyInfo from '@src/hooks/member/useMyInfo';
+import useGetMyInfo from '@src/hooks/member/useGetMyInfo';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -20,7 +20,7 @@ export default function LoginView({ isHomePath }: props) {
   const navigate = useNavigate();
   const [loginIsOpen, loginRef, loginToggleHander] =
     useDropDownHelper<HTMLDivElement>();
-  const { userInfo } = useMyInfo();
+  const data = useGetMyInfo();
 
   if (!user)
     return (
@@ -28,10 +28,11 @@ export default function LoginView({ isHomePath }: props) {
         로그인
       </LoginBtn>
     );
+  console.log(data);
 
   return (
     <Wrapper ref={loginRef} onClick={loginToggleHander} isHomePath={isHomePath}>
-      <ProfileImg src={userInfo?.profileImg} />
+      <ProfileImg src={data?.profileImg} />
       <MdOutlineKeyboardArrowDown
         className={`icon ${loginIsOpen ? 'open' : ''}`}
         style={{ transition: 'transform 0.2s linear' }}

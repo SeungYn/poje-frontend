@@ -1,4 +1,4 @@
-import useGetMyInfo from '@src/hooks/member/useMyInfo';
+import useGetMyInfo from '@src/hooks/member/useGetMyInfo';
 import styled from 'styled-components';
 
 export default function MyInfoPage() {
