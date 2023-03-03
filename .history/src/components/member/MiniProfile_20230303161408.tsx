@@ -13,9 +13,8 @@ export default function MiniProfile() {
       <NickName>{userInfo?.nickName}</NickName>
       <Email>{userInfo?.email}</Email>
       <UpdateBtn>
-        <Link to='/'>프로필 수정</Link>
+        <Link to=''>프로필 수정</Link>
       </UpdateBtn>
-      <UpdateBtn href='/'>프로필 수정2</UpdateBtn>
     </Container>
   );
 }

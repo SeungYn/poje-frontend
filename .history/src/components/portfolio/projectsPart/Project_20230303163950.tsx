@@ -63,7 +63,6 @@ const ProjectTitle = styled.h3`
 const ProjectSubTitle = styled.h4`
   font-size: ${({ theme }) => theme.fontRegular};
   color: ${({ theme }) => theme.textColorToneDown};
-  word-break: break-all;
 `;
 
 const Explain = styled.p`

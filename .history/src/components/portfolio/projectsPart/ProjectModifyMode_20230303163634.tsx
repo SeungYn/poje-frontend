@@ -46,24 +46,7 @@ export default function ProjectModifyMode({
   return (
     <ProjectWrapper as='form' onSubmit={handleSubmit}>
       {loading && <LoadingSpiner text={'업데이트중'} />}
-      <ImgSectionWrapper>
-        {/* 등록된 이미지가 하나도 없으면 이미지가 없다는 이미지를 등록시켜주기 */}
-        <ImageSlider
-          imgList={prImgList}
-          handleClick={handlePrevImgRemove}
-          StyledComponent={HoverImgSliderWrapper}
-        />
-        <ImgUploadLabel htmlFor='file'>이미지 등록하기</ImgUploadLabel>
-        <input
-          type='file'
-          id='file'
-          name='file'
-          accept={'image/gif, image/jpeg, image/png'}
-          style={{ display: 'none' }}
-          onChange={onChange}
-          multiple
-        />
-      </ImgSectionWrapper>
+
       <DescriptionWrapper>
         <ProjectHeaderWrapper>
           <ProjectTitle name='name' value={prInfo.name} onChange={onChange} />

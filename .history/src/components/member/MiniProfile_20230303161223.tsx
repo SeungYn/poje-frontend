@@ -1,7 +1,6 @@
 import useMyInfo from '@src/hooks/member/useMyInfo';
 import styled from 'styled-components';
 import LoadingSpiner from '@src/components/portfolio/common/LoadingSpiner';
-import { Link } from 'react-router-dom';
 
 export default function MiniProfile() {
   const { userInfo, isLoading } = useMyInfo();
@@ -12,10 +11,6 @@ export default function MiniProfile() {
       <ProfileImg src={userInfo?.profileImg} />
       <NickName>{userInfo?.nickName}</NickName>
       <Email>{userInfo?.email}</Email>
-      <UpdateBtn>
-        <Link to='/'>프로필 수정</Link>
-      </UpdateBtn>
-      <UpdateBtn href='/'>프로필 수정2</UpdateBtn>
     </Container>
   );
 }
@@ -41,5 +36,3 @@ const NickName = styled.h2`
 const Email = styled.p`
   font-size: ${({ theme }) => theme.fontRegular};
 `;
-
-const UpdateBtn = styled.a``;

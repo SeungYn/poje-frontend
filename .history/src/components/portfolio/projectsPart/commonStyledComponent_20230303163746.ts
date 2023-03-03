@@ -90,8 +90,6 @@ export const DescriptionWrapper = styled.div`
 
 export const ProjectHeaderWrapper = styled.div`
   text-align: center;
-  display: flex;
-  flex-direction: column;
 `;
 
 export const ExplainSectionWrapper = styled.div``;

@@ -250,9 +250,9 @@ export default function useProjectModify(data: ProjectType) {
   };
 
   //textarea 사이즈 초기화
-  // useEffect(() => {
-  //   resizeAutoTextArea();
-  // }, [discriptionRef]);
+  useEffect(() => {
+    //resizeAutoTextArea();
+  }, [discriptionRef]);
 
   return {
     copiedProject,
