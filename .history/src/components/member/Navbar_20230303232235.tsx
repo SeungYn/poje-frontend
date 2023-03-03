@@ -1,46 +1,33 @@
 import { useSideNavbar } from '@src/hooks/member';
-import { CSSProperties, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const ActiveStyle: CSSProperties = {
-  borderRadius: '2rem',
-  background: 'rgb(239, 237, 237)',
-};
-
 export default function Navbar() {
-  const [containerRef, navbarRef, toggleHandler] = useSideNavbar<
+  const [isOpen, containerRef, navbarRef, toggleHandler] = useSideNavbar<
     HTMLDivElement,
     HTMLUListElement
   >();
 
+  // const onClick = () => {
+  //   const navbarWidth = navbarRef.current!.offsetWidth;
+  //   console.log('click');
+  //   if (containerRef.current) {
+  //     let calcedPosition = navbarWidth;
+  //     if (isOpen) calcedPosition *= -1;
+  //     else calcedPosition = 0;
+  //     console.log(calcedPosition);
+  //     containerRef.current.style.transform = `translateX(${calcedPosition}px)`;
+  //   }
+  //   toggleHandler();
+  // };
   return (
     <Container ref={containerRef}>
       <MemberNavbar ref={navbarRef}>
-        <NavLink
-          style={({ isActive }) => (isActive ? ActiveStyle : undefined)}
-          to='/member/myinfo'
-        >
-          내 정보
-        </NavLink>
-        <NavLink
-          style={({ isActive }) => (isActive ? ActiveStyle : undefined)}
-          to='/member/modify'
-        >
-          내 정보 수정하기
-        </NavLink>
-        <NavLink
-          style={({ isActive }) => (isActive ? ActiveStyle : undefined)}
-          to='/member/password'
-        >
-          비밀번호 변경하기
-        </NavLink>
-        <NavLink
-          style={({ isActive }) => (isActive ? ActiveStyle : undefined)}
-          to='/member/like'
-        >
-          좋아요 누른 포트폴리오
-        </NavLink>
+        <NavLink to='/member'>내 정보</NavLink>
+        <NavLink to='/member/modify'>내 정보 수정하기</NavLink>
+        <NavLink to='/member/password'>비밀번호 변경하기</NavLink>
+        <NavLink to='/member/like'>좋아요 누른 포트폴리오</NavLink>
       </MemberNavbar>
       <ToggleBtn onClick={() => toggleHandler()}>버튼</ToggleBtn>
     </Container>
@@ -63,12 +50,16 @@ const MemberNavbar = styled.nav`
   flex-direction: column;
   background: ${({ theme }) => theme.bgColor};
   height: 100%;
-  padding: 0.8rem;
 
   & > a {
     padding: 1rem;
     font-size: ${({ theme }) => theme.fontLargeRegular};
   }
+`;
+
+const Item = styled.a`
+  padding: 1rem;
+  font-size: ${({ theme }) => theme.fontLargeRegular};
 `;
 
 const ToggleBtn = styled.button`

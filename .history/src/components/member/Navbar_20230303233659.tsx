@@ -19,7 +19,7 @@ export default function Navbar() {
       <MemberNavbar ref={navbarRef}>
         <NavLink
           style={({ isActive }) => (isActive ? ActiveStyle : undefined)}
-          to='/member/myinfo'
+          to='/member'
         >
           내 정보
         </NavLink>

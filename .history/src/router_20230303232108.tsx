@@ -62,19 +62,7 @@ export const router = createBrowserRouter([
         element: <MemberRoot />,
         children: [
           {
-            path: 'myinfo',
-            element: <MyInfoPage />,
-          },
-          {
-            path: 'modify',
-            element: <MyInfoPage />,
-          },
-          {
-            path: 'password',
-            element: <MyInfoPage />,
-          },
-          {
-            path: 'like',
+            index: true,
             element: <MyInfoPage />,
           },
         ],

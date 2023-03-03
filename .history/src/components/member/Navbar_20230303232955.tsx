@@ -5,11 +5,11 @@ import styled from 'styled-components';
 
 const ActiveStyle: CSSProperties = {
   borderRadius: '2rem',
-  background: 'rgb(239, 237, 237)',
+  background: 'rgb(239, 237, 237);',
 };
 
 export default function Navbar() {
-  const [containerRef, navbarRef, toggleHandler] = useSideNavbar<
+  const [isOpen, containerRef, navbarRef, toggleHandler] = useSideNavbar<
     HTMLDivElement,
     HTMLUListElement
   >();
@@ -19,28 +19,13 @@ export default function Navbar() {
       <MemberNavbar ref={navbarRef}>
         <NavLink
           style={({ isActive }) => (isActive ? ActiveStyle : undefined)}
-          to='/member/myinfo'
+          to='/member'
         >
           내 정보
         </NavLink>
-        <NavLink
-          style={({ isActive }) => (isActive ? ActiveStyle : undefined)}
-          to='/member/modify'
-        >
-          내 정보 수정하기
-        </NavLink>
-        <NavLink
-          style={({ isActive }) => (isActive ? ActiveStyle : undefined)}
-          to='/member/password'
-        >
-          비밀번호 변경하기
-        </NavLink>
-        <NavLink
-          style={({ isActive }) => (isActive ? ActiveStyle : undefined)}
-          to='/member/like'
-        >
-          좋아요 누른 포트폴리오
-        </NavLink>
+        <NavLink to='/member/modify'>내 정보 수정하기</NavLink>
+        <NavLink to='/member/password'>비밀번호 변경하기</NavLink>
+        <NavLink to='/member/like'>좋아요 누른 포트폴리오</NavLink>
       </MemberNavbar>
       <ToggleBtn onClick={() => toggleHandler()}>버튼</ToggleBtn>
     </Container>
