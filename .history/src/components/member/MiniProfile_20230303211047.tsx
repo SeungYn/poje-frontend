@@ -36,7 +36,7 @@ const ProfileImg = styled.img`
 `;
 
 const NickName = styled.h2`
-  font-size: ${({ theme }) => theme.fontLargeSize};
+  font-size: ${({ theme }) => theme.fontMiddleSize};
   margin: 0.4rem 0;
 `;
 

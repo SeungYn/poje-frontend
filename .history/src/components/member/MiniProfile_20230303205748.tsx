@@ -25,14 +25,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: ${({ theme }) => theme.textColor};
+  color: white;
 `;
 
 const ProfileImg = styled.img`
   width: 8rem;
   height: 8rem;
   border: 2px solid white;
-  border-radius: 50%;
 `;
 
 const NickName = styled.h2`
@@ -51,6 +50,6 @@ const UpdateBtn = styled.div`
   & > a {
     display: inline-block;
     padding: 1rem 2rem;
-    background: ${(props) => props.theme.bgColor};
+    background: ${(props) => props.theme.bgSemiDarkColor};
   }
 `;

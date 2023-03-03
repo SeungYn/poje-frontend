@@ -51,6 +51,6 @@ const UpdateBtn = styled.div`
   & > a {
     display: inline-block;
     padding: 1rem 2rem;
-    background: ${(props) => props.theme.bgColor};
+    background: ${(props) => props.theme.bgSemiDarkColor};
   }
 `;

@@ -25,7 +25,16 @@ export const useSideNavbar: UseSideNavbarReturnType = <
   const navbarRef = useRef<O>(null);
 
   const toggleHandler = () => {
-    isOpen ? onCloseSide() : onOpenSide();
+    console.log('click');
+    const navbarWidth = navbarRef.current!.offsetWidth;
+
+    if (containerRef.current) {
+      let calcedPosition = navbarWidth;
+      if (isOpen) calcedPosition *= -1;
+      else calcedPosition = 0;
+      containerRef.current.style.transform = `translateX(${calcedPosition}px)`;
+    }
+    setIsOpen((v) => !v);
   };
 
   const onOpenSide = useCallback(() => {
@@ -54,7 +63,7 @@ export const useSideNavbar: UseSideNavbarReturnType = <
         onCloseSide();
       }
     },
-    [containerRef, onCloseSide]
+    [containerRef]
   );
 
   useEffect(() => {

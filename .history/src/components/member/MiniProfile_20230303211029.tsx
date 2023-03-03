@@ -35,7 +35,7 @@ const ProfileImg = styled.img`
   border-radius: 50%;
 `;
 
-const NickName = styled.h2`
+const NickName = styled.p`
   font-size: ${({ theme }) => theme.fontLargeSize};
   margin: 0.4rem 0;
 `;

@@ -25,24 +25,17 @@ export const useSideNavbar: UseSideNavbarReturnType = <
   const navbarRef = useRef<O>(null);
 
   const toggleHandler = () => {
-    isOpen ? onCloseSide() : onOpenSide();
-  };
-
-  const onOpenSide = useCallback(() => {
-    if (containerRef.current && !isOpen) {
-      containerRef.current.style.transform = `translateX(0px)`;
-    }
-    setIsOpen(true);
-  }, [containerRef, isOpen]);
-
-  const onCloseSide = useCallback(() => {
+    console.log('click');
     const navbarWidth = navbarRef.current!.offsetWidth;
-    if (containerRef.current && isOpen) {
+
+    if (containerRef.current) {
       let calcedPosition = navbarWidth;
-      containerRef.current.style.transform = `translateX(${-calcedPosition}px)`;
+      if (isOpen) calcedPosition *= -1;
+      else calcedPosition = 0;
+      containerRef.current.style.transform = `translateX(${calcedPosition}px)`;
     }
-    setIsOpen(false);
-  }, [containerRef, navbarRef, isOpen]);
+    setIsOpen((v) => !v);
+  };
 
   const onClose = useCallback(
     (e: MouseEvent) => {
@@ -51,10 +44,10 @@ export const useSideNavbar: UseSideNavbarReturnType = <
         e.target !== containerRef.current &&
         !containerRef.current?.contains(e.target as HTMLElement)
       ) {
-        onCloseSide();
+        setIsOpen(false);
       }
     },
-    [containerRef, onCloseSide]
+    [containerRef]
   );
 
   useEffect(() => {

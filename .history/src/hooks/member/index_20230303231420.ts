@@ -26,6 +26,8 @@ export const useSideNavbar: UseSideNavbarReturnType = <
 
   const toggleHandler = () => {
     isOpen ? onCloseSide() : onOpenSide();
+    console.log(isOpen);
+    setIsOpen((v) => !v);
   };
 
   const onOpenSide = useCallback(() => {
