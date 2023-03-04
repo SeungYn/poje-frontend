@@ -168,18 +168,5 @@ export default class MemberService {
     return result;
   }
 
-  async replyNote(data: SendNoteRequest) {
-    const { portfolioId, message } = data;
-
-    const config: AxiosRequestConfig = {
-      method: 'POST',
-      data: { message },
-    };
-
-    const { data: result } = await this.http.fetchJson<GetNoteResponse>(
-      `/member/note/${portfolioId}`,
-      config
-    );
-    return result;
-  }
+  async replyNote(data: SendNoteRequest) {}
 }
