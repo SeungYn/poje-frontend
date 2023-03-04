@@ -9,7 +9,7 @@ export default function Root() {
   return (
     <DefaultBackground isHomePath={isHomePath}>
       <MainHeader isHomePath={isHomePath} />
-      <NoteContainer />
+
       <Outlet />
     </DefaultBackground>
   );
