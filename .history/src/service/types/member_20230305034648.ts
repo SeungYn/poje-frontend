@@ -69,7 +69,7 @@ export interface GetNoteListResponse extends BasicResponse {
 }
 
 export interface GetNoteRequest {
-  portfolioId: string | number;
+  portfolioId: string;
 }
 
 export interface GetNoteResponse extends BasicResponse {
@@ -77,7 +77,7 @@ export interface GetNoteResponse extends BasicResponse {
 }
 
 export interface SendNoteRequest {
-  portfolioId: string | number;
+  portfolioId: string;
   message: string;
 }
 

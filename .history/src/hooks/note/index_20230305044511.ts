@@ -9,11 +9,14 @@ export const useGetNoteList = () => {
   return data!;
 };
 
-export const useGetNote = (portfolioId: string | number | undefined) => {
-  const { data = [] } = useQuery(
+export const useGetNote = (portfolioId: string | number | null) => {
+  if (!portfolioId) return [];
+  const { data } = useQuery(
     ['note', portfolioId],
-    () => (portfolioId ? service.member.getNote({ portfolioId }) : []),
-    {}
+    () => service.member.getNote({ portfolioId }),
+    {
+      suspense: true,
+    }
   );
 
   return data!;

@@ -1,13 +1,12 @@
 import { useNoteContext } from '@src/context/NoteContext';
 import { useGetNoteList } from '@src/hooks/note';
-import { NoteListType } from '@src/service/types/member';
 import styled from 'styled-components';
 
 export default function NoteList() {
   const noteList = useGetNoteList();
   const { selectedNote, handleClickNote } = useNoteContext();
 
-  const data: NoteListType[] = [
+  const data = [
     {
       portfolioId: '7',
       title: '제목을 입력해주세요.',
@@ -20,9 +19,7 @@ export default function NoteList() {
       <Title>쪽지함</Title>
       <NoteListUl>
         {data.map((item) => (
-          <Note key={item.portfolioId} onClick={() => handleClickNote(item)}>
-            {item.title}
-          </Note>
+          <Note onClick={() => handleClickNote(item)}>{item.title}</Note>
         ))}
       </NoteListUl>
     </Container>
@@ -36,10 +33,7 @@ const Container = styled.article`
   flex-direction: column;
 `;
 
-const Title = styled.h2`
-  padding: 0.8rem;
-  text-align: center;
-`;
+const Title = styled.h2``;
 
 const NoteListUl = styled.ul`
   width: 100%;

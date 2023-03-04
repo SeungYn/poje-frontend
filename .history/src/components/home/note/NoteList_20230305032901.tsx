@@ -20,9 +20,7 @@ export default function NoteList() {
       <Title>쪽지함</Title>
       <NoteListUl>
         {data.map((item) => (
-          <Note key={item.portfolioId} onClick={() => handleClickNote(item)}>
-            {item.title}
-          </Note>
+          <Note onClick={() => handleClickNote(item)}>{item.title}</Note>
         ))}
       </NoteListUl>
     </Container>

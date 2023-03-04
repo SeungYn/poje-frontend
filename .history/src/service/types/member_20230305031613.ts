@@ -45,19 +45,19 @@ export interface FindPasswordResponse extends BasicResponse {}
 
 // 쪽지
 export type NoteListType = {
-  portfolioId: string | number;
+  portfolioId: string;
   title: string;
 };
 
 export type SendNoteType = {
-  id: string | number;
+  id: string;
   message: string;
   sendStatus: string;
   sendTime: string;
 };
 
 export type NoteType = {
-  id: string | number;
+  id: string;
   message: string;
   sender: string;
   sendStatus: string;
@@ -69,7 +69,7 @@ export interface GetNoteListResponse extends BasicResponse {
 }
 
 export interface GetNoteRequest {
-  portfolioId: string | number;
+  portfolioId: string;
 }
 
 export interface GetNoteResponse extends BasicResponse {
@@ -77,7 +77,7 @@ export interface GetNoteResponse extends BasicResponse {
 }
 
 export interface SendNoteRequest {
-  portfolioId: string | number;
+  portfolioId: string;
   message: string;
 }
 

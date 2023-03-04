@@ -3,6 +3,7 @@ import { GetNoteResponse, NoteListType } from '@src/service/types/member';
 import {
   UseMutateFunction,
   useMutation,
+  UseMutationResult,
   useQueryClient,
 } from '@tanstack/react-query';
 import {

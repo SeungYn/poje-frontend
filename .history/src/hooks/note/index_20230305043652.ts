@@ -9,12 +9,10 @@ export const useGetNoteList = () => {
   return data!;
 };
 
-export const useGetNote = (portfolioId: string | number | undefined) => {
-  const { data = [] } = useQuery(
-    ['note', portfolioId],
-    () => (portfolioId ? service.member.getNote({ portfolioId }) : []),
-    {}
-  );
+export const useGetNote = (portfolioId: string | number) => {
+  const { data } = useQuery(['note'], () => service.member.getNoteList(), {
+    suspense: true,
+  });
 
   return data!;
 };

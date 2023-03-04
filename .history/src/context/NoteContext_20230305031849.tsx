@@ -1,10 +1,4 @@
-import service from '@src/service';
-import { GetNoteResponse, NoteListType } from '@src/service/types/member';
-import {
-  UseMutateFunction,
-  useMutation,
-  useQueryClient,
-} from '@tanstack/react-query';
+import { NoteListType } from '@src/service/types/member';
 import {
   createContext,
   useCallback,
@@ -17,7 +11,6 @@ type ContextType = {
   selectedNote: NoteListType | null;
   handleClickNote: (portfolioId: NoteListType) => void;
   handleDeleteSelectedNote: () => void;
-  handleReplyNote: UseMutateFunction<GetNoteResponse, unknown, string, unknown>;
 };
 
 const NoteContext = createContext<ContextType | undefined>(undefined);
@@ -27,7 +20,6 @@ type Props = {
 };
 
 export default function NoteContextProvider({ children }: Props) {
-  const queryClient = useQueryClient();
   const [selectedNote, setSelectedNote] = useState<NoteListType | null>(null);
 
   const handleClickNote = useCallback((note: NoteListType) => {
@@ -38,27 +30,9 @@ export default function NoteContextProvider({ children }: Props) {
     setSelectedNote(null);
   }, []);
 
-  const replyNote = useMutation(
-    (message: string) =>
-      service.member.replyNote({
-        portfolioId: selectedNote!.portfolioId,
-        message,
-      }),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries(['note', selectedNote!.portfolioId]);
-      },
-    }
-  );
-
   const context = useMemo<ContextType>(
-    () => ({
-      selectedNote,
-      handleClickNote,
-      handleDeleteSelectedNote,
-      handleReplyNote: replyNote.mutate,
-    }),
-    [selectedNote, handleClickNote, handleDeleteSelectedNote, replyNote]
+    () => ({ selectedNote, handleClickNote, handleDeleteSelectedNote }),
+    [selectedNote, handleClickNote, handleDeleteSelectedNote]
   );
 
   return (

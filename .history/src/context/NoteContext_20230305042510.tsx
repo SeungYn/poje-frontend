@@ -1,8 +1,8 @@
 import service from '@src/service';
 import { GetNoteResponse, NoteListType } from '@src/service/types/member';
 import {
-  UseMutateFunction,
   useMutation,
+  UseMutationResult,
   useQueryClient,
 } from '@tanstack/react-query';
 import {
@@ -17,7 +17,7 @@ type ContextType = {
   selectedNote: NoteListType | null;
   handleClickNote: (portfolioId: NoteListType) => void;
   handleDeleteSelectedNote: () => void;
-  handleReplyNote: UseMutateFunction<GetNoteResponse, unknown, string, unknown>;
+  handleReplyNote: UseMutationResult<GetNoteResponse, unknown, string, unknown>;
 };
 
 const NoteContext = createContext<ContextType | undefined>(undefined);

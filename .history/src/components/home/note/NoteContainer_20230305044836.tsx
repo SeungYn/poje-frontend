@@ -11,6 +11,7 @@ export default function NoteContainer() {
         <Suspense fallback={<div>로딩중</div>}>
           <NoteList />
         </Suspense>
+
         <NoteContent />
       </Container>
     </NoteContextProvider>

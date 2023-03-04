@@ -1,7 +1,6 @@
 import NoteContextProvider from '@src/context/NoteContext';
 import { Suspense } from 'react';
 import styled from 'styled-components';
-import NoteContent from './NoteContent';
 import NoteList from './NoteList';
 
 export default function NoteContainer() {
@@ -11,7 +10,6 @@ export default function NoteContainer() {
         <Suspense fallback={<div>로딩중</div>}>
           <NoteList />
         </Suspense>
-        <NoteContent />
       </Container>
     </NoteContextProvider>
   );
