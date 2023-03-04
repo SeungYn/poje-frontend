@@ -91,7 +91,7 @@ export default class MemberService {
     return pfAndMemberResp;
   }
 
-  async updatePassword(data: UpdatePasswordRequest) {
+  async UpdatePassword(data: UpdatePasswordRequest) {
     const config: AxiosRequestConfig = {
       method: 'PUT',
       data: {
@@ -99,10 +99,10 @@ export default class MemberService {
       },
     };
 
-    const { data: result } = await this.http.fetchJson<UpdatePasswordResponse>(
+    const { data } = await this.http.fetchJson<UpdatePasswordResponse>(
       '/member/password',
       config
     );
-    return result;
+    return data;
   }
 }

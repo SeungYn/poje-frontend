@@ -33,5 +33,3 @@ export interface UpdatePasswordRequest {
   newPassword: string;
   newPasswordConfirm: string;
 }
-
-export interface UpdatePasswordResponse extends BasicResponse {}

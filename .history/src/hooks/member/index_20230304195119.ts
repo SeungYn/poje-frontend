@@ -214,13 +214,12 @@ export const usePwModifyForm: () => [
 ] = () => {
   const [state, dispatch] = useReducer(passReducer, initialPassForm);
   const { setModal } = useModal();
-  const updatePassword = usePasswordModify();
 
   const submitHandle = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
+    console.log(state);
     if (state.error) return setModal('비밀번호를 확인해 주세요.');
     if (!checkValidForm()) return setModal('비밀번호를 입력해 주세요.');
-    updatePassword(state);
   };
 
   const checkValidForm = useCallback(() => {
@@ -246,11 +245,7 @@ const usePasswordModify = () => {
     {
       onMutate: () => setLoading(true),
       onSuccess: () => setModal('비밀번호가 변경되었습니다.'),
-      onError: (e: Error) => {
-        setModal(e.message);
-      },
       onSettled: () => setLoading(false),
     }
   );
-  return update.mutate;
 };

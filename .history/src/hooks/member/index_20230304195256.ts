@@ -218,6 +218,7 @@ export const usePwModifyForm: () => [
 
   const submitHandle = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
+    console.log(state);
     if (state.error) return setModal('비밀번호를 확인해 주세요.');
     if (!checkValidForm()) return setModal('비밀번호를 입력해 주세요.');
     updatePassword(state);
