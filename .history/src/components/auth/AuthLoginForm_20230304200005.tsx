@@ -1,8 +1,5 @@
 import useAuth from '@src/hooks/auth/useAuth';
-import { pwFindModalState } from '@src/store/auth';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useSetRecoilState } from 'recoil';
-import styled from 'styled-components';
 import AuthTopSide from './AuthTopSide';
 import {
   AuthForm,
@@ -19,11 +16,11 @@ interface LoginInputType {
 
 export default function AuthLoginForm() {
   const { register, handleSubmit } = useForm<LoginInputType>();
-  const setPasswordFindState = useSetRecoilState(pwFindModalState);
 
   const { login } = useAuth();
 
   const onSumbit: SubmitHandler<LoginInputType> = (data) => {
+    console.log(data);
     login(data);
   };
 
@@ -55,15 +52,7 @@ export default function AuthLoginForm() {
         </AuthLabel>
         <LoginBtn>로그인</LoginBtn>
       </AuthForm>
-      <FindPassword onClick={() => setPasswordFindState(true)}>
-        비밀번호를 잊어버렸습니까?
-      </FindPassword>
+      wfew
     </AuthFormContainer>
   );
 }
-
-const FindPassword = styled.button`
-  margin-top: 0.4rem;
-  text-decoration: underline;
-  font-size: ${({ theme }) => theme.fontSmall};
-`;

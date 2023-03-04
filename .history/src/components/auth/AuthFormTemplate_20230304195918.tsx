@@ -12,6 +12,7 @@ export default function AuthFormTemplate({ path }: type) {
     <Container>
       <AuthSideBanner />
       {path === 'login' ? <AuthLoginForm /> : <AuthSignUpForm />}
+      'f'
     </Container>
   );
 }
@@ -23,5 +24,6 @@ const Container = styled.section`
   width: 100%;
   border-radius: 3rem;
   display: flex;
+  justify-content: center;
   flex-wrap: none;
 `;

@@ -284,7 +284,6 @@ export const useFindPasswordForm = () => {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
-
     switch (name) {
       case 'nickName':
         return setState((f) => ({ ...f, nickName: value }));

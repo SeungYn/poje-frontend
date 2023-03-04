@@ -1,4 +1,3 @@
-import PasswordFindModal from '@src/components/auth/PasswordFindModal';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
@@ -7,7 +6,6 @@ export default function AuthPage() {
   return (
     <Container>
       <Outlet />
-      <PasswordFindModal />
     </Container>
   );
 }
@@ -22,3 +20,5 @@ const Container = styled.main`
     padding: 0;
   }
 `;
+
+const PasswordContainer = styled.div``;

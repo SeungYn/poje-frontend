@@ -1,10 +1,17 @@
 import styled from 'styled-components';
+import AuthLoginForm from './AuthLoginForm';
 import AuthSideBanner from './AuthSideBanner';
+import AuthSignUpForm from './AuthSignUpForm';
 
-export default function AuthFormTemplate() {
+interface type {
+  path: string;
+}
+
+export default function AuthFormTemplate({ path }: type) {
   return (
     <Container>
       <AuthSideBanner />
+      {path === 'login' ? <AuthLoginForm /> : <AuthSignUpForm />}
     </Container>
   );
 }
@@ -16,5 +23,6 @@ const Container = styled.section`
   width: 100%;
   border-radius: 3rem;
   display: flex;
+  justify-content: center;
   flex-wrap: none;
 `;

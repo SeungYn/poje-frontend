@@ -1,9 +1,5 @@
 import service from '@src/service';
-import {
-  FindPasswordRequest,
-  PutMemberInfoRequest,
-} from '@src/service/types/member';
-import { pwFindModalState } from '@src/store/auth';
+import { PutMemberInfoRequest } from '@src/service/types/member';
 import { commonLoadingState } from '@src/store/common';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
@@ -259,44 +255,14 @@ const usePasswordModify = () => {
   return update.mutate;
 };
 
-export const useFindPasswordForm = () => {
-  const { setModal } = useModal();
-  const setFindPwModalState = useSetRecoilState(pwFindModalState);
+const useFindPasswordForm = () => {
   const [state, setState] = useState({
     nickName: '',
     email: '',
     emailError: '',
   });
 
-  const findPassword = useMutation(
-    (data: FindPasswordRequest) => service.member.findPassword(data),
-    {
-      onSuccess: (res) => {
-        setModal(res.message, () => {
-          setFindPwModalState(false);
-        });
-      },
-      onError: (e: Error) => {
-        setModal(e.message);
-      },
-    }
-  );
-
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
-
-    switch (name) {
-      case 'nickName':
-        return setState((f) => ({ ...f, nickName: value }));
-      case 'email':
-        return setState((f) => ({ ...f, email: value }));
-    }
   };
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    findPassword.mutate({ nickName: state.nickName, email: state.email });
-  };
-
-  return { state, onSubmit, onChange };
 };

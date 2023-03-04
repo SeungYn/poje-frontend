@@ -259,7 +259,7 @@ const usePasswordModify = () => {
   return update.mutate;
 };
 
-export const useFindPasswordForm = () => {
+const useFindPasswordForm = () => {
   const { setModal } = useModal();
   const setFindPwModalState = useSetRecoilState(pwFindModalState);
   const [state, setState] = useState({
@@ -284,7 +284,6 @@ export const useFindPasswordForm = () => {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
-
     switch (name) {
       case 'nickName':
         return setState((f) => ({ ...f, nickName: value }));
@@ -292,11 +291,4 @@ export const useFindPasswordForm = () => {
         return setState((f) => ({ ...f, email: value }));
     }
   };
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    findPassword.mutate({ nickName: state.nickName, email: state.email });
-  };
-
-  return { state, onSubmit, onChange };
 };

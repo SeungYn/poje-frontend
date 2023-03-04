@@ -55,14 +55,12 @@ export default function AuthLoginForm() {
         </AuthLabel>
         <LoginBtn>로그인</LoginBtn>
       </AuthForm>
-      <FindPassword onClick={() => setPasswordFindState(true)}>
-        비밀번호를 잊어버렸습니까?
-      </FindPassword>
+      <FindPassword>비밀번호를 잊어버렸습니까?</FindPassword>
     </AuthFormContainer>
   );
 }
 
-const FindPassword = styled.button`
+const FindPassword = styled.p`
   margin-top: 0.4rem;
   text-decoration: underline;
   font-size: ${({ theme }) => theme.fontSmall};

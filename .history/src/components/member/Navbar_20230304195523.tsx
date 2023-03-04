@@ -38,7 +38,7 @@ export default function Navbar() {
         </NavLink>
         <NavLink
           style={({ isActive }) => (isActive ? ActiveStyle : undefined)}
-          to='/job/like/1'
+          to='/member/like/1'
         >
           좋아요 누른 포트폴리오
         </NavLink>
