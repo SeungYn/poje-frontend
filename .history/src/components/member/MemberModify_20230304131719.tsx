@@ -130,7 +130,6 @@ const Container = styled.form`
 
 const Img = styled.img`
   height: 100%;
-  width: 100%;
 `;
 
 const ImgWrapper = styled.div`
@@ -138,7 +137,6 @@ const ImgWrapper = styled.div`
   grid-area: img;
   border-radius: 50%;
   overflow: hidden;
-  width: 100%;
   height: 100%;
   position: relative;
   &:hover::before {
