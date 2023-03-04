@@ -2,11 +2,10 @@ import styled, { useTheme } from 'styled-components';
 import { NavLink, useParams } from 'react-router-dom';
 import useJobCategory from '@src/hooks/job/useJobCategory';
 import { breakPoint } from '@src/styledComponents/media';
-import useUser from '@src/hooks/auth/useUser';
+import { useEffect } from 'react';
 
 export default function JobCategory() {
   const theme = useTheme();
-  const { user } = useUser();
   const { type } = useParams<{ type: string }>();
   const activeStyle = {
     color: theme.textColor,
@@ -25,16 +24,14 @@ export default function JobCategory() {
           </NavLink>
         </JobItem>
       ))}
-      {user && (
-        <JobItem>
-          <NavLink
-            to={`/job/like/1`}
-            style={type === undefined ? activeStyle : undefined}
-          >
-            {'좋아요 누른 포트폴리오'}
-          </NavLink>
-        </JobItem>
-      )}
+      <JobItem>
+        <NavLink
+          to={`/job/like/1`}
+          style={type === undefined ? activeStyle : undefined}
+        >
+          {'좋아요 누른 포트폴리오'}
+        </NavLink>
+      </JobItem>
     </JobList>
   );
 }

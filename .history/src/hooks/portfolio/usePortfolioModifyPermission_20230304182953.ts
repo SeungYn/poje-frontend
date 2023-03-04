@@ -3,7 +3,7 @@ import { GetModifyPermissionRequest } from '@src/service/types/portfolio';
 import { useMutation } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 
-export default function useProtfolioModifyPermission(portfolioId: string) {
+export default function usePortfolioModifyPermission(portfolioId: string) {
   const [permissionModify, setPermissionModify] = useState(false);
 
   const getModifyPermission = useMutation<

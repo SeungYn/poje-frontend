@@ -2,6 +2,7 @@ import styled, { useTheme } from 'styled-components';
 import { NavLink, useParams } from 'react-router-dom';
 import useJobCategory from '@src/hooks/job/useJobCategory';
 import { breakPoint } from '@src/styledComponents/media';
+import { useEffect } from 'react';
 import useUser from '@src/hooks/auth/useUser';
 
 export default function JobCategory() {
