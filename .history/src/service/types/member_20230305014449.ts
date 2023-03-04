@@ -76,7 +76,3 @@ export interface SendNoteRequest {
   portfolioId: string;
   message: string;
 }
-
-export interface SendNoteResponse extends BasicResponse {
-  result: SendNoteType[];
-}

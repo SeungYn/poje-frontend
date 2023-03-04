@@ -45,38 +45,16 @@ export interface FindPasswordResponse extends BasicResponse {}
 
 // 쪽지
 export type NoteListType = {
-  portfiolioId: string;
+  portfiolioId: number;
   title: string;
 };
 
 export type SendNoteType = {
-  id: string;
-  message: string;
-  sendStatus: string;
-  sendTime: string;
+  id: 32;
+  message: '안녕하세요';
+  sender: '싸르2';
+  sendStatus: 'SEND';
+  sendTime: '2023-02-23T01:48:27.437939';
 };
 
-export type NoteType = {
-  id: string;
-  message: string;
-  sender: string;
-  sendStatus: string;
-  sendTime: string;
-};
-
-export interface GetNoteListResponse extends BasicResponse {
-  result: NoteListType[];
-}
-
-export interface GetNoteResponse extends BasicResponse {
-  result: NoteType[];
-}
-
-export interface SendNoteRequest {
-  portfolioId: string;
-  message: string;
-}
-
-export interface SendNoteResponse extends BasicResponse {
-  result: SendNoteType[];
-}
+export interface GetNoteListResponse extends BasicResponse {}
