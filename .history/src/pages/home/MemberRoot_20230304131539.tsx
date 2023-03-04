@@ -13,7 +13,7 @@ export default function MemberRoot() {
 
 const Container = styled.section`
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: ${(props) => props.theme.bgSemiDarkColor};
   height: 100%;
   width: 100%;
