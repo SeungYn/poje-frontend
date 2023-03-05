@@ -1,19 +1,26 @@
+import AsideGroup from '@src/components/portfolio/AsideGroup';
+import PortfolioLike from '@src/components/portfolio/PortfolioLike';
+import PortfolioInfoContextProvider from '@src/context/PortfolioInfoContext';
 import styled from 'styled-components';
 import PortAboutMeContainer from '../../components/portfolio/aboutPart/PortfolioAboutMeContainer';
 import ArchivingContainer from '../../components/portfolio/archivingPart/ArchivingContainer';
 import PortfolioIntroContainer from '../../components/portfolio/introPart/PortfolioIntroContainer';
-import PortfolioIntro from '../../components/portfolio/PortfolioIntroContainer';
+import PortfolioIntro from '../../components/portfolio/introPart/PortfolioIntroContainer';
 import ProjectsContainer from '../../components/portfolio/projectsPart/ProjectsContainer';
 import PortfolioSkillsContainer from '../../components/portfolio/skillPart/PortfolioSkillsContainer';
 
 export default function PortfolioMain() {
   return (
     <Container>
-      <PortfolioIntroContainer />
-      <PortAboutMeContainer />
-      <PortfolioSkillsContainer />
-      {/* <ArchivingContainer /> */}
-      <ProjectsContainer />
+      <PortfolioInfoContextProvider>
+        <PortfolioIntroContainer />
+        <PortAboutMeContainer />
+        <PortfolioSkillsContainer />
+        {/* <ArchivingContainer /> */}
+        <ProjectsContainer />
+        <AsideGroup />
+        <PortfolioLike />
+      </PortfolioInfoContextProvider>
     </Container>
   );
 }

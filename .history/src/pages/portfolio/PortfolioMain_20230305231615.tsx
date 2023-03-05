@@ -16,6 +16,7 @@ export default function PortfolioMain() {
         <PortfolioSkillsContainer />
         <ProjectsContainer />
         <AsideGroup />
+        <PortfolioLike />
       </PortfolioInfoContextProvider>
     </Container>
   );

@@ -31,10 +31,6 @@ export default function usePortfolioLike() {
           });
         }
       },
-      onSuccess: () => {
-        //성공하면 포트폴리오 좋아요 리스트 refatch
-        queryClient.invalidateQueries(['portfoliosListWithLike']);
-      },
     }
   );
 
