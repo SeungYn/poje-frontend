@@ -68,13 +68,12 @@ export const useSideNavbar: UseSideNavbarReturnType = <
   );
 
   useEffect(() => {
-    onOpenSide();
     document.addEventListener('click', onClose);
 
     return () => {
       document.addEventListener('click', onClose);
     };
-  }, [onClose, onOpenSide]);
+  }, [onClose]);
   return [isOpen, containerRef, navbarRef, toggleHandler];
 };
 

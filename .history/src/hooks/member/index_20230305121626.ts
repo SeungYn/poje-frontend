@@ -52,6 +52,10 @@ export const useSideNavbar: UseSideNavbarReturnType = <
       let calcedPosition = navbarWidth;
       containerRef.current.style.transform = `translateX(${-calcedPosition}px)`;
     }
+
+    useEffect(() => {
+      onOpenSide();
+    }, [onOpenSide]);
   }, [containerRef, navbarRef, isOpen]);
 
   const onClose = useCallback(
@@ -68,13 +72,12 @@ export const useSideNavbar: UseSideNavbarReturnType = <
   );
 
   useEffect(() => {
-    onOpenSide();
     document.addEventListener('click', onClose);
 
     return () => {
       document.addEventListener('click', onClose);
     };
-  }, [onClose, onOpenSide]);
+  }, [onClose]);
   return [isOpen, containerRef, navbarRef, toggleHandler];
 };
 

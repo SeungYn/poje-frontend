@@ -74,7 +74,7 @@ export const useSideNavbar: UseSideNavbarReturnType = <
     return () => {
       document.addEventListener('click', onClose);
     };
-  }, [onClose, onOpenSide]);
+  }, [onClose]);
   return [isOpen, containerRef, navbarRef, toggleHandler];
 };
 
