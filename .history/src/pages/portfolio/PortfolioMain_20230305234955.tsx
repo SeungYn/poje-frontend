@@ -1,5 +1,6 @@
 import SendNoteModal from '@src/components/home/note/SendNoteModal';
 import AsideGroup from '@src/components/portfolio/AsideGroup';
+import PortfolioLike from '@src/components/portfolio/PortfolioLike';
 import PortfolioInfoContextProvider from '@src/context/PortfolioInfoContext';
 import styled from 'styled-components';
 import PortAboutMeContainer from '../../components/portfolio/aboutPart/PortfolioAboutMeContainer';

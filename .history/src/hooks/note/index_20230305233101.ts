@@ -92,6 +92,4 @@ export const useSendNote = () => {
       },
     }
   );
-
-  return sendNote.mutate;
 };

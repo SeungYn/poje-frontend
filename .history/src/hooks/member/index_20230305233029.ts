@@ -2,6 +2,7 @@ import service from '@src/service';
 import {
   FindPasswordRequest,
   PutMemberInfoRequest,
+  SendNoteRequest,
 } from '@src/service/types/member';
 import { pwFindModalState } from '@src/store/auth';
 import { commonLoadingState } from '@src/store/common';

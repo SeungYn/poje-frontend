@@ -5,8 +5,8 @@ import PortfolioLike from './PortfolioLike';
 export default function AsideGroup() {
   return (
     <Container>
-      <SendNoteModalBtn />
       <PortfolioLike />
+      <SendNoteModalBtn />
     </Container>
   );
 }

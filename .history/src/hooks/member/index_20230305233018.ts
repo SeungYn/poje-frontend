@@ -2,6 +2,7 @@ import service from '@src/service';
 import {
   FindPasswordRequest,
   PutMemberInfoRequest,
+  SendNoteRequest,
 } from '@src/service/types/member';
 import { pwFindModalState } from '@src/store/auth';
 import { commonLoadingState } from '@src/store/common';
@@ -298,4 +299,34 @@ export const useFindPasswordForm = () => {
   };
 
   return { state, onSubmit, onChange };
+};
+
+//안본 쪽지 개수
+
+export const useNoteCount = () => {
+  const { data } = useQuery(
+    ['noteCount'],
+    () => service.member.getNoteCount(),
+    {
+      staleTime: 1000 * 60,
+      initialData: { count: 0 },
+    }
+  );
+
+  return data.count;
+};
+
+//포트폴리오 페이지에서 쪽지 보내기
+export const useSendNote = () => {
+  const queryClient = useQueryClient();
+  const { setModal } = useModal();
+  const sendNote = useMutation(
+    (data: SendNoteRequest) => service.member.sendNote(data),
+    {
+      onSuccess: () => {
+        setModal('쪽지가 보내졌습니다.');
+        queryClient.invalidateQueries(['note']);
+      },
+    }
+  );
 };
