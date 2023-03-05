@@ -25,9 +25,7 @@ export default function MainHeader({ isHomePath }: props) {
         <Nav isHomePath={isHomePath}>
           {user && (
             <Item isHomePath={isHomePath} data-type='note'>
-              {noteCount !== 0 && (
-                <NoteCount data-type='note'>{noteCount}</NoteCount>
-              )}
+              <NoteCount>{noteCount}</NoteCount>
               <IoMailOutline className='icon' data-type='note' />
             </Item>
           )}
@@ -82,7 +80,6 @@ const Nav = styled.nav<styledPropsType>`
 `;
 
 const Item = styled.button<styledPropsType>`
-  position: relative;
   color: ${(props) =>
     props.isHomePath ? props.theme.textAccentColor : props.theme.textColor};
   padding: 0.2rem 0.6rem;
@@ -91,11 +88,6 @@ const Item = styled.button<styledPropsType>`
 
 const NoteCount = styled.div`
   position: absolute;
-  right: 0px;
-  top: 0px;
-  font-size: ${({ theme }) => theme.fontSmall};
-  padding: 0.4rem;
-  color: white;
-  background: red;
-  border-radius: 50%;
+  right: 2px;
+  top: 2px;
 `;

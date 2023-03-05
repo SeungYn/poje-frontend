@@ -17,7 +17,7 @@ export default function MainHeader({ isHomePath }: props) {
   const navigate = useNavigate();
   const { user } = useUser();
   const noteCount = useNoteCount();
-
+  console.log(1 && '123');
   return (
     <Header isHomePath={isHomePath}>
       <Title onClick={() => navigate('/job/전체/1')}>POJE</Title>

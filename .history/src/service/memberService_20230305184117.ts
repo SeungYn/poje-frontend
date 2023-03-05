@@ -3,7 +3,6 @@ import { AxiosRequestConfig } from 'axios';
 import {
   FindPasswordRequest,
   FindPasswordResponse,
-  GetNoteCountResponse,
   GetNoteListResponse,
   GetNoteRequest,
   GetNoteResponse,
@@ -195,7 +194,7 @@ export default class MemberService {
 
     const {
       data: { result },
-    } = await this.http.fetchJson<GetNoteCountResponse>(
+    } = await this.http.fetchJson<GetNoteResponse>(
       `/member/note-count`,
       config
     );

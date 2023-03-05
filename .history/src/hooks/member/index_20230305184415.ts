@@ -311,6 +311,4 @@ export const useNoteCount = () => {
       initialData: { count: 0 },
     }
   );
-
-  return data.count;
 };

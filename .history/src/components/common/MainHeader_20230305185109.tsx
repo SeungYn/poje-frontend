@@ -25,9 +25,7 @@ export default function MainHeader({ isHomePath }: props) {
         <Nav isHomePath={isHomePath}>
           {user && (
             <Item isHomePath={isHomePath} data-type='note'>
-              {noteCount !== 0 && (
-                <NoteCount data-type='note'>{noteCount}</NoteCount>
-              )}
+              {noteCount && <NoteCount data-type='note'>{noteCount}</NoteCount>}
               <IoMailOutline className='icon' data-type='note' />
             </Item>
           )}

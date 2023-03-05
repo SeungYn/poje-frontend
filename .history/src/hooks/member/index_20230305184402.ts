@@ -308,9 +308,7 @@ export const useNoteCount = () => {
     () => service.member.getNoteCount(),
     {
       staleTime: 1000 * 60,
-      initialData: { count: 0 },
+      initialDataz: { count: 0 },
     }
   );
-
-  return data.count;
 };
