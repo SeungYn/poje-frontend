@@ -35,9 +35,9 @@ export const useNoteDropDownHelper: useNoteDropDownType = <
   const handleClose = useCallback(
     (e: MouseEvent) => {
       const target = e.target;
-      //쪽지 아이콘 버튼을 클릭했을때 종료해주기 버튼쪽에서 클릭이벤트 처리했음
+      //쪽지 아이콘 버튼을 클릭했을때 close 해주기 클릭시 HTMLElement, SVGElement인지 알아야함
       if (target instanceof HTMLElement || target instanceof SVGElement) {
-        if (target.dataset.type) return setIsOpen((f) => !f);
+        if (target.dataset.type) return setIsOpen(false);
       }
 
       if (

@@ -37,7 +37,7 @@ export const useNoteDropDownHelper: useNoteDropDownType = <
       const target = e.target;
       //쪽지 아이콘 버튼을 클릭했을때 종료해주기 버튼쪽에서 클릭이벤트 처리했음
       if (target instanceof HTMLElement || target instanceof SVGElement) {
-        if (target.dataset.type) return setIsOpen((f) => !f);
+        if (target.dataset.type) return;
       }
 
       if (

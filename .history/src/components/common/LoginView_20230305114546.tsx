@@ -21,17 +21,18 @@ export default function LoginView({ isHomePath }: props) {
   const [loginIsOpen, loginRef, loginToggleHander] =
     useDropDownHelper<HTMLDivElement>();
   const { userInfo } = useMyInfo();
-
+  console.log(data);
   if (!user)
     return (
       <LoginBtn isHomePath={isHomePath} onClick={() => navigate('/auth/login')}>
         로그인
       </LoginBtn>
     );
+  console.log(data);
 
   return (
     <Wrapper ref={loginRef} onClick={loginToggleHander} isHomePath={isHomePath}>
-      <ProfileImg src={userInfo?.profileImg} />
+      <ProfileImg src={data?.profileImg} />
       <MdOutlineKeyboardArrowDown
         className={`icon ${loginIsOpen ? 'open' : ''}`}
         style={{ transition: 'transform 0.2s linear' }}

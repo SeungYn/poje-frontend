@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import LoginView from './LoginView';
 import { IoMailOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
-import useUser from '@src/hooks/auth/useUser';
-
 type props = {
   isHomePath: boolean;
 };
@@ -14,18 +12,14 @@ type styledPropsType = {
 
 export default function MainHeader({ isHomePath }: props) {
   const navigate = useNavigate();
-  const { user } = useUser();
-
   return (
     <Header isHomePath={isHomePath}>
       <Title onClick={() => navigate('/job/전체/1')}>POJE</Title>
       <RightWrapper>
         <Nav isHomePath={isHomePath}>
-          {user && (
-            <Item isHomePath={isHomePath} data-type='note'>
-              <IoMailOutline className='icon' data-type='note' />
-            </Item>
-          )}
+          <Item isHomePath={isHomePath}>
+            <IoMailOutline className='icon' />
+          </Item>
         </Nav>
         <LoginView isHomePath={isHomePath} />
       </RightWrapper>
@@ -53,7 +47,7 @@ const Header = styled.header<styledPropsType>`
   .icon {
     display: flex;
     align-items: center;
-    font-size: 3rem;
+    font-size: ${({ theme }) => theme.iconSize};
   }
 `;
 // color: ${(props) => props.theme.textAccentColor};
@@ -74,11 +68,16 @@ const RightWrapper = styled.div`
 const Nav = styled.nav<styledPropsType>`
   display: flex;
   align-items: center;
+  margin-right: 0.8rem;
 `;
 
 const Item = styled.button<styledPropsType>`
   color: ${(props) =>
     props.isHomePath ? props.theme.textAccentColor : props.theme.textColor};
-  padding: 0.2rem 0.6rem;
-  border-radius: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 2rem;
+
+  &:hover {
+    filter: brightness(0.5);
+  }
 `;

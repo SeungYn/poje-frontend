@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import LoginView from './LoginView';
 import { IoMailOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
-import useUser from '@src/hooks/auth/useUser';
 
 type props = {
   isHomePath: boolean;
@@ -14,19 +13,10 @@ type styledPropsType = {
 
 export default function MainHeader({ isHomePath }: props) {
   const navigate = useNavigate();
-  const { user } = useUser();
-
   return (
     <Header isHomePath={isHomePath}>
       <Title onClick={() => navigate('/job/전체/1')}>POJE</Title>
       <RightWrapper>
-        <Nav isHomePath={isHomePath}>
-          {user && (
-            <Item isHomePath={isHomePath} data-type='note'>
-              <IoMailOutline className='icon' data-type='note' />
-            </Item>
-          )}
-        </Nav>
         <LoginView isHomePath={isHomePath} />
       </RightWrapper>
     </Header>

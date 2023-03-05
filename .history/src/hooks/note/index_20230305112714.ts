@@ -24,6 +24,7 @@ export const useGetNote = (portfolioId: string | number | undefined) => {
 
 type useNoteDropDownType = <T extends HTMLElement>() => [
   boolean,
+  () => void,
   React.RefObject<T>
 ];
 export const useNoteDropDownHelper: useNoteDropDownType = <
@@ -32,14 +33,10 @@ export const useNoteDropDownHelper: useNoteDropDownType = <
   const [isOpen, setIsOpen] = useRecoilState(isOpenNoteState);
   const targetRef = useRef<T>(null);
 
+  const handleOpenToggle = useCallback(() => setIsOpen((f) => !f), [setIsOpen]);
+
   const handleClose = useCallback(
     (e: MouseEvent) => {
-      const target = e.target;
-      //쪽지 아이콘 버튼을 클릭했을때 종료해주기 버튼쪽에서 클릭이벤트 처리했음
-      if (target instanceof HTMLElement || target instanceof SVGElement) {
-        if (target.dataset.type) return setIsOpen((f) => !f);
-      }
-
       if (
         e.target !== null &&
         e.target !== targetRef.current &&
@@ -59,5 +56,5 @@ export const useNoteDropDownHelper: useNoteDropDownType = <
     };
   }, [handleClose]);
 
-  return [isOpen, targetRef];
+  return [isOpen, handleOpenToggle, targetRef];
 };

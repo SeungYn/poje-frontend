@@ -8,7 +8,6 @@ import NoteList from './NoteList';
 
 export default function NoteContainer() {
   const [isOpen, targetRef] = useNoteDropDownHelper<HTMLDivElement>();
-
   return (
     <NoteContextProvider>
       <Container ref={targetRef} isOpen={isOpen}>
@@ -34,5 +33,4 @@ const Container = styled.div<{ isOpen: boolean }>`
   box-shadow: 0 0 4px black;
   transform: ${({ isOpen }) =>
     isOpen ? 'translateY(0%)' : 'translateY(100%)'};
-  transition: transform 0.3s ease;
 `;

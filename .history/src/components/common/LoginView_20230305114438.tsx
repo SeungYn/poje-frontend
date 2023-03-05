@@ -1,8 +1,11 @@
 import useAuth from '@src/hooks/auth/useAuth';
 import useUser from '@src/hooks/auth/useUser';
 import useMyInfo from '@src/hooks/member/useMyInfo';
+import { isOpenNoteState } from '@src/store/note';
+import { IoMailOutline } from 'react-icons/io5';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import useDropDownHelper from '../../hooks/useDropDownHelper';
 
@@ -20,6 +23,7 @@ export default function LoginView({ isHomePath }: props) {
   const navigate = useNavigate();
   const [loginIsOpen, loginRef, loginToggleHander] =
     useDropDownHelper<HTMLDivElement>();
+  const setIsOpenNote = useSetRecoilState(isOpenNoteState);
   const { userInfo } = useMyInfo();
 
   if (!user)
@@ -31,6 +35,16 @@ export default function LoginView({ isHomePath }: props) {
 
   return (
     <Wrapper ref={loginRef} onClick={loginToggleHander} isHomePath={isHomePath}>
+      <Nav isHomePath={isHomePath}>
+        {user && (
+          <Item
+            isHomePath={isHomePath}
+            onClick={() => setIsOpenNote((f) => !f)}
+          >
+            <IoMailOutline className='icon' />
+          </Item>
+        )}
+      </Nav>
       <ProfileImg src={userInfo?.profileImg} />
       <MdOutlineKeyboardArrowDown
         className={`icon ${loginIsOpen ? 'open' : ''}`}
@@ -91,6 +105,7 @@ const Wrapper = styled.div<styledPropsType>`
 const ProfileImg = styled.img`
   width: 3rem;
   height: 3rem;
+  border: 2px solid white;
   border-radius: 50%;
 `;
 
@@ -103,5 +118,17 @@ const LoginBtn = styled.button<styledPropsType>`
       isHomePath ? theme.textAccentColor : theme.textColor};
   padding: 0.4rem 0.8rem;
 
+  border-radius: 1rem;
+`;
+
+const Nav = styled.nav<styledPropsType>`
+  display: flex;
+  align-items: center;
+`;
+
+const Item = styled.button<styledPropsType>`
+  color: ${(props) =>
+    props.isHomePath ? props.theme.textAccentColor : props.theme.textColor};
+  padding: 0.2rem 0.6rem;
   border-radius: 1rem;
 `;

@@ -3,7 +3,8 @@ import LoginView from './LoginView';
 import { IoMailOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 import useUser from '@src/hooks/auth/useUser';
-
+import { useSetRecoilState } from 'recoil';
+import { isOpenNoteState } from '@src/store/note';
 type props = {
   isHomePath: boolean;
 };

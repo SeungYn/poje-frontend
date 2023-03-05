@@ -1,8 +1,10 @@
 import useAuth from '@src/hooks/auth/useAuth';
 import useUser from '@src/hooks/auth/useUser';
 import useMyInfo from '@src/hooks/member/useMyInfo';
+import { isOpenNoteState } from '@src/store/note';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import useDropDownHelper from '../../hooks/useDropDownHelper';
 
@@ -20,6 +22,7 @@ export default function LoginView({ isHomePath }: props) {
   const navigate = useNavigate();
   const [loginIsOpen, loginRef, loginToggleHander] =
     useDropDownHelper<HTMLDivElement>();
+  const setIsOpenNote = useSetRecoilState(isOpenNoteState);
   const { userInfo } = useMyInfo();
 
   if (!user)
@@ -91,6 +94,7 @@ const Wrapper = styled.div<styledPropsType>`
 const ProfileImg = styled.img`
   width: 3rem;
   height: 3rem;
+  border: 2px solid white;
   border-radius: 50%;
 `;
 
