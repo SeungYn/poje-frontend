@@ -191,11 +191,5 @@ export default class MemberService {
     const config: AxiosRequestConfig = {
       method: 'GET',
     };
-
-    const { data: result } = await this.http.fetchJson<GetNoteResponse>(
-      `/member/note-count`,
-      config
-    );
-    return result;
   }
 }

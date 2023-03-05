@@ -35,6 +35,7 @@ export const useSideNavbar: UseSideNavbarReturnType = <
   const navbarRef = useRef<O>(null);
 
   const toggleHandler = () => {
+    console.log('click');
     isOpen ? onCloseSide() : onOpenSide();
   };
 
@@ -69,7 +70,9 @@ export const useSideNavbar: UseSideNavbarReturnType = <
   );
 
   useEffect(() => {
+    onOpenSide();
     document.addEventListener('click', onClose);
+
     return () => {
       document.addEventListener('click', onClose);
     };
@@ -299,5 +302,3 @@ export const useFindPasswordForm = () => {
 
   return { state, onSubmit, onChange };
 };
-
-//안본 쪽지 개수

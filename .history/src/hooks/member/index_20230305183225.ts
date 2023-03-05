@@ -62,6 +62,7 @@ export const useSideNavbar: UseSideNavbarReturnType = <
         e.target !== containerRef.current &&
         !containerRef.current?.contains(e.target as HTMLElement)
       ) {
+        console.log('close');
         onCloseSide();
       }
     },
@@ -70,6 +71,7 @@ export const useSideNavbar: UseSideNavbarReturnType = <
 
   useEffect(() => {
     document.addEventListener('click', onClose);
+
     return () => {
       document.addEventListener('click', onClose);
     };
@@ -299,5 +301,3 @@ export const useFindPasswordForm = () => {
 
   return { state, onSubmit, onChange };
 };
-
-//안본 쪽지 개수
