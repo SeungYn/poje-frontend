@@ -8,7 +8,7 @@ export default function NoteList() {
   const { selectedNote, handleClickNote } = useNoteContext();
 
   if (selectedNote) return <></>;
-  console.log(noteList);
+
   return (
     <Container>
       <Title>쪽지함</Title>
@@ -52,5 +52,4 @@ const NoteListUl = styled.ul`
 const Note = styled.li`
   padding: 1rem 0;
   border-bottom: 1px solid black;
-  cursor: pointer;
 `;

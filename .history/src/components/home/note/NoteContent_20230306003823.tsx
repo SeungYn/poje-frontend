@@ -24,7 +24,7 @@ export default function NoteContent() {
       <Header>
         <BeforeBtn
           onClick={(e) => {
-            e?.stopPropagation();
+            e.stopPropagation();
             handleDeleteSelectedNote();
           }}
         />

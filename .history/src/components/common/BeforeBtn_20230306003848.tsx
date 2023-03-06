@@ -2,7 +2,7 @@ import { MdNavigateBefore } from 'react-icons/md';
 import styled from 'styled-components';
 
 interface BeforeButtonType {
-  onClick: (e?: React.MouseEvent) => void;
+  onClick: (e: React.MouseEvent) => void;
 }
 export default function BeforeBtn({ onClick }: BeforeButtonType) {
   return (

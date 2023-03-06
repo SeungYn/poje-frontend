@@ -5,7 +5,6 @@ import { isOpenNoteState } from '@src/store/note';
 import { useCallback, useRef, useEffect } from 'react';
 import { SendNoteRequest } from '@src/service/types/member';
 import useModal from '../common/useModal';
-import useUser from '../auth/useUser';
 
 export const useGetNoteList = () => {
   const { data } = useQuery(['note'], () => service.member.getNoteList(), {
@@ -48,7 +47,8 @@ export const useNoteDropDownHelper: useNoteDropDownType = <
         e.target !== targetRef.current &&
         !targetRef.current?.contains(e.target as HTMLElement)
       ) {
-        setIsOpen(false);
+        targetRef.current?.contains(e.target as HTMLElement);
+        //setIsOpen(false);
       }
     },
     [targetRef, setIsOpen]
@@ -68,14 +68,12 @@ export const useNoteDropDownHelper: useNoteDropDownType = <
 //안본 쪽지 개수
 
 export const useNoteCount = () => {
-  const { user } = useUser();
   const { data } = useQuery(
     ['noteCount'],
     () => service.member.getNoteCount(),
     {
       staleTime: 1000 * 60,
       initialData: { count: 0 },
-      enabled: !!user,
     }
   );
 

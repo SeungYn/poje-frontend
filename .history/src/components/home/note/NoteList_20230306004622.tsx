@@ -52,5 +52,4 @@ const NoteListUl = styled.ul`
 const Note = styled.li`
   padding: 1rem 0;
   border-bottom: 1px solid black;
-  cursor: pointer;
 `;
