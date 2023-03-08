@@ -9,16 +9,16 @@ import { useGetNoteCentent, useSendNote } from '@src/hooks/note';
 export default function NoteContent() {
   const { selectedNote, handleDeleteSelectedNote } = useNoteContext();
   const [inputMessage, setInputMessage] = useState('');
-  const noteList = useGetNoteCentent(selectedNote?.opponentEmail);
+  const noteList = useGetNoteCentent(selectedNote?.oppenentEmail);
   const onSendNote = useSendNote();
-
+  console.log(selectedNote);
   if (!selectedNote) return <></>;
   return (
     <Container
       onSubmit={(e) => {
         e.preventDefault();
         onSendNote({
-          email: selectedNote.opponentEmail,
+          email: selectedNote.oppenentEmail,
           message: inputMessage,
         });
         setInputMessage('');

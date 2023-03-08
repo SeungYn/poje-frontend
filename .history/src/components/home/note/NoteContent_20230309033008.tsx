@@ -4,23 +4,20 @@ import styled from 'styled-components';
 import NoteItem from './NoteItem';
 import { useState } from 'react';
 import { AiOutlineSend } from 'react-icons/ai';
-import { useGetNoteCentent, useSendNote } from '@src/hooks/note';
+import { useGetNoteCentent } from '@src/hooks/note';
 
 export default function NoteContent() {
-  const { selectedNote, handleDeleteSelectedNote } = useNoteContext();
+  const { selectedNote, handleDeleteSelectedNote, handleReplyNote } =
+    useNoteContext();
   const [inputMessage, setInputMessage] = useState('');
-  const noteList = useGetNoteCentent(selectedNote?.opponentEmail);
-  const onSendNote = useSendNote();
+  const noteList = useGetNoteCentent(selectedNote?.oppenentEmail);
 
   if (!selectedNote) return <></>;
   return (
     <Container
       onSubmit={(e) => {
         e.preventDefault();
-        onSendNote({
-          email: selectedNote.opponentEmail,
-          message: inputMessage,
-        });
+        handleReplyNote(inputMessage);
         setInputMessage('');
       }}
     >
@@ -31,7 +28,7 @@ export default function NoteContent() {
             handleDeleteSelectedNote();
           }}
         />
-        <Title>{selectedNote.opponentNickName}</Title>
+        <Title>{selectedNote.title}</Title>
       </Header>
       <NoteListUl>
         {noteList.map((item) => (

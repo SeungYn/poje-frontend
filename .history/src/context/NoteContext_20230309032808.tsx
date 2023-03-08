@@ -1,4 +1,10 @@
-import { NoteListType } from '@src/service/types/member';
+import service from '@src/service';
+import { GetNoteResponse, NoteListType } from '@src/service/types/member';
+import {
+  UseMutateFunction,
+  useMutation,
+  useQueryClient,
+} from '@tanstack/react-query';
 import {
   createContext,
   useCallback,
@@ -19,7 +25,6 @@ type Props = {
   children: React.ReactNode;
 };
 
-//선택된 노트 내용을 관리
 export default function NoteContextProvider({ children }: Props) {
   const [selectedNote, setSelectedNote] = useState<NoteListType | null>(null);
 

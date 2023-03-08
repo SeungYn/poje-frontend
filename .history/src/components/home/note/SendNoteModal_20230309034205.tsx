@@ -10,14 +10,14 @@ import styled from 'styled-components';
 export default function SendNoteModal() {
   const [text, setText] = useState('');
   const [isOpen, setIsOpen] = useRecoilState(isOpenSendNoteModal);
-  const { portfolioEmail } = usePortfolioInfo();
+  const { portfolioId } = useAbout();
   const onSendNote = useSendNote();
   const { setModal } = useModal();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (text === '') return setModal('내용을 입력해주세요');
-    onSendNote({ email: portfolioEmail, message: text });
+    onSendNote({ portfolioId, message: text });
     setText('');
     setIsOpen(false);
   };

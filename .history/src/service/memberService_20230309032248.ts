@@ -136,7 +136,7 @@ export default class MemberService {
     const {
       data: { result },
     } = await this.http.fetchJson<GetNoteListResponse>(
-      '/member/note-room',
+      '/member/note/portfolios',
       config
     );
     return result;
@@ -160,7 +160,7 @@ export default class MemberService {
 
   async sendNote(data: SendNoteRequest) {
     const { email, message } = data;
-    console.log(email, message);
+
     const config: AxiosRequestConfig = {
       method: 'POST',
       data: { email, message },
@@ -168,6 +168,21 @@ export default class MemberService {
 
     const { data: result } = await this.http.fetchJson<GetNoteResponse>(
       `/member/note`,
+      config
+    );
+    return result;
+  }
+
+  async replyNote(data: SendNoteRequest) {
+    const { portfolioId, message } = data;
+
+    const config: AxiosRequestConfig = {
+      method: 'POST',
+      data: { message },
+    };
+
+    const { data: result } = await this.http.fetchJson<GetNoteResponse>(
+      `/member/note/${portfolioId}`,
       config
     );
     return result;

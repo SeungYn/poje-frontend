@@ -105,5 +105,4 @@ export const useGetNoteSender = (portfolioId: string) => {
     ['portfolioAboutMe', portfolioId],
     async () => await service.portfolio.getAboutMe({ portfolioId })
   );
-  return data ? data.email : '';
 };

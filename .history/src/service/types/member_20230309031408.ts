@@ -46,18 +46,16 @@ export interface FindPasswordResponse extends BasicResponse {}
 // 쪽지
 export type NoteListType = {
   opponentNickName: string;
-  opponentEmail: string;
   lastMessage: string;
   sendTime: string;
   view: boolean;
 };
 
 export type SendNoteType = {
+  id: string | number;
   message: string;
-  sender: string;
   sendStatus: string;
   sendTime: string;
-  senderEmail: string;
 };
 
 export type NoteType = {
@@ -72,7 +70,7 @@ export interface GetNoteListResponse extends BasicResponse {
 }
 
 export interface GetNoteRequest {
-  email: string;
+  name: string;
 }
 
 export interface GetNoteResponse extends BasicResponse {
@@ -80,12 +78,12 @@ export interface GetNoteResponse extends BasicResponse {
 }
 
 export interface SendNoteRequest {
-  email: string;
+  portfolioId: string | number;
   message: string;
 }
 
 export interface SendNoteResponse extends BasicResponse {
-  result: SendNoteType;
+  result: SendNoteType[];
 }
 
 export interface GetNoteCountResponse extends BasicResponse {

@@ -15,7 +15,7 @@ export const useGetNoteList = () => {
   return data!;
 };
 
-export const useGetNoteCentent = (email: string | undefined) => {
+export const useGetNoteCentent = (email: string) => {
   const { data = [] } = useQuery(
     ['note', email],
     () => (email ? service.member.getNote({ email }) : []),
@@ -97,13 +97,4 @@ export const useSendNote = () => {
   );
 
   return sendNote.mutate;
-};
-
-//쪽지 보낼 포트폴리오 상대 이메일 가져오기
-export const useGetNoteSender = (portfolioId: string) => {
-  const { data } = useQuery(
-    ['portfolioAboutMe', portfolioId],
-    async () => await service.portfolio.getAboutMe({ portfolioId })
-  );
-  return data ? data.email : '';
 };

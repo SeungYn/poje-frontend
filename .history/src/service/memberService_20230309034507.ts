@@ -160,7 +160,7 @@ export default class MemberService {
 
   async sendNote(data: SendNoteRequest) {
     const { email, message } = data;
-    console.log(email, message);
+
     const config: AxiosRequestConfig = {
       method: 'POST',
       data: { email, message },
