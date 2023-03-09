@@ -49,7 +49,7 @@ export default function usePortfolioModifyForm() {
   };
   useEffect(() => {
     resizeAutoTextArea();
-  }, [discriptionRef]);
+  }, [discriptionRef.current]);
 
   //컴포넌트 unMount시 URL.Object헤제
   useEffect(() => {

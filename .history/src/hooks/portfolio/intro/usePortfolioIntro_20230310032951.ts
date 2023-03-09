@@ -61,6 +61,8 @@ export default function usePortfolioIntro() {
         //queryClient.invalidateQueries(['portfolioIntro', portfolioId]);
       },
       onSuccess: (data) => {
+        console.log('success에서 실행');
+        console.log(data, '수정된 인트로');
         queryClient.setQueryData(['portfolioIntro', portfolioId], data);
       },
       onSettled: () => {

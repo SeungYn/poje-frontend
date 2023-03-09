@@ -4,6 +4,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { isOpenNoteState } from '@src/store/note';
 import { useCallback, useRef, useEffect } from 'react';
 import { SendNoteRequest } from '@src/service/types/member';
+import useModal from '../common/useModal';
 import useUser from '../auth/useUser';
 
 export const useGetNoteList = () => {

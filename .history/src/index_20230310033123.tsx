@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
-import AppRouter from './router';
+import AppRouter, { router } from './router';
 import { GlobalStyle } from './styledComponents/styledComponents';
 import { mainTheme } from './styledComponents/theme';
 import './index.css';

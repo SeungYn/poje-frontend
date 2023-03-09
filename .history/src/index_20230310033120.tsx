@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
-import AppRouter from './router';
+import AppRouter, { router } from './router';
 import { GlobalStyle } from './styledComponents/styledComponents';
 import { mainTheme } from './styledComponents/theme';
 import './index.css';
@@ -15,7 +15,7 @@ import { CookiesProvider } from 'react-cookie';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-console.log(process.env.REACT_APP_TEST2, 'env');
+console.log(process.env.REACT_APP_TEST, 'env');
 root.render(
   <>
     <GlobalStyle />

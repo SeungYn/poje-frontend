@@ -251,6 +251,10 @@ export class PortfolioService {
         })
       );
 
+    const entries = formData.entries();
+    for (const k of entries) {
+      console.log(k[0], k[1]);
+    }
     const config: AxiosRequestConfig = {
       method: 'PUT',
       data: formData,
