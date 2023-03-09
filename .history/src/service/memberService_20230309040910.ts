@@ -65,7 +65,6 @@ export default class MemberService {
       )
     );
     if (profileImgFile) {
-      console.log(profileImgFile);
       formData.append('profileImg', profileImgFile);
     }
 
