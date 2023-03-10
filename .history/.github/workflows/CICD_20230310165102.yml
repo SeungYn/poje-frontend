@@ -19,7 +19,6 @@ jobs:
             ${{ runner.os }}-node-
       - name: Setting .env
         run: echo "REACT_APP_TEST2=${{secrets.REACT_APP_TEST2}}" >> .env
-          cat .env
 
       - run: yarn install
       - run: echo SUCCESS
