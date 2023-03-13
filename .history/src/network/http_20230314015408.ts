@@ -147,7 +147,7 @@ export default class Http {
     //     : 'http://15.164.128.201:8080';
     if (!Http.instance) {
       Http.instance = new Http(
-        process.env.REACT_APP_END_POINT!,
+        process.env.REACT_APP_END_POINT,
         new TokenStorage()
       );
     }
