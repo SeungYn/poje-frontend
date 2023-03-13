@@ -1,0 +1,69 @@
+import service from '@src/service';
+import { GetNoteResponse, NoteListType } from '@src/service/types/member';
+import {
+  useMutation,
+  UseMutationResult,
+  useQueryClient,
+} from '@tanstack/react-query';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
+
+type ContextType = {
+  selectedNote: NoteListType | null;
+  handleClickNote: (portfolioId: NoteListType) => void;
+  handleDeleteSelectedNote: () => void;
+  handleReplyNote: UseMutationResult<GetNoteResponse, unknown, string, unknown>;
+};
+
+const NoteContext = createContext<ContextType | undefined>(undefined);
+
+type Props = {
+  children: React.ReactNode;
+};
+
+export default function NoteContextProvider({ children }: Props) {
+  const queryClient = useQueryClient();
+  const [selectedNote, setSelectedNote] = useState<NoteListType | null>(null);
+
+  const handleClickNote = useCallback((note: NoteListType) => {
+    setSelectedNote(note);
+  }, []);
+
+  const handleDeleteSelectedNote = useCallback(() => {
+    setSelectedNote(null);
+  }, []);
+
+  const replyNote = useMutation(
+    (message: string) =>
+      service.member.replyNote({
+        portfolioId: selectedNote!.portfolioId,
+        message,
+      }),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(['note', selectedNote!.portfolioId]);
+      },
+    }
+  );
+
+  const context = useMemo<ContextType>(
+    () => ({
+      selectedNote,
+      handleClickNote,
+      handleDeleteSelectedNote,
+      handleReplyNote: replyNote.mutate,
+    }),
+    [selectedNote, handleClickNote, handleDeleteSelectedNote, replyNote]
+  );
+
+  return (
+    <NoteContext.Provider value={context}>{children}</NoteContext.Provider>
+  );
+}
+
+export const useNoteContext = () => useContext(NoteContext)! as ContextType;

@@ -1,0 +1,98 @@
+import { useRecoilState } from 'recoil';
+import service from '@src/service';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { isOpenNoteState } from '@src/store/note';
+import { useCallback, useRef, useEffect } from 'react';
+import { SendNoteRequest } from '@src/service/types/member';
+import useModal from '../common/useModal';
+
+export const useGetNoteList = () => {
+  const { data } = useQuery(['note'], () => service.member.getNoteList(), {
+    suspense: true,
+  });
+
+  return data!;
+};
+
+export const useGetNote = (portfolioId: string | number | undefined) => {
+  const { data = [] } = useQuery(
+    ['note', portfolioId],
+    () => (portfolioId ? service.member.getNote({ portfolioId }) : []),
+    {}
+  );
+
+  return data!;
+};
+
+type useNoteDropDownType = <T extends HTMLElement>() => [
+  boolean,
+  React.RefObject<T>
+];
+export const useNoteDropDownHelper: useNoteDropDownType = <
+  T extends HTMLElement
+>() => {
+  const [isOpen, setIsOpen] = useRecoilState(isOpenNoteState);
+  const targetRef = useRef<T>(null);
+
+  const handleClose = useCallback(
+    (e: MouseEvent) => {
+      const target = e.target;
+      //쪽지 아이콘 버튼을 클릭했을때 종료해주기 버튼쪽에서 클릭이벤트 처리했음
+      if (target instanceof HTMLElement || target instanceof SVGElement) {
+        if (target.dataset.type) return setIsOpen((f) => !f);
+      }
+
+      if (
+        e.target !== null &&
+        e.target !== targetRef.current &&
+        !targetRef.current?.contains(e.target as HTMLElement)
+      ) {
+        console.log(targetRef.current?.contains(e.target as HTMLElement));
+        //setIsOpen(false);
+      }
+    },
+    [targetRef, setIsOpen]
+  );
+
+  useEffect(() => {
+    document.addEventListener('click', handleClose);
+
+    return () => {
+      document.removeEventListener('click', handleClose);
+    };
+  }, [handleClose]);
+
+  return [isOpen, targetRef];
+};
+
+//안본 쪽지 개수
+
+export const useNoteCount = () => {
+  const { data } = useQuery(
+    ['noteCount'],
+    () => service.member.getNoteCount(),
+    {
+      staleTime: 1000 * 60,
+      initialData: { count: 0 },
+    }
+  );
+
+  return data.count;
+};
+
+//포트폴리오 페이지에서 쪽지 보내기
+export const useSendNote = () => {
+  const queryClient = useQueryClient();
+  const { setModal } = useModal();
+  const sendNote = useMutation(
+    (data: SendNoteRequest) => service.member.sendNote(data),
+    {
+      onSuccess: () => {
+        setModal('쪽지가 보내졌습니다.');
+        queryClient.invalidateQueries(['note']);
+      },
+    }
+  );
+
+  return sendNote.mutate;
+};
