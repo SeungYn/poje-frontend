@@ -22,6 +22,7 @@ export default function usePortfolioCRUD() {
           navigate(`/portfolio/${portfolioId}`);
         });
         queryClient.invalidateQueries(['portfolios']);
+        queryClient.invalidateQueries(['portfoliosList']);
       },
       onError: (data: Error) => {
         console.log(data.message);
