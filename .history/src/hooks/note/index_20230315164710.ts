@@ -74,11 +74,12 @@ export const useNoteAlarm = () => {
     {
       staleTime: 1000* 30,
       refetchInterval: 1000* 30,
+      initialData: { exists: false },
       enabled: !!user,
     }
   );
-  
-  return data?.exists;
+  console.log('arams결과', data);
+  return data.exists;
 };
 
 //포트폴리오 페이지에서 쪽지 보내기

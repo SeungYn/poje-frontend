@@ -175,6 +175,7 @@ export default class MemberService {
   }
 
   async getNoteAlarm() {
+    console.log('aramr');
     const config: AxiosRequestConfig = {
       method: 'GET',
     };
@@ -185,6 +186,7 @@ export default class MemberService {
       `/member/note/alarm`,
       config
     );
+   
     return result;
   }
 }

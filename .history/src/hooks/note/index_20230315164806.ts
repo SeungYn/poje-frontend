@@ -78,7 +78,7 @@ export const useNoteAlarm = () => {
     }
   );
   
-  return data?.exists;
+  return data.exists;
 };
 
 //포트폴리오 페이지에서 쪽지 보내기

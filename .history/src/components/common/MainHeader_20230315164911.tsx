@@ -26,7 +26,7 @@ export default function MainHeader({ isHomePath }: props) {
           {user && (
             <Item isHomePath={isHomePath} data-type='note'>
               {noteAlarm  && (
-                <NoteCount data-type='note'>N</NoteCount>
+                <NoteCount data-type='note'>n</NoteCount>
               )}
               <IoMailOutline className='icon' data-type='note' />
             </Item>

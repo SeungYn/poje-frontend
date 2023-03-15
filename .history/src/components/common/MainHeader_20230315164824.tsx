@@ -26,7 +26,7 @@ export default function MainHeader({ isHomePath }: props) {
           {user && (
             <Item isHomePath={isHomePath} data-type='note'>
               {noteAlarm  && (
-                <NoteCount data-type='note'>N</NoteCount>
+                <NoteCount data-type='note'>n</NoteCount>
               )}
               <IoMailOutline className='icon' data-type='note' />
             </Item>
@@ -91,10 +91,10 @@ const Item = styled.button<styledPropsType>`
 
 const NoteCount = styled.div`
   position: absolute;
-  right: 4px;
-  top: 4px;
+  right: 0px;
+  top: 0px;
   font-size: ${({ theme }) => theme.fontSmall};
-  padding: 0.2rem;
+  padding: 0.4rem;
   color: white;
   background: red;
   border-radius: 50%;

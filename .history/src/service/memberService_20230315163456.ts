@@ -182,7 +182,7 @@ export default class MemberService {
     const {
       data: { result },
     } = await this.http.fetchJson<GetNoteAlarmResponse>(
-      `/member/note/alarm`,
+      `/member/note-count`,
       config
     );
     return result;

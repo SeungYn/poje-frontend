@@ -65,20 +65,19 @@ export const useNoteDropDownHelper: useNoteDropDownType = <
 };
 
 //안본 쪽지 개수\
-export const useNoteAlarm = () => {
-  
+export const useNoteCount = () => {
   const { user } = useUser();
   const { data } = useQuery(
-    ['noteAlarm'],
-    () => service.member.getNoteAlarm(),
+    ['noteCount'],
+    () => service.member.getNoteCount(),
     {
-      staleTime: 1000* 30,
-      refetchInterval: 1000* 30,
+      staleTime: 1000 * 60,
+      initialData: { count: 0 },
       enabled: !!user,
     }
   );
-  
-  return data?.exists;
+
+  return data.count;
 };
 
 //포트폴리오 페이지에서 쪽지 보내기
