@@ -6,6 +6,7 @@ import PortfolioSkillItem from './PortfolioSkillItem';
 import PortfolioSkillMasonry from './PortfolioSkillMasonry';
 import uuid from 'react-uuid';
 
+
 export default function PortfolioViewMode() {
   const { skills } = useSkills();
   const [isModifyMode, setIsModifyMode] = useRecoilState(

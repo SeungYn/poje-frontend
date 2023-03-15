@@ -5,6 +5,7 @@ import ModifyBtn from '../common/ModifyBtn';
 import PortfolioSkillItem from './PortfolioSkillItem';
 import PortfolioSkillMasonry from './PortfolioSkillMasonry';
 import uuid from 'react-uuid';
+import PortfolioSkills from './PortfolioSkills';
 
 export default function PortfolioViewMode() {
   const { skills } = useSkills();

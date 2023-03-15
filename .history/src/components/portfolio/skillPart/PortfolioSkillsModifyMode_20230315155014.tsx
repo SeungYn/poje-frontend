@@ -1,4 +1,5 @@
 import PortfolioSkillAddPalette from './PortfolioSkillAddPalette';
+import PortfolioSkills from './PortfolioSkills';
 import useSkillsModify from '@src/hooks/portfolio/skills/useSkillsModify';
 import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { useRecoilState } from 'recoil';
@@ -25,7 +26,7 @@ export default function PortfolioSkillsModifyMode() {
   return (
     <>
       <PortfolioSkillMasonry>
-        {modifySkillList.map((skillSet) => <PortfolioSkillItem key={uuid()} skillType={skillSet.type} skillList={skillSet.skills}  onDelete={handleSkillIconDelete}/>)}
+        {modifySkillList.map((skillSet) => <PortfolioSkillItem key={uuid()} skillType={skillSet.type} skillList={skillSet.skills} />)}
       </PortfolioSkillMasonry>
       <PortfolioSkillAddPalette
         onModifyMode={() => {

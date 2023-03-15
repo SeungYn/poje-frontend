@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import Masonry from 'react-masonry-css';
 
 const breakpointColumnsObj = Object.freeze({
-  default: 2,
+  default: 6,
   1400: 5,
   1000: 4,
   700: 2,

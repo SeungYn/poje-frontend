@@ -1,4 +1,5 @@
 import PortfolioSkillAddPalette from './PortfolioSkillAddPalette';
+import PortfolioSkills from './PortfolioSkills';
 import useSkillsModify from '@src/hooks/portfolio/skills/useSkillsModify';
 import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { useRecoilState } from 'recoil';
