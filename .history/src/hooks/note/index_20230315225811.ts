@@ -7,26 +7,18 @@ import { SendNoteRequest } from '@src/service/types/member';
 import useUser from '../auth/useUser';
 
 export const useGetNoteList = () => {
-  const { data } = useQuery(['note','list'], () => service.member.getNoteList(), {
+  const { data } = useQuery(['note'], () => service.member.getNoteList(), {
     suspense: true,
-    staleTime: 1000,
-    refetchOnMount:true,
   });
 
   return data!;
 };
 
 export const useGetNoteCentent = (email: string | undefined) => {
-  const queryClient = useQueryClient();
   const { data = [] } = useQuery(
     ['note', email],
     () => (email ? service.member.getNote({ email }) : []),
-    {
-      onSettled:()=> queryClient.invalidateQueries(['note','list']),
-      refetchOnMount: true,
-      staleTime: 1000,
-      
-    }
+    {}
   );
 
   return data!;
@@ -72,7 +64,7 @@ export const useNoteDropDownHelper: useNoteDropDownType = <
   return [isOpen, targetRef];
 };
 
-//쪽지 확인 여부 30초마다 요청해서 확인\
+//안본 쪽지 개수\
 export const useNoteAlarm = () => {
   
   const { user } = useUser();
@@ -80,8 +72,8 @@ export const useNoteAlarm = () => {
     ['noteAlarm'],
     () => service.member.getNoteAlarm(),
     {
-      staleTime: 1000* 30,
-      refetchInterval: 1000* 30,
+      staleTime: 1000* 1,
+      
       enabled: !!user,
     }
   );

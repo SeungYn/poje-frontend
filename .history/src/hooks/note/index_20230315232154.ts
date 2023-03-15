@@ -7,25 +7,21 @@ import { SendNoteRequest } from '@src/service/types/member';
 import useUser from '../auth/useUser';
 
 export const useGetNoteList = () => {
-  const { data } = useQuery(['note','list'], () => service.member.getNoteList(), {
+  const { data } = useQuery(['note'], () => service.member.getNoteList(), {
     suspense: true,
-    staleTime: 1000,
-    refetchOnMount:true,
+    staleTime:1000*30,
   });
 
   return data!;
 };
 
 export const useGetNoteCentent = (email: string | undefined) => {
-  const queryClient = useQueryClient();
   const { data = [] } = useQuery(
     ['note', email],
     () => (email ? service.member.getNote({ email }) : []),
     {
-      onSettled:()=> queryClient.invalidateQueries(['note','list']),
       refetchOnMount: true,
-      staleTime: 1000,
-      
+      staleTime:1000*30,
     }
   );
 

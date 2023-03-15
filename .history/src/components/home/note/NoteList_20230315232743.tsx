@@ -8,7 +8,7 @@ export default function NoteList() {
   const { selectedNote, handleClickNote } = useNoteContext();
   
   if (selectedNote) return <></>;
- 
+  console.log(noteList);
   return (
     <Container>
       <Title>쪽지함</Title>

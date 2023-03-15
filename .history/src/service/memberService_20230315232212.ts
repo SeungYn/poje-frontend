@@ -65,6 +65,7 @@ export default class MemberService {
       )
     );
     if (profileImgFile) {
+      console.log(profileImgFile);
       formData.append('profileImg', profileImgFile);
     }
 
@@ -139,6 +140,7 @@ export default class MemberService {
       '/member/note-room',
       config
       );
+    
     return result;
   }
 
@@ -155,6 +157,7 @@ export default class MemberService {
       `/member/note?email=${email}`,
       config
       );
+    console.log(result, 'note');
     return result;
   }
 

@@ -65,6 +65,7 @@ export default class MemberService {
       )
     );
     if (profileImgFile) {
+      console.log(profileImgFile);
       formData.append('profileImg', profileImgFile);
     }
 
@@ -139,6 +140,7 @@ export default class MemberService {
       '/member/note-room',
       config
       );
+    
     return result;
   }
 
@@ -154,7 +156,7 @@ export default class MemberService {
     } = await this.http.fetchJson<GetNoteResponse>(
       `/member/note?email=${email}`,
       config
-      );
+    );
     return result;
   }
 
@@ -174,7 +176,7 @@ export default class MemberService {
   }
 
   async getNoteAlarm() {
-    
+    console.log('alarm')
     const config: AxiosRequestConfig = {
       method: 'GET',
     };

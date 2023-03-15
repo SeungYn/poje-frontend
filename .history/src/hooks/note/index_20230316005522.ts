@@ -7,7 +7,7 @@ import { SendNoteRequest } from '@src/service/types/member';
 import useUser from '../auth/useUser';
 
 export const useGetNoteList = () => {
-  const { data } = useQuery(['note','list'], () => service.member.getNoteList(), {
+  const { data } = useQuery(['note'], () => service.member.getNoteList(), {
     suspense: true,
     staleTime: 1000,
     refetchOnMount:true,
@@ -22,7 +22,9 @@ export const useGetNoteCentent = (email: string | undefined) => {
     ['note', email],
     () => (email ? service.member.getNote({ email }) : []),
     {
-      onSettled:()=> queryClient.invalidateQueries(['note','list']),
+      onSettled: () => {
+        queryClient.invalidateQueries(['note'])
+      },
       refetchOnMount: true,
       staleTime: 1000,
       

@@ -1,5 +1,4 @@
 import { NoteType } from '@src/service/types/member';
-import { timeFormat } from '@src/util/common';
 import styled from 'styled-components';
 
 export default function NoteItem(data: NoteType) {
@@ -11,7 +10,7 @@ export default function NoteItem(data: NoteType) {
           {sendStatus === 'RECEIVE' ? '받은 쪽지' : '보낸 쪽지'}
         </Status>
         <Person>{sendStatus === 'RECEIVE' ? sender : '나'}</Person>
-        <Time>{timeFormat(sendTime)}</Time>
+        <Time>{timeForma(sendTime)}</Time>
       </Header>
       <Message>{message}</Message>
     </Note>

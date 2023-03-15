@@ -139,6 +139,7 @@ export default class MemberService {
       '/member/note-room',
       config
       );
+    console.log(result, 'noteList');
     return result;
   }
 

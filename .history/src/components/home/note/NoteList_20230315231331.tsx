@@ -1,6 +1,5 @@
 import { useNoteContext } from '@src/context/NoteContext';
 import { useGetNoteList } from '@src/hooks/note';
-import { timeFormat } from '@src/util/common';
 import styled from 'styled-components';
 
 export default function NoteList() {
@@ -8,7 +7,7 @@ export default function NoteList() {
   const { selectedNote, handleClickNote } = useNoteContext();
   
   if (selectedNote) return <></>;
- 
+  console.log(noteList);
   return (
     <Container>
       <Title>쪽지함</Title>
@@ -23,14 +22,8 @@ export default function NoteList() {
           >
             <NoteHeader>
               <NoteSender>{item.opponentNickName}</NoteSender>
-              <NoteDate>{timeFormat(item.sendTime)}</NoteDate>
+              <NoteDate>{ }</NoteDate>
             </NoteHeader>
-            <NoteMessage>
-              {item.lastMessage}
-              <IsNoteView>
-                {!item.view && 'NEW!!' }
-              </IsNoteView>
-            </NoteMessage>
           </Note>
         ))}
       </NoteListUl>
@@ -59,31 +52,18 @@ const NoteListUl = styled.ul`
 `;
 
 const Note = styled.li`
-  padding: 0.6rem 0;
+  padding: 1rem 0;
   border-bottom: 1px solid black;
   cursor: pointer;
 `;
 
 const NoteHeader = styled.div`
   display:flex;
-  justify-content: space-between;
-  color:${({theme})=>theme.textColor};
+  justify-content: space-evenly;
 `;
 
-const NoteSender = styled.span`
-  font-weight: bold;
-`;
+const NoteSender = styled.span``;
 
-const NoteDate = styled.span`
-  
-`;
+const NoteDate = styled.span``;
 
-const NoteMessage = styled.p`
-  position:relative;
-`;
-
-const IsNoteView = styled.span`
-  position:absolute;
-  right:0;
-  color:blue;
-`
+const NoteMessage = styled.p``;

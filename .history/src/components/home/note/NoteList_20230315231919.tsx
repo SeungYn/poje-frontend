@@ -8,7 +8,7 @@ export default function NoteList() {
   const { selectedNote, handleClickNote } = useNoteContext();
   
   if (selectedNote) return <></>;
- 
+  console.log(noteList);
   return (
     <Container>
       <Title>쪽지함</Title>
@@ -28,7 +28,7 @@ export default function NoteList() {
             <NoteMessage>
               {item.lastMessage}
               <IsNoteView>
-                {!item.view && 'NEW!!' }
+                {item.view}
               </IsNoteView>
             </NoteMessage>
           </Note>
@@ -85,5 +85,4 @@ const NoteMessage = styled.p`
 const IsNoteView = styled.span`
   position:absolute;
   right:0;
-  color:blue;
 `
