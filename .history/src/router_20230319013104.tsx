@@ -1,16 +1,32 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Login from './components/auth/Login';
+import SignUp from './components/auth/SignUp';
 import CommonLoading from './components/common/CommonLoading';
 import CommonModal from './components/common/CommonModal';
 import ConfirmModal from './components/common/ConfirmModal';
 import ErrorBoundary from './components/errorComponent/ErrorBoundary';
 import useModal from './hooks/common/useModal';
+import AuthPage from './pages/auth/AuthPage';
 import AuthRouterProtect from './pages/AuthRouterProtect';
+import JobLikePage from './pages/home/JobLikePage';
+import JobPages from './pages/home/JobPages';
+import JobRoot from './pages/home/JobRoot';
+import JobSearchPage from './pages/home/JobSearchPage';
 import MainPage from './pages/home/MainPage';
+import MemberModifyPage from './pages/home/MemberModifyPage';
+import MemberRoot from './pages/home/MemberRoot';
+import MyInfoPage from './pages/home/MyInfoPage';
+import PasswordModifyPage from './pages/home/PasswordModifyPage';
 import Root from './pages/home/Root';
 import NotFound from './pages/notFound/NotFound';
+import PortfolioMain from './pages/portfolio/PortfolioMain';
+import PortfolioMakePage from './pages/portfolio/PortfolioMakePage';
+import PortfolioRootPage from './pages/portfolio/PortfolioRootPage';
 import RouterProtect from './pages/RouterProtect';
 
+const Root = lazy(() => import('./pages/home/Root'));
+const MainPage = lazy(() => import('./pages/home/MainPage'));
 const JobRoot = lazy(() => import('./pages/home/JobRoot'));
 const JobSearchPage = lazy(() => import('./pages/home/JobSearchPage'));
 const JobPages = lazy(() => import('./pages/home/JobPages'));
@@ -25,6 +41,9 @@ const PortfolioRootPage = lazy(
   () => import('./pages/portfolio/PortfolioRootPage')
 );
 const PortfolioMain = lazy(() => import('./pages/portfolio/PortfolioMain'));
+const PortfolioMakePage = lazy(
+  () => import('./pages/portfolio/PortfolioMakePage')
+);
 const AuthPage = lazy(() => import('./pages/auth/AuthPage'));
 const Login = lazy(() => import('./components/auth/Login'));
 const SignUp = lazy(() => import('./components/auth/SignUp'));
@@ -38,7 +57,7 @@ export const router = createBrowserRouter([
       {
         path: 'job',
         element: (
-          <Suspense fallback={<div>로딩</div>}>
+          <Suspense>
             <JobRoot />
           </Suspense>
         ),
@@ -73,9 +92,7 @@ export const router = createBrowserRouter([
         path: 'member',
         element: (
           <RouterProtect>
-            <Suspense fallback={<div>로딩</div>}>
-              <MemberRoot />
-            </Suspense>
+            <MemberRoot />
           </RouterProtect>
         ),
         children: [
@@ -100,21 +117,22 @@ export const router = createBrowserRouter([
     path: '/portfolio',
     element: (
       <RouterProtect>
-        <Suspense fallback={<div>로딩</div>}>
-          <PortfolioRootPage />
-        </Suspense>
+        <PortfolioRootPage />
       </RouterProtect>
     ),
     children: [{ path: ':portfolioId', element: <PortfolioMain /> }],
     errorElement: <NotFound />,
   },
   {
+    path: '/portfolio/make',
+    element: <PortfolioMakePage />,
+    errorElement: <NotFound />,
+  },
+  {
     path: '/auth',
     element: (
       <AuthRouterProtect>
-        <Suspense fallback={<div>로딩</div>}>
-          <AuthPage />
-        </Suspense>
+        <AuthPage />
       </AuthRouterProtect>
     ),
     children: [
