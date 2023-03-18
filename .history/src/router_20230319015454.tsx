@@ -74,7 +74,7 @@ export const router = createBrowserRouter([
         path: 'member',
         element: (
           <RouterProtect>
-            <Suspense fallback={<LoadingSpiner text='로딩중' />}>
+            <Suspense fallback={<div>로딩</div>}>
               <MemberRoot />
             </Suspense>
           </RouterProtect>
@@ -101,7 +101,7 @@ export const router = createBrowserRouter([
     path: '/portfolio',
     element: (
       <RouterProtect>
-        <Suspense fallback={<LoadingSpiner text='로딩중' />}>
+        <Suspense fallback={<div>로딩</div>}>
           <PortfolioRootPage />
         </Suspense>
       </RouterProtect>
@@ -113,7 +113,7 @@ export const router = createBrowserRouter([
     path: '/auth',
     element: (
       <AuthRouterProtect>
-        <Suspense fallback={<LoadingSpiner text='로딩중' />}>
+        <Suspense fallback={<div>로딩</div>}>
           <AuthPage />
         </Suspense>
       </AuthRouterProtect>
