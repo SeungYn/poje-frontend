@@ -20,7 +20,7 @@ export default class AuthService {
         password,
       },
     };
-    return this.http.fetchJson<LoginResponse>('/login', options);
+    return await this.http.fetchJson<LoginResponse>('/login', options);
   }
 
   async join(form: JoinRequest) {
