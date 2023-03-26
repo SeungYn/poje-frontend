@@ -24,6 +24,7 @@ export default function ImageSlider({
         tabIndex={-1}
         observer={true}
         observeParents={true}
+        direction='horizontal'
       >
         {imgList.length === 0 && (
           <SwiperSlide>
