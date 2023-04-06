@@ -21,7 +21,10 @@ export default function PortfolioSkillItem({
         {skillList.map((skill) => (
           <SkillItem
             key={uuid()}
-            src={skill.path}
+            src={
+              `${process.env.PUBLIC_URL}/public_assets/skill_icon/${skillType}/` +
+              skill.path
+            }
             onClick={
               !!onDelete ? () => onDelete(skillType, skill.name) : () => {}
             }
