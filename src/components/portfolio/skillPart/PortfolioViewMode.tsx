@@ -2,7 +2,9 @@ import useSkills from '@src/hooks/portfolio/skills/useSkills';
 import { isModifyModeFromSkills } from '@src/store/portfolio/modify';
 import { useRecoilState } from 'recoil';
 import ModifyBtn from '../common/ModifyBtn';
-import PortfolioSkills from './PortfolioSkills';
+import PortfolioSkillItem from './PortfolioSkillItem';
+import PortfolioSkillMasonry from './PortfolioSkillMasonry';
+import uuid from 'react-uuid';
 
 export default function PortfolioViewMode() {
   const { skills } = useSkills();
@@ -11,7 +13,9 @@ export default function PortfolioViewMode() {
   );
   return (
     <>
-      <PortfolioSkills skillList={skills} />
+      <PortfolioSkillMasonry>
+        {skills.map((skillSet) => <PortfolioSkillItem key={uuid()} skillType={skillSet.type} skillList={skillSet.skills} />)}
+      </PortfolioSkillMasonry>
       <ModifyBtn
         isModifyMode={isModifyMode}
         handleModifyMode={() => setIsModifyMode(true)}

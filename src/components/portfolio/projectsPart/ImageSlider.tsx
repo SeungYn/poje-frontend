@@ -2,6 +2,9 @@ import styled, { DefaultTheme, StyledComponentBase } from 'styled-components';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { v4 as uuidV4 } from 'uuid';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 type PropType = {
   imgList: string[];
@@ -24,6 +27,7 @@ export default function ImageSlider({
         tabIndex={-1}
         observer={true}
         observeParents={true}
+        direction='horizontal'
       >
         {imgList.length === 0 && (
           <SwiperSlide>

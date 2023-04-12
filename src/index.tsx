@@ -15,7 +15,7 @@ import { CookiesProvider } from 'react-cookie';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-console.log(process.env.REACT_APP_TEST2, 'env');
+
 root.render(
   <>
     <GlobalStyle />

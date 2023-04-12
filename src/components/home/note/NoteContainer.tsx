@@ -16,10 +16,12 @@ export default function NoteContainer() {
   return (
     <NoteContextProvider>
       <Container ref={targetRef} isOpen={isOpen}>
-        <Suspense fallback={<LoadingSpiner text='로딩중' />}>
+        {isOpen && (<>
+          <Suspense fallback={<LoadingSpiner text='로딩중' />}>
           <NoteList />
         </Suspense>
-        <NoteContent />
+          <NoteContent />
+        </>)}
       </Container>
     </NoteContextProvider>
   );

@@ -1,6 +1,7 @@
 import service from '@src/service';
 import { useQuery } from '@tanstack/react-query';
 
+
 export default function usePortfolioModifyPermission(portfolioId: string) {
   const { data } = useQuery(
     ['portfolioPermission', portfolioId],
@@ -10,3 +11,4 @@ export default function usePortfolioModifyPermission(portfolioId: string) {
 
   return data!;
 }
+

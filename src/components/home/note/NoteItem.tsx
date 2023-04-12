@@ -1,4 +1,5 @@
 import { NoteType } from '@src/service/types/member';
+import { timeFormat } from '@src/util/common';
 import styled from 'styled-components';
 
 export default function NoteItem(data: NoteType) {
@@ -17,11 +18,6 @@ export default function NoteItem(data: NoteType) {
   );
 }
 
-function timeFormat(day: string) {
-  let [date, time] = day.split('T');
-  time = time.split(':').slice(0, 2).join(':');
-  return [date, ' ', time];
-}
 
 const Note = styled.li`
   padding: 0.4rem 0;

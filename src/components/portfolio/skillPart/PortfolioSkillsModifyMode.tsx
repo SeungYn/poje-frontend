@@ -1,10 +1,12 @@
 import PortfolioSkillAddPalette from './PortfolioSkillAddPalette';
-import PortfolioSkills from './PortfolioSkills';
 import useSkillsModify from '@src/hooks/portfolio/skills/useSkillsModify';
 import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { useRecoilState } from 'recoil';
 import { isModifyModeFromSkills } from '@src/store/portfolio/modify';
 import LoadingSpiner from '../common/LoadingSpiner';
+import PortfolioSkillMasonry from './PortfolioSkillMasonry';
+import PortfolioSkillItem from './PortfolioSkillItem';
+import uuid from 'react-uuid';
 
 export default function PortfolioSkillsModifyMode() {
   const {
@@ -18,13 +20,13 @@ export default function PortfolioSkillsModifyMode() {
     isModifyModeFromSkills
   );
 
+  if (isLoading) return <LoadingSpiner text='로딩중' />;
+
   return (
     <>
-      {isLoading && <LoadingSpiner text='로딩중' />}
-      <PortfolioSkills
-        skillList={modifySkillList}
-        handleSkillIconDelete={handleSkillIconDelete}
-      />
+      <PortfolioSkillMasonry>
+        {modifySkillList.map((skillSet) => <PortfolioSkillItem key={uuid()} skillType={skillSet.type} skillList={skillSet.skills}  onDelete={handleSkillIconDelete}/>)}
+      </PortfolioSkillMasonry>
       <PortfolioSkillAddPalette
         onModifyMode={() => {
           setIsModifyMode(false);

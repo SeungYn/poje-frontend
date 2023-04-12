@@ -2,11 +2,10 @@ import { ReactNode } from 'react';
 import Masonry from 'react-masonry-css';
 
 const breakpointColumnsObj = Object.freeze({
-  default: 6,
+  default: 5,
   1400: 5,
   1000: 4,
   700: 2,
-  500: 1,
 });
 
 interface PortfolioSkillMasonryType {

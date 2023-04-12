@@ -1,27 +1,34 @@
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Login from './components/auth/Login';
-import SignUp from './components/auth/SignUp';
 import CommonLoading from './components/common/CommonLoading';
 import CommonModal from './components/common/CommonModal';
 import ConfirmModal from './components/common/ConfirmModal';
 import ErrorBoundary from './components/errorComponent/ErrorBoundary';
+import LoadingSpiner from './components/portfolio/common/LoadingSpiner';
 import useModal from './hooks/common/useModal';
-import AuthPage from './pages/auth/AuthPage';
 import AuthRouterProtect from './pages/AuthRouterProtect';
-import JobLikePage from './pages/home/JobLikePage';
-import JobPages from './pages/home/JobPages';
-import JobRoot from './pages/home/JobRoot';
-import JobSearchPage from './pages/home/JobSearchPage';
 import MainPage from './pages/home/MainPage';
-import MemberModifyPage from './pages/home/MemberModifyPage';
-import MemberRoot from './pages/home/MemberRoot';
-import MyInfoPage from './pages/home/MyInfoPage';
-import PasswordModifyPage from './pages/home/PasswordModifyPage';
 import Root from './pages/home/Root';
 import NotFound from './pages/notFound/NotFound';
-import PortfolioMain from './pages/portfolio/PortfolioMain';
-import PortfolioRootPage from './pages/portfolio/PortfolioRootPage';
 import RouterProtect from './pages/RouterProtect';
+
+const JobRoot = lazy(() => import('./pages/home/JobRoot'));
+const JobSearchPage = lazy(() => import('./pages/home/JobSearchPage'));
+const JobPages = lazy(() => import('./pages/home/JobPages'));
+const JobLikePage = lazy(() => import('./pages/home/JobLikePage'));
+const MemberRoot = lazy(() => import('./pages/home/MemberRoot'));
+const MyInfoPage = lazy(() => import('./pages/home/MyInfoPage'));
+const MemberModifyPage = lazy(() => import('./pages/home/MemberModifyPage'));
+const PasswordModifyPage = lazy(
+  () => import('./pages/home/PasswordModifyPage')
+);
+const PortfolioRootPage = lazy(
+  () => import('./pages/portfolio/PortfolioRootPage')
+);
+const PortfolioMain = lazy(() => import('./pages/portfolio/PortfolioMain'));
+const AuthPage = lazy(() => import('./pages/auth/AuthPage'));
+const Login = lazy(() => import('./components/auth/Login'));
+const SignUp = lazy(() => import('./components/auth/SignUp'));
 
 export const router = createBrowserRouter([
   {
@@ -31,15 +38,27 @@ export const router = createBrowserRouter([
       { path: '', element: <MainPage /> },
       {
         path: 'job',
-        element: <JobRoot />,
+        element: (
+          <Suspense fallback={<LoadingSpiner text='로딩중' />}>
+            <JobRoot />
+          </Suspense>
+        ),
         children: [
           {
             path: ':type/search/:keyword/:page',
-            element: <JobSearchPage />,
+            element: (
+              <RouterProtect>
+                <JobSearchPage />
+              </RouterProtect>
+            ),
           },
           {
             path: ':type/:page',
-            element: <JobPages />,
+            element: (
+              <RouterProtect>
+                <JobPages />
+              </RouterProtect>
+            ),
           },
           {
             path: 'like/:page',
@@ -55,7 +74,9 @@ export const router = createBrowserRouter([
         path: 'member',
         element: (
           <RouterProtect>
-            <MemberRoot />
+            <Suspense fallback={<LoadingSpiner text='로딩중' />}>
+              <MemberRoot />
+            </Suspense>
           </RouterProtect>
         ),
         children: [
@@ -78,16 +99,23 @@ export const router = createBrowserRouter([
   },
   {
     path: '/portfolio',
-    element: <PortfolioRootPage />,
+    element: (
+      <RouterProtect>
+        <Suspense fallback={<LoadingSpiner text='로딩중' />}>
+          <PortfolioRootPage />
+        </Suspense>
+      </RouterProtect>
+    ),
     children: [{ path: ':portfolioId', element: <PortfolioMain /> }],
     errorElement: <NotFound />,
   },
-
   {
     path: '/auth',
     element: (
       <AuthRouterProtect>
-        <AuthPage />
+        <Suspense fallback={<LoadingSpiner text='로딩중' />}>
+          <AuthPage />
+        </Suspense>
       </AuthRouterProtect>
     ),
     children: [

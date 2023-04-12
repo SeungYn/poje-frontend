@@ -24,13 +24,11 @@ export default function useSkills() {
     unknown
   >(
     async (data) => {
-      console.log('보낸 스킬스', data);
       return await service.portfolio.putSkills(data);
     },
     {
       onMutate: () => setIsLoading(true),
       onSuccess: (skills) => {
-        console.log('받아온', skills);
         queryClient.setQueryData(['portfolioSkills', portfolioId], skills);
       },
       onSettled: () => {

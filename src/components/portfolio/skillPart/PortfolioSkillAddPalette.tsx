@@ -26,8 +26,7 @@ export default function PortfolioSkillAddPalette({
   handleAddSkill,
   modifySkillList,
 }: PortfolioSkillAddPaletteType) {
-  const { iconTypes, icons } =
-    useIconImagesSet(modifySkillList);
+  const { iconTypes, icons } = useIconImagesSet(modifySkillList);
   const [selectedIconType, setSelectedIconType] =
     useState<IconListKeyType>('frontend');
   const onAddSkill = ({
@@ -37,7 +36,6 @@ export default function PortfolioSkillAddPalette({
     item: SkillIconSetType;
     selectedType: SkillIconType;
   }) => {
-    //deleteUsedIcon({ item, selectedType });
     handleAddSkill({
       item,
       selectedType,
@@ -67,7 +65,10 @@ export default function PortfolioSkillAddPalette({
           return (
             <IconItem
               key={uuid()}
-              src={item.path}
+              src={
+                `${process.env.PUBLIC_URL}/public_assets/skill_icon/${selectedIconType}/` +
+                item.path
+              }
               onClick={() => {
                 onAddSkill({ selectedType: selectedIconType, item });
               }}

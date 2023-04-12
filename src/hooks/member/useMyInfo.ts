@@ -10,6 +10,8 @@ export default function useMyInfo() {
       return await service.member.getMemberInfo();
     },
     {
+      staleTime: 0,
+      cacheTime: 0,
       enabled: !!user,
     }
   );

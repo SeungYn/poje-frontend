@@ -3,7 +3,7 @@ import { AxiosRequestConfig } from 'axios';
 import {
   FindPasswordRequest,
   FindPasswordResponse,
-  GetNoteCountResponse,
+  GetNoteAlarmResponse,
   GetNoteListResponse,
   GetNoteRequest,
   GetNoteResponse,
@@ -65,7 +65,6 @@ export default class MemberService {
       )
     );
     if (profileImgFile) {
-      console.log(profileImgFile);
       formData.append('profileImg', profileImgFile);
     }
 
@@ -139,7 +138,7 @@ export default class MemberService {
     } = await this.http.fetchJson<GetNoteListResponse>(
       '/member/note-room',
       config
-    );
+      );
     return result;
   }
 
@@ -155,7 +154,7 @@ export default class MemberService {
     } = await this.http.fetchJson<GetNoteResponse>(
       `/member/note?email=${email}`,
       config
-    );
+      );
     return result;
   }
 
@@ -174,15 +173,16 @@ export default class MemberService {
     return result;
   }
 
-  async getNoteCount() {
+  async getNoteAlarm() {
+    
     const config: AxiosRequestConfig = {
       method: 'GET',
     };
 
     const {
       data: { result },
-    } = await this.http.fetchJson<GetNoteCountResponse>(
-      `/member/note-count`,
+    } = await this.http.fetchJson<GetNoteAlarmResponse>(
+      `/member/note/alarm`,
       config
     );
     return result;

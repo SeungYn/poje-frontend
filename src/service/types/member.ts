@@ -88,6 +88,6 @@ export interface SendNoteResponse extends BasicResponse {
   result: SendNoteType;
 }
 
-export interface GetNoteCountResponse extends BasicResponse {
-  result: { count: number };
+export interface GetNoteAlarmResponse extends BasicResponse {
+  result: { exists: boolean };
 }

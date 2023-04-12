@@ -7,18 +7,26 @@ import { SendNoteRequest } from '@src/service/types/member';
 import useUser from '../auth/useUser';
 
 export const useGetNoteList = () => {
-  const { data } = useQuery(['note'], () => service.member.getNoteList(), {
+  const { data } = useQuery(['note','list'], () => service.member.getNoteList(), {
     suspense: true,
+    staleTime: 1000,
+    refetchOnMount:true,
   });
 
   return data!;
 };
 
 export const useGetNoteCentent = (email: string | undefined) => {
+  const queryClient = useQueryClient();
   const { data = [] } = useQuery(
     ['note', email],
     () => (email ? service.member.getNote({ email }) : []),
-    {}
+    {
+      onSettled:()=> queryClient.invalidateQueries(['note','list']),
+      refetchOnMount: true,
+      staleTime: 1000,
+      
+    }
   );
 
   return data!;
@@ -64,21 +72,21 @@ export const useNoteDropDownHelper: useNoteDropDownType = <
   return [isOpen, targetRef];
 };
 
-//안본 쪽지 개수
-
-export const useNoteCount = () => {
+//쪽지 확인 여부 30초마다 요청해서 확인\
+export const useNoteAlarm = () => {
+  
   const { user } = useUser();
   const { data } = useQuery(
-    ['noteCount'],
-    () => service.member.getNoteCount(),
+    ['noteAlarm'],
+    () => service.member.getNoteAlarm(),
     {
-      staleTime: 1000 * 60,
-      initialData: { count: 0 },
+      staleTime: 1000* 30,
+      refetchInterval: 1000* 30,
       enabled: !!user,
     }
   );
-
-  return data.count;
+  
+  return data?.exists;
 };
 
 //포트폴리오 페이지에서 쪽지 보내기

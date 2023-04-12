@@ -3,7 +3,7 @@ import LoginView from './LoginView';
 import { IoMailOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 import useUser from '@src/hooks/auth/useUser';
-import { useNoteCount } from '@src/hooks/note';
+import { useNoteAlarm } from '@src/hooks/note';
 
 type props = {
   isHomePath: boolean;
@@ -16,7 +16,7 @@ type styledPropsType = {
 export default function MainHeader({ isHomePath }: props) {
   const navigate = useNavigate();
   const { user } = useUser();
-  const noteCount = useNoteCount();
+  const noteAlarm = useNoteAlarm();
 
   return (
     <Header isHomePath={isHomePath}>
@@ -25,8 +25,8 @@ export default function MainHeader({ isHomePath }: props) {
         <Nav isHomePath={isHomePath}>
           {user && (
             <Item isHomePath={isHomePath} data-type='note'>
-              {noteCount !== 0 && (
-                <NoteCount data-type='note'>{noteCount}</NoteCount>
+              {noteAlarm  && (
+                <NoteCount data-type='note'>N</NoteCount>
               )}
               <IoMailOutline className='icon' data-type='note' />
             </Item>
@@ -61,7 +61,7 @@ const Header = styled.header<styledPropsType>`
     font-size: 3rem;
   }
 `;
-// color: ${(props) => props.theme.textAccentColor};
+
 const Title = styled.div`
   display: flex;
   justify-content: center;
@@ -91,10 +91,10 @@ const Item = styled.button<styledPropsType>`
 
 const NoteCount = styled.div`
   position: absolute;
-  right: 0px;
-  top: 0px;
+  right: 4px;
+  top: 4px;
   font-size: ${({ theme }) => theme.fontSmall};
-  padding: 0.4rem;
+  padding: 0.2rem;
   color: white;
   background: red;
   border-radius: 50%;
