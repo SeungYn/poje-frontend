@@ -56,13 +56,13 @@ export const ProjectImg = styled.img`
 export const ProjectWrapper = styled.div`
   position: relative;
   margin: 0 auto;
-  height: 100%;
   display: flex;
   gap: 1rem;
   background: ${({ theme }) => theme.bgColor};
   border-radius: 1rem;
   padding: 2rem;
   flex-direction: row;
+  /* flex-basis: 50%; */
   padding-bottom: 8rem;
   @media screen and (max-width: ${breakPoint.mmm}) {
     flex-direction: column-reverse;
@@ -82,10 +82,12 @@ export const ImgSectionWrapper = styled.div`
 `;
 export const DescriptionWrapper = styled.div`
   display: flex;
-  flex-shrink: 1;
-  flex-basis: 50%;
   flex-direction: column;
+  width: 50%;
   gap: 1rem;
+  @media screen and (max-width: ${breakPoint.mmm}) {
+    width: 100%;
+  }
 `;
 
 export const ProjectHeaderWrapper = styled.div`

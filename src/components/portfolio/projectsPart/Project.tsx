@@ -68,7 +68,7 @@ const ProjectSubTitle = styled.h4`
 
 const Explain = styled.p`
   font-size: ${({ theme }) => theme.fontRegular};
-  white-space: pre;
+  white-space: pre-wrap;
 `;
 
 const Hr = styled.hr``;

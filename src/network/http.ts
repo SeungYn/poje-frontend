@@ -64,7 +64,6 @@ export default class Http {
                 },
               });
 
-              //console.log(re, '리이슈 보낸결과');
               if (re.headers.authorization) {
                 const accessToken = re.headers.authorization.split(' ')[1];
                 this.localStorage.set<string>('TOKEN', accessToken);
