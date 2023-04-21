@@ -6,7 +6,7 @@ const queryConfig: QueryClientConfig = {
       retry: 0,
       staleTime: 600000,
       cacheTime: 900000,
-      refetchOnMount: false,
+      refetchOnMount: true,
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
     },

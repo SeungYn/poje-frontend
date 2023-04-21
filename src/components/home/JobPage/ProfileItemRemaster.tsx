@@ -2,8 +2,14 @@ import { AiTwotoneHeart } from 'react-icons/ai';
 import styled from 'styled-components';
 import { PortfolioItemType } from '@src/service/types/jobCard';
 import { useNavigate } from 'react-router-dom';
+import { FiDelete } from 'react-icons/fi';
+import { useCallback } from 'react';
 
-export default function ProfileItemRemaster(data: PortfolioItemType) {
+interface PorpsType extends PortfolioItemType {
+  onDeletePortfolio?: (portfolioId: string) => void;
+}
+
+export default function ProfileItemRemaster(data: PorpsType) {
   const {
     portfolioId,
     title,
@@ -12,11 +18,24 @@ export default function ProfileItemRemaster(data: PortfolioItemType) {
     profileImg,
     nickName,
     likeCount,
+    onDeletePortfolio,
   } = data;
   const navigate = useNavigate();
   const onClickToPortfolio = () => navigate(`/portfolio/${portfolioId}`);
+  const onClickDeletePortfolio = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation();
+      onDeletePortfolio && onDeletePortfolio(portfolioId.toString());
+    },
+    [onDeletePortfolio, portfolioId]
+  );
   return (
     <Container onClick={onClickToPortfolio}>
+      {onDeletePortfolio && (
+        <DeleteBtn onClick={onClickDeletePortfolio}>
+          <FiDelete />
+        </DeleteBtn>
+      )}
       <ProfileTop>
         <ProfileImgBackground src={backgroundImg} />
       </ProfileTop>
@@ -37,6 +56,18 @@ export default function ProfileItemRemaster(data: PortfolioItemType) {
     </Container>
   );
 }
+
+const DeleteBtn = styled.button`
+  font-size: ${({ theme }) => theme.iconSize};
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 100;
+  right: 10px;
+  top: 10px;
+`;
 
 const Container = styled.li`
   user-select: none;

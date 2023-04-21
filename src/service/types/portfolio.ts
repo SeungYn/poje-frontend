@@ -8,6 +8,10 @@ export interface CreatePortfolioTemplateResponse extends BasicResponse {
   result: { portfolioId: string };
 }
 
+export interface DeletePortfolioItemRequest {
+  portfolioId: string;
+}
+
 //인트로 파트 타입
 
 export interface GetPortfolioIntroRequest {

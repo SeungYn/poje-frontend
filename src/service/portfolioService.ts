@@ -6,6 +6,7 @@ import {
   CreatePortfolioTemplateRequest,
   CreatePortfolioTemplateResponse,
   CreateProjectRequest,
+  DeletePortfolioItemRequest,
   DeleteProjectRequest,
   GetModifyPermissionRequest,
   GetModifyPermissionResponse,
@@ -37,6 +38,19 @@ export class PortfolioService {
 
     return this.http.fetchJson<CreatePortfolioTemplateResponse>(
       `/member/portfolio?job=${job}`,
+      config
+    );
+  }
+
+  async deletePortfolio(data: DeletePortfolioItemRequest) {
+    const { portfolioId } = data;
+
+    const config: AxiosRequestConfig = {
+      method: 'DELETE',
+    };
+
+    return await this.http.fetchJson<unknown>(
+      `/member/portfolio/${portfolioId}`,
       config
     );
   }
