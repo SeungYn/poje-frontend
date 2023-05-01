@@ -33,14 +33,13 @@ export function extractSkillIconFromFolder() {
   //./backend/node.png 이런애들이 Keys()에 있음
   imgContext.keys().forEach((k) => {
     const extractedSkill = extractSkillTypeAndName(k);
-    console.log(k);
+
     if (extractedSkill) {
       const name = extractedSkill.name;
       const path = extractedSkill.path;
       icons[extractedSkill.type].push({ name, path });
     }
   });
-  console.log(icons);
 
   return icons;
 }

@@ -125,7 +125,6 @@ export default class Http {
   ): Promise<AxiosResponse<any>> {
     return new Promise((resolve) =>
       this.reRequestWaitQueue.push(() => {
-        console.log('큐에 대기하는 요청들', originRequestConfig);
         resolve(
           this.client({
             ...originRequestConfig!,
