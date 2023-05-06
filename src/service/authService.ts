@@ -23,6 +23,8 @@ export default class AuthService {
     return await this.http.fetchJson<LoginResponse>('/login', options);
   }
 
+  
+
   async join(form: JoinRequest) {
     const options: AxiosRequestConfig = {
       method: 'POST',

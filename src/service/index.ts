@@ -14,3 +14,5 @@ const service = {
 };
 
 export default service;
+
+type a = typeof service.auth.join
