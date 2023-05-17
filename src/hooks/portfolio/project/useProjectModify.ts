@@ -257,6 +257,14 @@ export default function useProjectModify(data: ProjectType) {
     resizeAutoTextArea();
   }, [discriptionRef]);
 
+  // unmount될 때 URL.createObjectURL로 만든 이미지 url 제거
+  useEffect(() => {
+    return () => {
+      console.log('이미지 제거');
+      copiedProject.prImgList.map((src) => URL.revokeObjectURL(src));
+    };
+  }, []);
+
   return {
     copiedProject,
     onChange,
