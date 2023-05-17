@@ -13,6 +13,7 @@ export default function AsideGroup() {
 
 const Container = styled.aside`
   position: fixed;
+  z-index: 99999;
   bottom: 4rem;
   left: 2rem;
   display: flex;
