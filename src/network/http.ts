@@ -103,7 +103,7 @@ export default class Http {
           //return Promise.reject(e);
         }
       }
-      throw new Error('Connect Error');
+      throw new Error('현재 서버가 닫혀 있습니다.');
       //리프레시 토큰
     }
   }
@@ -144,10 +144,7 @@ export default class Http {
     //     ? 'http://localhost:8080'
     //     : 'http://15.164.128.201:8080';
     if (!Http.instance) {
-      Http.instance = new Http(
-        process.env.REACT_APP_END_POINT!,
-        new TokenStorage()
-      );
+      Http.instance = new Http('1', new TokenStorage());
     }
     return Http.instance;
   }

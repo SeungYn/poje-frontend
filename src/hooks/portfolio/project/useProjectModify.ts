@@ -76,7 +76,7 @@ export default function useProjectModify(data: ProjectType) {
       switch (name) {
         case 'file':
           const fileImgs = [...files!].map((file) => URL.createObjectURL(file));
-          console.log(fileImgs);
+
           return setCopiedProject((pj) => ({
             ...pj,
             fileList: [...files!],
@@ -163,6 +163,7 @@ export default function useProjectModify(data: ProjectType) {
         setLoading(true);
       },
       onSuccess: () => {
+        alert('수정완료');
         queryClient.invalidateQueries(['portfolioProject', portfolioId]);
       },
       onSettled: () => {
@@ -206,6 +207,8 @@ export default function useProjectModify(data: ProjectType) {
     });
   };
 
+  // 기존에 서버에 저장한 이미지가 있으면서 해당 이미지가 수정 모드에서 삭제되면
+  // 해당 이미지의 url 을 가져와서 삭제 리스트에 넣고 보내줌
   const handlePrevImgRemove = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
     const { dataset } = target;
