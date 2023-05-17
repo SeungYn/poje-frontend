@@ -144,7 +144,10 @@ export default class Http {
     //     ? 'http://localhost:8080'
     //     : 'http://15.164.128.201:8080';
     if (!Http.instance) {
-      Http.instance = new Http('1', new TokenStorage());
+      Http.instance = new Http(
+        process.env.REACT_APP_END_POINT!,
+        new TokenStorage()
+      );
     }
     return Http.instance;
   }
