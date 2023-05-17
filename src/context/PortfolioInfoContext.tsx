@@ -29,6 +29,7 @@ export default function PortfolioInfoContextProvider({
   const context = useMemo<ContextType>(() => {
     return { portfolioId, permissionModify, portfolioEmail };
   }, [portfolioId, permissionModify, portfolioEmail]);
+
   return (
     <PortfolioInfoContext.Provider value={context}>
       <CommonModal />
