@@ -25,10 +25,12 @@ export default function MainHeader({ isHomePath }: props) {
         <Nav isHomePath={isHomePath}>
           {user && (
             <Item isHomePath={isHomePath} data-type='note'>
-              {noteAlarm  && (
-                <NoteCount data-type='note'>N</NoteCount>
-              )}
-              <IoMailOutline className='icon' data-type='note' />
+              {noteAlarm && <NoteCount data-type='note'>N</NoteCount>}
+              <IoMailOutline
+                className='icon'
+                data-type='note'
+                title='note-icon'
+              />
             </Item>
           )}
         </Nav>

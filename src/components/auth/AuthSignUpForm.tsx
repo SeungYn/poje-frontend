@@ -1,4 +1,4 @@
-import {  useRef } from 'react';
+import { useRef } from 'react';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Swiper as SwiperType } from 'swiper';
@@ -7,7 +7,6 @@ import {
   AuthLabel,
   Header,
   LoginBtn,
-
 } from './styledComponets';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -19,11 +18,7 @@ import useFormValidation from '@src/hooks/auth/useFormValidation';
 import AuthTopSide from './AuthTopSide';
 
 export default function AuthSignUpForm() {
-  const {
-    register,
-    handleSubmit,
-    getValues,
-  } = useForm<JoinRequest>();
+  const { register, handleSubmit, getValues } = useForm<JoinRequest>();
   const { join } = useAuth();
   const {
     loginIdDuplicate,

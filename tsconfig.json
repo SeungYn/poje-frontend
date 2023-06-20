@@ -20,6 +20,5 @@
       "@src/*": ["src/*"]
     }
   },
-  "include": ["src", "craco.config.js"],
-  "extends": "./tsconfig.paths.json"
+  "include": ["src", "craco.config.js"]
 }

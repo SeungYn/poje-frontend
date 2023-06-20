@@ -20,6 +20,7 @@ export default class Http {
     this.client = axios.create({
       baseURL,
       withCredentials: true,
+      timeout: 3000,
     });
 
     this.client.interceptors.request.use((req) => {

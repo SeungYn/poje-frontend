@@ -15,9 +15,9 @@ type styledPropsType = {
 };
 
 export default function LoginView({ isHomePath }: props) {
+  const navigate = useNavigate();
   const { user } = useUser();
   const { logOut } = useAuth();
-  const navigate = useNavigate();
   const [loginIsOpen, loginRef, loginToggleHander] =
     useDropDownHelper<HTMLDivElement>();
   const { userInfo } = useMyInfo();
@@ -31,8 +31,9 @@ export default function LoginView({ isHomePath }: props) {
 
   return (
     <Wrapper ref={loginRef} onClick={loginToggleHander} isHomePath={isHomePath}>
-      <ProfileImg src={userInfo?.profileImg} />
+      <ProfileImg src={userInfo?.profileImg} alt={userInfo?.nickName} />
       <MdOutlineKeyboardArrowDown
+        title='arrow-icon'
         className={`icon ${loginIsOpen ? 'open' : ''}`}
         style={{ transition: 'transform 0.2s linear' }}
       />

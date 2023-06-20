@@ -3,9 +3,9 @@ import LoginView from '@src/components/common/LoginView';
 import MainHeader from '@src/components/common/MainHeader';
 import useUser from '@src/hooks/auth/useUser';
 import { useNoteAlarm } from '@src/hooks/note';
-import { withMemoryRouter } from '@src/test/util';
+import { withMemoryRouter } from '@src/test_util/util';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, Routes, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 jest.mock('@src/hooks/auth/useUser', () => ({
   __esModule: true,
@@ -23,6 +23,7 @@ jest.mock('@src/components/common/LoginView', () => ({
 
 type MockedUseUser = () => { user: any };
 
+// mock 메서드를 사용하도록 타입 추가
 const mockedUseUser =
   useUser as MockedUseUser as jest.MockedFunction<MockedUseUser>;
 const mockedUseNoteAlarm = useNoteAlarm as jest.MockedFunction<
@@ -55,7 +56,7 @@ describe('MainHeader test', () => {
     mockedUseUser.mockReturnValue({ user: true });
     mockedUseNoteAlarm.mockReturnValue(false);
 
-    const { asFragment } = render(
+    render(
       withMemoryRouter(
         <>
           <Route path='/' element={<MainHeader isHomePath={true} />} />
@@ -71,7 +72,7 @@ describe('MainHeader test', () => {
     mockedUseUser.mockReturnValue({ user: false });
     mockedUseNoteAlarm.mockReturnValue(false);
 
-    const { asFragment } = render(
+    render(
       withMemoryRouter(
         <>
           <Route path='/' element={<MainHeader isHomePath={true} />} />
@@ -88,7 +89,7 @@ describe('MainHeader test', () => {
     mockedUseUser.mockReturnValue({ user: true });
     mockedUseNoteAlarm.mockReturnValue(true);
 
-    const { asFragment } = render(
+    render(
       withMemoryRouter(
         <>
           <Route path='/' element={<MainHeader isHomePath={true} />} />
