@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthLoginForm 처음 렌더링 화면 1`] = `
+<DocumentFragment>
+  <section
+    class="sc-eDvSVe eZUHhS"
+  >
+    <div
+      class="sc-jSUZER jEHtLy"
+    >
+      <button
+        class="sc-bcXHqe fYfQRa"
+      >
+        <svg
+          class="icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          />
+        </svg>
+      </button>
+      <div
+        class="sc-kDvujY dOzmYf"
+      >
+        <span>
+          계정이 없으신가요?
+        </span>
+        <button
+          class="sc-gswNZR sc-gKPRtg fGpxWi dpcrmR"
+        >
+          <a
+            href="/auth/signup"
+          >
+            SignUp
+          </a>
+        </button>
+      </div>
+    </div>
+    <header
+      class="sc-iBYQkv cVxthA"
+    >
+      <h1>
+        WelCome Back
+      </h1>
+      <p>
+        Login your account
+      </p>
+    </header>
+    <form
+      class="sc-ftTHYK iNVSoq"
+    >
+      <label
+        class="sc-pyfCe bA-Deeb"
+        for="loginId"
+      >
+        <span>
+          LoginId
+        </span>
+        <input
+          id="loginId"
+          name="loginId"
+          placeholder="LoginId"
+          type="text"
+        />
+      </label>
+      <label
+        class="sc-pyfCe bA-Deeb"
+        for="password"
+      >
+        <span>
+          Password
+        </span>
+        <input
+          id="password"
+          name="password"
+          placeholder="password"
+          type="password"
+        />
+      </label>
+      <button
+        class="sc-gswNZR sc-jrcTuL fGpxWi cYLYkE"
+      >
+        로그인
+      </button>
+    </form>
+    <button
+      class="sc-ipEyDJ kKeVQ"
+    >
+      비밀번호를 잊어버렸습니까?
+    </button>
+  </section>
+</DocumentFragment>
+`;

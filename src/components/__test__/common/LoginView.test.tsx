@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { fakeUserInfo } from '@src/test_util/mock/user';
 import { withAllContext, withMemoryRouter } from '@src/test_util/util';
-import { getByText, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Route } from 'react-router-dom';
 import LoginView from '@src/components/common/LoginView';
@@ -82,24 +82,4 @@ describe('LoginView', () => {
 
     expect(screen.getByText('내정보')).toBeInTheDocument();
   });
-
-  // it('로그인이 안돼 있다면 로그인 버튼 출력1', () => {
-  //   const fakeUserInfoData = fakeUserInfo;
-  //   jest.mock('@src/hooks/auth/useAuth', () => () => ({ logOut: jest.fn() }));
-  //   jest.mock('@src/hooks/auth/useUser', () => () => ({ user: false }));
-  //   jest.mock('@src/hooks/member/useMyInfo', () => () => ({
-  //     userInfo: fakeUserInfoData,
-  //   }));
-
-  //   render(
-  //     withAllContext(
-  //       withMemoryRouter(
-  //         <>
-  //           <Route path='/' element={<LoginView isHomePath={true} />} />
-  //         </>,
-  //         { initialEntries: ['/'] }
-  //       )
-  //     )
-  //   );
-  // });
 });
