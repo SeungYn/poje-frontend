@@ -32,17 +32,14 @@ export default function useFormValidation() {
 
   const validLoginIdDuplicate = useMutation(
     (loginId: string) => {
-      console.log('mutate');
       return service.auth.loginIdDuplicate({ loginId });
     },
     {
       onSuccess: () => {
-        console.log('성공');
         setLoginIdDuplicate({ message: '사용가능한 아이디', isValid: true });
         return true;
       },
       onError: ({ callbackError }) => {
-        console.log('실패');
         setLoginIdDuplicate({ message: '사용불가능한 아이디', isValid: false });
 
         return false;
@@ -86,12 +83,7 @@ export default function useFormValidation() {
 
     return !reg.test(nickname)
       ? setNicknameValid(makeValidObject('이름입력 부탁', false))
-      : setNicknameValid(
-          makeValidObject(
-            '비밀번호는 영문 대,소문자와 숫자, 특수기호가 적어도 1개 이상씩 포함된 8자 ~ 20자의 비밀번호여야 합니다.',
-            true
-          )
-        );
+      : setNicknameValid(makeValidObject('이름을 정확히 입력해주세요.', true));
   }, []);
 
   const validatePhoneNum = useCallback((num: string) => {
