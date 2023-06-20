@@ -51,7 +51,6 @@ describe('AuthLoginForm', () => {
 
     userEvent.type(loginInput, 'seungyn');
     userEvent.type(pwInput, 'seungyn');
-
     userEvent.click(submitBtn);
 
     await waitFor(() =>

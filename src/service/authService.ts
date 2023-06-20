@@ -23,8 +23,6 @@ export default class AuthService {
     return await this.http.fetchJson<LoginResponse>('/login', options);
   }
 
-  
-
   async join(form: JoinRequest) {
     const options: AxiosRequestConfig = {
       method: 'POST',
@@ -40,6 +38,7 @@ export default class AuthService {
     const options: AxiosRequestConfig = {
       method: 'GET',
     };
+
     return await this.http.fetchJson<loginIdDuplicateResponse>(
       `/loginId/${data.loginId}`,
       options

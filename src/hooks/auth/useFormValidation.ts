@@ -32,14 +32,17 @@ export default function useFormValidation() {
 
   const validLoginIdDuplicate = useMutation(
     (loginId: string) => {
+      console.log('mutate');
       return service.auth.loginIdDuplicate({ loginId });
     },
     {
       onSuccess: () => {
+        console.log('성공');
         setLoginIdDuplicate({ message: '사용가능한 아이디', isValid: true });
         return true;
       },
       onError: ({ callbackError }) => {
+        console.log('실패');
         setLoginIdDuplicate({ message: '사용불가능한 아이디', isValid: false });
 
         return false;
