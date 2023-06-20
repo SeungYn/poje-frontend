@@ -12,14 +12,14 @@ export default function useModal() {
   const [callback, setCallback] = useRecoilState(commonModalCallbak);
 
   const setModal = useCallback(
-    (message: string, callbackFn: () => void = () => {}) => {
+    (message: string, callbackFn: () => void) => {
       setIsOpen(true);
       setModalContent({ message });
       setCallback((e) => ({
         fn: callbackFn,
       }));
     },
-    [setCallback, setIsOpen,setModalContent]
+    [setCallback, setIsOpen, setModalContent]
   );
 
   const closeModal = useCallback(() => {
@@ -27,9 +27,7 @@ export default function useModal() {
     setModalContent({ message: '' });
     callback.fn();
     setCallback({ fn: () => {} });
-  }, [callback, setCallback, setIsOpen,setModalContent]);
+  }, [callback, setCallback, setIsOpen, setModalContent]);
 
   return { isOpen, setModal, closeModal, modalContent };
 }
-
-
