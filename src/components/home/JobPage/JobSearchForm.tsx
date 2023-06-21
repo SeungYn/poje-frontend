@@ -6,11 +6,13 @@ import { useCallback, useEffect, useState } from 'react';
 import { breakPoint } from '@src/styledComponents/media';
 import useJobCategory from '@src/hooks/job/useJobCategory';
 import useModal from '@src/hooks/common/useModal';
+
 export default function JobSearchForm() {
   const { type, keyword: paramKeyword } = useParams<{
     type: string;
     keyword: string;
   }>();
+
   const navigate = useNavigate();
   const { category } = useJobCategory();
   const { createPortfolio } = usePortfolioCRUD();
@@ -45,7 +47,7 @@ export default function JobSearchForm() {
   return (
     <Form onSubmit={onSubmit}>
       <Container>
-        <BiSearchAlt2 className='icon' />
+        <BiSearchAlt2 className='icon' title={'search-icon'} />
         <SearchBar onChange={onChange} value={keyword} />
         {paramKeyword && (
           <SelectBox
@@ -60,7 +62,7 @@ export default function JobSearchForm() {
             ))}
           </SelectBox>
         )}
-        <SearchBtn />
+        <SearchBtn title='search-btn' />
       </Container>
       {type !== '전체' && (
         <PortfolioMakeBtn

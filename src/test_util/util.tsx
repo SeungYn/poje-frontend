@@ -1,12 +1,7 @@
 import { testQueryConfig } from '@src/react-query/queryClient';
 import { mainTheme } from '@src/styledComponents/theme';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import {
-  RouteProps,
-  MemoryRouter,
-  MemoryRouterProps,
-  Routes,
-} from 'react-router-dom';
+import { MemoryRouter, MemoryRouterProps, Routes } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from 'styled-components';
 
@@ -30,4 +25,8 @@ export function withAllContext(children: React.ReactNode) {
       </QueryClientProvider>
     </ThemeProvider>
   );
+}
+
+export function addMockFunctionType(fn: any) {
+  return fn as unknown as jest.MockedFunction<any>;
 }
