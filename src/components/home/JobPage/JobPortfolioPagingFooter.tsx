@@ -35,7 +35,6 @@ export default function JobPortfolioPagingFooter(data: PropsType) {
 
   const movePrevPage = (nowPage: number) => {
     const prevPage = (Math.floor((nowPage - 1) / 5) - 1) * 5 + 1;
-
     return navigate(`${path}/${prevPage}`);
   };
 
@@ -53,9 +52,17 @@ export default function JobPortfolioPagingFooter(data: PropsType) {
 
   return (
     <PageList>
-      <PageSetMoveBtn onClick={() => moverStartPage()}>{'<<'}</PageSetMoveBtn>
+      <PageSetMoveBtn
+        data-testid='prev-end-btn'
+        onClick={() => moverStartPage()}
+      >
+        {'<<'}
+      </PageSetMoveBtn>
       {prev && (
-        <PageSetMoveBtn onClick={() => movePrevPage(page)}>
+        <PageSetMoveBtn
+          data-testid='prev-btn'
+          onClick={() => movePrevPage(page)}
+        >
           {'<'}
         </PageSetMoveBtn>
       )}
@@ -69,12 +76,20 @@ export default function JobPortfolioPagingFooter(data: PropsType) {
         </PageItem>
       ))}
       {next && (
-        <PageSetMoveBtn onClick={() => moveNextPage(page)}>
+        <PageSetMoveBtn
+          data-testid='next-btn'
+          onClick={() => moveNextPage(page)}
+        >
           {'>'}
         </PageSetMoveBtn>
       )}
       {totalPageCnt && (
-        <PageSetMoveBtn onClick={() => moveEndPage()}>{'>>'}</PageSetMoveBtn>
+        <PageSetMoveBtn
+          data-testid='next-end-btn'
+          onClick={() => moveEndPage()}
+        >
+          {'>>'}
+        </PageSetMoveBtn>
       )}
     </PageList>
   );

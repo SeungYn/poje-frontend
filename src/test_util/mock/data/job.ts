@@ -33,3 +33,15 @@ export const mockPortfolioList = [
     likeCount: 1,
   },
 ];
+
+export const mockPageging = {
+  totalRecordCnt: 130, // 전체 데이터 수
+  totalPageCnt: 11, // 전체 페이지 수
+  startPage: 1, // 첫 페이지 번호
+  endPage: 5, // 끝 페이지 번호
+  prev: false, // 이전 페이지 표시 여부
+  next: true,
+  page: 1,
+  currentPage: '1',
+  path: 'test',
+};

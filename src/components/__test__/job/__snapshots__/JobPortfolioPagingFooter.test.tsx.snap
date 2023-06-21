@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobPortfolioPagingFooter Component 1~5 페이지 출력 1`] = `
+<DocumentFragment>
+  <ul
+    class="sc-bcXHqe kdpBQo"
+  >
+    <li
+      class="sc-gswNZR bMITra"
+      data-testid="prev-end-btn"
+    >
+      &lt;&lt;
+    </li>
+    <li
+      class="sc-dkrFOg kQgduz"
+    >
+      1
+    </li>
+    <li
+      class="sc-dkrFOg cmIpsB"
+    >
+      2
+    </li>
+    <li
+      class="sc-dkrFOg cmIpsB"
+    >
+      3
+    </li>
+    <li
+      class="sc-dkrFOg cmIpsB"
+    >
+      4
+    </li>
+    <li
+      class="sc-dkrFOg cmIpsB"
+    >
+      5
+    </li>
+    <li
+      class="sc-gswNZR bMITra"
+      data-testid="next-btn"
+    >
+      &gt;
+    </li>
+    <li
+      class="sc-gswNZR bMITra"
+      data-testid="next-end-btn"
+    >
+      &gt;&gt;
+    </li>
+  </ul>
+</DocumentFragment>
+`;
