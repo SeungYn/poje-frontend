@@ -15,15 +15,18 @@ const mockUseJobCategory: jest.Mock =
 
 describe('JobCategoty Component', () => {
   beforeEach(() => {
+    mockUseJobCategory.mockImplementation(() => ({
+      category: mockJobCategory,
+    }));
+  });
+
+  afterEach(() => {
     mockUseUser.mockReset();
     mockUseJobCategory.mockReset();
   });
 
   it('로그인 했을 때 화면', () => {
     mockUseUser.mockImplementation(() => ({ user: true }));
-    mockUseJobCategory.mockImplementation(() => ({
-      category: mockJobCategory,
-    }));
 
     const { asFragment } = render(
       withAllContext(
@@ -38,9 +41,6 @@ describe('JobCategoty Component', () => {
 
   it('로그인 안 했을 때 화면', () => {
     mockUseUser.mockImplementation(() => ({ user: false }));
-    mockUseJobCategory.mockImplementation(() => ({
-      category: mockJobCategory,
-    }));
 
     const { asFragment } = render(
       withAllContext(
