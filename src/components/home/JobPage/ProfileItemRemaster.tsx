@@ -37,7 +37,7 @@ export default function ProfileItemRemaster(data: PorpsType) {
         </DeleteBtn>
       )}
       <ProfileTop>
-        <ProfileImgBackground src={backgroundImg} />
+        <ProfileImgBackground src={backgroundImg} alt={title} />
       </ProfileTop>
       <ProfileContent>
         <ProfileTitle>{title}</ProfileTitle>
