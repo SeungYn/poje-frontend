@@ -12,7 +12,7 @@ export default function useModal() {
   const [callback, setCallback] = useRecoilState(commonModalCallbak);
 
   const setModal = useCallback(
-    (message: string, callbackFn: () => void) => {
+    (message: string, callbackFn: () => void = () => {}) => {
       setIsOpen(true);
       setModalContent({ message });
       setCallback((e) => ({

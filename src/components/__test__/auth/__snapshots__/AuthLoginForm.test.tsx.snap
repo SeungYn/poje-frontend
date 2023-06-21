@@ -6,10 +6,10 @@ exports[`AuthLoginForm 처음 렌더링 화면 1`] = `
     class="sc-eDvSVe eZUHhS"
   >
     <div
-      class="sc-jSUZER jEHtLy"
+      class="sc-jSUZER hqoqqS"
     >
       <button
-        class="sc-bcXHqe fYfQRa"
+        class="sc-bcXHqe dcQBOz"
       >
         <svg
           class="icon"
@@ -37,7 +37,7 @@ exports[`AuthLoginForm 처음 렌더링 화면 1`] = `
           계정이 없으신가요?
         </span>
         <button
-          class="sc-gswNZR sc-gKPRtg fGpxWi dpcrmR"
+          class="sc-gswNZR sc-gKPRtg fGpxWi lnkyWz"
         >
           <a
             href="/auth/signup"
@@ -48,7 +48,7 @@ exports[`AuthLoginForm 처음 렌더링 화면 1`] = `
       </div>
     </div>
     <header
-      class="sc-iBYQkv cVxthA"
+      class="sc-iBYQkv xKfhi"
     >
       <h1>
         WelCome Back
@@ -61,7 +61,7 @@ exports[`AuthLoginForm 처음 렌더링 화면 1`] = `
       class="sc-ftTHYK iNVSoq"
     >
       <label
-        class="sc-pyfCe bA-Deeb"
+        class="sc-pyfCe hKHQqK"
         for="loginId"
       >
         <span>
@@ -75,7 +75,7 @@ exports[`AuthLoginForm 처음 렌더링 화면 1`] = `
         />
       </label>
       <label
-        class="sc-pyfCe bA-Deeb"
+        class="sc-pyfCe hKHQqK"
         for="password"
       >
         <span>
@@ -89,13 +89,13 @@ exports[`AuthLoginForm 처음 렌더링 화면 1`] = `
         />
       </label>
       <button
-        class="sc-gswNZR sc-jrcTuL fGpxWi cYLYkE"
+        class="sc-gswNZR sc-jrcTuL fGpxWi jqhlxy"
       >
         로그인
       </button>
     </form>
     <button
-      class="sc-ipEyDJ kKeVQ"
+      class="sc-ipEyDJ VMYiK"
     >
       비밀번호를 잊어버렸습니까?
     </button>

@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobCategoty Component 로그인 안 했을 때 화면 1`] = `
+<DocumentFragment>
+  <ul
+    class="sc-bcXHqe fUoPjS"
+  >
+    <li
+      class="sc-gswNZR froitf"
+    >
+      <a
+        class=""
+        href="/job/개발자/1"
+      >
+        개발자
+      </a>
+    </li>
+    <li
+      class="sc-gswNZR froitf"
+    >
+      <a
+        class=""
+        href="/job/디자이너/1"
+      >
+        디자이너
+      </a>
+    </li>
+    <li
+      class="sc-gswNZR froitf"
+    >
+      <a
+        class=""
+        href="/job/유승윤/1"
+      >
+        유승윤
+      </a>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`JobCategoty Component 로그인 했을 때 화면 1`] = `
+<DocumentFragment>
+  <ul
+    class="sc-bcXHqe fUoPjS"
+  >
+    <li
+      class="sc-gswNZR froitf"
+    >
+      <a
+        class=""
+        href="/job/개발자/1"
+      >
+        개발자
+      </a>
+    </li>
+    <li
+      class="sc-gswNZR froitf"
+    >
+      <a
+        class=""
+        href="/job/디자이너/1"
+      >
+        디자이너
+      </a>
+    </li>
+    <li
+      class="sc-gswNZR froitf"
+    >
+      <a
+        class=""
+        href="/job/유승윤/1"
+      >
+        유승윤
+      </a>
+    </li>
+    <li
+      class="sc-gswNZR froitf"
+    >
+      <a
+        class=""
+        href="/job/like/1"
+        style="color: black;"
+      >
+        좋아요 누른 포트폴리오
+      </a>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

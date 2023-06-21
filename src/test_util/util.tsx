@@ -1,4 +1,5 @@
 import { testQueryConfig } from '@src/react-query/queryClient';
+import { mainTheme } from '@src/styledComponents/theme';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   RouteProps,
@@ -7,6 +8,7 @@ import {
   Routes,
 } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
+import { ThemeProvider } from 'styled-components';
 
 export function withMemoryRouter(
   routes: React.ReactNode,
@@ -22,8 +24,10 @@ export function withMemoryRouter(
 export function withAllContext(children: React.ReactNode) {
   const client = new QueryClient(testQueryConfig);
   return (
-    <QueryClientProvider client={client}>
-      <RecoilRoot>{children}</RecoilRoot>
-    </QueryClientProvider>
+    <ThemeProvider theme={mainTheme}>
+      <QueryClientProvider client={client}>
+        <RecoilRoot>{children}</RecoilRoot>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }
