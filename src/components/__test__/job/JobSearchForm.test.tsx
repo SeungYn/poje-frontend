@@ -121,5 +121,33 @@ describe('JobSearchForm Component', () => {
     );
 
     expect(screen.queryByText('포트폴리오 만들기')).not.toBeInTheDocument();
+	});
+	
+	it('검색어 입력 후 검색 함수 호출', () => {
+    const mockCreatePortfolio = jest.fn();
+    const mockNavigate = jest.fn();
+
+    mockUsePortfolioCRUD.mockImplementation(() => ({
+      createPortfolio: mockCreatePortfolio,
+    }));
+    mockUseNavigate.mockImplementation(() => ({
+      createPortfolio: mockNavigate,
+    }));
+
+    render(
+      withAllContext(
+        withMemoryRouter(
+          <Route
+            path='/job/:type/search/:keyword'
+            element={<JobSearchForm />}
+          />,
+          {
+            initialEntries: ['/job/전체/search/개발자'],
+          }
+        )
+      )
+    );
+
+    expect(screen.queryByText('포트폴리오 만들기')).not.toBeInTheDocument();
   });
 });

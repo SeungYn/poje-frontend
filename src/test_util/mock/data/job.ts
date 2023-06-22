@@ -43,5 +43,5 @@ export const mockPageging = {
   next: true,
   page: 1,
   currentPage: '1',
-  path: 'test',
+  path: '/test',
 };
