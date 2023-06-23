@@ -45,3 +45,39 @@ export const mockPageging = {
   currentPage: '1',
   path: '/test',
 };
+
+export const mockAPIPortfolioList = {
+  paging: {
+    page: 1,
+    totalRecordCnt: 1,
+    totalPageCnt: 1,
+    startPage: 1,
+    endPage: 1,
+    next: false,
+    prev: false,
+  },
+  pfAndMemberResp: [
+    {
+      portfolioId: 3,
+      title: '명수의 포트폴리오',
+      description: '예비 백엔드 개발자의 포트폴리오입니다.',
+      backgroundImg:
+        'https://pojeawsbucket.s3.ap-northeast-2.amazonaws.com/portfolio/d75081b6-d43a-4fbf-aaa3-03dcc80ca4d1.PNG',
+      nickName: '싸르',
+      profileImg:
+        'https://pojeawsbucket.s3.ap-northeast-2.amazonaws.com/profile/9ab46f45-3431-4098-a4da-69c2c21f877d.PNG',
+      likeCount: 2,
+    },
+    {
+      portfolioId: 2,
+      title: '승윤의 포트폴리오',
+      description: '예비 백엔드 개발자의 포트폴리오입니다.',
+      backgroundImg:
+        'https://pojeawsbucket.s3.ap-northeast-2.amazonaws.com/portfolio/d75081b6-d43a-4fbf-aaa3-03dcc80ca4d1.PNG',
+      nickName: '싸르',
+      profileImg:
+        'https://pojeawsbucket.s3.ap-northeast-2.amazonaws.com/profile/9ab46f45-3431-4098-a4da-69c2c21f877d.PNG',
+      likeCount: 2,
+    },
+  ],
+};

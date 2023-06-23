@@ -1,8 +1,6 @@
 import useJobCategory from '@src/hooks/job/useJobCategory';
-import service from '@src/service';
 import { mockJobCategory } from '@src/test_util/mock/data/job';
 import { withAllContext } from '@src/test_util/util';
-import { useQuery } from '@tanstack/react-query';
 import { renderHook, waitFor } from '@testing-library/react';
 
 describe('useJobCategory Hook', () => {

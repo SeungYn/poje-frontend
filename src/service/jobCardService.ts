@@ -46,6 +46,7 @@ export default class JobCardService {
       `/member/portfolios?name=${name}&page=${page}`,
       config
     );
+
     return result;
   }
 
@@ -60,6 +61,7 @@ export default class JobCardService {
       `/member/portfolios?name=${name}&keyword=${keyword}&page=${page}`,
       config
     );
+
     return result;
   }
 

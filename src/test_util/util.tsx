@@ -30,3 +30,7 @@ export function withAllContext(children: React.ReactNode) {
 export function addMockFunctionType(fn: any) {
   return fn as unknown as jest.MockedFunction<any>;
 }
+
+export function makeWrapper({ children }: { children: React.ReactNode }) {
+  return withAllContext(children);
+}
