@@ -1,10 +1,8 @@
 import useJobSearch from '@src/hooks/job/useJobSearch';
-import service from '@src/service';
 import { Suspense } from 'react';
 import { mockAPIPortfolioList } from '@src/test_util/mock/data/job';
 import { withAllContext } from '@src/test_util/util';
-import { useQuery } from '@tanstack/react-query';
-import { act, renderHook, waitFor } from '@testing-library/react';
+import { act, renderHook } from '@testing-library/react';
 
 describe('useJobSearch Hook', () => {
   const testKeyword = { jobName: 'test', page: '1', keyword: 'test' };
