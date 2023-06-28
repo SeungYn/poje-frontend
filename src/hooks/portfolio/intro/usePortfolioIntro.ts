@@ -3,7 +3,7 @@ import service from '@src/service';
 import { PortfolioIntroType } from '@src/service/types/portfolio';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { introLoading } from '@src/store/portfolio/loading';
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
 import { queryKey } from '@src/react-query/queryKey';
@@ -71,8 +71,8 @@ export default function usePortfolioIntro() {
     }
   );
 
-  //1에 대한 해결법으로 useEffect를 걸어놓으면 됨 , 결과의 데이터를 기준으로
-  useEffect(() => {
+  //1에 대한 해결법으로 useLayoutEffect 걸어놓으면 됨 , 결과의 데이터를 기준으로
+  useLayoutEffect(() => {
     data && setCopiedPfIntro((e) => ({ ...data, backgroundImgFile: null }));
   }, [data]);
 
