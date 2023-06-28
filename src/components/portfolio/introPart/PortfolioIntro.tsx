@@ -1,15 +1,13 @@
 import usePortfolioIntro from '@src/hooks/portfolio/intro/usePortfolioIntro';
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import ModifyBtn from '../common/ModifyBtn';
 import { Intro } from './commonIntroStyledComponent';
 
 export default function PortfolioIntro() {
   const { pfIntro } = usePortfolioIntro();
-  const [isModifyMode, setIsModifyMode] = useRecoilState(
-    isModifyModeFromPortfolioIntro
-  );
+  const setIsModifyMode = useSetRecoilState(isModifyModeFromPortfolioIntro);
   return (
     <Intro imgUrl={pfIntro.backgroundImg}>
       <PortfolioSection>
@@ -17,10 +15,7 @@ export default function PortfolioIntro() {
         <IntroHr />
         <IntroDescription>{pfIntro.description}</IntroDescription>
       </PortfolioSection>
-      <ModifyBtn
-        isModifyMode={isModifyMode}
-        handleModifyMode={() => setIsModifyMode(true)}
-      />
+      <ModifyBtn handleModifyMode={() => setIsModifyMode(true)} />
     </Intro>
   );
 }
