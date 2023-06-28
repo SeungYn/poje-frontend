@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import { CommomButton, Container } from './modifyCommonStyledComponent';
 
 export interface ModifyBtnType {
-  isModifyMode: boolean;
+  isModifyMode?: boolean;
   handleModifyMode: () => void;
 }
 
 export default function ModifyBtn({
-  isModifyMode,
+  isModifyMode = false,
   handleModifyMode,
 }: ModifyBtnType) {
   const { permissionModify } = usePortfolioInfo();
 
-  if (isModifyMode || !permissionModify) return <></>;
+  if (!permissionModify) return <></>;
   return (
     <Container>
       <ModifyButton onClick={handleModifyMode}>수정</ModifyButton>
