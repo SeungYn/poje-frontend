@@ -1,12 +1,19 @@
-import { useCallback, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import usePortfolioIntro from './usePortfolioIntro';
 
 export default function usePortfolioModifyForm() {
   const { copiedPfIntro, setCopiedPfIntro, updateIntro } = usePortfolioIntro();
   const discriptionRef = useRef<HTMLTextAreaElement>(null);
 
-  const onChangeInputEl = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, files } = e.target;
+  const onChangeInputEl = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    let files: FileList;
+
+    if (e.target instanceof HTMLInputElement && e.target.files) {
+      files = e.target.files;
+    }
 
     switch (name) {
       case 'title':
@@ -23,16 +30,12 @@ export default function usePortfolioModifyForm() {
           backgroundImg,
           backgroundImgFile: file,
         }));
+      case 'description':
+        resizeAutoTextArea();
+        setCopiedPfIntro((p) => ({ ...p, description: e.target.value }));
+        return;
     }
   };
-
-  const onChangeTextArea = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      resizeAutoTextArea();
-      setCopiedPfIntro((p) => ({ ...p, description: e.target.value }));
-    },
-    []
-  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,9 +50,11 @@ export default function usePortfolioModifyForm() {
       discriptionRef.current.style.height = `${discriptionRef.current.scrollHeight}px`;
     }
   };
+
+  // textarea 자동 크기 증가
   useEffect(() => {
     resizeAutoTextArea();
-  }, [discriptionRef]);
+  }, [discriptionRef.current]);
 
   //컴포넌트 unMount시 URL.Object헤제
   useEffect(() => {
@@ -62,7 +67,6 @@ export default function usePortfolioModifyForm() {
   return {
     copiedPfIntro,
     onChangeInputEl,
-    onChangeTextArea,
     discriptionRef,
     handleSubmit,
   };

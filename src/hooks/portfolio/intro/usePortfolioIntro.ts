@@ -6,6 +6,7 @@ import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
 import { useEffect, useState } from 'react';
 import { introLoading } from '@src/store/portfolio/loading';
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
+import { queryKey } from '@src/react-query/queryKey';
 
 type CopiedPfIntroType = Omit<
   PortfolioIntroType,
@@ -31,7 +32,7 @@ export default function usePortfolioIntro() {
 
   //1. suspense 사용시 onSuccess에 setState를 등록하면 업데이트가 안됨 이유는 unmount상태에서 변경했기때문
   const { data, isFetching } = useQuery(
-    ['portfolioIntro', portfolioId],
+    [queryKey.portfolioIntro, portfolioId],
     async () => await service.portfolio.getPortfolioIntro({ portfolioId }),
     {
       suspense: true,
@@ -61,7 +62,7 @@ export default function usePortfolioIntro() {
         //queryClient.invalidateQueries(['portfolioIntro', portfolioId]);
       },
       onSuccess: (data) => {
-        queryClient.setQueryData(['portfolioIntro', portfolioId], data);
+        queryClient.setQueryData([queryKey.portfolioIntro, portfolioId], data);
       },
       onSettled: () => {
         setIsLoading(false);

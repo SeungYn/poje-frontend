@@ -9,13 +9,8 @@ import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { Intro } from './commonIntroStyledComponent';
 
 export default function PortfolioIntroModify() {
-  const {
-    copiedPfIntro,
-    onChangeInputEl,
-    onChangeTextArea,
-    discriptionRef,
-    handleSubmit,
-  } = usePortfolioModifyForm();
+  const { copiedPfIntro, onChangeInputEl, discriptionRef, handleSubmit } =
+    usePortfolioModifyForm();
   const titleRef = useRef<HTMLInputElement>(null);
   const hiddenFileBtnRef = useRef<HTMLInputElement>(null);
   const [isModifyMode, setIsModifyMode] = useRecoilState(
@@ -60,7 +55,7 @@ export default function PortfolioIntroModify() {
           ref={discriptionRef}
           name={'description'}
           value={copiedPfIntro.description}
-          onChange={onChangeTextArea}
+          onChange={onChangeInputEl}
         />
       </PortfolioSection>
       <ModifyComfirmAndCancleGroup
