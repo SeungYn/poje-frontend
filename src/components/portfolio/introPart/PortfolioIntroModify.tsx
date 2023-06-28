@@ -17,6 +17,7 @@ export default function PortfolioIntroModify() {
     isModifyModeFromPortfolioIntro
   );
   const isLoading = useRecoilValue(introLoading);
+
   useEffect(() => {
     //처음 수정모드로 들어 갔을때 타이틀에 포커스
     if (titleRef.current) {

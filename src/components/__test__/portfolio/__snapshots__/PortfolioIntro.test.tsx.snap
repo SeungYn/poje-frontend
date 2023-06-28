@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PortfolioIntro Component snapshot test 수정권한이 없을 때 1`] = `
+<DocumentFragment>
+  <section
+    class="sc-hLBbgP fgZOPR"
+  >
+    <section
+      class="sc-eDvSVe eTrqcI"
+    >
+      <h3
+        class="sc-jSUZER edbCWC"
+      >
+        제목을 입력해주세요.
+      </h3>
+      <hr
+        class="sc-gKPRtg cPdyCX"
+      />
+      <p
+        class="sc-iBYQkv iqRkiJ"
+      >
+        내용을 입력해주세요.
+      </p>
+    </section>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`PortfolioIntro Component snapshot test 수정권한이 있을 때 1`] = `
+<DocumentFragment>
+  <section
+    class="sc-hLBbgP fgZOPR"
+  >
+    <section
+      class="sc-eDvSVe eTrqcI"
+    >
+      <h3
+        class="sc-jSUZER edbCWC"
+      >
+        제목을 입력해주세요.
+      </h3>
+      <hr
+        class="sc-gKPRtg cPdyCX"
+      />
+      <p
+        class="sc-iBYQkv iqRkiJ"
+      >
+        내용을 입력해주세요.
+      </p>
+    </section>
+    <article
+      class="sc-bcXHqe dUcRao"
+    >
+      <button
+        class="sc-gswNZR sc-dkrFOg ekNcrm"
+      >
+        수정
+      </button>
+    </article>
+  </section>
+</DocumentFragment>
+`;
