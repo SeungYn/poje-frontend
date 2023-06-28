@@ -7,10 +7,12 @@ import styled from 'styled-components';
 import LoadingSpiner from '../common/LoadingSpiner';
 import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { Intro } from './commonIntroStyledComponent';
+import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
 
 export default function PortfolioIntroModify() {
+  const { portfolioId } = usePortfolioInfo();
   const { copiedPfIntro, onChangeInputEl, discriptionRef, handleSubmit } =
-    usePortfolioModifyForm();
+    usePortfolioModifyForm({ portfolioId });
   const titleRef = useRef<HTMLInputElement>(null);
   const hiddenFileBtnRef = useRef<HTMLInputElement>(null);
   const [isModifyMode, setIsModifyMode] = useRecoilState(

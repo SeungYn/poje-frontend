@@ -25,7 +25,6 @@ export default function PortfolioInfoContextProvider({
   const { portfolioId } = useParams() as ParamsType;
   const permissionModify = usePortfolioModifyPermission(portfolioId);
   const portfolioEmail = useGetNoteSender(portfolioId);
-
   const context = useMemo<ContextType>(() => {
     return { portfolioId, permissionModify, portfolioEmail };
   }, [portfolioId, permissionModify, portfolioEmail]);

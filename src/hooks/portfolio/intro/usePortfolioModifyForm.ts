@@ -1,8 +1,31 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState, useLayoutEffect } from 'react';
 import usePortfolioIntro from './usePortfolioIntro';
+import { PortfolioIntroType } from '@src/service/types/portfolio';
+import { useQueryClient } from '@tanstack/react-query';
+import { queryKey } from '@src/react-query/queryKey';
 
-export default function usePortfolioModifyForm() {
-  const { copiedPfIntro, setCopiedPfIntro, updateIntro } = usePortfolioIntro();
+export type CopiedPfIntroType = Omit<
+  PortfolioIntroType,
+  'likeStatus' | 'likeCount'
+> & {
+  backgroundImgFile: File | null;
+};
+
+type Props = {
+  portfolioId: string;
+};
+
+export default function usePortfolioModifyForm({ portfolioId }: Props) {
+  const queryClient = useQueryClient();
+  const { updateIntro } = usePortfolioIntro();
+  const [copiedPfIntro, setCopiedPfIntro] = useState<CopiedPfIntroType>({
+    title: '',
+    description: '',
+    portfolioId: '',
+    jobName: '',
+    backgroundImg: '',
+    backgroundImgFile: null,
+  });
   const discriptionRef = useRef<HTMLTextAreaElement>(null);
 
   const onChangeInputEl = (
@@ -50,6 +73,14 @@ export default function usePortfolioModifyForm() {
       discriptionRef.current.style.height = `${discriptionRef.current.scrollHeight}px`;
     }
   };
+
+  useLayoutEffect(() => {
+    const data = queryClient.getQueryData<PortfolioIntroType>([
+      queryKey.portfolioIntro,
+      portfolioId,
+    ]);
+    setCopiedPfIntro((e) => ({ ...data!, backgroundImgFile: null }));
+  }, []);
 
   // textarea 자동 크기 증가
   useEffect(() => {
