@@ -1,8 +1,7 @@
-import { useRef, useEffect, useState, useLayoutEffect } from 'react';
-import usePortfolioIntro from './usePortfolioIntro';
+import { useRef, useEffect, useState } from 'react';
+import { UpdataIntroTData, UpdataIntroTVariables } from './usePortfolioIntro';
 import { PortfolioIntroType } from '@src/service/types/portfolio';
-import { useQueryClient } from '@tanstack/react-query';
-import { queryKey } from '@src/react-query/queryKey';
+import { UseMutateFunction } from '@tanstack/react-query';
 
 export type CopiedPfIntroType = Omit<
   PortfolioIntroType,
@@ -12,18 +11,25 @@ export type CopiedPfIntroType = Omit<
 };
 
 type Props = {
-  portfolioId: string;
+  originIntroData: PortfolioIntroType;
+  updateIntro: UseMutateFunction<
+    UpdataIntroTData,
+    any,
+    UpdataIntroTVariables,
+    any
+  >;
 };
 
-export default function usePortfolioModifyForm({ portfolioId }: Props) {
-  const queryClient = useQueryClient();
-  const { updateIntro } = usePortfolioIntro();
+export default function usePortfolioModifyForm({
+  originIntroData,
+  updateIntro,
+}: Props) {
   const [copiedPfIntro, setCopiedPfIntro] = useState<CopiedPfIntroType>({
-    title: '',
-    description: '',
-    portfolioId: '',
-    jobName: '',
-    backgroundImg: '',
+    title: originIntroData.title,
+    description: originIntroData.description,
+    portfolioId: originIntroData.portfolioId,
+    jobName: originIntroData.jobName,
+    backgroundImg: originIntroData.backgroundImg,
     backgroundImgFile: null,
   });
   const discriptionRef = useRef<HTMLTextAreaElement>(null);
@@ -73,14 +79,6 @@ export default function usePortfolioModifyForm({ portfolioId }: Props) {
       discriptionRef.current.style.height = `${discriptionRef.current.scrollHeight}px`;
     }
   };
-
-  useLayoutEffect(() => {
-    const data = queryClient.getQueryData<PortfolioIntroType>([
-      queryKey.portfolioIntro,
-      portfolioId,
-    ]);
-    setCopiedPfIntro((e) => ({ ...data!, backgroundImgFile: null }));
-  }, []);
 
   // textarea 자동 크기 증가
   useEffect(() => {

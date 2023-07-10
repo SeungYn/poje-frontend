@@ -1,24 +1,27 @@
 import usePortfolioModifyForm from '@src/hooks/portfolio/intro/usePortfolioModifyForm';
-import { introLoading } from '@src/store/portfolio/loading';
 import { isModifyModeFromPortfolioIntro } from '@src/store/portfolio/modify';
 import { useEffect, useRef } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import LoadingSpiner from '../common/LoadingSpiner';
 import ModifyComfirmAndCancleGroup from '../common/ModifyComfirmAndCancleGroup';
 import { Intro } from './commonIntroStyledComponent';
-import { usePortfolioInfo } from '@src/context/PortfolioInfoContext';
+import usePortfolioIntro from '@src/hooks/portfolio/intro/usePortfolioIntro';
 
 export default function PortfolioIntroModify() {
-  const { portfolioId } = usePortfolioInfo();
+  const { pfIntro, isMutating, isFetching, updateIntro } = usePortfolioIntro();
   const { copiedPfIntro, onChangeInputEl, discriptionRef, handleSubmit } =
-    usePortfolioModifyForm({ portfolioId });
+    usePortfolioModifyForm({
+      originIntroData: pfIntro,
+      updateIntro,
+    });
+
   const titleRef = useRef<HTMLInputElement>(null);
   const hiddenFileBtnRef = useRef<HTMLInputElement>(null);
   const [isModifyMode, setIsModifyMode] = useRecoilState(
     isModifyModeFromPortfolioIntro
   );
-  const isLoading = useRecoilValue(introLoading);
+  const isLoading = isMutating || isFetching;
 
   useEffect(() => {
     //처음 수정모드로 들어 갔을때 타이틀에 포커스
@@ -71,17 +74,6 @@ export default function PortfolioIntroModify() {
     </ModifyIntro>
   );
 }
-
-// &:hover::before {
-//   content: '';
-//   width: 100%;
-//   height: 100%;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   z-index: -2;
-//   background-color: rgba(97, 97, 97, 0.053);
-// }
 
 const ModifyIntro = styled(Intro)`
   cursor: pointer;
