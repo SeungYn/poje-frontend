@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PortfolioIntroModify Component test snapshot test 로딩중 표시 1`] = `
+<DocumentFragment>
+  <form
+    class="sc-ftTHYK sc-pyfCe jjiciW ghyGMw"
+  >
+    <div
+      class="sc-bcXHqe csvyXT"
+    >
+      <div
+        class="sc-gswNZR lnMQDM"
+      />
+      <p
+        class="sc-dkrFOg dFrXTK"
+      >
+        업데이트중
+      </p>
+    </div>
+    <input
+      accept="image/gif, image/jpeg, image/png"
+      name="file"
+      style="display: none;"
+      type="file"
+    />
+    <section
+      class="sc-jrcTuL cDhclm"
+    >
+      <input
+        class="sc-kDvujY sc-ipEyDJ fjINIp dPPJJF"
+        name="title"
+        type="text"
+        value="제목을 입력해주세요."
+      />
+      <hr
+        class="sc-csuSiG cUorDq"
+      />
+      <textarea
+        class="sc-eDWCr fWpaGu"
+        name="description"
+      >
+        내용을 입력해주세요.
+      </textarea>
+    </section>
+    <article
+      class="sc-hLBbgP hxWFmO"
+    >
+      <button
+        class="sc-jSUZER sc-gKPRtg dCZjja"
+        type="submit"
+      >
+        확인
+      </button>
+      <button
+        class="sc-jSUZER sc-iBYQkv dCZjja bWOWdx"
+      >
+        취소
+      </button>
+    </article>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`PortfolioIntroModify Component test snapshot test 로딩중이 아닐 때 ❌ 1`] = `
+<DocumentFragment>
+  <form
+    class="sc-ftTHYK sc-pyfCe jjiciW ghyGMw"
+  >
+    <input
+      accept="image/gif, image/jpeg, image/png"
+      name="file"
+      style="display: none;"
+      type="file"
+    />
+    <section
+      class="sc-jrcTuL cDhclm"
+    >
+      <input
+        class="sc-kDvujY sc-ipEyDJ fjINIp dPPJJF"
+        name="title"
+        type="text"
+        value="제목을 입력해주세요."
+      />
+      <hr
+        class="sc-csuSiG cUorDq"
+      />
+      <textarea
+        class="sc-eDWCr fWpaGu"
+        name="description"
+      >
+        내용을 입력해주세요.
+      </textarea>
+    </section>
+    <article
+      class="sc-hLBbgP hxWFmO"
+    >
+      <button
+        class="sc-jSUZER sc-gKPRtg dCZjja"
+        type="submit"
+      >
+        확인
+      </button>
+      <button
+        class="sc-jSUZER sc-iBYQkv dCZjja bWOWdx"
+      >
+        취소
+      </button>
+    </article>
+  </form>
+</DocumentFragment>
+`;
