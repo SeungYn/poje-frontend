@@ -7,4 +7,4 @@ export const mockPortfolioIntro = {
   jobName: '개발자',
   likeStatus: true,
   likeCount: 1,
-};
+} as const;

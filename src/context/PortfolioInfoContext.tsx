@@ -4,12 +4,14 @@ import usePortfolioModifyPermission from '@src/hooks/portfolio/usePortfolioModif
 import { createContext, useMemo, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
-type ContextType = {
+export type PortfolioInfoContextType = {
   portfolioId: string;
   permissionModify: boolean;
   portfolioEmail: string;
 };
-const PortfolioInfoContext = createContext<ContextType | undefined>(undefined);
+export const PortfolioInfoContext = createContext<
+  PortfolioInfoContextType | undefined
+>(undefined);
 
 type ContextPropType = {
   children: React.ReactNode;
@@ -25,7 +27,7 @@ export default function PortfolioInfoContextProvider({
   const { portfolioId } = useParams() as ParamsType;
   const permissionModify = usePortfolioModifyPermission(portfolioId);
   const portfolioEmail = useGetNoteSender(portfolioId);
-  const context = useMemo<ContextType>(() => {
+  const context = useMemo<PortfolioInfoContextType>(() => {
     return { portfolioId, permissionModify, portfolioEmail };
   }, [portfolioId, permissionModify, portfolioEmail]);
 
@@ -38,4 +40,4 @@ export default function PortfolioInfoContextProvider({
 }
 
 export const usePortfolioInfo = () =>
-  useContext(PortfolioInfoContext)! as ContextType;
+  useContext(PortfolioInfoContext)! as PortfolioInfoContextType;
