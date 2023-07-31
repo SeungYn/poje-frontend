@@ -38,4 +38,4 @@ export const breakPoint = {
   l: '1400px',
   ll: '1600px',
   lll: '1800px',
-};
+} as const;

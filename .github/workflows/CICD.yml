@@ -26,6 +26,7 @@ jobs:
 
       - run: yarn install
       - run: echo SUCCESS
+      - run: yarn test
       - run: CI=false yarn build
       - name: deploy to s3
         uses: jakejarvis/s3-sync-action@master
